@@ -71,7 +71,7 @@ export default function TripsCarousel() {
   }, []);
 
   return (
-    <section className="trips-section" aria-label="Explore our safari trips">
+    <section id="trips-section" className="trips-section" aria-label="Explore our safari trips">
       <div className="trips-container">
         <header className="trips-header">
           <h2 className="trips-headline">Explore Our Trips</h2>

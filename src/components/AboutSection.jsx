@@ -4,7 +4,7 @@ import './AboutSection.css';
 
 export default function AboutSection() {
   return (
-    <section className="about-section">
+    <section id="about-section" className="about-section">
       <div className="about-container">
         <div className="about-text">
           <h2 className="about-headline">Welcome to Eco Plains Safaris</h2>

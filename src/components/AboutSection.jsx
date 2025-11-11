@@ -13,16 +13,17 @@ export default function AboutSection() {
           </p>
 
           <p className="about-paragraph">
-            At Eco Plains Safaris, we believe the soul of Africa lives in its vast, untamed plains. 
-            With a deep-rooted passion for the bush, we design intimate, authentic experiences that 
-            connect you to the land, its wildlife, and its people — always with respect, elegance, and purpose.
+            At Eco Plains Safaris, we curate exceptional, tailor-made journeys that immerse discerning travelers
+             in Africa’s untouched wilderness. We combine world-class comfort with eco-conscious practices, 
+             championing wildlife conservation, community empowerment, and a lasting legacy of responsible 
+             luxury.
           </p>
 
-          <p className="about-paragraph">
+          {/* <p className="about-paragraph">
             Our bespoke itineraries blend luxury with sustainability. From private game drives led by 
             world-class guides to exclusive camps under star-filled skies, every journey is tailored 
             to your vision — immersive, conscious, and unforgettable.
-          </p>
+          </p> */}
 
           <a href="#about" className="about-cta" aria-label="Learn more about Eco Plains Safaris">
             Learn More About Us

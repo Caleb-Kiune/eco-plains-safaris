@@ -2,12 +2,14 @@
 import './App.css';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import FeaturedDestinations from './components/FeaturedDestinations';
 
 function App() {
   return (
     <div className="App">
       <HeroSection />
       <AboutSection />
+      <FeaturedDestinations />
       {/* Future sections go here: Tours, Gallery, About, etc. */}
     </div>
   );

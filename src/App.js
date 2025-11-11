@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import FeaturedDestinations from './components/FeaturedDestinations';
 import TripsCarousel from './components/TripsCarousel';
+import WhyChooseUs from './components/WhyChooseUs';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <AboutSection />
       <FeaturedDestinations />
       <TripsCarousel />
+      <WhyChooseUs />
       {/* Future sections go here: Tours, Gallery, About, etc. */}
     </div>
   );

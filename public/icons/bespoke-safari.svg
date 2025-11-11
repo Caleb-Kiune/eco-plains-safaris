@@ -1,0 +1,6 @@
+<!-- bespoke-safari.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M12 2L2 7v10c0 5.55 4.48 10.04 10 10.04S22 22.55 22 17V7l-10-5z"/>
+  <path d="M12 7v10"/>
+  <path d="M8 11h8"/>
+</svg>

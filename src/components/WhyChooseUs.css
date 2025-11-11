@@ -1,0 +1,162 @@
+/* src/components/WhyChooseUs.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+
+/* Full-width section with soft luxury background */
+.why-section {
+  background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+  padding: 110px 5% 130px;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(193, 154, 107, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.why-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Headline */
+.why-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.why-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.8px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 3-Column Grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin: 0 auto;
+}
+
+/* Card */
+.why-card {
+  background: #ffffff;
+  border-radius: 0;
+  padding: 2.4rem 1.8rem 2.6rem;
+  text-align: center;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+  background: #fdfdfb;
+}
+
+/* Icon */
+.why-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c19a6b, #e6c89f);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.why-icon {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.35s ease;
+}
+
+.why-card:hover .why-icon {
+  transform: scale(1.1);
+}
+
+/* Subheadline */
+.why-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+
+/* Body Text */
+.why-card-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #555555;
+  margin: 0;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.why-icon-wrapper {
+  background: #c19a6b; /* gold */
+}
+.why-icon {
+  fill: white;
+  stroke: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .why-section {
+    padding: 90px 5% 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .why-card {
+    padding: 2rem 1.6rem;
+  }
+  .why-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  .why-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-headline {
+    font-size: 2.4rem;
+  }
+  .why-card-title {
+    font-size: 1.25rem;
+  }
+  .why-card-text {
+    font-size: 0.98rem;
+  }
+}

@@ -217,6 +217,19 @@
   display: none !important;
 }
 
+/* Add to TripsCarousel.css */
+.trips-status {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1.1rem;
+  color: #cccccc;
+  font-weight: 300;
+}
+
+.trips-status--error {
+  color: #ff6b6b;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .trip-card {
@@ -275,3 +288,4 @@
     padding: 0 1rem;
   }
 }
+

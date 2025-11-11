@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+
+.about-section {
+  background-color: #f8f6f2;
+  padding: 90px 5%;
+  font-family: 'Lato', sans-serif;
+  color: #2e2e2e;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.about-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.about-subheadline {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 300;
+  color: #555;
+  letter-spacing: 0.8px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-paragraph {
+  font-size: clamp(1.05rem, 2.3vw, 1.15rem);
+  line-height: 1.75;
+  max-width: 720px;
+  margin: 0 auto;
+  color: #444;
+}
+
+.about-cta {
+  align-self: center;
+  background: #c19a6b;
+  color: white;
+  padding: 1rem 2.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 15px rgba(193, 154, 107, 0.25);
+}
+
+.about-cta:hover {
+  background: #d4b084;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(193, 154, 107, 0.35);
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 70px 5%;
+  }
+
+  .about-subheadline,
+  .about-paragraph {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 60px 5%;
+  }
+
+  .about-cta {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
+  }
+}

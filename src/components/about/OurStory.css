@@ -1,0 +1,113 @@
+/* src/components/about/OurStory.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+
+/* Color Palette */
+:root {
+  --color-bg: #efe6dc;
+  --color-olive: #2d3b2b;
+  --color-gold: #c19a6b;
+  --color-text: #222222;
+  --color-muted: #6b6b6b;
+}
+
+/* Section */
+.our-story {
+  background: #f8f5f2;
+  padding: 140px 5% 120px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.our-story.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Container */
+.our-story__container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Headline */
+.our-story__headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: var(--color-olive);
+  margin: 0 0 2rem;
+  letter-spacing: -0.03em;
+}
+
+/* Gold Accent Line */
+.our-story__accent {
+  width: 80px;
+  height: 3px;
+  background: var(--color-gold);
+  margin: 0 auto 3.5rem;
+  border-radius: 2px;
+}
+
+/* Content Wrapper */
+.our-story__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Paragraphs */
+.our-story__paragraph {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.our-story__paragraph strong {
+  color: var(--color-olive);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .our-story {
+    padding: 100px 5% 90px;
+  }
+
+  .our-story__headline {
+    font-size: 2.8rem;
+  }
+
+  .our-story__paragraph {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .our-story__accent {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-story__headline {
+    font-size: 2.4rem;
+  }
+
+  .our-story__paragraph {
+    font-size: 1rem;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .our-story {
+    transition: none;
+  }
+}

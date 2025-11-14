@@ -1,15 +1,18 @@
 // src/pages/AboutPage.jsx
 import React from 'react';
-import AboutSection from '../components/AboutSection';
-import Footer from '../components/Footer';
-import HeroSection from '../components/HeroSection'; // Optional: custom about hero
+import AboutHero from '../components/about/AboutHero';
+import VisionMission from '../components/about/VisionMission';
+import OurStory from '../components/about/OurStory';
+import './AboutPage.css';
 
 export default function AboutPage() {
   return (
-    <div>
-      <HeroSection />       
-      <AboutSection />     
-      <Footer />
-    </div>
+    <main className="about-page">
+      <AboutHero />
+      <VisionMission />
+      <OurStory />
+
+    
+    </main>
   );
 }

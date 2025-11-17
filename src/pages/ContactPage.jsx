@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 // Real components
 import ContactForm from "../components/contact/ContactForm";
 import WorkingHours from "../components/contact/WorkingHours";
-import MapEmbed from "../components/contact/MapEmbed";   // ← Real map now imported
+import MapEmbed from "../components/contact/MapEmbed";   
+import ContactInfo from "../components/contact/ContactInfo";
+
 
 export default function ContactPage() {
   return (
@@ -98,16 +100,7 @@ export default function ContactPage() {
 // ───────────────────────────────
 // Remaining Placeholder Components
 // ───────────────────────────────
-function ContactInfo() {
-  return (
-    <div className="placeholder-card">
-      <h3 className="placeholder-subtitle">Contact Details</h3>
-      <div className="placeholder-line" />
-      <div className="placeholder-line" />
-      <div className="placeholder-line short" />
-    </div>
-  );
-}
+
 
 function SocialLinks() {
   return (

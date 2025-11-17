@@ -4,6 +4,7 @@ import AboutHero from '../components/about/AboutHero';
 import VisionMission from '../components/about/VisionMission';
 import OurStory from '../components/about/OurStory';
 import './AboutPage.css';
+import MeetTheTeam from '../components/about/MeetTheTeam';
 
 export default function AboutPage() {
   return (
@@ -11,6 +12,7 @@ export default function AboutPage() {
       <AboutHero />
       <VisionMission />
       <OurStory />
+      <MeetTheTeam />
 
     
     </main>

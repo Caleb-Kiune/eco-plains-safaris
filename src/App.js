@@ -2,9 +2,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Layout Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import WhatsAppButton from './components/layout/WhatsAppButton';
 
 // Pages
 import HomePage from './pages/HomePage';

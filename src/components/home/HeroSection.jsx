@@ -1,7 +1,7 @@
 // src/components/HeroSection.jsx
 import React from 'react';
 import './HeroSection.css';
-import Navbar from './Navbar';
+import Navbar from '../layout/Navbar';
 
 export default function HeroSection() {
   // Smooth scroll handlers

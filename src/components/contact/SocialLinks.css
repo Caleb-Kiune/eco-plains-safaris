@@ -1,0 +1,91 @@
+/* src/components/contact/SocialLinks.css */
+
+.social-links {
+  background: #FFFFFF;
+  padding: 2.5rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.social-links:hover {
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.social-links-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.65rem;
+  color: #2E4F3D;
+  margin: 0 0 2rem 0;
+}
+
+.social-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #F3E9DD;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(46, 79, 61, 0.12);
+}
+
+.social-link:hover {
+  background: #2E4F3D;
+  box-shadow: 0 12px 30px rgba(46, 79, 61, 0.25);
+}
+
+.social-icon-svg {
+  width: 28px;
+  height: 28px;
+  color: #2E4F3D;
+  transition: color 0.4s ease;
+}
+
+.social-link:hover .social-icon-svg {
+  color: #FFFFFF;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .social-links {
+    padding: 2rem 1.5rem;
+  }
+
+  .social-links-title {
+    font-size: 1.5rem;
+  }
+
+  .social-links-container {
+    gap: 1.8rem;
+  }
+
+  .social-link {
+    width: 58px;
+    height: 58px;
+  }
+
+  .social-icon-svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .social-link,
+  .social-links {
+    transition: none;
+  }
+}

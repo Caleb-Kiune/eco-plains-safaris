@@ -1,12 +1,14 @@
-// src/App.js
+// src/App.js  
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import WhatsAppButton from './components/WhatsAppButton';  
 
 function App() {
   return (
     <Router>
+      <WhatsAppButton />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

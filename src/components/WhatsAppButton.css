@@ -1,0 +1,103 @@
+/* src/components/WhatsAppButton.css   */
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  width: 64px;
+  height: 64px;
+  background: #2E4F3D;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(46, 79, 61, 0.35);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.whatsapp-button:hover,
+.whatsapp-button:focus {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 35px rgba(46, 79, 61, 0.45);
+  background: #24392e;
+}
+
+.whatsapp-button:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.whatsapp-icon {
+  width: 34px;
+  height: 34px;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+/* Elegant tooltip */
+.whatsapp-tooltip {
+  position: absolute;
+  right: 78px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2E4F3D;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.925rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+  pointer-events: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-left-color: #2E4F3D;
+}
+
+.whatsapp-button:hover .whatsapp-tooltip,
+.whatsapp-button:focus .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 82px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .whatsapp-button {
+    bottom: 20px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+  }
+  
+  .whatsapp-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .whatsapp-tooltip {
+    display: none; 
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-button,
+  .whatsapp-tooltip {
+    transition: none;
+  }
+}

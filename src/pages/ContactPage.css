@@ -1,4 +1,4 @@
-/* src/app/contact/contact.css */
+/* src/pages/ContactPage.css – Only page layout & grid */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -45,12 +45,7 @@
   align-items: start;
 }
 
-.contact-left {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
+.contact-left,
 .contact-right {
   display: flex;
   flex-direction: column;
@@ -63,124 +58,16 @@
   gap: 40px;
 }
 
-/* Placeholder Cards */
-.placeholder-card {
-  background: #FFFFFF;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-}
-
-.placeholder-title {
-  font-size: 1.9rem;
-  font-weight: 600;
-  color: #2E4F3D;
-  margin-bottom: 24px;
-}
-
-.placeholder-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2E4F3D;
-  margin-bottom: 20px;
-}
-
-.placeholder-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.placeholder-input {
-  height: 56px;
-  background: #f8f5f0;
-  border-radius: 8px;
-}
-
-.placeholder-button {
-  height: 56px;
-  background: #2E4F3D;
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-}
-
-.placeholder-line {
-  height: 20px;
-  width: 100%;
-  background: #f0e6dc;
-  border-radius: 4px;
-  margin-bottom: 12px;
-}
-
-.placeholder-line.short { width: 70%; }
-
-.placeholder-note {
-  font-style: italic;
-  color: #777;
-  margin-top: 12px;
-}
-
-.placeholder-map {
-  height: 420px;
-  background: #e0d6cb;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #777;
-  font-size: 1.1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.placeholder-social-icons {
-  display: flex;
-  gap: 20px;
-}
-
-.placeholder-icon {
-  width: 50px;
-  height: 50px;
-  background: #f0e6dc;
-  border-radius: 50%;
-}
-
-.whatsapp-placeholder {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #25D366;
-  color: white;
-  padding: 16px 24px;
-  border-radius: 50px;
-  font-weight: 600;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-  z-index: 1000;
-}
-
 /* Responsive */
 @media (max-width: 992px) {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
-
-  .contact-title {
-    font-size: 3.2rem;
-  }
+  .contact-title { font-size: 3.2rem; }
 }
 
 @media (max-width: 640px) {
   .contact-page { padding: 80px 0; }
   .contact-title { font-size: 2.8rem; }
-  .placeholder-card { padding: 32px; }
-  .whatsapp-placeholder {
-    bottom: 20px;
-    right: 20px;
-    padding: 14px 20px;
-    font-size: 0.95rem;
-  }
 }

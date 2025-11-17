@@ -1,119 +1,91 @@
 // src/pages/ContactPage.jsx
-
 import "./ContactPage.css";
 import { motion } from "framer-motion";
 
-// Real components
+// Real components only — no placeholders, no duplicates
 import ContactForm from "../components/contact/ContactForm";
 import WorkingHours from "../components/contact/WorkingHours";
-import MapEmbed from "../components/contact/MapEmbed";   
+import MapEmbed from "../components/contact/MapEmbed";
 import ContactInfo from "../components/contact/ContactInfo";
-
+import SocialLinks from "../components/contact/SocialLinks";
 
 export default function ContactPage() {
   return (
-    <>
-      {/* Floating WhatsApp Button – placeholder for now */}
-      <WhatsAppButton />
+    <section className="contact-page">
+      <div className="contact-container">
 
-      <section className="contact-page">
-        <div className="contact-container">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="contact-header"
+        >
+          <h1 className="contact-title">Get in Touch</h1>
+          <p className="contact-subtitle">
+            We craft bespoke Kenyan safari experiences with care and authenticity.
+            Reach out — we reply within hours.
+          </p>
+        </motion.div>
 
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="contact-header"
-          >
-            <h1 className="contact-title">Get in Touch</h1>
-            <p className="contact-subtitle">
-              We craft bespoke Kenyan safari experiences with care and authenticity.
-              Reach out — we reply within hours.
-            </p>
-          </motion.div>
+        {/* Main Grid Layout */}
+        <div className="contact-grid">
 
-          {/* Main Grid Layout */}
-          <div className="contact-grid">
+          {/* LEFT COLUMN */}
+          <div className="contact-left">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <ContactForm />
+            </motion.div>
 
-            {/* LEFT COLUMN */}
-            <div className="contact-left">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <WorkingHours />
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <div className="contact-right">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              <MapEmbed />
+            </motion.div>
+
+            <div className="contact-right-bottom">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
               >
-                <ContactForm />
+                <ContactInfo />
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.3 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
               >
-                <WorkingHours />
+                <SocialLinks />
               </motion.div>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div className="contact-right">
-              {/* Real interactive map – now live! */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-              >
-                <MapEmbed />
-              </motion.div>
-
-              <div className="contact-right-bottom">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.5 }}
-                >
-                  <ContactInfo />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.6 }}
-                >
-                  <SocialLinks />
-                </motion.div>
-              </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
-  );
-}
-
-// ───────────────────────────────
-// Remaining Placeholder Components
-// ───────────────────────────────
-
-
-function SocialLinks() {
-  return (
-    <div className="placeholder-card">
-      <h3 className="placeholder-subtitle">Follow Our Journey</h3>
-      <div className="placeholder-social-icons">
-        <div className="placeholder-icon" />
-        <div className="placeholder-icon" />
       </div>
-    </div>
+    </section>
   );
-}
-
-function WhatsAppButton() {
-  return <div className="whatsapp-placeholder">WhatsApp Floating Button</div>;
 }

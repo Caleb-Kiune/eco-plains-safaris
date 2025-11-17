@@ -1,12 +1,15 @@
-// src/app/contact/page.tsx   (or components/ContactPage.jsx)
+// src/pages/ContactPage.jsx   (or src/app/contact/page.tsx)
 
-import "./contact.css";
+import "./ContactPage.css";                      
 import { motion } from "framer-motion";
+// Real components
+import ContactForm from "../components/contact/ContactForm";
+import WorkingHours from "../components/contact/WorkingHours";  
 
 export default function ContactPage() {
   return (
     <>
-      {/* Floating WhatsApp Button – will be added later */}
+      {/* Floating WhatsApp Button – placeholder for now */}
       <WhatsAppButton />
 
       <section className="contact-page">
@@ -32,7 +35,8 @@ export default function ContactPage() {
 
             {/* LEFT COLUMN */}
             <div className="contact-left">
-              {/* Contact Form Placeholder */}
+
+              {/* Real Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -42,7 +46,7 @@ export default function ContactPage() {
                 <ContactForm />
               </motion.div>
 
-              {/* Working Hours Placeholder */}
+              {/* Real Working Hours – now live! */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -53,9 +57,8 @@ export default function ContactPage() {
               </motion.div>
             </div>
 
-            {/* RIGHT COLUMN */}
+            {/* RIGHT COLUMN – still placeholders */}
             <div className="contact-right">
-              {/* Map Placeholder */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -65,7 +68,6 @@ export default function ContactPage() {
                 <MapEmbed />
               </motion.div>
 
-              {/* Contact Info + Social Links */}
               <div className="contact-right-bottom">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -86,7 +88,6 @@ export default function ContactPage() {
                 </motion.div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -94,36 +95,9 @@ export default function ContactPage() {
   );
 }
 
-// ──────────────────────────────────
-// Placeholder Components (to be built next)
-// ──────────────────────────────────
-function ContactForm() {
-  return (
-    <div className="placeholder-card">
-      <h2 className="placeholder-title">Send Us a Message</h2>
-      <div className="placeholder-form">
-        <div className="placeholder-input" />
-        <div className="placeholder-input" />
-        <div className="placeholder-input" />
-        <div className="placeholder-input" style={{ height: "100px" }} />
-        <div className="placeholder-button">Submit Message</div>
-      </div>
-    </div>
-  );
-}
-
-function WorkingHours() {
-  return (
-    <div className="placeholder-card">
-      <h3 className="placeholder-subtitle">We’re Here for You</h3>
-      <div className="placeholder-line" />
-      <div className="placeholder-line short" />
-      <div className="placeholder-line" />
-      <p className="placeholder-note">Replies within 2 hours during operating times</p>
-    </div>
-  );
-}
-
+// ───────────────────────────────
+// Placeholder Components (keep these – we’ll replace later)
+// ───────────────────────────────
 function MapEmbed() {
   return <div className="placeholder-map">Interactive Google Map Embed</div>;
 }

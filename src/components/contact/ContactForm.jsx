@@ -1,5 +1,6 @@
 // src/components/ContactForm.jsx 
 import { useState } from "react";
+import "./ContactForm.css";
 
 export default function ContactForm() {
   // Form state management

@@ -1,0 +1,86 @@
+/* src/components/WorkingHours/WorkingHours.module.css */
+
+.workingHours {
+  background: #FFFFFF;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+}
+
+.workingHours:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.65rem;
+  color: #2E4F3D;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #f0e6dc;
+  transition: all 0.3s ease;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background: #fbf9f5;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 8px;
+}
+
+.day {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #2E4F3D;
+}
+
+.time {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #A78966;
+}
+
+.note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.925rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #e0d6cb;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .workingHours { padding: 2rem; }
+  .title { font-size: 1.5rem; }
+  .item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+    padding: 1rem 0;
+  }
+}

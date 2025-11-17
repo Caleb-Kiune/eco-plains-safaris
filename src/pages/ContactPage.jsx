@@ -1,10 +1,12 @@
-// src/pages/ContactPage.jsx   (or src/app/contact/page.tsx)
+// src/pages/ContactPage.jsx
 
-import "./ContactPage.css";                      
+import "./ContactPage.css";
 import { motion } from "framer-motion";
+
 // Real components
 import ContactForm from "../components/contact/ContactForm";
-import WorkingHours from "../components/contact/WorkingHours";  
+import WorkingHours from "../components/contact/WorkingHours";
+import MapEmbed from "../components/contact/MapEmbed";   // ← Real map now imported
 
 export default function ContactPage() {
   return (
@@ -35,8 +37,6 @@ export default function ContactPage() {
 
             {/* LEFT COLUMN */}
             <div className="contact-left">
-
-              {/* Real Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -46,7 +46,6 @@ export default function ContactPage() {
                 <ContactForm />
               </motion.div>
 
-              {/* Real Working Hours – now live! */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -57,8 +56,9 @@ export default function ContactPage() {
               </motion.div>
             </div>
 
-            {/* RIGHT COLUMN – still placeholders */}
+            {/* RIGHT COLUMN */}
             <div className="contact-right">
+              {/* Real interactive map – now live! */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -96,12 +96,8 @@ export default function ContactPage() {
 }
 
 // ───────────────────────────────
-// Placeholder Components (keep these – we’ll replace later)
+// Remaining Placeholder Components
 // ───────────────────────────────
-function MapEmbed() {
-  return <div className="placeholder-map">Interactive Google Map Embed</div>;
-}
-
 function ContactInfo() {
   return (
     <div className="placeholder-card">

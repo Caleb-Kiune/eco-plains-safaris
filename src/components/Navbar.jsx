@@ -1,59 +1,56 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll for background blur/fade
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(prev => !prev);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} aria-label="Main navigation">
       <div className="nav-container">
+        
         {/* Logo */}
-        <a href="/" className="nav-logo">
+        <Link to="/" className="nav-logo" aria-label="Eco Plains Safaris - Home">
           Eco Plains Safaris
-        </a>
+        </Link>
 
-        {/* Desktop Nav Links */}
-        <ul className="nav-menu">
-          <li className="nav-item">
-            <a href="#home" className="nav-link">Home</a>
-          </li>
-          <li className="nav-item">
-            <a href="#safaris" className="nav-link">Safaris</a>
-          </li>
-          <li className="nav-item">
-            <a href="#about" className="nav-link">About</a>
-          </li>
-          <li className="nav-item">
-            <a href="#contact" className="nav-link">Contact</a>
-          </li>
+        {/* Desktop Navigation */}
+        <ul className="nav-menu" aria-label="Desktop navigation">
+          <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
+          <li className="nav-item"><Link to="/safaris" className="nav-link">Safaris</Link></li>
+          <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
+          <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
         </ul>
 
-        {/* Hamburger */}
-        <div className="hamburger" onClick={toggleMenu}>
+        {/* Mobile Hamburger */}
+        <button
+          className={`hamburger ${isOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+        >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
-        </div>
+        </button>
 
         {/* Mobile Menu */}
-        <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-          <a href="#home" className="mobile-link" onClick={toggleMenu}>Home</a>
-          <a href="#safaris" className="mobile-link" onClick={toggleMenu}>Safaris</a>
-          <a href="#about" className="mobile-link" onClick={toggleMenu}>About</a>
-          <a href="#contact" className="mobile-link" onClick={toggleMenu}>Contact</a>
+        <div id="mobile-menu" className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+          <Link to="/" className="mobile-link" onClick={toggleMenu}>Home</Link>
+          <Link to="/safaris" className="mobile-link" onClick={toggleMenu}>Safaris</Link>
+          <Link to="/about" className="mobile-link" onClick={toggleMenu}>About</Link>
+          <Link to="/contact" className="mobile-link" onClick={toggleMenu}>Contact</Link>
         </div>
       </div>
     </nav>

@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import HeroSection from "../components/safaris/HeroSection";
 import FilterBar from "../components/safaris/FilterBar";
 import SafariGrid from "../components/safaris/SafariGrid";
+import FeaturedSafaris from "../components/safaris/FeaturedSafaris";
 
 export default function SafarisPage() {
   const [safaris, setSafaris] = useState([]);
@@ -49,6 +50,7 @@ export default function SafarisPage() {
       <HeroSection />
       <FilterBar safaris={safaris} filters={filters} setFilters={setFilters} />
       <SafariGrid safaris={filteredSafaris} />
+      <FeaturedSafaris safaris={filteredSafaris} />
     </>
   );
 }

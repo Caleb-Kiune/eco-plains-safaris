@@ -3,60 +3,132 @@
     "id": 1,
     "title": "Great Migration Safari",
     "location": "Masai Mara, Kenya",
+    "country": "Kenya",
+    "region": "Masai Mara",
     "image": "/images/kenya-destination-image.jpg",
+    "images": [
+      "/images/kenya-destination-image.jpg",
+      "/images/rwanda-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg"
+    ],
     "duration": "7 Days",
+    "durationDays": 7,
     "price": 4850,
     "link": "/safaris/great-migration",
-    "featured": true
+    "featured": true,
+    "destinations": ["Kenya", "Masai Mara"],
+    "experiences": ["Wildlife", "Big 5", "Great Migration", "Photography"],
+    "bestFor": ["Couples", "Photographers", "First-time Safari"],
+    "description": "Experience the awe-inspiring Great Migration in the Masai Mara, witnessing millions of wildebeest and zebras cross the plains. Enjoy luxurious lodges, guided game drives, and professional photography opportunities."
   },
   {
     "id": 2,
     "title": "Serengeti Under Canvas",
     "location": "Serengeti National Park, Tanzania",
+    "country": "Tanzania",
+    "region": "Serengeti",
     "image": "/images/kenya-destination-image.jpg",
+    "images": [
+      "/images/tanzania-destination-image.jpg",
+      "/images/kenya-destination-image.jpg",
+      "/images/uganda-destination-image.jpg"
+    ],
     "duration": "8 Days",
+    "durationDays": 8,
     "price": 7200,
     "link": "/safaris/serengeti-under-canvas",
-    "featured": false
+    "featured": false,
+    "destinations": ["Tanzania", "Serengeti"],
+    "experiences": ["Mobile Camping", "Wildlife", "Big 5", "Luxury"],
+    "bestFor": ["Adventurers", "Romantic"],
+    "description": "Embark on a mobile camping safari in the Serengeti, combining the thrill of wilderness exploration with comfort. Witness Big 5 wildlife, enjoy intimate nights under the stars, and experience Tanzania's rich landscapes."
   },
   {
     "id": 3,
     "title": "Okavango Delta Explorer",
     "location": "Okavango Delta, Botswana",
+    "country": "Botswana",
+    "region": "Okavango Delta",
     "image": "/images/kenya-destination-image.jpg",
+    "images": [
+      "/images/kenya-destination-image.jpg",
+      "/images/rwanda-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg"
+    ],
     "duration": "6 Days",
+    "durationDays": 6,
     "price": 8900,
     "link": "/safaris/okavango-delta",
-    "featured": true
+    "featured": true,
+    "destinations": ["Botswana", "Okavango Delta"],
+    "experiences": ["Water Safari", "Mokoro", "Wild Dogs", "Exclusive"],
+    "bestFor": ["Luxury Travelers", "Nature Lovers"],
+    "description": "Explore the unique waterways of the Okavango Delta in Botswana. Glide through the delta in a traditional mokoro canoe, spot wild dogs and other exclusive wildlife, and stay in luxurious safari lodges surrounded by nature."
   },
   {
     "id": 4,
     "title": "Gorilla Trek & Savannah",
     "location": "Rwanda & Masai Mara",
+    "country": "Rwanda & Kenya",
+    "region": "Volcanoes NP & Masai Mara",
     "image": "/images/kenya-destination-image.jpg",
+    "images": [
+      "/images/uganda-destination-image.jpg",
+      "/images/kenya-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg"
+    ],
     "duration": "10 Days",
+    "durationDays": 10,
     "price": 12400,
     "link": "/safaris/gorilla-trek",
-    "featured": false
+    "featured": false,
+    "destinations": ["Rwanda", "Kenya", "Volcanoes NP", "Masai Mara"],
+    "experiences": ["Gorilla Trekking", "Big 5", "Cultural"],
+    "bestFor": ["Once-in-a-lifetime", "Adventure"],
+    "description": "Combine the thrill of gorilla trekking in Rwanda with classic Big 5 safaris in the Masai Mara. Immerse yourself in African culture, witness incredible wildlife, and enjoy luxury lodges along the journey."
   },
   {
     "id": 5,
     "title": "Namibia Flying Safari",
     "location": "Sossusvlei & Etosha, Namibia",
+    "country": "Namibia",
+    "region": "Sossusvlei & Etosha",
     "image": "/images/kenya-destination-image.jpg",
+    "images": [
+      "/images/kenya-destination-image.jpg",
+      "/images/rwanda-destination-image.jpg",
+      "/images/uganda-destination-image.jpg"
+    ],
     "duration": "9 Days",
+    "durationDays": 9,
     "price": 15800,
     "link": "/safaris/namibia-flying",
-    "featured": true
+    "featured": true,
+    "destinations": ["Namibia", "Sossusvlei", "Etosha"],
+    "experiences": ["Desert", "Flying Safari", "Star Bed", "Exclusive"],
+    "bestFor": ["Photographers", "Luxury"],
+    "description": "Fly over Namibia's iconic landscapes and explore Sossusvlei and Etosha. Stay in star-bed lodges and enjoy exclusive desert wildlife experiences. Ideal for photographers and luxury travelers."
   },
   {
     "id": 6,
     "title": "Cape Town & Sabi Sands",
     "location": "Cape Town & Kruger, South Africa",
+    "country": "South Africa",
+    "region": "Cape Town & Sabi Sands",
     "image": "/images/kenya-destination-image.jpg",
+    "images": [
+      "/images/kenya-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg",
+      "/images/uganda-destination-image.jpg"
+    ],
     "duration": "12 Days",
+    "durationDays": 12,
     "price": 9800,
     "link": "/safaris/cape-sabi",
-    "featured": false
+    "featured": false,
+    "destinations": ["South Africa", "Cape Town", "Sabi Sands"],
+    "experiences": ["Leopard Viewing", "Wine", "City & Bush"],
+    "bestFor": ["Honeymoon", "Food & Wine"],
+    "description": "Combine Cape Town's vibrant city life with a luxury safari in Sabi Sands. Enjoy wine tastings, leopard viewing, and immersive wildlife experiences for an unforgettable South African adventure."
   }
 ]

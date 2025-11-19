@@ -10,6 +10,7 @@ import WhatsAppButton from './components/layout/WhatsAppButton';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import SafarisPage from './pages/SafarisPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/safaris" element={<SafarisPage />} />
         </Routes>
       </main>
 

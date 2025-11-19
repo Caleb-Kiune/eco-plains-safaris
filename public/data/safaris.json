@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Great Migration Safari",
+    "location": "Masai Mara, Kenya",
+    "image": "/images/kenya-destination-image.jpg",
+    "duration": "7 Days",
+    "price": 4850,
+    "link": "/safaris/great-migration",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Serengeti Under Canvas",
+    "location": "Serengeti National Park, Tanzania",
+    "image": "/images/kenya-destination-image.jpg",
+    "duration": "8 Days",
+    "price": 7200,
+    "link": "/safaris/serengeti-under-canvas",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Okavango Delta Explorer",
+    "location": "Okavango Delta, Botswana",
+    "image": "/images/kenya-destination-image.jpg",
+    "duration": "6 Days",
+    "price": 8900,
+    "link": "/safaris/okavango-delta",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Gorilla Trek & Savannah",
+    "location": "Rwanda & Masai Mara",
+    "image": "/images/kenya-destination-image.jpg",
+    "duration": "10 Days",
+    "price": 12400,
+    "link": "/safaris/gorilla-trek",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Namibia Flying Safari",
+    "location": "Sossusvlei & Etosha, Namibia",
+    "image": "/images/kenya-destination-image.jpg",
+    "duration": "9 Days",
+    "price": 15800,
+    "link": "/safaris/namibia-flying",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "title": "Cape Town & Sabi Sands",
+    "location": "Cape Town & Kruger, South Africa",
+    "image": "/images/kenya-destination-image.jpg",
+    "duration": "12 Days",
+    "price": 9800,
+    "link": "/safaris/cape-sabi",
+    "featured": false
+  }
+]

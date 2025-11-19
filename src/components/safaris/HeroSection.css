@@ -1,0 +1,126 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
+  color: #FAF7F2;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.75));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.hero-text {
+  max-width: 1200px;
+}
+
+.hero-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 220px;
+}
+
+.btn-primary {
+  background-color: #C8A36A;
+  color: #FAF7F2;
+  box-shadow: 0 10px 30px rgba(200, 163, 106, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #B8935A;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(200, 163, 106, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #C8A36A;
+  border: 2px solid #C8A36A;
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background-color: #C8A36A;
+  color: #FAF7F2;
+  transform: translateY(-4px);
+}
+
+.hero-spacer {
+  height: 120px; 
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .hero-heading { font-size: 5.5rem; }
+  .hero-subtitle { font-size: 1.75rem; }
+  .hero-buttons { flex-direction: row; justify-content: center; }
+}
+
+@media (min-width: 1024px) {
+  .hero-heading { font-size: 7rem; }
+}
+
+@media (min-width: 1280px) {
+  .hero-heading { font-size: 8rem; }
+}

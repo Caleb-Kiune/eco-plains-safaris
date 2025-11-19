@@ -1,0 +1,180 @@
+/* src/components/safaris/details/SafariHero.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.safari-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.safari-hero__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.safari-hero__content {
+  max-width: 680px;
+  padding: 2rem 0;
+}
+
+.safari-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.safari-hero__location {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  opacity: 0.95;
+  letter-spacing: 0.5px;
+}
+
+.safari-hero__price {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 1.5rem 0 2.5rem;
+  opacity: 0.98;
+}
+
+.safari-hero__price strong {
+  font-weight: 700;
+  color: #C8A36A;
+}
+
+.safari-hero__actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.safari-hero__btn {
+  padding: 1rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  min-width: 180px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.safari-hero__btn--primary {
+  background: #C8A36A;
+  color: white;
+  border: 2px solid #C8A36A;
+}
+
+.safari-hero__btn--primary:hover {
+  background: #b38f5a;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(200, 163, 106, 0.4);
+}
+
+.safari-hero__btn--secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.safari-hero__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #C8A36A;
+  color: #C8A36A;
+  transform: translateY(-3px);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .safari-hero {
+    height: 55vh;
+    min-height: 450px;
+  }
+
+  .safari-hero__title {
+    font-size: 3.8rem;
+  }
+
+  .safari-hero__location {
+    font-size: 1.4rem;
+  }
+
+  .safari-hero__price {
+    font-size: 1.6rem;
+  }
+
+  .safari-hero__actions {
+    gap: 1rem;
+  }
+
+  .safari-hero__btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .safari-hero {
+    height: 45vh;
+    min-height: 400px;
+    align-items: flex-end;
+    text-align: center;
+  }
+
+  .safari-hero__container {
+    padding: 0 1.5rem;
+  }
+
+  .safari-hero__content {
+    max-width: 100%;
+    padding-bottom: 3rem;
+  }
+
+  .safari-hero__title {
+    font-size: 2.8rem;
+    line-height: 1.15;
+  }
+
+  .safari-hero__location {
+    font-size: 1.3rem;
+  }
+
+  .safari-hero__price {
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .safari-hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .safari-hero__btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .safari-hero__title {
+    font-size: 2.4rem;
+  }
+}  

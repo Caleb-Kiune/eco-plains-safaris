@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SafarisPage from './pages/SafarisPage';
+import SafariDetailsPage from './pages/SafariDetailsPage'; // ← ADD THIS
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/safaris" element={<SafarisPage />} />
+          <Route path="/safaris/:slug" element={<SafariDetailsPage />} /> {/* ← ADD THIS LINE */}
         </Routes>
       </main>
 
@@ -32,4 +34,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

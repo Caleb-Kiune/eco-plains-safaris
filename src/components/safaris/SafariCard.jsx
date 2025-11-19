@@ -1,18 +1,18 @@
 // src/components/safaris/SafariCard/SafariCard.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SafariCard.css';
 
-const SafariCard = ({ safari, onOpenModal, animationDelay }) => {
+const SafariCard = ({ safari, animationDelay }) => {
+  // Extract slug from safari.link → "/safaris/great-migration" → "great-migration"
+  const slug = safari.link.replace('/safaris/', '');
+
   return (
     <article className="safari-card" style={{ animationDelay }}>
-      {/* Make entire card clickable */}
-      <div
+      <Link
+        to={`/safaris/${slug}`}
         className="safari-card__link"
-        onClick={() => onOpenModal(safari)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && onOpenModal(safari)}
-        aria-label={`View details for ${safari.title}`}
+        aria-label={`View details for ${safari.title} in ${safari.location}`}
       >
         <div className="safari-card__image-wrapper">
           <img
@@ -37,16 +37,13 @@ const SafariCard = ({ safari, onOpenModal, animationDelay }) => {
 
           <button
             className="safari-card__button"
-            onClick={(e) => {
-              e.stopPropagation(); 
-              onOpenModal(safari);
-            }}
+            onClick={(e) => e.stopPropagation()} // Prevents double navigation
           >
             View Details
             <span className="safari-card__button-arrow">→</span>
           </button>
         </div>
-      </div>
+      </Link>
     </article>
   );
 };

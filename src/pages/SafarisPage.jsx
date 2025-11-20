@@ -5,6 +5,7 @@ import FilterBar from "../components/safaris/FilterBar";
 import SafariGrid from "../components/safaris/SafariGrid";
 import PopularDestinations from "../components/safaris/PopularDestinations";
 import SectionCTA from "../components/safaris/SectionCTA";
+import BottomCTA from "../components/safaris/BottomCTA";
 
 export default function SafarisPage() {
   const [safaris, setSafaris] = useState([]);
@@ -71,6 +72,7 @@ export default function SafarisPage() {
       <SafariGrid safaris={filteredSafaris} />
       <SectionCTA />
       <PopularDestinations destinations={popularDestinations} />
+      <BottomCTA />
     </>
   );
 }

@@ -22,7 +22,7 @@ export default function SectionCTA() {
       {/* Image Side */}
       <div className="section-cta__image-wrapper">
         <img
-          src="/tanzania-destination-image.jpg"
+          src="/images/tanzania-destination-image.jpg"
           alt="Golden light over the Serengeti — a lone acacia tree and distant wildebeest migration"
           className="section-cta__image"
           loading="lazy"

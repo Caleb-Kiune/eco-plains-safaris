@@ -1,0 +1,6 @@
+[
+  { "name": "Kenya", "image": "/images/kenya-destination-image.jpg" },
+  { "name": "Uganda", "image": "/images/uganda-destination-image.jpg" },
+  { "name": "Tanzania", "image": "/images/tanzania-destination-image.jpg" },
+  { "name": "Rwanda", "image": "/images/rwanda-destination-image.jpg" }
+]

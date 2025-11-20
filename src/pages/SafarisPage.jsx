@@ -1,5 +1,7 @@
 // src/pages/SafarisPage.jsx
 import { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import HeroSection from "../components/safaris/HeroSection";
 import FilterBar from "../components/safaris/FilterBar";
 import SafariGrid from "../components/safaris/SafariGrid";
@@ -10,12 +12,17 @@ import BottomCTA from "../components/safaris/BottomCTA";
 export default function SafarisPage() {
   const [safaris, setSafaris] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const [filters, setFilters] = useState({
     country: "",
     duration: "",
     priceRange: [0, 20000],
     experience: "",
   });
+
+  // Read the URL query "?country=Kenya"
+  const [searchParams] = useSearchParams();
+  const urlCountry = searchParams.get("country");
 
   // Load safaris data
   useEffect(() => {
@@ -34,7 +41,19 @@ export default function SafarisPage() {
     loadSafaris();
   }, []);
 
- 
+  // Apply URL filter after safaris load
+  useEffect(() => {
+    if (!safaris.length) return;
+
+    if (urlCountry) {
+      setFilters((prev) => ({
+        ...prev,
+        country: urlCountry,
+      }));
+    }
+  }, [safaris, urlCountry]);
+
+  // Popular destinations
   const popularDestinations = useMemo(() => {
     if (!safaris.length) return [];
 
@@ -49,15 +68,30 @@ export default function SafarisPage() {
       }));
   }, [safaris]);
 
-  // Filtered results for the main grid
+  // Main filtering logic
   const filteredSafaris = useMemo(() => {
     return safaris.filter((safari) => {
-      const matchesCountry = !filters.country || safari.country?.includes(filters.country);
-      const matchesDuration = !filters.duration || safari.durationDays <= parseInt(filters.duration);
-      const matchesPrice = safari.price >= filters.priceRange[0] && safari.price <= filters.priceRange[1];
-      const matchesExperience = !filters.experience || safari.experiences?.includes(filters.experience);
+      const matchesCountry =
+        !filters.country || safari.country?.includes(filters.country);
 
-      return matchesCountry && matchesDuration && matchesPrice && matchesExperience;
+      const matchesDuration =
+        !filters.duration ||
+        safari.durationDays <= parseInt(filters.duration);
+
+      const matchesPrice =
+        safari.price >= filters.priceRange[0] &&
+        safari.price <= filters.priceRange[1];
+
+      const matchesExperience =
+        !filters.experience ||
+        safari.experiences?.includes(filters.experience);
+
+      return (
+        matchesCountry &&
+        matchesDuration &&
+        matchesPrice &&
+        matchesExperience
+      );
     });
   }, [safaris, filters]);
 

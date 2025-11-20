@@ -1,14 +1,31 @@
-// src/components/FeaturedDestinations.jsx
-import React from 'react';
-import './FeaturedDestinations.css';
+// src/components/home/FeaturedDestinations.jsx
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./FeaturedDestinations.css";
 
 export default function FeaturedDestinations() {
-  const destinations = [
-    { name: 'Kenya', image: '/kenya-destination-image.jpg' },
-    { name: 'Uganda', image: '/uganda-destination-image.jpg' },
-    { name: 'Tanzania', image: '/tanzania-destination-image.jpg' },
-    { name: 'Rwanda', image: '/rwanda-destination-image.jpg' },
-  ];
+  const [destinations, setDestinations] = useState([]);
+  const navigate = useNavigate();
+
+  // Fetch the JSON file safely
+  useEffect(() => {
+    const loadDestinations = async () => {
+      try {
+        const res = await fetch("/data/destinations.json");
+        const data = await res.json();
+        setDestinations(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error("Failed to load destinations:", err);
+        setDestinations([]);
+      }
+    };
+    loadDestinations();
+  }, []);
+
+  const handleClick = (country) => {
+    if (!country) return;
+    navigate(`/safaris?country=${encodeURIComponent(country)}`);
+  };
 
   return (
     <section className="destinations-section">
@@ -18,24 +35,27 @@ export default function FeaturedDestinations() {
         <div className="destinations-grid">
           {destinations.map((dest, index) => (
             <article
-              key={dest.name}
+              key={dest.name || index}
               className="destination-card"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              role="button"
+              tabIndex={0}
+              style={{ animationDelay: `${index * 0.15}s`, cursor: "pointer" }}
+              onClick={() => handleClick(dest.name)}
+              onKeyPress={(e) => e.key === "Enter" && handleClick(dest.name)}
             >
-              <a href={`#${dest.name.toLowerCase()}`} className="destination-link">
-                <div className="card-image-wrapper">
-                  <img
-                    src={dest.image}
-                    alt={`${dest.name} luxury safari destination`}
-                    className="card-image"
-                  />
-                  <div className="card-overlay"></div>
-                  <div className="card-content">
-                    <h3 className="card-title">{dest.name}</h3>
-                    <span className="card-explore">Explore</span>
-                  </div>
+              <div className="card-image-wrapper">
+                <img
+                  src={dest.image || "/fallback-image.jpg"}
+                  alt={dest.name || "Safari Destination"}
+                  className="card-image"
+                  loading="lazy"
+                />
+                <div className="card-overlay"></div>
+                <div className="card-content">
+                  <h3 className="card-title">{dest.name}</h3>
+                  <span className="card-explore">Explore</span>
                 </div>
-              </a>
+              </div>
             </article>
           ))}
         </div>

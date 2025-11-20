@@ -13,7 +13,7 @@
 .bottom-cta__bg-image {
   position: absolute;
   inset: 0;
-  background: url('/public/tanzania-destination-image.jpg') center center / cover no-repeat;
+  background: url('/public/images/tanzania-destination-image.jpg') center center / cover no-repeat;
   opacity: 0.68;
 }
 

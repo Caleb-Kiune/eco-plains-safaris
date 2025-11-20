@@ -1,0 +1,122 @@
+/* src/components/sections/SectionCTA.css */
+.section-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  background: #faf9f7;
+  overflow: hidden;
+}
+
+/* Text Side */
+.section-cta__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 8rem;
+  background: #faf9f7;
+  position: relative;
+  z-index: 2;
+}
+
+.section-cta__headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  margin: 0 0 1.8rem 0;
+}
+
+.section-cta__subheadline {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.7;
+  color: #444;
+  max-width: 38ch;
+  margin: 0 0 3rem 0;
+  letter-spacing: 0.02em;
+}
+
+.section-cta__button {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8c744a; 
+  border: 1.5px solid #8c744a;
+  padding: 1.1rem 2.8rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.section-cta__button:hover {
+  background: #8c744a;
+  color: #fff;
+  letter-spacing: 0.3em;
+}
+
+/* Image Side */
+.section-cta__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-cta__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-cta__image-wrapper:hover .section-cta__image {
+  transform: scale(1.04);
+}
+
+/* Tablet & Mobile – Stack vertically  */
+@media (max-width: 1024px) {
+  .section-cta {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .section-cta__text {
+    padding: 7rem 5rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .section-cta__subheadline {
+    max-width: 50ch;
+  }
+
+  .section-cta__image {
+    height: 70vh;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-cta__text {
+    padding: 6rem 2rem;
+  }
+
+  .section-cta__headline {
+    font-size: 2.8rem;
+  }
+
+  .section-cta__button {
+    padding: 1rem 2.4rem;
+    font-size: 0.95rem;
+  }
+
+  .section-cta__image {
+    height: 60vh;
+  }
+}

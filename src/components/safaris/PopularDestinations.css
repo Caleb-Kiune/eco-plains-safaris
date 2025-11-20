@@ -1,0 +1,150 @@
+/* src/components/safaris/PopularDestinations.css */
+.popular-destinations {
+  padding: 9rem 0 7rem;     
+  background: #fafafa;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);  
+}
+
+.popular-destinations__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #111;
+  margin-bottom: 5.5rem;
+  line-height: 1.1;
+}
+
+.popular-destinations__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 84vh;
+  min-height: 640px;
+  max-height: 940px;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card */
+.popular-destinations__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  transition: filter 0.6s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.popular-destinations__card:hover {
+  filter: brightness(0.84);
+}
+
+.popular-destinations__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.popular-destinations__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.45));
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.popular-destinations__card:hover .popular-destinations__overlay {
+  opacity: 1;
+}
+
+.popular-destinations__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  padding: 1.5rem;
+  pointer-events: none;
+}
+
+.popular-destinations__name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  opacity: 0.95;
+}
+
+.popular-destinations__explore {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(0.68rem, 1.1vw, 0.88rem);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  padding-bottom: 3px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.popular-destinations__card:hover .popular-destinations__explore {
+  letter-spacing: 0.45em;
+  opacity: 1;
+  border-bottom-color: #fff;
+}
+
+/* Tablet: 2×3 */
+@media (max-width: 1024px) {
+  .popular-destinations__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 130vh;
+    min-height: 880px;
+  }
+}
+
+/* Mobile: 1×6 stacked */
+@media (max-width: 640px) {
+  .popular-destinations {
+    padding: 7rem 0 5rem;
+  }
+
+  .popular-destinations__title {
+    margin-bottom: 4rem;
+  }
+
+  .popular-destinations__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 440px);
+    height: auto;
+  }
+
+  .popular-destinations__name {
+    font-size: 1.45rem;
+    letter-spacing: 0.2em;
+  }
+
+  .popular-destinations__explore {
+    font-size: 0.78rem;
+    letter-spacing: 0.38em;
+  }
+
+  .popular-destinations__card:hover .popular-destinations__explore {
+    letter-spacing: 0.52em;
+  }
+}

@@ -21,7 +21,11 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link to="/" className="nav-logo" aria-label="Eco Plains Safaris - Home">
-          Eco Plains Safaris
+          <img 
+            src="/icons/eco plains logo.png" 
+            alt="Eco Plains Safaris Logo" 
+            className={`nav-logo-img ${scrolled ? 'shrink' : ''}`}
+          />
         </Link>
 
         {/* Desktop Navigation */}

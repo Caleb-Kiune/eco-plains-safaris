@@ -1,162 +1,178 @@
-/* src/components/WhyChooseUs.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+/* src/components/home/WhyChooseUs.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
 
-/* Full-width section with soft luxury background */
-.why-section {
-  background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
-  padding: 110px 5% 130px;
-  position: relative;
-  overflow: hidden;
+:root {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-light: #444444;
+  --color-border: #e8e8e8;
+  --color-green: #2d5016;
+  --color-gold: #d4af37;
+
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+
+  --transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.why-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(193, 154, 107, 0.06) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.why-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Headline */
-.why-header {
+/* ────── Section ────── */
+.why {
+  background: var(--color-bg);
+  padding: var(--space-96) var(--space-24);
   text-align: center;
-  margin-bottom: 4.5rem;
 }
 
-.why-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.6rem, 6vw, 3.8rem);
+.why__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0 auto var(--space-64);
+  max-width: 100px;
+}
+
+.why__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.why__header {
+  margin-bottom: var(--space-64);
+}
+
+.why__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 6vw, 4rem);
   font-weight: 700;
-  color: #1a1a1a;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
   margin: 0;
-  letter-spacing: -0.8px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* 3-Column Grid */
-.why-grid {
+/* ────── Grid ────── */
+.why__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin: 0 auto;
+  grid-template-columns: 1fr;
+  gap: var(--space-64);
 }
 
-/* Card */
-.why-card {
-  background: #ffffff;
-  border-radius: 0;
-  padding: 2.4rem 1.8rem 2.6rem;
-  text-align: center;
-  transition: all 0.35s ease;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+@media (min-width: 768px) {
+  .why__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-80, 5rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .why__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ────── Card ────── */
+.why__card {
+  background: transparent;
+  padding: var(--space-32);
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: var(--transition);
+  cursor: default;
 }
 
-.why-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
-  background: #fdfdfb;
+.why__card:hover,
+.why__card:focus-visible {
+  transform: translateY(-4px);
 }
 
-/* Icon */
-.why-icon-wrapper {
-  width: 68px;
-  height: 68px;
-  margin-bottom: 1.6rem;
+.why__card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
+/* Icon – clean, no coloured circle */
+.why__icon-wrapper {
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--space-32);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #c19a6b, #e6c89f);
-  border-radius: 50%;
-  padding: 10px;
 }
 
-.why-icon {
-  width: 36px;
-  height: 36px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.35s ease;
+.why__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-gold);
+  transition: var(--transition);
 }
 
-.why-card:hover .why-icon {
+.why__card:hover .why__icon {
   transform: scale(1.1);
 }
 
-/* Subheadline */
-.why-card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.32rem;
+/* Text */
+.why__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 1rem;
   line-height: 1.3;
+  margin: 0 0 var(--space-16);
+  color: var(--color-text);
 }
 
-/* Body Text */
-.why-card-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  color: #555555;
+.why__card-text {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
   margin: 0;
-  line-height: 1.65;
-  font-weight: 300;
+  max-width: 38ch;
 }
 
-.why-icon-wrapper {
-  background: #c19a6b; /* gold */
-}
-.why-icon {
-  fill: white;
-  stroke: none;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  .why-section {
-    padding: 90px 5% 110px;
-  }
+/* Gold accent line – Singita / &Beyond style */
+.why__line {
+  height: 1px;
+  width: 48px;
+  background: var(--color-gold);
+  margin-top: var(--space-32);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 768px) {
-  .why-grid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
+.why__card:hover .why__line,
+.why__card:focus-visible .why__line {
+  transform: scaleX(1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  .why {
+    padding: var(--space-64) var(--space-16);
   }
-  .why-card {
-    padding: 2rem 1.6rem;
+  .why__icon-wrapper {
+    width: 64px;
+    height: 64px;
   }
-  .why-icon-wrapper {
-    width: 60px;
-    height: 60px;
-  }
-  .why-icon {
-    width: 32px;
-    height: 32px;
+  .why__icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
-@media (max-width: 480px) {
-  .why-headline {
-    font-size: 2.4rem;
-  }
-  .why-card-title {
-    font-size: 1.25rem;
-  }
-  .why-card-text {
-    font-size: 0.98rem;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

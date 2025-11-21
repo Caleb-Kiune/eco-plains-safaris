@@ -1,34 +1,40 @@
-// src/components/AboutSection.jsx
+// src/components/home/AboutSection.jsx
 import React from 'react';
 import './AboutSection.css';
 
 export default function AboutSection() {
   return (
-    <section id="about-section" className="about-section">
-      <div className="about-container">
-        <div className="about-text">
-          <h2 className="about-headline">Welcome to Eco Plains Safaris</h2>
-          <p className="about-subheadline">
+    <section id="about-section" className="about" aria-labelledby="about-heading">
+      <div className="about__inner">
+        {/* Subtle accent divider – inspired by Singita & Roar Africa */}
+        <div className="about__divider" aria-hidden="true" />
+
+        <div className="about__content">
+          <h2 id="about-heading" className="about__title">
+            Welcome to Eco Plains Safaris
+          </h2>
+
+          <p className="about__subtitle">
             Crafting unforgettable safari journeys across Africa’s wild plains
           </p>
 
-          <p className="about-paragraph">
+          <p className="about__text">
             At Eco Plains Safaris, we curate exceptional, tailor-made journeys that immerse discerning travelers
-             in Africa’s untouched wilderness. We combine world-class comfort with eco-conscious practices, 
-             championing wildlife conservation, community empowerment, and a lasting legacy of responsible 
-             luxury.
+            in Africa’s untouched wilderness. We combine world-class comfort with eco-conscious practices,
+            championing wildlife conservation, community empowerment, and a lasting legacy of responsible luxury.
           </p>
 
-          {/* <p className="about-paragraph">
-            Our bespoke itineraries blend luxury with sustainability. From private game drives led by 
-            world-class guides to exclusive camps under star-filled skies, every journey is tailored 
-            to your vision — immersive, conscious, and unforgettable.
-          </p> */}
-
-          <a href="#about" className="about-cta" aria-label="Learn more about Eco Plains Safaris">
+          <a
+            href="/about"
+            className="about__cta"
+            aria-label="Learn more about Eco Plains Safaris"
+          >
             Learn More About Us
           </a>
         </div>
+
+        {/* Duplicate divider at bottom for symmetry on large screens */}
+        <div className="about__divider about__divider--bottom" aria-hidden="true" />
       </div>
     </section>
   );

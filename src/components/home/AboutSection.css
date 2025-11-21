@@ -1,108 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+/* src/components/home/AboutSection.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
 
-.about-section {
-  background-color: #f8f6f2;
-  padding: 90px 5%;
-  font-family: 'Lato', sans-serif;
-  color: #2e2e2e;
-  text-align: center;
+/* ────── CSS Custom Properties ────── */
+:root {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-light: #444444;
+  --color-border: #e8e8e8;
+  --color-green: #2d5016;
+  --color-gold: #d4af37;
+
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+
+  --transition: all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.about-container {
-  max-width: 900px;
+/* ────── Section Base ────── */
+.about {
+  background: var(--color-bg);
+  padding: var(--space-96) var(--space-24);
+  text-align: center;
+  overflow: hidden;
+}
+
+.about__inner {
+  max-width: 840px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-.about-text {
+/* Elegant thin accent line – Singita / Roar Africa style */
+.about__divider {
+  width: 80px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-bottom: var(--space-64);
+}
+
+.about__divider--bottom {
+  margin-top: var(--space-64);
+  margin-bottom: 0;
+}
+
+/* Content */
+.about__content {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
-  animation: fadeInUp 1.2s ease-out forwards;
-  opacity: 0;
+  align-items: center;
+  gap: var(--space-48);
+  max-width: 740px;
 }
 
-.about-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+.about__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 3.75rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0;
-  color: #1a1a1a;
+  color: var(--color-text);
 }
 
-.about-subheadline {
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-  font-weight: 300;
-  color: #555;
-  letter-spacing: 0.8px;
-  max-width: 700px;
-  margin: 0 auto;
+.about__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin: 0;
 }
 
-.about-paragraph {
-  font-size: clamp(1.05rem, 2.3vw, 1.15rem);
+.about__text {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
   line-height: 1.75;
-  max-width: 720px;
-  margin: 0 auto;
-  color: #444;
+  color: var(--color-text-light);
+  margin: 0;
+  max-width: 68ch;
 }
 
-.about-cta {
-  align-self: center;
-  background: #c19a6b;
-  color: white;
-  padding: 1rem 2.4rem;
-  font-size: 1.05rem;
+/* CTA – understated luxury */
+.about__cta {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
   text-decoration: none;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  margin-top: 1.2rem;
-  box-shadow: 0 4px 15px rgba(193, 154, 107, 0.25);
+  padding-bottom: 0.5em;
+  transition: var(--transition);
 }
 
-.about-cta:hover {
-  background: #d4b084;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(193, 154, 107, 0.35);
+.about__cta::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Fade-in Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+.about__cta:hover::after,
+.about__cta:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.about__cta:hover,
+.about__cta:focus {
+  color: var(--color-gold);
+}
+
+.about__cta:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+/* Responsive refinements */
+@media (max-width: 767px) {
+  .about {
+    padding: var(--space-64) var(--space-16);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .about__divider {
+    margin-bottom: var(--space-48);
+  }
+
+  .about__divider--bottom {
+    margin-top: var(--space-48);
+  }
+
+  .about__content {
+    gap: var(--space-32);
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .about-section {
-    padding: 70px 5%;
-  }
-
-  .about-subheadline,
-  .about-paragraph {
-    max-width: 100%;
+@media (min-width: 1024px) {
+  .about__title {
+    font-size: 3.75rem;
   }
 }
 
-@media (max-width: 480px) {
-  .about-section {
-    padding: 60px 5%;
-  }
-
-  .about-cta {
-    width: 100%;
-    max-width: 300px;
-    padding: 1rem;
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

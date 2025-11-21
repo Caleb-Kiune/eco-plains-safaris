@@ -29,44 +29,34 @@
   position: relative;
 }
 
-/* Logo Container */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-/* Logo Image - Balanced sizing with contrast enhancement */
+/* Logo */
 .nav-logo-img {
-  height: 70px; /* Desktop default - larger for balance */
+  height: 70px;
   width: auto;
   object-fit: contain;
   display: block;
-  transition: all 0.35s ease; /* Smooth resize, hover, and filter changes */
-  filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); /* Initial no shadow */
+  transition: all 0.35s ease;
 }
 
 .nav-logo-img.shrink {
-  height: 50px; /* Shrink when scrolled - balanced */
+  height: 50px;
 }
 
-/* Enhance contrast on dark scrolled bg (subtle white glow + brightness for green/gold pop) */
 .navbar.scrolled .nav-logo-img {
   filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5)) brightness(1.1);
 }
 
-/* Hover/Focus - Scale with React best practices (accessibility via :focus) */
 .nav-logo:hover .nav-logo-img,
 .nav-logo:focus .nav-logo-img {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)) brightness(1.2); /* Enhanced glow on interaction */
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)) brightness(1.2);
 }
 
 /* Desktop Menu */
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2.4rem;           
+  gap: 2.4rem;
   margin: 0;
   padding: 0;
 }
@@ -75,7 +65,7 @@
   color: #f8f8f8;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;       
+  font-size: 1rem;
   letter-spacing: 0.9px;
   padding: 0.5rem 0;
   position: relative;
@@ -102,7 +92,6 @@
 .nav-link:hover,
 .nav-link:focus {
   color: #c19a6b;
-  outline: none;
 }
 
 /* Hamburger */
@@ -143,7 +132,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;                  
+  gap: 2rem;
   transition: right 0.45s cubic-bezier(0.77, 0, 0.175, 1);
   padding: 2rem;
   z-index: 1000;
@@ -153,7 +142,7 @@
 
 .mobile-link {
   color: #f8f8f8;
-  font-size: 1.5rem;           
+  font-size: 1.5rem;
   font-weight: 500;
   text-decoration: none;
   letter-spacing: 1.2px;
@@ -166,39 +155,10 @@
   transform: translateX(4px);
 }
 
-/* Responsive Breakpoints - Adjusted logo sizes for mobile balance */
-@media (max-width: 1100px) {
-  .nav-menu { gap: 2rem; }
-  .nav-link { font-size: 0.98rem; }
-}
-
-@media (max-width: 992px) {
-  .nav-menu { gap: 1.8rem; }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .hamburger { display: flex; margin-right: 8px; }
   .nav-menu { display: none; }
-  
-  .nav-logo-img { height: 55px; } /* Balanced on tablets/mobile */
+  .nav-logo-img { height: 55px; }
   .nav-logo-img.shrink { height: 42px; }
-
-  .navbar { padding: 1.3rem 6%; }
-  .navbar.scrolled { padding: 1rem 6%; }
-}
-
-@media (max-width: 480px) {
-  .nav-logo-img { height: 48px; } /* Fits small phones nicely */
-  .nav-logo-img.shrink { height: 38px; }
-  .navbar { padding: 1.2rem 8%; }
-  .navbar.scrolled { padding: 0.9rem 8%; }
-  .hamburger { margin-right: 12px; }
-}
-
-/* Accessibility */
-.nav-link:focus-visible,
-.mobile-link:focus-visible,
-.hamburger:focus-visible {
-  outline: 2px solid #c19a6b;
-  outline-offset: 4px;
 }

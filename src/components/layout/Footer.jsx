@@ -74,10 +74,22 @@ export default function Footer() {
             </form>
 
             <div className="footer__social" aria-label="Social media">
-              <a href="https://instagram.com" target="_blank" rel="noopener" className="footer__social-link" aria-label="Instagram">
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer__social-link" 
+                aria-label="Instagram"
+              >
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="18" cy="6" r="1.5"/></svg>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener" className="footer__social-link" aria-label="Facebook">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer__social-link" 
+                aria-label="Facebook"
+              >
                 <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
             </div>

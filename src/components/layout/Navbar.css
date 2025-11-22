@@ -165,3 +165,40 @@
   .nav-logo-img { height: 55px; }
   .nav-logo-img.shrink { height: 42px; }
 }
+
+/* Hide on scroll down, show on scroll up */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.6rem 5%;
+  font-family: 'Lato', sans-serif;
+  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  transform: translateY(0);
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+/* Scrolled state (smaller + backdrop) */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.1rem 5%;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* When navbar is hidden but scrolled → keep backdrop but stay invisible */
+.navbar.hidden.scrolled {
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(12px);
+}

@@ -1,22 +1,40 @@
 // src/components/Navbar.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scrolling down & past hero → hide navbar
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scrolling up → show navbar
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMenu = () => setIsOpen(prev => !prev);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} aria-label="Main navigation">
+    <nav
+      className={`navbar ${visible ? 'visible' : 'hidden'} ${window.scrollY > 50 ? 'scrolled' : ''}`}
+      aria-label="Main navigation"
+    >
       <div className="nav-container">
         
         {/* Logo */}
@@ -24,7 +42,7 @@ export default function Navbar() {
           <img 
             src="/icons/eco plains logo.png" 
             alt="Eco Plains Safaris Logo" 
-            className={`nav-logo-img ${scrolled ? 'shrink' : ''}`}
+            className={`nav-logo-img ${window.scrollY > 50 ? 'shrink' : ''}`}
           />
         </Link>
 

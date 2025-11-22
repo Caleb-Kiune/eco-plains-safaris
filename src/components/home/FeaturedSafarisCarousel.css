@@ -1,0 +1,218 @@
+/* src/components/FeaturedSafarisCarousel.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Design Tokens */
+:root {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --color-bg: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-light: #444444;
+  --color-border: #E8E8E8;
+  --color-accent-green: #2D5016;
+  --color-accent-gold: #D4AF37;
+  --spacing-8: 0.5rem;
+  --spacing-16: 1rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-48: 3rem;
+  --spacing-64: 4rem;
+  --spacing-96: 6rem;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-safaris {
+  background: var(--color-bg);
+  padding: var(--spacing-96) 0;
+  overflow: hidden;
+}
+
+.featured-safaris__container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-32);
+}
+
+.featured-safaris__header {
+  text-align: center;
+  margin-bottom: var(--spacing-64);
+}
+
+.featured-safaris__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-16);
+  letter-spacing: -0.5px;
+}
+
+.featured-safaris__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Card */
+.featured-card {
+  display: block;
+  border-radius: 0;
+  overflow: hidden;
+  background: white;
+  box-shadow: none;
+  transition: var(--transition);
+  position: relative;
+  height: 520px;
+}
+
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.08);
+}
+
+.featured-card:hover .featured-card__underline {
+  width: 80px;
+}
+
+.featured-card:hover .featured-card__overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.4), transparent 50%);
+}
+
+.featured-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.featured-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.featured-card:hover .featured-card__image {
+  transform: scale(1.04);
+}
+
+.featured-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent 40%);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.featured-card__content {
+  position: absolute;
+  bottom: var(--spacing-48);
+  left: var(--spacing-48);
+  z-index: 2;
+  color: white;
+}
+
+.featured-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-16);
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.featured-card__underline {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent-gold);
+  transition: width 0.5s ease;
+}
+
+/* Focus for keyboard nav */
+.featured-card:focus-visible {
+  outline: 3px solid var(--color-accent-gold);
+  outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .featured-card {
+    height: 440px;
+  }
+  .featured-card__content {
+    bottom: var(--spacing-32);
+    left: var(--spacing-32);
+  }
+  .featured-card__title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-safaris {
+    padding: var(--spacing-64) 0;
+  }
+  .featured-card__content {
+    left: var(--spacing-24);
+    bottom: var(--spacing-24);
+  }
+  .featured-card__title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Navigation Arrows */
+.featured-safaris__carousel-wrapper {
+  position: relative;
+}
+
+.featured-safaris__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+}
+
+.featured-safaris__nav:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+.featured-safaris__nav--prev {
+  left: -28px;
+}
+
+.featured-safaris__nav--next {
+  right: -28px;
+}
+
+.featured-safaris__nav svg {
+  color: #1A1A1A;
+}
+
+/* Responsive arrow positioning */
+@media (max-width: 768px) {
+  .featured-safaris__nav {
+    width: 48px;
+    height: 48px;
+  }
+  .featured-safaris__nav--prev { left: 8px; }
+  .featured-safaris__nav--next { right: 8px; }
+}

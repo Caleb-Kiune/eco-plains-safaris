@@ -3,7 +3,7 @@ import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import AboutSection from '../components/home/AboutSection';
 import FeaturedDestinations from '../components/home/FeaturedDestinations';
-import TripsCarousel from '../components/home/TripsCarousel';
+import FeaturedSafarisCarousel from '../components/home/FeaturedSafarisCarousel';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import SectionDivider from '../components/common/SectionDivider';
 
@@ -17,7 +17,7 @@ export default function HomePage() {
       <SectionDivider/>
       <FeaturedDestinations />
       <SectionDivider/>
-      <TripsCarousel />
+      <FeaturedSafarisCarousel />
       <SectionDivider/>
       <WhyChooseUs />
     </>

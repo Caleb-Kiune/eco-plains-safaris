@@ -9,7 +9,8 @@
     "images": [
       "/images/kenya-destination-image.jpg",
       "/images/tanzania-destination-image.jpg",
-      "/images/rwanda-destination-image.jpg"
+      "/images/rwanda-destination-image.jpg",
+      "/images/uganda-destination-image.jpg"
     ],
     "duration": "7 Days",
     "durationDays": 7,
@@ -26,12 +27,13 @@
     "title": "Serengeti Under Canvas",
     "location": "Serengeti National Park, Tanzania",
     "country": "Tanzania",
-  "region": "Serengeti",
+    "region": "Serengeti",
     "image": "/images/tanzania-destination-image.jpg",
     "images": [
       "/images/tanzania-destination-image.jpg",
+      "/images/uganda-destination-image.jpg",
       "/images/kenya-destination-image.jpg",
-      "/images/botswana-destination-image.jpg"
+      "/images/rwanda-destination-image.jpg"
     ],
     "duration": "8 Days",
     "durationDays": 8,
@@ -41,7 +43,7 @@
     "destinations": ["Tanzania", "Serengeti"],
     "experiences": ["Mobile Camping", "Big 5", "Luxury", "Night Drives"],
     "bestFor": ["Adventurers", "Romantic"],
-    "description": "Follow the migration in mobile luxury camps that move with the herds. Fall asleep to the sounds of the African night under a blanket of stars."
+    "description": "Follow the migration in mobile camps that move with the herds. Fall asleep to the sounds of the African night under a blanket of stars."
   },
   {
     "id": 3,
@@ -49,11 +51,12 @@
     "location": "Okavango Delta, Botswana",
     "country": "Botswana",
     "region": "Okavango Delta",
-    "image": "/images/botswana-destination-image.jpg",
+    "image": "/images/rwanda-destination-image.jpg",
     "images": [
-      "/images/botswana-destination-image.jpg",
-      "/images/namibia-destination-image.jpg",
-      "/images/kenya-destination-image.jpg"
+      "/images/rwanda-destination-image.jpg",
+      "/images/kenya-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg",
+      "/images/uganda-destination-image.jpg"
     ],
     "duration": "6 Days",
     "durationDays": 6,
@@ -71,11 +74,12 @@
     "location": "Rwanda & Masai Mara",
     "country": "Rwanda & Kenya",
     "region": "Volcanoes NP & Masai Mara",
-    "image": "/images/rwanda-destination-image.jpg",
+    "image": "/images/uganda-destination-image.jpg",
     "images": [
+      "/images/uganda-destination-image.jpg",
       "/images/rwanda-destination-image.jpg",
       "/images/kenya-destination-image.jpg",
-      "/images/uganda-destination-image.jpg"
+      "/images/tanzania-destination-image.jpg"
     ],
     "duration": "10 Days",
     "durationDays": 10,
@@ -93,11 +97,12 @@
     "location": "Sossusvlei & Etosha, Namibia",
     "country": "Namibia",
     "region": "Sossusvlei & Etosha",
-    "image": "/images/namibia-destination-image.jpg",
+    "image": "/images/kenya-destination-image.jpg",
     "images": [
-      "/images/namibia-destination-image.jpg",
-      "/images/botswana-destination-image.jpg",
-      "/images/kenya-destination-image.jpg"
+      "/images/kenya-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg",
+      "/images/uganda-destination-image.jpg",
+      "/images/rwanda-destination-image.jpg"
     ],
     "duration": "9 Days",
     "durationDays": 9,
@@ -115,11 +120,12 @@
     "location": "Zambia & Botswana",
     "country": "Zambia & Botswana",
     "region": "Victoria Falls & Chobe",
-    "image": "/images/victoria-falls-destination.jpg",
+    "image": "/images/tanzania-destination-image.jpg",
     "images": [
-      "/images/victoria-falls-destination.jpg",
-      "/images/botswana-destination-image.jpg",
-      "/images/tanzania-destination-image.jpg"
+      "/images/tanzania-destination-image.jpg",
+      "/images/rwanda-destination-image.jpg",
+      "/images/kenya-destination-image.jpg",
+      "/images/uganda-destination-image.jpg"
     ],
     "duration": "8 Days",
     "durationDays": 8,
@@ -137,11 +143,12 @@
     "location": "Madikwe Game Reserve, South Africa",
     "country": "South Africa",
     "region": "Madikwe",
-    "image": "/images/south-africa-destination-image.jpg",
+    "image": "/images/rwanda-destination-image.jpg",
     "images": [
-      "/images/south-africa-destination-image.jpg",
-      "/images/kenya-destination-image.jpg",
-      "/images/botswana-destination-image.jpg"
+      "/images/rwanda-destination-image.jpg",
+      "/images/uganda-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg",
+      "/images/kenya-destination-image.jpg"
     ],
     "duration": "6 Days",
     "durationDays": 6,
@@ -159,11 +166,12 @@
     "location": "Serengeti & Zanzibar, Tanzania",
     "country": "Tanzania",
     "region": "Serengeti & Zanzibar",
-    "image": "/images/zanzibar-destination-image.jpg",
+    "image": "/images/uganda-destination-image.jpg",
     "images": [
-      "/images/zanzibar-destination-image.jpg",
+      "/images/uganda-destination-image.jpg",
+      "/images/kenya-destination-image.jpg",
       "/images/tanzania-destination-image.jpg",
-      "/images/kenya-destination-image.jpg"
+      "/images/rwanda-destination-image.jpg"
     ],
     "duration": "11 Days",
     "durationDays": 11,
@@ -181,11 +189,12 @@
     "location": "Kruger & Bazaruto Archipelago",
     "country": "South Africa & Mozambique",
     "region": "Kruger & Bazaruto",
-    "image": "/images/mozambique-destination-image.jpg",
+    "image": "/images/kenya-destination-image.jpg",
     "images": [
-      "/images/mozambique-destination-image.jpg",
-      "/images/south-africa-destination-image.jpg",
-      "/images/botswana-destination-image.jpg"
+      "/images/kenya-destination-image.jpg",
+      "/images/rwanda-destination-image.jpg",
+      "/images/uganda-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg"
     ],
     "duration": "12 Days",
     "durationDays": 12,
@@ -203,11 +212,12 @@
     "location": "Laikipia Plateau, Kenya",
     "country": "Kenya",
     "region": "Laikipia",
-    "image": "/images/kenya-destination-image.jpg",
+    "image": "/images/tanzania-destination-image.jpg",
     "images": [
+      "/images/tanzania-destination-image.jpg",
       "/images/kenya-destination-image.jpg",
       "/images/rwanda-destination-image.jpg",
-      "/images/namibia-destination-image.jpg"
+      "/images/uganda-destination-image.jpg"
     ],
     "duration": "7 Days",
     "durationDays": 7,
@@ -225,11 +235,12 @@
     "location": "Cape Town & Kruger, South Africa",
     "country": "South Africa",
     "region": "Cape Town & Sabi Sands",
-    "image": "/images/south-africa-destination-image.jpg",
+    "image": "/images/rwanda-destination-image.jpg",
     "images": [
-      "/images/south-africa-destination-image.jpg",
-      "/images/kenya-destination-image.jpg",
-      "/images/botswana-destination-image.jpg"
+      "/images/rwanda-destination-image.jpg",
+      "/images/uganda-destination-image.jpg",
+      "/images/tanzania-destination-image.jpg",
+      "/images/kenya-destination-image.jpg"
     ],
     "duration": "12 Days",
     "durationDays": 12,

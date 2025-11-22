@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
 
 /* ────── CSS Custom Properties ────── */
-:root {
+.about {
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
-  --color-bg: #ffffff;
+  --color-bg: #faf7f2; 
   --color-text: #1a1a1a;
   --color-text-light: #444444;
   --color-border: #e8e8e8;

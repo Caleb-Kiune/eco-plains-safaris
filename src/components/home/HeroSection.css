@@ -3,7 +3,6 @@
 /* ─────────────────────────────── */
 /* GLOBAL VARIABLES */
 /* ─────────────────────────────── */
-
 :root {
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -25,7 +24,6 @@
 
   --transition: all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* NEW — Navbar height reference */
   --nav-height: 90px;
 }
 
@@ -38,19 +36,15 @@
 /* ─────────────────────────────── */
 /* HERO BASE */
 /* ─────────────────────────────── */
-
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* TRUE FULLSCREEN */
+  height: 100vh;
   overflow: hidden;
-  color: #fafafa;
   font-family: var(--font-sans);
-
-  /* Prevent navbar overlap */
+  color: #fafafa;
   padding-top: var(--nav-height);
   box-sizing: border-box;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,17 +71,14 @@
 /* ─────────────────────────────── */
 /* CONTENT */
 /* ─────────────────────────────── */
-
 .hero__content {
   position: relative;
   z-index: 2;
   text-align: center;
   padding: 0 var(--space-24);
   max-width: 1200px;
-
-  /* NEW refined spacing */
   margin-top: calc(var(--nav-height) * 0.4);
-  margin-bottom: 6rem;
+  margin-bottom: 4.5rem; /* Adjusted spacing after subtitle removal */
 }
 
 .hero__title {
@@ -96,20 +87,11 @@
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.02em;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem; /* space before CTA */
   color: white;
 }
 
-.hero__subtitle {
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 3.5rem;
-  color: rgba(255,255,255,0.9);
-}
-
-/* CTA */
+/* CTA BUTTON */
 .hero__cta {
   background: var(--color-gold);
   color: #0f0f0f;
@@ -121,9 +103,7 @@
   cursor: pointer;
   transition: var(--transition);
   box-shadow: 0 8px 30px rgba(212,175,55,0.25);
-
-  /* NEW spacing */
-  margin-bottom: 4.5rem;
+  margin-bottom: 4rem;
 }
 
 .hero__cta:hover {
@@ -135,7 +115,6 @@
 /* ─────────────────────────────── */
 /* SCROLL INDICATOR */
 /* ─────────────────────────────── */
-
 .hero__scroll-hint {
   position: absolute;
   bottom: 3.5rem;
@@ -147,12 +126,10 @@
   color: rgba(255,255,255,0.85);
   font-size: 0.875rem;
   text-transform: uppercase;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-8);
-
   transition: var(--transition);
 }
 
@@ -178,16 +155,21 @@
 /* ─────────────────────────────── */
 /* MOBILE SPACING */
 /* ─────────────────────────────── */
-
 @media (max-width: 768px) {
   .hero__content {
     margin-top: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     padding: 0 var(--space-16);
   }
 
+  .hero__title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 2rem;
+  }
+
   .hero__cta {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    padding: 1em 2.4em;
   }
 
   .hero__scroll-hint {

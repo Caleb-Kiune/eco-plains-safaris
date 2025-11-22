@@ -35,13 +35,9 @@ export default function HeroSection() {
       {/* Hero Content */}
       <div className="hero__content">
         <h1 className="hero__title">
-          Enter the Heart<br aria-hidden="true" />
-          of Wild Africa
+          Journey<br aria-hidden="true" />
+          Into the Wild
         </h1>
-
-        <p className="hero__subtitle">
-          Luxury Safari Journeys · Sustainable · Bespoke
-        </p>
 
         <button
           className="hero__cta"

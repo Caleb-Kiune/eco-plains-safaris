@@ -14,7 +14,7 @@ export default function HeroSection() {
 
   return (
     <section className="hero" aria-label="Hero section">
-      {/* Full-screen Video Background */}
+      {/* Video Background */}
       <video
         className="hero__video"
         autoPlay
@@ -26,10 +26,10 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* Refined Gradient Overlay */}
+      {/* Overlay */}
       <div className="hero__overlay" aria-hidden="true" />
 
-      {/* Luxury Navbar – assumed to be transparent on hero */}
+      {/* Navbar */}
       <Navbar />
 
       {/* Hero Content */}
@@ -43,10 +43,6 @@ export default function HeroSection() {
           Luxury Safari Journeys · Sustainable · Bespoke
         </p>
 
-        <p className="hero__description">
-          Experience the plains like never before — immersive, authentic, conscious.
-        </p>
-
         <button
           className="hero__cta"
           onClick={scrollToTrips}
@@ -56,7 +52,7 @@ export default function HeroSection() {
         </button>
       </div>
 
-      {/* Minimal Scroll Indicator */}
+      {/* Scroll Indicator */}
       <button
         className="hero__scroll-hint"
         onClick={scrollToAbout}

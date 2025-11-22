@@ -10,6 +10,9 @@
   font-family: 'Lato', sans-serif;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
+  height: var(--nav-height);
+  /* display: flex;whats typogr */
+  /* align-items: center; */
 }
 
 .navbar.scrolled {

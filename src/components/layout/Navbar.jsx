@@ -6,25 +6,27 @@ import './Navbar.css';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false); // ← Now properly tracked in state
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const current = window.scrollY;
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // Scrolling down & past hero → hide navbar
+      // Hide/show on scroll direction
+      if (current > lastScrollY.current && current > 100) {
         setVisible(false);
-      } else if (currentScrollY < lastScrollY.current) {
-        // Scrolling up → show navbar
+      } else if (current < lastScrollY.current) {
         setVisible(true);
       }
 
-      lastScrollY.current = currentScrollY;
+      // Track if we're past the hero (for backdrop + logo effect)
+      setScrolled(current > 50);
+
+      lastScrollY.current = current;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -32,29 +34,25 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar ${visible ? 'visible' : 'hidden'} ${window.scrollY > 50 ? 'scrolled' : ''}`}
+      className={`navbar ${visible ? 'visible' : 'hidden'} ${scrolled ? 'scrolled' : ''}`}
       aria-label="Main navigation"
     >
       <div className="nav-container">
-        
-        {/* Logo */}
         <Link to="/" className="nav-logo" aria-label="Eco Plains Safaris - Home">
-          <img 
-            src="/icons/eco plains logo.png" 
-            alt="Eco Plains Safaris Logo" 
-            className={`nav-logo-img ${window.scrollY > 50 ? 'shrink' : ''}`}
+          <img
+            src="/icons/eco plains logo.png"
+            alt="Eco Plains Safaris Logo"
+            className="nav-logo-img"
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <ul className="nav-menu" aria-label="Desktop navigation">
+        <ul className="nav-menu">
           <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
           <li className="nav-item"><Link to="/safaris" className="nav-link">Safaris</Link></li>
           <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
           <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
         </ul>
 
-        {/* Mobile Hamburger */}
         <button
           className={`hamburger ${isOpen ? 'active' : ''}`}
           onClick={toggleMenu}
@@ -67,7 +65,6 @@ export default function Navbar() {
           <span className="bar"></span>
         </button>
 
-        {/* Mobile Menu */}
         <div id="mobile-menu" className={`mobile-menu ${isOpen ? 'open' : ''}`}>
           <Link to="/" className="mobile-link" onClick={toggleMenu}>Home</Link>
           <Link to="/safaris" className="mobile-link" onClick={toggleMenu}>Safaris</Link>

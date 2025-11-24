@@ -1,9 +1,11 @@
 // src/components/home/FeaturedSafariCard.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FeaturedSafariCard.css';
 
 export default function FeaturedSafariCard({ safari }) {
+  const [isActive, setIsActive] = useState(false);
+
   const formattedPrice = safari.price_adult
     ? new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -13,11 +15,25 @@ export default function FeaturedSafariCard({ safari }) {
     }).format(safari.price_adult)
     : 'Rate on request';
 
+  const handleCardClick = (e) => {
+    // Check if the device is touch-enabled
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      // Prevent navigation on card tap for mobile
+      e.preventDefault();
+      // Toggle active state
+      setIsActive(!isActive);
+    }
+    // On desktop: Link works normally (no preventDefault)
+  };
+
   return (
     <Link
       to={`/safaris/${safari.slug}`}
-      className="featured-card"
+      className={`featured-card ${isActive ? 'active' : ''}`}
       aria-label={`Explore ${safari.title}`}
+      onClick={handleCardClick}
     >
       <div className="featured-card__image-wrapper">
         <img
@@ -37,7 +53,15 @@ export default function FeaturedSafariCard({ safari }) {
         <div className="featured-card__price">
           From {formattedPrice}
         </div>
-        <span className="featured-card__cta">Discover Journey</span>
+        <span
+          className="featured-card__cta"
+          onClick={(e) => {
+            // On mobile, let the button navigate (don't prevent default)
+            // On desktop, this is redundant but harmless (Link handles it)
+          }}
+        >
+          Discover Journey
+        </span>
       </div>
     </Link>
   );

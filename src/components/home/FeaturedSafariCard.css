@@ -160,3 +160,26 @@
 .featured-card:hover .featured-card__cta::after {
   transform: translateX(4px);
 }
+
+/* Active state for mobile tap toggle */
+.featured-card.active .featured-card__image {
+  transform: scale(1.08);
+}
+
+.featured-card.active .featured-card__overlay {
+  opacity: 0.9;
+}
+
+.featured-card.active .featured-card__content {
+  transform: translateY(-8px);
+}
+
+.featured-card.active .featured-card__price {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featured-card.active .featured-card__cta {
+  opacity: 1;
+  transform: translateY(0);
+}

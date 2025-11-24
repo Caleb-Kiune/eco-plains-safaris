@@ -9,7 +9,7 @@ export default function PopularDestinations({ destinations = [] }) {
   return (
     <section className="popular-destinations" aria-labelledby="popular-title">
       <h2 id="popular-title" className="popular-destinations__title">
-        Popular Destinations
+        Destinations
       </h2>
 
       <div className="popular-destinations__grid">
@@ -29,13 +29,12 @@ export default function PopularDestinations({ destinations = [] }) {
                 className="popular-destinations__image"
                 loading="lazy"
               />
+              <div className="popular-destinations__overlay" />
 
               <div className="popular-destinations__content">
                 <h3 className="popular-destinations__name">{dest.title}</h3>
-                <span className="popular-destinations__explore">Explore</span>
+                <span className="popular-destinations__explore">Discover</span>
               </div>
-
-              <div className="popular-destinations__overlay" />
             </Link>
           );
         })}

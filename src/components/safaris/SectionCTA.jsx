@@ -1,4 +1,4 @@
-// src/components/sections/SectionCTA.jsx
+// src/components/safaris/SectionCTA.jsx
 import React from "react";
 import "./SectionCTA.css";
 
@@ -11,7 +11,7 @@ export default function SectionCTA() {
           Where Luxury Meets the Wild
         </h2>
         <p className="section-cta__subheadline">
-          Handcrafted journeys across Africa’s most exclusive reserves — 
+          Handcrafted journeys across Africa’s most exclusive reserves —
           intimate wildlife encounters, unrivalled comfort, timeless elegance.
         </p>
         <a href="/safaris" className="section-cta__button">
@@ -23,7 +23,7 @@ export default function SectionCTA() {
       <div className="section-cta__image-wrapper">
         <img
           src="/images/tanzania-destination-image.jpg"
-          alt="Golden light over the Serengeti — a lone acacia tree and distant wildebeest migration"
+          alt="Golden light over the Serengeti"
           className="section-cta__image"
           loading="lazy"
         />

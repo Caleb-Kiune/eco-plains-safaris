@@ -1,55 +1,53 @@
 /* src/components/safaris/SafariGrid/SafariGrid.css */
+
 .safari-grid {
-  --color-ivory: #FAF7F2;
-  --color-gold: #C8A36A;
-  
-  /* Critical: Extra top padding to clear sticky FilterBar (usually ~80–100px tall) */
-  padding: 9rem 5% 6rem;  
-  background: var(--color-ivory);
+  /* Critical: Extra top padding to clear sticky FilterBar */
+  padding: var(--space-3xl) 5% var(--space-3xl);
+  background: var(--color-bg);
   width: 100%;
-  min-height: 100vh;       
+  min-height: 100vh;
 }
 
 .safari-grid__inner {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;              
-  align-items: stretch;  
+  gap: var(--space-xl);
+  align-items: stretch;
 }
 
 /* Tablet (768px – 1024px) */
 @media (max-width: 1024px) {
   .safari-grid {
-    padding: 8rem 4% 5rem;
+    padding: var(--space-2xl) 4% var(--space-2xl);
   }
-  
+
   .safari-grid__inner {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: var(--space-lg);
   }
 }
 
 /* Mobile Landscape & Below */
 @media (max-width: 768px) {
   .safari-grid {
-    padding: 7rem 5% 5rem;
+    padding: var(--space-xl) 5% var(--space-xl);
   }
-  
+
   .safari-grid__inner {
-    gap: 2rem;
+    gap: var(--space-md);
   }
 }
 
 /* Mobile Portrait */
 @media (max-width: 640px) {
   .safari-grid {
-    padding: 6rem 5% 4rem;
+    padding: var(--space-xl) 5% var(--space-lg);
   }
-  
+
   .safari-grid__inner {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--space-lg);
   }
 }

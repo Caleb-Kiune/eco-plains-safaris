@@ -1,70 +1,76 @@
-/* src/components/sections/BottomCTA.css */
+/* src/components/safaris/BottomCTA.css */
+
 .bottom-cta {
   position: relative;
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0f0a05; /* Deep charcoal — ultra-luxury fallback */
+  background: #0f0a05;
   overflow: hidden;
 }
 
-/* Full-bleed background image (replace with your hero image) */
 .bottom-cta__bg-image {
   position: absolute;
   inset: 0;
   background: url('/public/images/tanzania-destination-image.jpg') center center / cover no-repeat;
-  opacity: 0.68;
+  opacity: 0.7;
+  transform: scale(1.05);
+  transition: transform 10s ease-out;
 }
 
-/* Subtle dark overlay for perfect text readability */
+.bottom-cta:hover .bottom-cta__bg-image {
+  transform: scale(1);
+}
+
 .bottom-cta__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(15,10,5,0.3) 0%, rgba(15,10,5,0.85) 100%);
+  background: linear-gradient(to bottom, rgba(15, 10, 5, 0.3) 0%, rgba(15, 10, 5, 0.85) 100%);
+  z-index: 1;
 }
 
-/* Centered content */
 .bottom-cta__content {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 4rem 2rem;
-  max-width: 90%;
+  padding: var(--space-2xl) var(--space-md);
+  max-width: 1000px;
 }
 
 .bottom-cta__headline {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading);
   font-weight: 400;
   font-size: clamp(3.5rem, 8vw, 6.5rem);
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  margin: 0 0 3rem 0;
-  line-height: 1.15;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  margin: 0 0 var(--space-xl) 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .bottom-cta__button {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #d4c19e; /* Warm, refined gold */
+  color: var(--color-accent-gold);
   background: transparent;
-  border: 1.5px solid #d4c19e;
-  padding: 1.2rem 3.2rem;
+  border: 1px solid var(--color-accent-gold);
+  padding: 1.25rem 3.5rem;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition);
   text-decoration: none;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
 .bottom-cta__button:hover {
-  background: #d4c19e;
+  background: var(--color-accent-gold);
   color: #0f0a05;
-  letter-spacing: 0.38em;
-  transform: scale(1.03);
+  letter-spacing: 0.2em;
 }
 
 /* Tablet & Mobile */
@@ -76,18 +82,20 @@
 
 @media (max-width: 640px) {
   .bottom-cta {
-    min-height: 65vh;
+    min-height: 60vh;
   }
 
   .bottom-cta__content {
-    padding: 3rem 1.5rem;
+    padding: var(--space-xl) var(--space-md);
   }
 
   .bottom-cta__headline {
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--space-lg);
+    font-size: 3rem;
   }
 
   .bottom-cta__button {
-    padding: 1.1rem 2.8rem;
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
   }
 }

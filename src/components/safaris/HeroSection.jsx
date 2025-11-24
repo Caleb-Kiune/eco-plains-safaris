@@ -24,9 +24,9 @@ export default function HeroSection() {
       {/* Content */}
       <div className="hero-content">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 1.4, ease: [0.25, 1, 0.5, 1] }}
           className="hero-text"
         >
           <h1 className="hero-heading">
@@ -36,7 +36,7 @@ export default function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 1, 0.5, 1] }}
             className="hero-subtitle"
           >
             Eco-conscious adventures across Africa’s wildest landscapes
@@ -45,7 +45,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1.2, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
             className="hero-buttons"
           >
             <a href="/safaris" className="btn-primary">

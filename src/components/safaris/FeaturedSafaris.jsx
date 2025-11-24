@@ -13,10 +13,10 @@ export default function FeaturedSafaris({ safaris }) {
     <section className="featured-safaris" aria-labelledby="featured-title">
       <div className="featured-safaris__header">
         <h2 id="featured-title" className="featured-safaris__title">
-          Featured Safaris
+          Signature Collections
         </h2>
         <p className="featured-safaris__subtitle">
-          Our handpicked top-rated safari experiences
+          Our most exclusive, hand-curated safari experiences for the discerning traveler.
         </p>
       </div>
 
@@ -54,8 +54,8 @@ export default function FeaturedSafaris({ safaris }) {
                     ))}
                   </ul>
 
-                  <button className="featured-card__cta">
-                    View Details →
+                  <button className="featured-card__cta" tabIndex="-1">
+                    View Itinerary
                   </button>
                 </div>
               </Link>

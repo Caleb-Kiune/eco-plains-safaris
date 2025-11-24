@@ -6,10 +6,11 @@ import './SafariCard.css';
 const SafariCard = ({ safari, animationDelay }) => {
   const price = safari.price_adult
     ? new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: safari.currency || 'USD',
-        minimumFractionDigits: 0,
-      }).format(safari.price_adult)
+      style: 'currency',
+      currency: safari.currency || 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(safari.price_adult)
     : 'Rate on request';
 
   return (
@@ -36,16 +37,16 @@ const SafariCard = ({ safari, animationDelay }) => {
           <div className="safari-card__details">
             <span className="safari-card__duration">{safari.duration}</span>
             <span className="safari-card__price">
-              From <strong>{price}</strong>
-              {safari.price_note && <span className="text-sm block opacity-80">{safari.price_note}</span>}
+              Starting from <strong>{price}</strong>
+              {safari.price_note && <span className="text-sm block opacity-80 mt-1">{safari.price_note}</span>}
             </span>
           </div>
 
           <button
             className="safari-card__button"
-            onClick={(e) => e.stopPropagation()}
+            tabIndex="-1" // Button inside link, remove from tab order
           >
-            View Details
+            Explore Journey
             <span className="safari-card__button-arrow">→</span>
           </button>
         </div>

@@ -1,8 +1,6 @@
 /* src/components/home/FeaturedSafariCard.css */
 
-/* Global Brand Design System Variables - Scoped to component if not global, 
-   but ideally these should be in :root of index.css. 
-   Including here for self-containment as requested. */
+/* Global Brand Design System Variables */
 :root {
   /* Colors - Earthy Luxury */
   --color-bg: #FFFFFF;
@@ -10,9 +8,7 @@
   --color-text-light: #444444;
   --color-border: #E8E8E8;
   --color-accent-green: #2D5016;
-  /* Deep forest */
   --color-accent-gold: #D4AF37;
-  /* Warm safari sunset */
 
   /* Typography */
   --font-heading: 'Playfair Display', serif;
@@ -32,23 +28,20 @@
 .featured-card {
   display: block;
   position: relative;
-  border-radius: 0;
-  /* Sharp corners for ultra-premium feel, or slight radius */
+  height: 600px;
+  /* Taller, more cinematic */
   overflow: hidden;
-  background: var(--color-bg);
-  transition: var(--transition);
-  height: 100%;
   text-decoration: none;
-  color: inherit;
+  color: #FFFFFF;
+  background: #000;
   isolation: isolate;
-  /* Create stacking context */
 }
 
-/* Image Wrapper & Image */
+/* Image Wrapper */
 .featured-card__image-wrapper {
-  position: relative;
-  height: 520px;
-  /* Taller, more cinematic aspect ratio */
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -57,25 +50,22 @@
   height: 100%;
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-  /* Slower, smoother zoom */
   will-change: transform;
 }
 
 .featured-card:hover .featured-card__image {
   transform: scale(1.08);
-  /* Subtle cinematic zoom */
 }
 
-/* Overlay - Cinematic Gradient */
+/* Cinematic Overlay */
 .featured-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.4) 40%,
-      rgba(0, 0, 0, 0) 100%);
-  pointer-events: none;
-  z-index: 1;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.8) 100%);
+  z-index: 2;
   transition: opacity 0.6s ease;
 }
 
@@ -83,123 +73,78 @@
   opacity: 0.9;
 }
 
-/* Badge - Minimalist Luxury */
-.featured-card__badge {
-  position: absolute;
-  top: var(--space-md);
-  left: var(--space-md);
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--color-accent-green);
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: 2px;
-  /* Slightly softer than sharp */
-  z-index: 2;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Content Container */
+/* Content */
 .featured-card__content {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   padding: var(--space-lg);
-  color: #FFFFFF;
-  z-index: 2;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
   transform: translateY(0);
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .featured-card:hover .featured-card__content {
   transform: translateY(-8px);
-  /* Lift content slightly on hover */
 }
 
 /* Typography */
 .featured-card__title {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
-  /* H2 size */
+  font-size: 2rem;
   font-weight: 400;
-  /* Lighter weight for elegance */
-  margin: 0 0 var(--space-xs);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.01em;
 }
 
 .featured-card__meta {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 400;
-  opacity: 0.9;
-  margin-bottom: var(--space-md);
-  letter-spacing: 0.02em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.featured-card__meta::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background-color: var(--color-accent-gold);
-  margin-right: 4px;
-}
-
-/* Price Section */
-.featured-card__price {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: var(--space-md);
-  border-left: 2px solid var(--color-accent-gold);
-  padding-left: var(--space-sm);
-}
-
-.featured-card__from {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  opacity: 0.8;
-  margin-bottom: 4px;
-}
-
-.featured-card__amount {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 400;
-  color: #FFFFFF;
-}
-
-.featured-card__note {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  opacity: 0.7;
-  font-style: italic;
-}
-
-/* CTA Button - Appears on Hover */
-.featured-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-body);
   font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+/* Price - Minimalist */
+.featured-card__price {
+  margin-top: var(--space-xs);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--color-accent-gold);
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.4s ease 0.1s;
+}
+
+.featured-card:hover .featured-card__price {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CTA - Appears on Hover */
+.featured-card__cta {
+  margin-top: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.2s;
 }
 
 .featured-card:hover .featured-card__cta {

@@ -1,7 +1,7 @@
 // src/components/home/FeaturedSafarisCarousel.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import FeaturedSafariCard from './FeaturedSafariCard';
@@ -50,20 +50,24 @@ export default function FeaturedSafarisCarousel() {
           </button>
 
           <Swiper
-            modules={[Navigation]}
-            spaceBetween={32}
+            modules={[Navigation, Autoplay]}
+            spaceBetween={24}
             slidesPerView={1.1}
             centeredSlides={true}
             loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
             navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
             }}
             breakpoints={{
-              640: { slidesPerView: 1.4, spaceBetween: 32 },
-              1024: { slidesPerView: 2.2, spaceBetween: 48, centeredSlides: false },
-              1280: { slidesPerView: 3, spaceBetween: 48, centeredSlides: false },
+              640: { slidesPerView: 1.5, spaceBetween: 24 },
+              1024: { slidesPerView: 2.5, spaceBetween: 32, centeredSlides: true },
+              1440: { slidesPerView: 3.2, spaceBetween: 40, centeredSlides: true },
             }}
             className="featured-safaris-swiper"
           >

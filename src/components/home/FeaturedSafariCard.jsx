@@ -27,7 +27,6 @@ export default function FeaturedSafariCard({ safari }) {
           loading="lazy"
         />
         <div className="featured-card__overlay" />
-        <div className="featured-card__badge">{safari.category}</div>
       </div>
 
       <div className="featured-card__content">
@@ -36,11 +35,7 @@ export default function FeaturedSafariCard({ safari }) {
           {safari.destination} • {safari.duration}
         </p>
         <div className="featured-card__price">
-          <span className="featured-card__from">Starting from</span>
-          <span className="featured-card__amount">{formattedPrice}</span>
-          {safari.price_note && (
-            <span className="featured-card__note">{safari.price_note}</span>
-          )}
+          From {formattedPrice}
         </div>
         <span className="featured-card__cta">Discover Journey</span>
       </div>

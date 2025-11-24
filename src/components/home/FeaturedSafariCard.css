@@ -1,119 +1,217 @@
 /* src/components/home/FeaturedSafariCard.css */
+
+/* Global Brand Design System Variables - Scoped to component if not global, 
+   but ideally these should be in :root of index.css. 
+   Including here for self-containment as requested. */
+:root {
+  /* Colors - Earthy Luxury */
+  --color-bg: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-light: #444444;
+  --color-border: #E8E8E8;
+  --color-accent-green: #2D5016;
+  /* Deep forest */
+  --color-accent-gold: #D4AF37;
+  /* Warm safari sunset */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+
+  /* Motion */
+  --transition: all 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .featured-card {
   display: block;
   position: relative;
-  border-radius: 20px;
+  border-radius: 0;
+  /* Sharp corners for ultra-premium feel, or slight radius */
   overflow: hidden;
-  background: #000;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: var(--color-bg);
+  transition: var(--transition);
   height: 100%;
   text-decoration: none;
   color: inherit;
+  isolation: isolate;
+  /* Create stacking context */
 }
 
-.featured-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.25);
-}
-
+/* Image Wrapper & Image */
 .featured-card__image-wrapper {
   position: relative;
-  height: 420px;
+  height: 520px;
+  /* Taller, more cinematic aspect ratio */
+  overflow: hidden;
 }
 
 .featured-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Slower, smoother zoom */
+  will-change: transform;
 }
 
 .featured-card:hover .featured-card__image {
-  transform: scale(1.06);
+  transform: scale(1.08);
+  /* Subtle cinematic zoom */
 }
 
+/* Overlay - Cinematic Gradient */
 .featured-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 100%);
   pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.6s ease;
 }
 
+.featured-card:hover .featured-card__overlay {
+  opacity: 0.9;
+}
+
+/* Badge - Minimalist Luxury */
 .featured-card__badge {
   position: absolute;
-  top: 24px;
-  left: 24px;
+  top: var(--space-md);
+  left: var(--space-md);
   background: rgba(255, 255, 255, 0.95);
-  color: #1a1a1a;
-  font-size: 0.8rem;
+  color: var(--color-accent-green);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 4px;
-  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 2px;
+  /* Slightly softer than sharp */
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Content Container */
 .featured-card__content {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2.5rem 2rem 2rem;
-  color: white;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  padding: var(--space-lg);
+  color: #FFFFFF;
+  z-index: 2;
+  transform: translateY(0);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.featured-card:hover .featured-card__content {
+  transform: translateY(-8px);
+  /* Lift content slightly on hover */
+}
+
+/* Typography */
 .featured-card__title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.9rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem;
-  line-height: 1.2;
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  /* H2 size */
+  font-weight: 400;
+  /* Lighter weight for elegance */
+  margin: 0 0 var(--space-xs);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .featured-card__meta {
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
   opacity: 0.9;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.5px;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.featured-card__meta::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-accent-gold);
+  margin-right: 4px;
+}
+
+/* Price Section */
 .featured-card__price {
-  display: block;
-  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-md);
+  border-left: 2px solid var(--color-accent-gold);
+  padding-left: var(--space-sm);
 }
 
 .featured-card__from {
-  font-size: 0.9rem;
-  opacity: 0.85;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+  margin-bottom: 4px;
 }
 
 .featured-card__amount {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-left: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #FFFFFF;
 }
 
 .featured-card__note {
-  display: block;
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin-top: 0.25rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  font-style: italic;
 }
 
+/* CTA Button - Appears on Hover */
 .featured-card__cta {
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
   opacity: 0;
-  transition: opacity 0.4s ease;
-  display: block;
-  margin-top: 1rem;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.1s;
 }
 
 .featured-card:hover .featured-card__cta {
   opacity: 1;
+  transform: translateY(0);
+}
+
+.featured-card__cta::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-card__cta::after {
+  transform: translateX(4px);
 }

@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import FeaturedSafariCard from './FeaturedSafariCard'; // relative path inside same folder
-// import './FeaturedSafarisCarousel.css';
+import FeaturedSafariCard from './FeaturedSafariCard';
+import './FeaturedSafarisCarousel.css';
 
 export default function FeaturedSafarisCarousel() {
   const [safaris, setSafaris] = useState([]);
@@ -22,36 +22,36 @@ export default function FeaturedSafarisCarousel() {
   if (safaris.length === 0) return null;
 
   return (
-    <section className="py-24 bg-[#FAF7F2]">
-      <div className="max-w-7xl mx-auto px-6">
-        <header className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold font-playfair text-[#1a1a1a] mb-4">
+    <section className="featured-safaris">
+      <div className="featured-safaris__container">
+        <header className="featured-safaris__header">
+          <h2 className="featured-safaris__title">
             Curated Safari Journeys
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Handpicked experiences for the discerning traveler
+          <p className="featured-safaris__subtitle">
+            Handpicked experiences for the discerning traveler, designed to immerse you in the untamed beauty of Africa.
           </p>
         </header>
 
-        <div className="relative">
+        <div className="featured-safaris__carousel-wrapper">
           <button
             ref={prevRef}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all"
-            aria-label="Previous"
+            className="featured-safaris__nav-btn featured-safaris__nav-btn--prev"
+            aria-label="Previous slide"
           >
             ←
           </button>
           <button
             ref={nextRef}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all"
-            aria-label="Next"
+            className="featured-safaris__nav-btn featured-safaris__nav-btn--next"
+            aria-label="Next slide"
           >
             →
           </button>
 
           <Swiper
             modules={[Navigation]}
-            spaceBetween={40}
+            spaceBetween={32}
             slidesPerView={1.1}
             centeredSlides={true}
             loop={true}
@@ -61,9 +61,9 @@ export default function FeaturedSafarisCarousel() {
               swiper.params.navigation.nextEl = nextRef.current;
             }}
             breakpoints={{
-              640: { slidesPerView: 1.3 },
-              1024: { slidesPerView: 2.2, spaceBetween: 48 },
-              1280: { slidesPerView: 3, spaceBetween: 64 },
+              640: { slidesPerView: 1.4, spaceBetween: 32 },
+              1024: { slidesPerView: 2.2, spaceBetween: 48, centeredSlides: false },
+              1280: { slidesPerView: 3, spaceBetween: 48, centeredSlides: false },
             }}
             className="featured-safaris-swiper"
           >

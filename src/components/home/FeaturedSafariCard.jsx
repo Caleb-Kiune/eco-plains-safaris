@@ -6,10 +6,11 @@ import './FeaturedSafariCard.css';
 export default function FeaturedSafariCard({ safari }) {
   const formattedPrice = safari.price_adult
     ? new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: safari.currency || 'USD',
-        minimumFractionDigits: 0,
-      }).format(safari.price_adult)
+      style: 'currency',
+      currency: safari.currency || 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(safari.price_adult)
     : 'Rate on request';
 
   return (
@@ -35,13 +36,13 @@ export default function FeaturedSafariCard({ safari }) {
           {safari.destination} • {safari.duration}
         </p>
         <div className="featured-card__price">
-          <span className="featured-card__from">From</span>{' '}
+          <span className="featured-card__from">Starting from</span>
           <span className="featured-card__amount">{formattedPrice}</span>
           {safari.price_note && (
             <span className="featured-card__note">{safari.price_note}</span>
           )}
         </div>
-        <span className="featured-card__cta">Explore Journey →</span>
+        <span className="featured-card__cta">Discover Journey</span>
       </div>
     </Link>
   );

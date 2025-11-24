@@ -1,0 +1,157 @@
+/* src/components/home/FeaturedSafarisCarousel.css */
+
+/* Global Brand Design System Variables - Scoped to component if not global, 
+   but ideally these should be in :root of index.css. 
+   Including here for self-containment as requested. */
+:root {
+    /* Colors - Earthy Luxury */
+    --color-bg: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-light: #444444;
+    --color-border: #E8E8E8;
+    --color-accent-green: #2D5016;
+    /* Deep forest */
+    --color-accent-gold: #D4AF37;
+    /* Warm safari sunset */
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --space-3xl: 96px;
+
+    /* Motion */
+    --transition: all 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-safaris {
+    padding: var(--space-3xl) 0;
+    background-color: #FAF7F2;
+    /* Soft beige/off-white for warmth */
+    overflow: hidden;
+}
+
+.featured-safaris__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* Header Section */
+.featured-safaris__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    position: relative;
+}
+
+.featured-safaris__header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-accent-gold);
+    margin: var(--space-md) auto 0;
+}
+
+.featured-safaris__title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    line-height: 1.1;
+}
+
+.featured-safaris__subtitle {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Carousel Wrapper */
+.featured-safaris__carousel-wrapper {
+    position: relative;
+    padding: 0 var(--space-xl);
+    /* Space for arrows */
+}
+
+/* Navigation Buttons */
+.featured-safaris__nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-heading);
+    /* For the arrow character if text */
+    font-size: 1.5rem;
+}
+
+.featured-safaris__nav-btn:hover {
+    background: var(--color-accent-green);
+    color: #FFFFFF;
+    border-color: var(--color-accent-green);
+    box-shadow: 0 8px 30px rgba(45, 80, 22, 0.2);
+}
+
+.featured-safaris__nav-btn--prev {
+    left: 0;
+}
+
+.featured-safaris__nav-btn--next {
+    right: 0;
+}
+
+/* Swiper Customization */
+.featured-safaris-swiper {
+    padding-bottom: var(--space-xl) !important;
+    /* Space for shadow/overflow */
+    overflow: visible !important;
+    /* Allow cards to pop out */
+}
+
+.swiper-slide {
+    height: auto;
+    transition: opacity 0.4s ease;
+}
+
+.swiper-slide-active {
+    z-index: 2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .featured-safaris__title {
+        font-size: 2.5rem;
+    }
+
+    .featured-safaris__carousel-wrapper {
+        padding: 0;
+    }
+
+    .featured-safaris__nav-btn {
+        display: none;
+        /* Hide custom arrows on mobile/tablet, rely on swipe */
+    }
+}

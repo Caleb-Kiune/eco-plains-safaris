@@ -1,13 +1,13 @@
 // src/components/contact/WorkingHours.jsx
 import { motion } from "framer-motion";
-import "./WorkingHours.css";   
+import "./WorkingHours.css";
 
 export default function WorkingHours() {
   const hours = [
     { day: "Monday – Friday", time: "8:00 AM – 6:00 PM EAT" },
-    { day: "Saturday",         time: "9:00 AM – 4:00 PM EAT" },
-    { day: "Sunday",           time: "10:00 AM – 2:00 PM EAT" },
-    { day: "Public Holidays",  time: "10:00 AM – 2:00 PM EAT" },
+    { day: "Saturday", time: "9:00 AM – 4:00 PM EAT" },
+    { day: "Sunday", time: "10:00 AM – 2:00 PM EAT" },
+    { day: "Public Holidays", time: "10:00 AM – 2:00 PM EAT" },
   ];
 
   return (

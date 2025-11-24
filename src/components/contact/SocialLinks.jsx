@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import "./SocialLinks.css";
 
-import { Instagram, Facebook, Linkedin } from "lucide-react"; // npm install lucide-react
+import { Instagram, Facebook, Linkedin } from "lucide-react";
 
 export default function SocialLinks() {
   const socials = [
@@ -48,10 +48,9 @@ export default function SocialLinks() {
             rel="noopener noreferrer"
             className="social-link"
             aria-label={social.label}
-            whileHover={{ y: -6, scale: 1.1 }}
+            whileHover={{ y: -4 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            style={{ animationDelay: `${index * 0.1}s` }}
+            transition={{ duration: 0.3 }}
           >
             <span className="social-icon-wrapper">
               {social.icon}

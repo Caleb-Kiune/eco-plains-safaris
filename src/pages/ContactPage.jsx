@@ -1,6 +1,7 @@
 // src/pages/ContactPage.jsx
-import "./ContactPage.css";
+import React from 'react';
 import { motion } from "framer-motion";
+import "./ContactPage.css";
 
 // Real components only — no placeholders, no duplicates
 import ContactForm from "../components/contact/ContactForm";
@@ -16,13 +17,13 @@ export default function ContactPage() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
           className="contact-header"
         >
-          <h1 className="contact-title">Get in Touch</h1>
+          <h1 className="contact-title">Start Your Journey</h1>
           <p className="contact-subtitle">
             We craft bespoke Kenyan safari experiences with care and authenticity.
             Reach out — we reply within hours.
@@ -35,8 +36,8 @@ export default function ContactPage() {
           {/* LEFT COLUMN */}
           <div className="contact-left">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
@@ -44,8 +45,8 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
@@ -56,8 +57,8 @@ export default function ContactPage() {
           {/* RIGHT COLUMN */}
           <div className="contact-right">
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >

@@ -68,7 +68,7 @@ export default function ContactForm() {
       <div className="success-message">
         <h3>Thank You for Reaching Out!</h3>
         <p>Your message has been sent. We'll craft your dream safari and reply within 24 hours.</p>
-        <button 
+        <button
           onClick={() => setIsSubmitted(false)}
           className="form-button secondary"
           type="button"
@@ -179,8 +179,8 @@ export default function ContactForm() {
       </div>
 
       {/* Submit Button */}
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         className="form-button"
         disabled={isLoading}
         aria-label={isLoading ? "Submitting..." : "Submit inquiry"}

@@ -2,34 +2,40 @@
 
 .map-embed {
   background: #FFFFFF;
-  border-radius: 16px;
+  border-radius: 2px;
   overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
 }
 
 .map-embed:hover {
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-accent-gold);
   transform: translateY(-4px);
 }
 
 .map-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 1.65rem;
-  color: #2E4F3D;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.75rem;
+  color: var(--color-accent-green);
   text-align: center;
-  padding: 1.8rem 1.5rem 1rem;
+  padding: var(--space-lg) var(--space-md) var(--space-sm);
   margin: 0;
   background: #FFFFFF;
+  letter-spacing: -0.01em;
 }
 
 .map-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .map-container iframe {
@@ -39,28 +45,37 @@
   width: 100%;
   height: 100%;
   border: none;
+  filter: grayscale(20%) contrast(1.1);
+  /* Cinematic look */
+  transition: filter 0.5s ease;
+}
+
+.map-embed:hover .map-container iframe {
+  filter: grayscale(0%) contrast(1);
 }
 
 .map-footer {
-  padding: 1.2rem;
+  padding: var(--space-md);
   text-align: center;
   background: #FFFFFF;
 }
 
 .map-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #2E4F3D;
+  color: var(--color-text);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   padding-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .map-link:hover {
-  color: #A78966;
-  border-bottom-color: #A78966;
+  color: var(--color-accent-gold);
+  border-bottom-color: var(--color-accent-gold);
 }
 
 /* Mobile-first adjustments */
@@ -69,7 +84,7 @@
     font-size: 1.5rem;
     padding: 1.5rem 1rem 0.8rem;
   }
-  
+
   .map-footer {
     padding: 1rem;
   }

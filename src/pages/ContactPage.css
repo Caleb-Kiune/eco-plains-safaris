@@ -1,47 +1,82 @@
-/* src/pages/ContactPage.css – Only page layout & grid */
+/* src/pages/ContactPage.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Global Brand Design System Variables */
+:root {
+  /* Colors - Earthy Luxury */
+  --color-bg: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-light: #444444;
+  --color-border: #E8E8E8;
+  --color-accent-green: #2D5016;
+  /* Deep forest */
+  --color-accent-gold: #D4AF37;
+  /* Warm safari sunset */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* Motion */
+  --transition: all 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .contact-page {
-  font-family: 'Inter', sans-serif;
-  background: #F3E9DD;
+  font-family: var(--font-body);
+  background: #FAF7F2;
+  /* Warm, earthy off-white */
   min-height: 100vh;
-  padding: 120px 0 140px;
-  color: #2E4F3D;
+  padding: 140px 0 120px;
+  color: var(--color-text);
 }
 
 .contact-container {
-  max-width: 1280px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 5%;
 }
 
 /* Header */
 .contact-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: var(--space-3xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-title {
-  font-size: 3.8rem;
-  font-weight: 700;
-  color: #2E4F3D;
-  margin-bottom: 16px;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--color-accent-green);
+  margin: 0 0 var(--space-md);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .contact-subtitle {
-  font-size: 1.3rem;
-  max-width: 720px;
-  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: var(--color-text-light);
   line-height: 1.7;
-  color: #555;
+  margin: 0 auto;
 }
 
 /* Grid Layout */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-3xl);
   align-items: start;
 }
 
@@ -49,25 +84,29 @@
 .contact-right {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-xl);
 }
 
 .contact-right-bottom {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-xl);
 }
 
 /* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: var(--space-2xl);
   }
-  .contact-title { font-size: 3.2rem; }
 }
 
-@media (max-width: 640px) {
-  .contact-page { padding: 80px 0; }
-  .contact-title { font-size: 2.8rem; }
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 100px 0 80px;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
 }

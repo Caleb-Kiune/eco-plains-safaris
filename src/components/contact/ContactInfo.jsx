@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import "./ContactInfo.css";
 
-import { Phone, Mail, MapPin } from "lucide-react"; // Optional: npm install lucide-react
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function ContactInfo() {
   const contactItems = [
@@ -47,8 +47,8 @@ export default function ContactInfo() {
           <motion.li
             key={index}
             className="info-item"
-            whileHover={{ x: 6 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.3 }}
           >
             <div className="info-icon-wrapper">
               {item.icon}

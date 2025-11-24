@@ -1,22 +1,11 @@
 /* src/components/about/MeetTheTeam.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
 
-/* Color Palette */
-:root {
-  --color-bg: #efe6dc;
-  --color-olive: #2d3b2b;
-  --color-gold: #c19a6b;
-  --color-text: #222222;
-  --color-muted: #6b6b6b;
-}
-
-/* Main Section */
 .meet-team {
-  background: var(--color-bg);
-  padding: 140px 5% 120px;
+  background: #FAF7F2;
+  padding: var(--space-3xl) 5%;
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .meet-team.visible {
@@ -24,7 +13,6 @@
   transform: translateY(0);
 }
 
-/* Container */
 .meet-team__container {
   max-width: 1300px;
   margin: 0 auto;
@@ -33,199 +21,134 @@
 
 /* Headline */
 .meet-team__headline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 6vw, 3.8rem);
-  font-weight: 700;
-  color: var(--color-olive);
-  margin: 0 0 1.5rem;
-  letter-spacing: -0.03em;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--color-accent-green);
+  margin: 0 0 var(--space-sm);
+  letter-spacing: -0.01em;
 }
 
 /* Subheadline */
 .meet-team__subheadline {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   font-weight: 300;
-  color: var(--color-muted);
-  max-width: 800px;
-  margin: 0 auto 4.5rem;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto var(--space-3xl);
   line-height: 1.6;
 }
 
 /* Grid Layout */
 .meet-team__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
 }
 
 /* Individual Card */
 .meet-team__card {
-  background: white;
-  border-radius: 0;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s ease;
+  transition: var(--transition);
   cursor: default;
-  outline: none;
-}
-
-.meet-team__card:focus-visible {
-  outline: 3px solid var(--color-gold);
-  outline-offset: 4px;
+  position: relative;
+  text-align: left;
 }
 
 .meet-team__card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-accent-gold);
 }
 
 /* Portrait Wrapper */
 .meet-team__portrait-wrapper {
   position: relative;
   overflow: hidden;
-  height: 280px;
+  height: 400px;
 }
 
 .meet-team__portrait {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: grayscale(20%);
 }
 
 .meet-team__card:hover .meet-team__portrait {
-  transform: scale(1.08);
-}
-
-/* Subtle Overlay on Portrait */
-.meet-team__portrait-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 60%, rgba(45, 59, 43, 0.4));
-  transition: background 0.4s ease;
-}
-
-.meet-team__card:hover .meet-team__portrait-overlay {
-  background: linear-gradient(to bottom, transparent 60%, rgba(45, 59, 43, 0.55));
+  transform: scale(1.05);
+  filter: grayscale(0%);
 }
 
 /* Content */
 .meet-team__content {
-  padding: 2rem 1.8rem 2.5rem;
-  text-align: center;
+  padding: var(--space-lg);
+  position: relative;
 }
 
 /* Name */
 .meet-team__name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--color-olive);
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
 }
 
 /* Role */
 .meet-team__role {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-gold);
-  margin: 0 0 1rem;
+  color: var(--color-accent-gold);
+  margin: 0 0 var(--space-md);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 /* Bio */
 .meet-team__bio {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 300;
-  color: var(--color-text);
-  line-height: 1.6;
+  color: var(--color-text-light);
+  line-height: 1.7;
   margin: 0;
-}
-
-/* Gold Accent Line */
-.meet-team__accent {
-  height: 3px;
-  background: var(--color-gold);
-  width: 0;
-  margin: 1.5rem auto 0;
-  transition: width 0.4s ease;
-}
-
-.meet-team__card:hover .meet-team__accent {
-  width: 50px;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
   .meet-team__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-  }
-
-  .meet-team {
-    padding: 110px 5% 100px;
+    gap: var(--space-lg);
   }
 }
 
 @media (max-width: 768px) {
+  .meet-team {
+    padding: var(--space-2xl) 5%;
+  }
+
+  .meet-team__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
   .meet-team__headline {
-    font-size: 2.8rem;
+    font-size: 2.25rem;
   }
 
   .meet-team__subheadline {
-    font-size: 1.1rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .meet-team__name {
-    font-size: 1.5rem;
-  }
-
-  .meet-team__role {
     font-size: 1rem;
-  }
-
-  .meet-team__bio {
-    font-size: 0.98rem;
-  }
-
-  .meet-team__content {
-    padding: 1.8rem 1.5rem 2.2rem;
-  }
-
-  .meet-team {
-    padding: 90px 5% 80px;
-  }
-}
-
-@media (max-width: 480px) {
-  .meet-team__grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .meet-team__name {
-    font-size: 1.45rem;
+    margin-bottom: var(--space-xl);
   }
 
   .meet-team__portrait-wrapper {
-    height: 240px;
-  }
-}
-
-/* Respect Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .meet-team,
-  .meet-team__card,
-  .meet-team__portrait {
-    transition: none;
+    height: 350px;
   }
 }

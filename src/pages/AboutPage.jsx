@@ -3,8 +3,8 @@ import React from 'react';
 import AboutHero from '../components/about/AboutHero';
 import VisionMission from '../components/about/VisionMission';
 import OurStory from '../components/about/OurStory';
-import './AboutPage.css';
 import MeetTheTeam from '../components/about/MeetTheTeam';
+import './AboutPage.css';
 
 export default function AboutPage() {
   return (
@@ -13,8 +13,6 @@ export default function AboutPage() {
       <VisionMission />
       <OurStory />
       <MeetTheTeam />
-
-    
     </main>
   );
 }

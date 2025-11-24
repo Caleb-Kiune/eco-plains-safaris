@@ -28,19 +28,19 @@ export default function MeetTheTeam() {
 
   const team = [
     {
-      name: 'Director',
+      name: 'Dr. Amina Kiptoo',
       role: 'Founder & Conservation Director',
       bio: 'An ecologist with a PhD in wildlife conservation, Amina blends scientific rigor with cultural wisdom to protect Africa’s wild heart.',
       alt: 'Director, Founder of Eco Plains Safaris'
     },
     {
-      name: 'Team Leader',
+      name: 'Lekan Ole Sere',
       role: 'Head Guide & Storyteller',
-      bio: 'Third-generation Maasai tracker with 25 years in the Mara. she brings ancient stories to life under starlit skies.',
+      bio: 'Third-generation Maasai tracker with 25 years in the Mara. He brings ancient stories to life under starlit skies.',
       alt: 'Team Leader, Head Guide at Eco Plains Safaris'
     },
     {
-      name: 'Team Member',
+      name: 'Sarah Dubois',
       role: 'Experience Curator',
       bio: 'From Paris luxury to African wilderness, she designs flawless, soul-stirring journeys for the discerning traveler.',
       alt: 'Team member, Experience Curator at Eco Plains Safaris'
@@ -76,11 +76,11 @@ export default function MeetTheTeam() {
               {/* Portrait */}
               <div className="meet-team__portrait-wrapper">
                 <img
-                  src="/kenya-destination-image.jpg"
+                  src="/images/kenya-destination-image.jpg"
                   alt={member.alt}
                   className="meet-team__portrait"
+                  loading="lazy"
                 />
-                <div className="meet-team__portrait-overlay"></div>
               </div>
 
               {/* Content */}
@@ -89,9 +89,6 @@ export default function MeetTheTeam() {
                 <p className="meet-team__role">{member.role}</p>
                 <p className="meet-team__bio">{member.bio}</p>
               </div>
-
-              {/* Gold Accent Line */}
-              <div className="meet-team__accent"></div>
             </article>
           ))}
         </div>

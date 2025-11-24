@@ -42,9 +42,10 @@ export default function VisionMission() {
         <div className="vision-mission__row vision-mission__row--vision">
           <div className="vision-mission__image-wrapper">
             <img
-              src="/kenya-destination-image.jpg"
+              src="/images/kenya-destination-image.jpg"
               alt="Kenya wilderness landscape"
               className="vision-mission__image"
+              loading="lazy"
             />
           </div>
           <div className="vision-mission__content">
@@ -71,9 +72,10 @@ export default function VisionMission() {
           </div>
           <div className="vision-mission__image-wrapper">
             <img
-              src="/kenya-destination-image.jpg"
+              src="/images/kenya-destination-image.jpg"
               alt="Kenya wilderness landscape"
               className="vision-mission__image"
+              loading="lazy"
             />
           </div>
         </div>

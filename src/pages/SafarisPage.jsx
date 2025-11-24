@@ -14,89 +14,74 @@ export default function SafarisPage() {
   const [loading, setLoading] = useState(true);
 
   const [filters, setFilters] = useState({
-    country: "",
+    destination: "",
+    category: "",
     duration: "",
     priceRange: [0, 20000],
-    experience: "",
   });
 
-  // Read the URL query "?country=Kenya"
   const [searchParams] = useSearchParams();
-  const urlCountry = searchParams.get("country");
+  const urlDestination = searchParams.get("destination");
 
-  // Load safaris data
   useEffect(() => {
-    const loadSafaris = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch("/data/safaris.json");
-        const data = await res.json();
-        setSafaris(data);
-      } catch (err) {
-        console.error("Failed to load safaris:", err);
-      } finally {
+    fetch("/data/safaris.json")
+      .then(r => r.json())
+      .then(data => {
+        setSafaris(data.tours || []);
         setLoading(false);
-      }
-    };
-    loadSafaris();
+      })
+      .catch(err => {
+        console.error("Failed to load safaris:", err);
+        setLoading(false);
+      });
   }, []);
 
-  // Apply URL filter after safaris load
+  // Apply URL filter
   useEffect(() => {
-    if (!safaris.length) return;
-
-    if (urlCountry) {
-      setFilters((prev) => ({
-        ...prev,
-        country: urlCountry,
-      }));
+    if (urlDestination && safaris.length > 0) {
+      setFilters(prev => ({ ...prev, destination: urlDestination }));
     }
-  }, [safaris, urlCountry]);
+  }, [urlDestination, safaris]);
 
-  // Popular destinations
-  const popularDestinations = useMemo(() => {
-    if (!safaris.length) return [];
+  // Helper: extract number from duration string
+  const getDurationDays = (duration) => {
+    const match = duration.match(/\d+/);
+    return match ? parseInt(match[0]) : 0;
+  };
 
-    return safaris
-      .filter((s) => s.image || s.images?.[0])
-      .slice(0, 6)
-      .map((s) => ({
-        id: s.id,
-        title: s.title || s.name,
-        image: s.image || s.images?.[0],
-        link: s.link || `/safaris/${s.slug || s.id}`,
-      }));
-  }, [safaris]);
-
-  // Main filtering logic
   const filteredSafaris = useMemo(() => {
-    return safaris.filter((safari) => {
-      const matchesCountry =
-        !filters.country || safari.country?.includes(filters.country);
+    return safaris.filter(safari => {
+      const matchesDestination = !filters.destination || 
+        safari.destination.includes(filters.destination);
 
-      const matchesDuration =
-        !filters.duration ||
-        safari.durationDays <= parseInt(filters.duration);
+      const matchesCategory = !filters.category || 
+        safari.category === filters.category;
 
-      const matchesPrice =
-        safari.price >= filters.priceRange[0] &&
-        safari.price <= filters.priceRange[1];
+      const matchesDuration = !filters.duration || 
+        getDurationDays(safari.duration) <= parseInt(filters.duration);
 
-      const matchesExperience =
-        !filters.experience ||
-        safari.experiences?.includes(filters.experience);
+      const matchesPrice = safari.price_adult && 
+        safari.price_adult >= filters.priceRange[0] && 
+        safari.price_adult <= filters.priceRange[1];
 
-      return (
-        matchesCountry &&
-        matchesDuration &&
-        matchesPrice &&
-        matchesExperience
-      );
+      return matchesDestination && matchesCategory && matchesDuration && matchesPrice;
     });
   }, [safaris, filters]);
 
+  const popularDestinations = useMemo(() => {
+    return safaris
+      .filter(s => s.featured && s.primaryImage)
+      .slice(0, 6)
+      .map(s => ({
+        id: s.id,
+        title: s.title,
+        image: s.primaryImage,
+        link: `/safaris/${s.slug}`,
+      }));
+  }, [safaris]);
+
   if (loading) {
-    return <div className="loading">Curating exceptional safaris...</div>;
+    return <div className="loading py-32 text-center text-2xl">Curating exceptional safaris...</div>;
   }
 
   return (

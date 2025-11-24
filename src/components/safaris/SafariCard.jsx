@@ -4,26 +4,31 @@ import { Link } from 'react-router-dom';
 import './SafariCard.css';
 
 const SafariCard = ({ safari, animationDelay }) => {
-  // Extract slug from safari.link → "/safaris/great-migration" → "great-migration"
-  const slug = safari.link.replace('/safaris/', '');
+  const price = safari.price_adult
+    ? new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: safari.currency || 'USD',
+        minimumFractionDigits: 0,
+      }).format(safari.price_adult)
+    : 'Rate on request';
 
   return (
     <article className="safari-card" style={{ animationDelay }}>
       <Link
-        to={`/safaris/${slug}`}
+        to={`/safaris/${safari.slug}`}
         className="safari-card__link"
-        aria-label={`View details for ${safari.title} in ${safari.location}`}
+        aria-label={`View details for ${safari.title}`}
       >
         <div className="safari-card__image-wrapper">
           <img
-            src={safari.image}
-            alt={`${safari.title} in ${safari.location}`}
+            src={safari.primaryImage}
+            alt={safari.title}
             className="safari-card__image"
             loading="lazy"
           />
           <div className="safari-card__overlay">
             <h3 className="safari-card__title">{safari.title}</h3>
-            <p className="safari-card__location">{safari.location}</p>
+            <p className="safari-card__location">{safari.destination}</p>
           </div>
         </div>
 
@@ -31,13 +36,14 @@ const SafariCard = ({ safari, animationDelay }) => {
           <div className="safari-card__details">
             <span className="safari-card__duration">{safari.duration}</span>
             <span className="safari-card__price">
-              From <strong>${safari.price.toLocaleString()}</strong> pp
+              From <strong>{price}</strong>
+              {safari.price_note && <span className="text-sm block opacity-80">{safari.price_note}</span>}
             </span>
           </div>
 
           <button
             className="safari-card__button"
-            onClick={(e) => e.stopPropagation()} // Prevents double navigation
+            onClick={(e) => e.stopPropagation()}
           >
             View Details
             <span className="safari-card__button-arrow">→</span>

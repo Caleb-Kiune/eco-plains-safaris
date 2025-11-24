@@ -1,0 +1,32 @@
+/* src/pages/SafariDetailsPage.css */
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.text-gold {
+  color: #C8A36A;
+}
+
+.bg-gold {
+  background-color: #C8A36A;
+}
+
+.bg-gold:hover {
+  background-color: #d4af37;
+}
+
+/* Optional: smooth scroll & selection color for luxury feel */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #C8A36A;
+  color: #000;
+}

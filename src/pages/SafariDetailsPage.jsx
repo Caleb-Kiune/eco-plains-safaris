@@ -1,88 +1,84 @@
 // src/pages/SafariDetailsPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import SafariHero from '../components/safaris/details/SafariHero';
-// import './SafariDetailsPage.css'; 
+import './SafariDetailsPage.css';
 
 export default function SafariDetailsPage() {
   const { slug } = useParams();
   const [safari, setSafari] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/data/safaris.json')
-      .then(res => res.json())
+      .then(r => r.json())
       .then(data => {
-        const found = data.find(s => 
-          s.link && s.link.replace('/safaris/', '') === slug
-        );
+        const found = data.tours.find(t => t.slug === slug);
         setSafari(found);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to load safari:', err);
-        setLoading(false);
+        if (found) document.title = `${found.title} | Eco Plains Safaris`;
       });
   }, [slug]);
 
-  if (loading) {
-    return (
-      <div style={{ padding: '6rem 2rem', textAlign: 'center', fontSize: '1.4rem' }}>
-        Loading your safari...
-      </div>
-    );
-  }
+  if (!safari) return <div className="py-32 text-center text-2xl">Loading your journey...</div>;
 
-  if (!safari) {
-    return (
-      <div style={{ padding: '6rem 2rem', textAlign: 'center' }}>
-        <h1>Safari not found</h1>
-        <Link to="/safaris" style={{ color: '#C8A36A', textDecoration: 'none', fontWeight: '600' }}>
-          ← Back to All Safaris
-        </Link>
-      </div>
-    );
-  }
+  const price = safari.price_adult
+    ? new Intl.NumberFormat('en-US', { style: 'currency', currency: safari.currency || 'USD' }).format(safari.price_adult)
+    : 'Rate on request';
 
   return (
     <>
-      {/* Back link */}
-      <div style={{ padding: '2rem', maxWidth: '1400px', margin: '0 auto' }}>
-        <Link 
-          to="/safaris"
-          style={{
-            color: '#C8A36A',
-            textDecoration: 'none',
-            fontSize: '1.1rem',
-            fontWeight: '500',
-            display: 'inline-block',
-            padding: '0.5rem 0'
-          }}
-        >
-          ← All Safaris
-        </Link>
+      {/* Hero */}
+      <section className="relative h-screen min-h-[600px]">
+        <img src={safari.primaryImage} alt={safari.title} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
+          <div className="max-w-7xl mx-auto">
+            <Link to="/" className="inline-block mb-6 text-white/80 hover:text-white transition text-lg">
+              ← All Journeys
+            </Link>
+            <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-4">{safari.title}</h1>
+            <p className="text-2xl mb-6 opacity-90">{safari.destination} • {safari.duration}</p>
+            <div className="text-4xl md:text-5xl font-light">
+              From <span className="font-bold text-gold">{price}</span>
+              {safari.price_note && <span className="block text-lg mt-2 opacity-80">{safari.price_note}</span>}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky Booking Bar */}
+      <div className="sticky top-0 z-50 bg-white shadow-2xl py-5 hidden md:block">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div>
+            <span className="text-3xl font-bold text-gold">{price}</span>
+            <span className="ml-6 text-gray-600 text-lg">{safari.price_note}</span>
+          </div>
+          <button className="bg-gold hover:bg-amber-600 text-black font-semibold px-12 py-5 rounded-full text-xl transition shadow-lg">
+            Secure Your Journey
+          </button>
+        </div>
       </div>
 
-      {/* Luxury Hero */}
-      <SafariHero safari={safari} />
-
-      {/* Placeholder for full content — you’ll add gallery, highlights, etc. */}
-      <section style={{ padding: '6rem 2rem', background: '#FAF7F2', textAlign: 'center' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: '3.8rem', color: '#1a1a1a', marginBottom: '1rem' }}>
-            {safari.title}
-          </h1>
-          <p style={{ fontSize: '1.6rem', color: '#666', marginBottom: '2rem' }}>
-            {safari.location}
-          </p>
-          <p style={{ fontSize: '2.2rem', color: '#C8A36A', fontWeight: '700' }}>
-            From ${safari.price.toLocaleString()} per person
-          </p>
-          {safari.description && (
-            <p style={{ marginTop: '3rem', fontSize: '1.2rem', lineHeight: '1.9', color: '#555' }}>
-              {safari.description}
+      {/* Content */}
+      <section className="py-24 bg-[#FAF7F2]">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-5xl font-playfair mb-10">An Unforgettable Journey</h2>
+            <p className="text-lg leading-relaxed text-gray-700 mb-12">
+              Immerse yourself in the raw beauty of {safari.destination}. From sunrise game drives to champagne sunsets, every moment is crafted for wonder.
             </p>
-          )}
+            <div className="space-y-6">
+              {safari.inclusions.slice(0, 6).map((inc, i) => (
+                <div key={i} className="flex items-start">
+                  <span className="text-gold text-3xl mr-5">✓</span>
+                  <span className="text-lg text-gray-700">{inc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {safari.secondaryImages.map((img, i) => (
+              <img key={i} src={img} alt="" className="w-full h-64 object-cover rounded-xl shadow-md" />
+            ))}
+          </div>
         </div>
       </section>
     </>

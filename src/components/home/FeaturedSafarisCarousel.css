@@ -30,15 +30,15 @@
 .featured-safaris {
     padding: var(--space-3xl) 0;
     background-color: #FAF7F2;
-    /* Warm, earthy off-white */
     overflow: hidden;
 }
 
+/* Container — Centers everything and adds luxury side breathing */
 .featured-safaris__container {
-    max-width: 1600px;
-    /* Wider for cinematic feel */
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 var(--space-md);
+    padding: 0 min(5vw, 6rem);
+    /* Premium breathing room — never less than 5vw, caps at 6rem */
 }
 
 /* Header Section */
@@ -68,11 +68,10 @@
     font-weight: 300;
 }
 
-/* Carousel Wrapper - Premium Spacing */
+/* Carousel Wrapper */
 .featured-safaris__carousel-wrapper {
     position: relative;
-    padding: 0 max(5vw, 2rem);
-    /* Never less than 2rem, scales to 5vw on larger screens */
+    margin-top: var(--space-xl);
 }
 
 /* Navigation Buttons - Minimal & Elegant */
@@ -92,19 +91,17 @@
     justify-content: center;
     cursor: pointer;
     opacity: 0.5;
-    /* Subtle by default - luxury standard */
     transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     font-family: var(--font-body);
     font-size: 1.2rem;
 }
 
-.featured-safaris__nav-btn:hover {
+.featured-safaris__nav-btn:hover:not(:disabled) {
     background: var(--color-accent-green);
     border-color: var(--color-accent-green);
     color: #FFFFFF;
     opacity: 1;
     transform: translateY(-50%) scale(1.05);
-    /* Reduced from 1.1 for subtlety */
 }
 
 .featured-safaris__nav-btn--disabled {
@@ -114,24 +111,44 @@
 }
 
 .featured-safaris__nav-btn--prev {
-    left: 0;
+    left: -28px;
+    /* Outside the viewport */
 }
 
 .featured-safaris__nav-btn--next {
-    right: 0;
+    right: -28px;
 }
 
-/* Swiper Customization */
-.featured-safaris-swiper {
-    padding-bottom: var(--space-2xl) !important;
-    /* More space for pagination */
-    overflow: visible !important;
-    margin: 0 auto;
-    max-width: 100%;
+/* Viewport — Clips overflow to hide partial cards */
+.featured-safaris__viewport {
+    overflow: hidden;
+    /* ← Nuclear option: clips anything outside */
 }
 
-.swiper-slide {
-    height: auto;
+/* Track — Flex container with exact width calculations */
+.featured-safaris__track {
+    display: flex;
+    gap: 2rem;
+    /* 32px between cards on desktop */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Buttery smooth luxury transition */
+}
+
+/* Each slide wrapper */
+.featured-safaris__slide {
+    flex: 0 0 calc((100% - 4rem) / 3);
+    /* 3 cards, 2 gaps of 2rem each = 4rem total */
+    max-width: calc((100% - 4rem) / 3);
+    /* Ensures cards never exceed calculated width */
+}
+
+/* Pagination */
+.featured-safaris__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-top: 2.5rem;
 }
 
 /* Elegant Pagination Dots */
@@ -141,8 +158,10 @@
     background: var(--color-text);
     opacity: 0.3;
     border-radius: 50%;
+    border: none;
+    padding: 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 0 6px !important;
+    margin: 0 6px;
     cursor: pointer;
 }
 
@@ -157,28 +176,41 @@
     background: var(--color-accent-green);
 }
 
-.swiper-pagination {
-    margin-top: 2rem !important;
-    position: relative !important;
-    bottom: 0 !important;
-}
-
-/* Responsive Adjustments */
+/* Tablet Responsive (2 cards) */
 @media (max-width: 1023px) {
-    .featured-safaris__carousel-wrapper {
+    .featured-safaris__container {
         padding: 0 1.5rem;
-        /* Consistent tablet padding */
+    }
+
+    .featured-safaris__track {
+        gap: 1.5rem;
+        /* Reduced gap for tablet */
+    }
+
+    .featured-safaris__slide {
+        flex: 0 0 calc(50% - 0.75rem);
+        /* 2 cards, 1 gap of 1.5rem = 0.75rem per card */
+        max-width: calc(50% - 0.75rem);
     }
 
     .featured-safaris__nav-btn {
         display: none;
-        /* Hide custom arrows on mobile/tablet */
     }
 }
 
+/* Mobile Responsive (1 card) */
 @media (max-width: 767px) {
-    .featured-safaris__carousel-wrapper {
+    .featured-safaris__container {
         padding: 0 1.5rem;
-        /* Mobile padding */
+    }
+
+    .featured-safaris__track {
+        gap: 1rem;
+    }
+
+    .featured-safaris__slide {
+        flex: 0 0 100%;
+        /* Single card takes full width */
+        max-width: 100%;
     }
 }

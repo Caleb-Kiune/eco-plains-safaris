@@ -29,22 +29,22 @@
   display: block;
   position: relative;
   height: auto;
-  /* Let aspect ratio dictate height */
-  max-height: 520px;
-  /* Safety cap for desktop - luxury standard */
+  max-height: 510px;
+  /* Exact luxury height — 480-510px range */
   overflow: hidden;
   text-decoration: none;
   color: #FFFFFF;
   background: #000;
   isolation: isolate;
-  transition: box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   border-radius: 2px;
-  /* Subtle, refined edge */
 }
 
 .featured-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  /* Lifted shadow for premium feel */
+  transform: translateY(-4px);
+  /* Subtle lift — expensive feel */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  /* Enhanced shadow on lift */
 }
 
 /* Image Wrapper - 4:5 Portrait Aspect Ratio */

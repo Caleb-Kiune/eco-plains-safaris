@@ -1,17 +1,12 @@
 // src/components/home/FeaturedSafarisCarousel.jsx
-import React, { useState, useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Keyboard, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React, { useState, useEffect } from 'react';
 import FeaturedSafariCard from './FeaturedSafariCard';
 import './FeaturedSafarisCarousel.css';
 
 export default function FeaturedSafarisCarousel() {
   const [safaris, setSafaris] = useState([]);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(3);
 
   useEffect(() => {
     fetch('/data/safaris.json')
@@ -20,7 +15,64 @@ export default function FeaturedSafarisCarousel() {
       .catch(() => setSafaris([]));
   }, []);
 
+  // Responsive slides per view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (safaris.length === 0) return null;
+
+  const maxIndex = Math.max(0, safaris.length - slidesPerView);
+  const canGoPrev = currentIndex > 0;
+  const canGoNext = currentIndex < maxIndex;
+
+  const handlePrev = () => {
+    if (canGoPrev) {
+      setCurrentIndex(prev => prev - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (canGoNext) {
+      setCurrentIndex(prev => prev + 1);
+    }
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(Math.min(index, maxIndex));
+  };
+
+  // Calculate transform based on current index
+  const getTransform = () => {
+    if (slidesPerView === 1) {
+      // Mobile: 100% width + 1rem gap
+      return `translateX(-${currentIndex * 100}%)`;
+    } else if (slidesPerView === 2) {
+      // Tablet: calc(50% - 0.75rem) width + 1.5rem gap
+      // Each slide moves by 50% + half gap (0.75rem)
+      return `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 0.75}rem))`;
+    } else {
+      // Desktop: calc((100% - 4rem) / 3) width + 2rem gap
+      // Each slide moves by 33.333% + (2rem * index / 3)
+      return `translateX(calc(-${currentIndex * 33.333}% - ${currentIndex * 2}rem))`;
+    }
+  };
+
+  // Generate dots for pagination
+  const totalDots = maxIndex + 1;
+  const dots = Array.from({ length: totalDots }, (_, i) => i);
 
   return (
     <section className="featured-safaris">
@@ -36,73 +88,48 @@ export default function FeaturedSafarisCarousel() {
 
         <div className="featured-safaris__carousel-wrapper">
           <button
-            ref={prevRef}
-            className="featured-safaris__nav-btn featured-safaris__nav-btn--prev"
+            className={`featured-safaris__nav-btn featured-safaris__nav-btn--prev ${!canGoPrev ? 'featured-safaris__nav-btn--disabled' : ''}`}
+            onClick={handlePrev}
+            disabled={!canGoPrev}
             aria-label="Previous safari"
           >
             ←
           </button>
           <button
-            ref={nextRef}
-            className="featured-safaris__nav-btn featured-safaris__nav-btn--next"
+            className={`featured-safaris__nav-btn featured-safaris__nav-btn--next ${!canGoNext ? 'featured-safaris__nav-btn--disabled' : ''}`}
+            onClick={handleNext}
+            disabled={!canGoNext}
             aria-label="Next safari"
           >
             →
           </button>
 
-          <Swiper
-            modules={[Navigation, Pagination, Keyboard, A11y]}
-            spaceBetween={16}
-            slidesPerView={1}
-            centeredSlides={false}
-            loop={false}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-              disabledClass: 'featured-safaris__nav-btn--disabled'
-            }}
-            pagination={{
-              clickable: true,
-              bulletClass: 'featured-safaris-bullet',
-              bulletActiveClass: 'featured-safaris-bullet-active'
-            }}
-            keyboard={{
-              enabled: true,
-              onlyInViewport: true
-            }}
-            a11y={{
-              enabled: true,
-              prevSlideMessage: 'Previous safari',
-              nextSlideMessage: 'Next safari',
-              firstSlideMessage: 'This is the first safari',
-              lastSlideMessage: 'This is the last safari'
-            }}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 24
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 32
-              },
-              1280: {
-                slidesPerView: 3,
-                spaceBetween: 32
-              }
-            }}
-            className="featured-safaris-swiper"
-          >
-            {safaris.map((safari, index) => (
-              <SwiperSlide key={safari.id}>
-                <FeaturedSafariCard safari={safari} index={index} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="featured-safaris__viewport">
+            <div
+              className="featured-safaris__track"
+              style={{ transform: getTransform() }}
+            >
+              {safaris.map((safari, index) => (
+                <div key={safari.id} className="featured-safaris__slide">
+                  <FeaturedSafariCard safari={safari} index={index} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          {totalDots > 1 && (
+            <div className="featured-safaris__pagination">
+              {dots.map((dot) => (
+                <button
+                  key={dot}
+                  className={`featured-safaris-bullet ${dot === currentIndex ? 'featured-safaris-bullet-active' : ''}`}
+                  onClick={() => handleDotClick(dot)}
+                  aria-label={`Go to slide ${dot + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

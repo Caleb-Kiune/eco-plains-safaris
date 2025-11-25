@@ -1,6 +1,7 @@
 // src/pages/SafarisPage.jsx
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 import HeroSection from "../components/safaris/HeroSection";
 import FilterBar from "../components/safaris/FilterBar";
@@ -51,17 +52,17 @@ export default function SafarisPage() {
 
   const filteredSafaris = useMemo(() => {
     return safaris.filter(safari => {
-      const matchesDestination = !filters.destination || 
+      const matchesDestination = !filters.destination ||
         safari.destination.includes(filters.destination);
 
-      const matchesCategory = !filters.category || 
+      const matchesCategory = !filters.category ||
         safari.category === filters.category;
 
-      const matchesDuration = !filters.duration || 
+      const matchesDuration = !filters.duration ||
         getDurationDays(safari.duration) <= parseInt(filters.duration);
 
-      const matchesPrice = safari.price_adult && 
-        safari.price_adult >= filters.priceRange[0] && 
+      const matchesPrice = safari.price_adult &&
+        safari.price_adult >= filters.priceRange[0] &&
         safari.price_adult <= filters.priceRange[1];
 
       return matchesDestination && matchesCategory && matchesDuration && matchesPrice;
@@ -81,17 +82,39 @@ export default function SafarisPage() {
   }, [safaris]);
 
   if (loading) {
-    return <div className="loading py-32 text-center text-2xl">Curating exceptional safaris...</div>;
+    return (
+      <>
+        <Helmet>
+          <title>All Safaris - Eco Plains Safaris</title>
+          <meta name="description" content="Explore our curated collection of luxury safari experiences across East Africa. Find your perfect adventure." />
+          <meta property="og:title" content="All Safaris - Eco Plains Safaris" />
+          <meta property="og:description" content="Curated luxury safari adventures across East Africa" />
+          <meta property="og:image" content="/og-safaris.jpg" />
+        </Helmet>
+
+        <div className="safaris-page py-32 text-center text-2xl">Curating exceptional safaris...</div>
+      </>
+    );
   }
 
   return (
     <>
-      <HeroSection />
-      <FilterBar safaris={safaris} filters={filters} setFilters={setFilters} />
-      <SafariGrid safaris={filteredSafaris} />
-      <SectionCTA />
-      <PopularDestinations destinations={popularDestinations} />
-      <BottomCTA />
+      <Helmet>
+        <title>All Safaris - Eco Plains Safaris</title>
+        <meta name="description" content="Explore our curated collection of luxury safari experiences across East Africa. Find your perfect adventure." />
+        <meta property="og:title" content="All Safaris - Eco Plains Safaris" />
+        <meta property="og:description" content="Curated luxury safari adventures across East Africa" />
+        <meta property="og:image" content="/og-safaris.jpg" />
+      </Helmet>
+
+      <div className="safaris-page">
+        <HeroSection />
+        <FilterBar filters={filters} setFilters={setFilters} safaris={safaris} />
+        <SafariGrid safaris={filteredSafaris} />
+        <SectionCTA />
+        <PopularDestinations destinations={popularDestinations} />
+        <BottomCTA />
+      </div>
     </>
   );
 }

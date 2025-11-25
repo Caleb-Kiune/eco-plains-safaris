@@ -111,12 +111,12 @@ const SafariGrid = ({ safaris }) => {
             <div className="safari-card-skeleton" aria-hidden="true"></div>
           </>
         ) : (
-          // Safari cards with staggered fade-in animation (restarts on every page)
+          // Safari cards with scroll-triggered stagger fade-in
           currentSafaris.map((safari, index) => (
             <SafariCard
-              key={safari.id || safari.slug}
+              key={`${safari.id || safari.slug}-${currentPage}`}
               safari={safari}
-              animationDelay={`${index * 0.1}s`}
+              index={index}
             />
           ))
         )}

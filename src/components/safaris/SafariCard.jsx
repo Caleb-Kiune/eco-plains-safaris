@@ -1,20 +1,31 @@
 // src/components/safaris/SafariCard/SafariCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './SafariCard.css';
 
-const SafariCard = ({ safari, animationDelay }) => {
+const SafariCard = ({ safari, index = 0 }) => {
   const price = safari.price_adult
     ? new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: safari.currency || 'USD',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      }).format(safari.price_adult)
+      style: 'currency',
+      currency: safari.currency || 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(safari.price_adult)
     : 'Rate on request';
 
   return (
-    <article className="safari-card" style={{ animationDelay }}>
+    <motion.article
+      className="safari-card"
+      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: [0.4, 0, 0.2, 1]
+      }}
+    >
       <Link
         to={`/safaris/${safari.slug}`}
         className="safari-card__link"
@@ -38,7 +49,7 @@ const SafariCard = ({ safari, animationDelay }) => {
             {/* Bottom: Button left + Info right */}
             <div className="safari-card__text-bottom">
               <button className="safari-card__button" tabIndex="-1">
-                Explore
+                Discover This Safari
               </button>
 
               <div className="safari-card__info-right">
@@ -52,7 +63,7 @@ const SafariCard = ({ safari, animationDelay }) => {
           </div>
         </div>
       </Link>
-    </article>
+    </motion.article>
   );
 };
 

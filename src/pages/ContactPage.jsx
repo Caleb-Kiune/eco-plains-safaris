@@ -48,6 +48,9 @@ export default function ContactPage() {
       <Helmet>
         <title>Contact Us - Eco Plains Safaris</title>
         <meta name="description" content="Let's craft your dream safari. Contact Eco Plains Safaris to begin planning your luxury East African adventure." />
+        <meta property="og:title" content="Contact Us - Eco Plains Safaris" />
+        <meta property="og:description" content="Begin your luxury safari journey" />
+        <meta property="og:image" content="/og-contact.jpg" />
       </Helmet>
 
       <section className="contact-page">
@@ -188,7 +191,7 @@ export default function ContactPage() {
               </div>
 
               <button type="submit" className="contact-form__submit">
-                Start Planning
+                Send My Dream Brief
               </button>
             </form>
 

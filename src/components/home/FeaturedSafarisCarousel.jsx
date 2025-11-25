@@ -1,5 +1,5 @@
 // src/components/home/FeaturedSafarisCarousel.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import FeaturedSafariCard from './FeaturedSafariCard';
 import './FeaturedSafarisCarousel.css';
 
@@ -7,6 +7,14 @@ export default function FeaturedSafarisCarousel() {
   const [safaris, setSafaris] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(3);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const trackRef = useRef(null);
+  const startX = useRef(0);
+  const currentTranslate = useRef(0);
+  const prevTranslate = useRef(0);
+  const animationID = useRef(0);
+  const startTime = useRef(0);
 
   useEffect(() => {
     fetch('/data/safaris.json')
@@ -32,47 +40,151 @@ export default function FeaturedSafarisCarousel() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const maxIndex = Math.max(0, safaris.length - slidesPerView);
+
+  // Calculate precise transform for current slide
+  const getSlideTransform = useCallback((index) => {
+    if (slidesPerView === 1) {
+      return -index * 100;
+    } else if (slidesPerView === 2) {
+      return -index * 50 - index * 0.75;
+    } else {
+      return -index * 33.333 - index * 0.667;
+    }
+  }, [slidesPerView]);
+
+  const setSliderPosition = useCallback(() => {
+    if (trackRef.current) {
+      const percentTranslate = getSlideTransform(currentIndex);
+      if (slidesPerView === 1) {
+        trackRef.current.style.transform = `translateX(${percentTranslate}%)`;
+      } else if (slidesPerView === 2) {
+        trackRef.current.style.transform = `translateX(calc(${percentTranslate}% - ${currentIndex * 0.75}rem))`;
+      } else {
+        trackRef.current.style.transform = `translateX(calc(${percentTranslate}% - ${currentIndex * 2}rem))`;
+      }
+    }
+  }, [currentIndex, slidesPerView, getSlideTransform]);
+
+  // Update transform when currentIndex changes
+  useEffect(() => {
+    setSliderPosition();
+  }, [setSliderPosition]);
+
   if (safaris.length === 0) return null;
 
-  const maxIndex = Math.max(0, safaris.length - slidesPerView);
-  const canGoPrev = currentIndex > 0;
-  const canGoNext = currentIndex < maxIndex;
+
+
+  const slideTo = (index) => {
+    const clampedIndex = Math.max(0, Math.min(index, maxIndex));
+    setCurrentIndex(clampedIndex);
+  };
+
+  // Touch/Mouse handlers
+  const getPositionX = (event) => {
+    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+  };
+
+  const touchStart = (index) => {
+    return (event) => {
+      setIsDragging(true);
+      startX.current = getPositionX(event);
+      startTime.current = Date.now();
+      animationID.current = requestAnimationFrame(() => animation());
+
+      if (trackRef.current) {
+        trackRef.current.classList.add('dragging');
+      }
+    };
+  };
+
+  const touchMove = (event) => {
+    if (isDragging) {
+      const currentPosition = getPositionX(event);
+      const diff = currentPosition - startX.current;
+      currentTranslate.current = prevTranslate.current + diff;
+
+      // Prevent default to stop scrolling
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+    }
+  };
+
+  const touchEnd = () => {
+    if (!isDragging) return;
+
+    setIsDragging(false);
+    cancelAnimationFrame(animationID.current);
+
+    if (trackRef.current) {
+      trackRef.current.classList.remove('dragging');
+    }
+
+    const movedBy = currentTranslate.current - prevTranslate.current;
+    const moveTime = Date.now() - startTime.current;
+    const velocity = Math.abs(movedBy / moveTime);
+
+    // Swipe threshold: 50px or velocity > 0.5
+    if (Math.abs(movedBy) > 50 || velocity > 0.5) {
+      if (movedBy < 0 && currentIndex < maxIndex) {
+        // Swiped left - go to next
+        slideTo(currentIndex + 1);
+      } else if (movedBy > 0 && currentIndex > 0) {
+        // Swiped right - go to previous
+        slideTo(currentIndex - 1);
+      } else {
+        // Snap back to current
+        slideTo(currentIndex);
+      }
+    } else {
+      // Below threshold, snap back
+      slideTo(currentIndex);
+    }
+
+    currentTranslate.current = 0;
+    prevTranslate.current = 0;
+  };
+
+  const animation = () => {
+    if (trackRef.current && isDragging) {
+      // During drag, update position in real-time
+      const percentTranslate = getSlideTransform(currentIndex);
+      const dragOffset = (currentTranslate.current - prevTranslate.current) / window.innerWidth * 100;
+
+      if (slidesPerView === 1) {
+        trackRef.current.style.transform = `translateX(${percentTranslate + dragOffset}%)`;
+      } else {
+        trackRef.current.style.transform = `translateX(calc(${percentTranslate + dragOffset}% - ${currentIndex * 2}rem))`;
+      }
+
+      animationID.current = requestAnimationFrame(animation);
+    }
+  };
 
   const handlePrev = () => {
-    if (canGoPrev) {
-      setCurrentIndex(prev => prev - 1);
+    if (currentIndex > 0) {
+      slideTo(currentIndex - 1);
     }
   };
 
   const handleNext = () => {
-    if (canGoNext) {
-      setCurrentIndex(prev => prev + 1);
+    if (currentIndex < maxIndex) {
+      slideTo(currentIndex + 1);
     }
   };
 
   const handleDotClick = (index) => {
-    setCurrentIndex(Math.min(index, maxIndex));
+    slideTo(index);
   };
 
-  // Calculate transform based on current index
-  const getTransform = () => {
-    if (slidesPerView === 1) {
-      // Mobile: 100% width + 1rem gap
-      return `translateX(-${currentIndex * 100}%)`;
-    } else if (slidesPerView === 2) {
-      // Tablet: calc(50% - 0.75rem) width + 1.5rem gap
-      // Each slide moves by 50% + half gap (0.75rem)
-      return `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 0.75}rem))`;
-    } else {
-      // Desktop: calc((100% - 4rem) / 3) width + 2rem gap
-      // Each slide moves by 33.333% + (2rem * index / 3)
-      return `translateX(calc(-${currentIndex * 33.333}% - ${currentIndex * 2}rem))`;
-    }
-  };
 
   // Generate dots for pagination
   const totalDots = maxIndex + 1;
   const dots = Array.from({ length: totalDots }, (_, i) => i);
+
+  const canGoPrev = currentIndex > 0;
+  const canGoNext = currentIndex < maxIndex;
 
   return (
     <section className="featured-safaris">
@@ -106,8 +218,15 @@ export default function FeaturedSafarisCarousel() {
 
           <div className="featured-safaris__viewport">
             <div
+              ref={trackRef}
               className="featured-safaris__track"
-              style={{ transform: getTransform() }}
+              onTouchStart={touchStart(currentIndex)}
+              onTouchMove={touchMove}
+              onTouchEnd={touchEnd}
+              onMouseDown={touchStart(currentIndex)}
+              onMouseMove={touchMove}
+              onMouseUp={touchEnd}
+              onMouseLeave={touchEnd}
             >
               {safaris.map((safari, index) => (
                 <div key={safari.id} className="featured-safaris__slide">

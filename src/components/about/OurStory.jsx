@@ -1,64 +1,51 @@
 // src/components/about/OurStory.jsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import SectionTitle from '../common/SectionTitle';
 import './OurStory.css';
 
 export default function OurStory() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const currentSection = sectionRef.current;
-    if (!currentSection) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(currentSection);
-
-    return () => {
-      observer.unobserve(currentSection);
-    };
-  }, []);
-
   return (
-    <section
-      className="our-story"
-      ref={sectionRef}
-      aria-labelledby="our-story-heading"
-    >
+    <section className="our-story">
       <div className="our-story__container">
-        {/* Headline */}
-        <h2 id="our-story-heading" className="our-story__headline">
-          Our Story
-        </h2>
+        <SectionTitle>The Journey That Started It All</SectionTitle>
 
-        {/* Decorative Accent Line */}
-        <div className="our-story__accent"></div>
-
-        {/* Story Content – 4 short, elegant paragraphs */}
         <div className="our-story__content">
-          <p className="our-story__paragraph">
-            Eco Plains Safaris was born from a profound reverence for Africa’s vast plains — where the golden light of dawn meets the endless rhythm of migration. Founded in 2018 by Dr. Amina Kiptoo, a Maasai conservationist with a PhD in wildlife ecology, our journey began with a simple yet powerful vision: to protect the wild while indulging the soul.
-          </p>
+          <motion.div
+            className="our-story__text-block"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <p className="our-story__paragraph">
+              In 2003, our founder stood watch at a Kenyan waterhole as a herd of elephants emerged from the golden savannah at dusk. That moment—raw, humbling, transcendent—sparked a mission to share Africa's wild magic with the world, responsibly and sustainably.
+            </p>
 
-          <p className="our-story__paragraph">
-            Growing up beneath the shadow of Mount Kenya, Amina witnessed the delicate balance between human progress and nature’s heartbeat. She saw luxury not as excess, but as a force for good — one that could fund rangers, empower communities, and preserve the untouched wilderness for generations.
-          </p>
+            <p className="our-story__paragraph">
+              Over two decades, Eco Plains Safaris has grown from a dream into East Africa's premier luxury safari operator. We've guided thousands of travelers through Kenya's Masai Mara, Tanzania's Serengeti, Rwanda's misty mountains, and beyond—always championing conservation, always honoring local communities.
+            </p>
 
-          <p className="our-story__paragraph">
-            Today, every safari is a collaboration with local Maasai elders, artisans, and guardians of the land. We channel <strong>15% of every booking directly into conservation and community projects</strong> — from anti-poaching patrols to women-led beekeeping cooperatives.
-          </p>
+            <p className="our-story__paragraph">
+              Today, our legacy is measured not in miles traveled, but in wildlife protected, communities empowered, and hearts forever changed by the African wilderness.
+            </p>
+          </motion.div>
 
-          <p className="our-story__paragraph">
-            This is more than travel. It’s a legacy. When you journey with Eco Plains, you don’t just witness the wild — you become part of its future.
-          </p>
+          <motion.div
+            className="our-story__image-wrapper"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <img
+              src="/images/about-story.jpg"
+              alt="Eco Plains Safaris journey"
+              className="our-story__image"
+              loading="lazy"
+            />
+            <div className="our-story__image-overlay" />
+          </motion.div>
         </div>
       </div>
     </section>

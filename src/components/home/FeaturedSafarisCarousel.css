@@ -1,233 +1,145 @@
 /* src/components/home/FeaturedSafarisCarousel.css */
 
-/* Global Brand Design System Variables */
-:root {
-    /* Colors - Earthy Luxury */
-    --color-bg: #FFFFFF;
-    --color-text: #1A1A1A;
-    --color-text-light: #444444;
-    --color-border: #E8E8E8;
-    --color-accent-green: #2D5016;
-    --color-accent-gold: #D4AF37;
-
-    /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
-
-    /* Spacing */
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 32px;
-    --space-xl: 48px;
-    --space-2xl: 64px;
-    --space-3xl: 96px;
-
-    /* Motion */
-    --transition: all 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .featured-safaris {
-    padding: var(--space-3xl) 0;
-    background-color: #FAF7F2;
+    background: var(--color-bg);
+    padding: var(--space-5xl) 0;
     overflow: hidden;
 }
 
-/* Container — Centers everything and adds luxury side breathing */
 .featured-safaris__container {
-    max-width: 1400px;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 min(5vw, 6rem);
-    /* Premium breathing room — never less than 5vw, caps at 6rem */
-}
-
-/* Header Section */
-.featured-safaris__header {
-    text-align: center;
-    margin-bottom: var(--space-2xl);
-    position: relative;
-}
-
-.featured-safaris__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 400;
-    color: var(--color-accent-green);
-    margin-bottom: var(--space-sm);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    padding: 0 5%;
 }
 
 .featured-safaris__subtitle {
-    font-family: var(--font-body);
-    font-size: 1.125rem;
-    color: var(--color-text-light);
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-text);
+    opacity: 0.7;
+    margin-bottom: var(--space-3xl);
     max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Carousel Wrapper */
 .featured-safaris__carousel-wrapper {
     position: relative;
-    margin-top: var(--space-xl);
+    margin-top: var(--space-3xl);
 }
 
-/* Navigation Buttons - Minimal & Elegant */
+/* Navigation Arrows */
 .featured-safaris__nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    width: 56px;
-    height: 56px;
+    background: rgba(249, 248, 244, 0.95);
+    border: 1px solid rgba(193, 127, 89, 0.3);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: transparent;
-    border: 1px solid var(--color-text);
-    color: var(--color-text);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    font-family: var(--font-body);
-    font-size: 1.2rem;
-}
-
-.featured-safaris__nav-btn:hover:not(:disabled) {
-    background: var(--color-accent-green);
-    border-color: var(--color-accent-green);
-    color: #FFFFFF;
-    opacity: 1;
-    transform: translateY(-50%) scale(1.05);
-}
-
-.featured-safaris__nav-btn--disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .featured-safaris__nav-btn--prev {
-    left: -28px;
-    /* Outside the viewport */
+    left: -24px;
 }
 
 .featured-safaris__nav-btn--next {
-    right: -28px;
+    right: -24px;
 }
 
-/* Viewport — Clips overflow to hide partial cards */
+.featured-safaris__nav-btn:hover:not(:disabled) {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.featured-safaris__nav-btn--disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Viewport & Track */
 .featured-safaris__viewport {
     overflow: hidden;
-    /* ← Nuclear option: clips anything outside */
+    position: relative;
 }
 
-/* Track — Flex container with exact width calculations */
 .featured-safaris__track {
     display: flex;
     gap: 2rem;
-    transform: translateX(0);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* ↑ Luxury easing: ease-out-sine for natural deceleration */
-    will-change: transform;
-    /* ↑ GPU acceleration for 60fps */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: grab;
-    user-select: none;
-    /* Prevent text selection during drag */
 }
 
-.featured-safaris__track:active {
-    cursor: grabbing;
-}
-
-/* During drag: disable transition for real-time finger tracking */
 .featured-safaris__track.dragging {
-    transition: none;
     cursor: grabbing;
+    transition: none;
 }
 
-/* Each slide wrapper */
 .featured-safaris__slide {
     flex: 0 0 calc((100% - 4rem) / 3);
-    /* 3 cards, 2 gaps of 2rem each = 4rem total */
-    max-width: calc((100% - 4rem) / 3);
-    /* Ensures cards never exceed calculated width */
-    flex-shrink: 0;
-    /* ↑ CRITICAL: Prevent compression during drag */
+    min-width: 0;
 }
 
-/* Pagination */
+/* Pagination Dots */
 .featured-safaris__pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 0;
-    margin-top: 2.5rem;
+    gap: 0.75rem;
+    margin-top: var(--space-2xl);
 }
 
-/* Elegant Pagination Dots */
 .featured-safaris-bullet {
-    width: 8px;
-    height: 8px;
-    background: var(--color-text);
-    opacity: 0.3;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    border: none;
-    padding: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 0 6px;
+    border: 1px solid var(--color-accent);
+    background: transparent;
     cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
 }
 
 .featured-safaris-bullet:hover {
-    opacity: 0.5;
+    background: rgba(193, 127, 89, 0.3);
+    transform: scale(1.2);
 }
 
 .featured-safaris-bullet-active {
-    opacity: 1;
-    width: 24px;
-    border-radius: 4px;
-    background: var(--color-accent-green);
+    background: var(--color-accent);
+    transform: scale(1.3);
 }
 
-/* Tablet Responsive (2 cards) */
+/* Responsive */
 @media (max-width: 1023px) {
-    .featured-safaris__container {
-        padding: 0 1.5rem;
-    }
-
-    .featured-safaris__track {
-        gap: 1.5rem;
-        /* Reduced gap for tablet */
-    }
-
     .featured-safaris__slide {
-        flex: 0 0 calc(50% - 0.75rem);
-        /* 2 cards, 1 gap of 1.5rem = 0.75rem per card */
-        max-width: calc(50% - 0.75rem);
-    }
-
-    .featured-safaris__nav-btn {
-        display: none;
+        flex: 0 0 calc((100% - 1.5rem) / 2);
     }
 }
 
-/* Mobile Responsive (1 card) */
 @media (max-width: 767px) {
-    .featured-safaris__container {
-        padding: 0 1.5rem;
-    }
-
-    .featured-safaris__track {
-        gap: 1rem;
+    .featured-safaris {
+        padding: var(--space-3xl) 0;
     }
 
     .featured-safaris__slide {
         flex: 0 0 100%;
-        /* Single card takes full width */
-        max-width: 100%;
+    }
+
+    .featured-safaris__nav-btn {
+        display: none;
     }
 }

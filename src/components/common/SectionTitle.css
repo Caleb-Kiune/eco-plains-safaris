@@ -1,0 +1,39 @@
+/* src/components/common/SectionTitle.css */
+
+.section-title {
+    margin-bottom: var(--space-3xl);
+}
+
+.section-title__text {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin: 0 0 1rem 0;
+}
+
+.section-title__underline {
+    height: 3px;
+    max-width: 80px;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+/* Centered variant */
+.section-title--centered {
+    text-align: center;
+}
+
+.section-title--centered .section-title__underline {
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: var(--space-2xl);
+    }
+}

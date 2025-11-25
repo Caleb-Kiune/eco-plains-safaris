@@ -1,95 +1,71 @@
 // src/components/about/MeetTheTeam.jsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import SectionTitle from '../common/SectionTitle';
 import './MeetTheTeam.css';
 
+const team = [
+  {
+    name: 'Sarah Mwangi',
+    role: 'Founder & CEO',
+    image: '/images/team-sarah.jpg',
+    bio: 'Two decades of safari expertise, conservation advocate, wildlife photographer.'
+  },
+  {
+    name: 'James Odhiambo',
+    role: 'Head Safari Guide',
+    image: '/images/team-james.jpg',
+    bio: 'Master naturalist with 15 years tracking the Big Five across East Africa.'
+  },
+  {
+    name: 'Amara Kimani',
+    role: 'Conservation Director',
+    image: '/images/team-amara.jpg',
+    bio: 'PhD in Wildlife Ecology, leading our community empowerment initiatives.'
+  },
+  {
+    name: 'David Mutua',
+    role: 'Luxury Experience Curator',
+    image: '/images/team-david.jpg',
+    bio: 'Former Singita manager, crafting bespoke journeys for discerning travelers.'
+  }
+];
+
 export default function MeetTheTeam() {
-  const sectionRef = useRef(null);
-
-  // Intersection Observer for fade-in on scroll
-  useEffect(() => {
-    const currentSection = sectionRef.current;
-    if (!currentSection) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(currentSection);
-
-    return () => observer.unobserve(currentSection);
-  }, []);
-
-  const team = [
-    {
-      name: 'Dr. Amina Kiptoo',
-      role: 'Founder & Conservation Director',
-      bio: 'An ecologist with a PhD in wildlife conservation, Amina blends scientific rigor with cultural wisdom to protect Africa’s wild heart.',
-      alt: 'Director, Founder of Eco Plains Safaris'
-    },
-    {
-      name: 'Lekan Ole Sere',
-      role: 'Head Guide & Storyteller',
-      bio: 'Third-generation Maasai tracker with 25 years in the Mara. He brings ancient stories to life under starlit skies.',
-      alt: 'Team Leader, Head Guide at Eco Plains Safaris'
-    },
-    {
-      name: 'Sarah Dubois',
-      role: 'Experience Curator',
-      bio: 'From Paris luxury to African wilderness, she designs flawless, soul-stirring journeys for the discerning traveler.',
-      alt: 'Team member, Experience Curator at Eco Plains Safaris'
-    }
-  ];
-
   return (
-    <section
-      className="meet-team"
-      ref={sectionRef}
-      aria-labelledby="meet-team-heading"
-    >
-      <div className="meet-team__container">
-        {/* Section Headline */}
-        <h2 id="meet-team-heading" className="meet-team__headline">
-          Meet the Team
-        </h2>
+    <section id="team" className="meet-the-team">
+      <div className="meet-the-team__container">
+        <SectionTitle centered>The Eco Plains Family</SectionTitle>
 
-        {/* Subheadline */}
-        <p className="meet-team__subheadline">
-          The minds behind Eco Plains Safaris, passionate about conservation and luxury travel.
-        </p>
-
-        {/* Team Grid */}
-        <div className="meet-team__grid">
+        <div className="meet-the-team__grid">
           {team.map((member, index) => (
-            <article
+            <motion.article
               key={index}
-              className="meet-team__card"
-              tabIndex="0"
-              aria-label={`${member.name}, ${member.role}`}
+              className="team-card"
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.4, 0, 0.2, 1]
+              }}
             >
-              {/* Portrait */}
-              <div className="meet-team__portrait-wrapper">
+              <div className="team-card__image-wrapper">
                 <img
-                  src="/images/kenya-destination-image.jpg"
-                  alt={member.alt}
-                  className="meet-team__portrait"
+                  src={member.image}
+                  alt={member.name}
+                  className="team-card__image"
                   loading="lazy"
                 />
+                <div className="team-card__overlay" />
+                <div className="team-card__content">
+                  <h3 className="team-card__name">{member.name}</h3>
+                  <p className="team-card__role">{member.role}</p>
+                </div>
               </div>
-
-              {/* Content */}
-              <div className="meet-team__content">
-                <h3 className="meet-team__name">{member.name}</h3>
-                <p className="meet-team__role">{member.role}</p>
-                <p className="meet-team__bio">{member.bio}</p>
-              </div>
-            </article>
+              <p className="team-card__bio">{member.bio}</p>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -1,154 +1,129 @@
 /* src/components/about/MeetTheTeam.css */
 
-.meet-team {
-  background: #FAF7F2;
-  padding: var(--space-3xl) 5%;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+.meet-the-team {
+  background: var(--color-bg);
+  padding: var(--space-5xl) 0;
+  overflow: hidden;
 }
 
-.meet-team.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.meet-team__container {
-  max-width: 1300px;
+.meet-the-team__container {
+  max-width: var(--max-width);
   margin: 0 auto;
-  text-align: center;
+  padding: 0 5%;
 }
 
-/* Headline */
-.meet-team__headline {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 400;
-  color: var(--color-accent-green);
-  margin: 0 0 var(--space-sm);
-  letter-spacing: -0.01em;
-}
-
-/* Subheadline */
-.meet-team__subheadline {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-weight: 300;
-  color: var(--color-text-light);
-  max-width: 700px;
-  margin: 0 auto var(--space-3xl);
-  line-height: 1.6;
-}
-
-/* Grid Layout */
-.meet-team__grid {
+.meet-the-team__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: var(--space-3xl);
 }
 
-/* Individual Card */
-.meet-team__card {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-  transition: var(--transition);
-  cursor: default;
+/* ============ TEAM CARD (4:5 Portrait Style) ============ */
+.team-card {
   position: relative;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
-.meet-team__card:hover {
+/* Image Wrapper - 4:5 Aspect Ratio */
+.team-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 26, 23, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover .team-card__image-wrapper {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-accent-gold);
+  box-shadow: 0 12px 32px rgba(15, 26, 23, 0.2);
 }
 
-/* Portrait Wrapper */
-.meet-team__portrait-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 400px;
-}
-
-.meet-team__portrait {
+/* Image */
+.team-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  filter: grayscale(20%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.meet-team__card:hover .meet-team__portrait {
-  transform: scale(1.05);
-  filter: grayscale(0%);
+.team-card:hover .team-card__image {
+  transform: scale(1.08);
 }
 
-/* Content */
-.meet-team__content {
-  padding: var(--space-lg);
-  position: relative;
+/* Gradient Overlay (Bottom-Heavy) */
+.team-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(15, 26, 23, 0.85) 100%);
+  z-index: 1;
 }
 
-/* Name */
-.meet-team__name {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 400;
-  color: var(--color-text);
-  margin: 0 0 0.25rem;
-  letter-spacing: -0.01em;
+/* Content (Bottom) */
+.team-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2;
 }
 
-/* Role */
-.meet-team__role {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
+/* Name - Playfair Display */
+.team-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin: 0 0 0.25rem 0;
+}
+
+/* Role - Inter Uppercase */
+.team-card__role {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 500;
-  color: var(--color-accent-gold);
-  margin: 0 0 var(--space-md);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin: 0;
 }
 
-/* Bio */
-.meet-team__bio {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--color-text-light);
+/* Bio Text (Below Image) */
+.team-card__bio {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   line-height: 1.7;
+  color: var(--color-text);
+  opacity: 0.85;
   margin: 0;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .meet-team__grid {
+  .meet-the-team__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
+    gap: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .meet-team {
-    padding: var(--space-2xl) 5%;
+  .meet-the-team {
+    padding: var(--space-3xl) 0;
   }
 
-  .meet-team__grid {
+  .meet-the-team__grid {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: 2rem;
   }
 
-  .meet-team__headline {
-    font-size: 2.25rem;
-  }
-
-  .meet-team__subheadline {
-    font-size: 1rem;
-    margin-bottom: var(--space-xl);
-  }
-
-  .meet-team__portrait-wrapper {
-    height: 350px;
+  .team-card__name {
+    font-size: 1.35rem;
   }
 }

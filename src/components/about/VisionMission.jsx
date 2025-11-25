@@ -1,84 +1,41 @@
 // src/components/about/VisionMission.jsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './VisionMission.css';
 
 export default function VisionMission() {
-  const sectionRef = useRef(null);
-
-  // Intersection Observer for fade-in on scroll
-  useEffect(() => {
-    const currentSection = sectionRef.current;
-    if (!currentSection) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(currentSection);
-
-    return () => observer.unobserve(currentSection);
-  }, []);
-
   return (
-    <section
-      className="vision-mission"
-      ref={sectionRef}
-      aria-labelledby="vision-mission-heading"
-    >
+    <section className="vision-mission">
       <div className="vision-mission__container">
-        {/* Section Headline */}
-        <h2 id="vision-mission-heading" className="vision-mission__headline">
-          Vision & Mission
-        </h2>
+        <motion.div
+          className="vision-mission__column"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <h2 className="vision-mission__title">Our Vision</h2>
+          <div className="vision-mission__divider" />
+          <p className="vision-mission__text">
+            To be the world's most trusted partner for transformative African safari experiences—where luxury meets conservation, and every journey leaves a lasting positive impact on wildlife and communities.
+          </p>
+        </motion.div>
 
-        {/* Vision: Image Left, Text Right */}
-        <div className="vision-mission__row vision-mission__row--vision">
-          <div className="vision-mission__image-wrapper">
-            <img
-              src="/images/kenya-destination-image.jpg"
-              alt="Kenya wilderness landscape"
-              className="vision-mission__image"
-              loading="lazy"
-            />
-          </div>
-          <div className="vision-mission__content">
-            <h3 className="vision-mission__title">Vision</h3>
-            <p className="vision-mission__text">
-              To redefine luxury travel in Africa through bespoke eco-safari
-              experiences that harmonize indulgence, conservation, and cultural
-              authenticity — inspiring a new standard of sustainable elegance.
-            </p>
-          </div>
-        </div>
+        <div className="vision-mission__separator" aria-hidden="true" />
 
-        {/* Mission: Image Right, Text Left (alternating) */}
-        <div className="vision-mission__row vision-mission__row--mission">
-          <div className="vision-mission__content">
-            <h3 className="vision-mission__title">Mission</h3>
-            <p className="vision-mission__text">
-              Ecoplain Safari curates exceptional, tailor-made journeys that
-              immerse discerning travelers in Africa’s untouched wilderness. We
-              combine world-class comfort with eco-conscious practices,
-              championing wildlife conservation, community empowerment, and a
-              lasting legacy of responsible luxury.
-            </p>
-          </div>
-          <div className="vision-mission__image-wrapper">
-            <img
-              src="/images/kenya-destination-image.jpg"
-              alt="Kenya wilderness landscape"
-              className="vision-mission__image"
-              loading="lazy"
-            />
-          </div>
-        </div>
+        <motion.div
+          className="vision-mission__column"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <h2 className="vision-mission__title">Our Mission</h2>
+          <div className="vision-mission__divider" />
+          <p className="vision-mission__text">
+            To curate bespoke, eco-conscious safari journeys that immerse travelers in Africa's wild beauty while championing wildlife protection, sustainable tourism, and the empowerment of local communities.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

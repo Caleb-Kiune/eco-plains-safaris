@@ -1,6 +1,7 @@
 // src/components/home/FeaturedSafarisCarousel.jsx
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import FeaturedSafariCard from './FeaturedSafariCard';
+import SafariCard from '../safaris/SafariCard'; // USE THE SAME CARD!
+import SectionTitle from '../common/SectionTitle';
 import './FeaturedSafarisCarousel.css';
 
 export default function FeaturedSafarisCarousel() {
@@ -42,7 +43,6 @@ export default function FeaturedSafarisCarousel() {
 
   const maxIndex = Math.max(0, safaris.length - slidesPerView);
 
-  // Calculate precise transform for current slide
   const getSlideTransform = useCallback((index) => {
     if (slidesPerView === 1) {
       return -index * 100;
@@ -66,21 +66,17 @@ export default function FeaturedSafarisCarousel() {
     }
   }, [currentIndex, slidesPerView, getSlideTransform]);
 
-  // Update transform when currentIndex changes
   useEffect(() => {
     setSliderPosition();
   }, [setSliderPosition]);
 
   if (safaris.length === 0) return null;
 
-
-
   const slideTo = (index) => {
     const clampedIndex = Math.max(0, Math.min(index, maxIndex));
     setCurrentIndex(clampedIndex);
   };
 
-  // Touch/Mouse handlers
   const getPositionX = (event) => {
     return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
   };
@@ -104,7 +100,6 @@ export default function FeaturedSafarisCarousel() {
       const diff = currentPosition - startX.current;
       currentTranslate.current = prevTranslate.current + diff;
 
-      // Prevent default to stop scrolling
       if (event.cancelable) {
         event.preventDefault();
       }
@@ -125,20 +120,15 @@ export default function FeaturedSafarisCarousel() {
     const moveTime = Date.now() - startTime.current;
     const velocity = Math.abs(movedBy / moveTime);
 
-    // Swipe threshold: 50px or velocity > 0.5
     if (Math.abs(movedBy) > 50 || velocity > 0.5) {
       if (movedBy < 0 && currentIndex < maxIndex) {
-        // Swiped left - go to next
         slideTo(currentIndex + 1);
       } else if (movedBy > 0 && currentIndex > 0) {
-        // Swiped right - go to previous
         slideTo(currentIndex - 1);
       } else {
-        // Snap back to current
         slideTo(currentIndex);
       }
     } else {
-      // Below threshold, snap back
       slideTo(currentIndex);
     }
 
@@ -148,7 +138,6 @@ export default function FeaturedSafarisCarousel() {
 
   const animation = () => {
     if (trackRef.current && isDragging) {
-      // During drag, update position in real-time
       const percentTranslate = getSlideTransform(currentIndex);
       const dragOffset = (currentTranslate.current - prevTranslate.current) / window.innerWidth * 100;
 
@@ -178,8 +167,6 @@ export default function FeaturedSafarisCarousel() {
     slideTo(index);
   };
 
-
-  // Generate dots for pagination
   const totalDots = maxIndex + 1;
   const dots = Array.from({ length: totalDots }, (_, i) => i);
 
@@ -189,14 +176,11 @@ export default function FeaturedSafarisCarousel() {
   return (
     <section className="featured-safaris">
       <div className="featured-safaris__container">
-        <header className="featured-safaris__header">
-          <h2 className="featured-safaris__title">
-            Curated Safari Journeys
-          </h2>
-          <p className="featured-safaris__subtitle">
-            Handpicked experiences for the discerning traveler, designed to immerse you in the untamed beauty of Africa.
-          </p>
-        </header>
+        <SectionTitle centered>Curated Safari Journeys</SectionTitle>
+
+        <p className="featured-safaris__subtitle">
+          Handpicked experiences for the discerning traveler
+        </p>
 
         <div className="featured-safaris__carousel-wrapper">
           <button
@@ -230,7 +214,7 @@ export default function FeaturedSafarisCarousel() {
             >
               {safaris.map((safari, index) => (
                 <div key={safari.id} className="featured-safaris__slide">
-                  <FeaturedSafariCard safari={safari} index={index} />
+                  <SafariCard safari={safari} index={index} />
                 </div>
               ))}
             </div>

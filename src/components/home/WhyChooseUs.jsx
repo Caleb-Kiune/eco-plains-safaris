@@ -1,5 +1,7 @@
 // src/components/home/WhyChooseUs.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
+import SectionTitle from '../common/SectionTitle';
 import './WhyChooseUs.css';
 
 const reasons = [
@@ -11,7 +13,7 @@ const reasons = [
   {
     icon: '/icons/expert-guides.svg',
     title: 'World-Class Guides',
-    description: 'Passionate naturalists and storytellers with decades of experience in East Africa’s wild heart.',
+    description: 'Passionate naturalists and storytellers with decades of experience in East Africa\'s wild heart.',
   },
   {
     icon: '/icons/eco-luxury.svg',
@@ -37,45 +39,45 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="why" aria-labelledby="why-heading">
-      {/* Subtle top divider for visual separation */}
-      <div className="why__divider" aria-hidden="true" />
+    <section className="why-choose-us" aria-labelledby="why-heading">
+      <div className="why-choose-us__container">
+        <SectionTitle centered>Why Choose Eco Plains Safaris</SectionTitle>
 
-      <div className="why__inner">
-        <header className="why__header">
-          <h2 id="why-heading" className="why__title">
-            Why Choose Eco Plains Safaris
-          </h2>
-        </header>
-
-        <div className="why__grid">
+        <div className="why-choose-us__grid">
           {reasons.map((reason, index) => (
-            <article
+            <motion.article
               key={index}
-              className="why__card"
+              className="why-card"
               tabIndex={0}
               aria-labelledby={`why-title-${index}`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.4, 0, 0.2, 1]
+              }}
             >
-              <div className="why__icon-wrapper">
+              <div className="why-card__icon-wrapper">
                 <img
                   src={reason.icon}
                   alt=""
-                  className="why__icon"
+                  className="why-card__icon"
                   width="48"
                   height="48"
                   loading="lazy"
                 />
               </div>
 
-              <h3 id={`why-title-${index}`} className="why__card-title">
+              <h3 id={`why-title-${index}`} className="why-card__title">
                 {reason.title}
               </h3>
 
-              <p className="why__card-text">{reason.description}</p>
+              <p className="why-card__text">{reason.description}</p>
 
-              {/* Gold accent line – appears on hover/focus */}
-              <div className="why__line" aria-hidden="true" />
-            </article>
+              <div className="why-card__line" aria-hidden="true" />
+            </motion.article>
           ))}
         </div>
       </div>

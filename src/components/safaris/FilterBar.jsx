@@ -1,80 +1,170 @@
 // src/components/safaris/FilterBar.jsx
-import React from "react";
-import "./FilterBar.css";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './FilterBar.css';
 
 export default function FilterBar({ safaris, filters, setFilters }) {
-  // Extract unique destinations (handles "Zimbabwe & Botswana")
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  // Extract unique values
   const destinations = [...new Set(
-    safaris.flatMap(s => 
-      s.destination.split(" & ").map(d => d.trim())
+    safaris.flatMap(s =>
+      s.destination.split(' & ').map(d => d.trim())
     )
   )].sort();
 
-  // Extract unique categories (e.g., "Wildlife Safari", "Beach Holiday")
   const categories = [...new Set(safaris.map(s => s.category))].sort();
 
-  
+  const durations = [
+    { label: 'Short (1-3 days)', value: '3' },
+    { label: 'Week (4-7 days)', value: '7' },
+    { label: 'Extended (8-10 days)', value: '10' },
+    { label: 'Epic (10+ days)', value: '99' }
+  ];
+
+  const priceRanges = [
+    { label: 'Budget ($0-$2k)', min: 0, max: 2000 },
+    { label: 'Mid ($2k-$5k)', min: 2000, max: 5000 },
+    { label: 'Luxury ($5k-$10k)', min: 5000, max: 10000 },
+    { label: 'Ultra ($10k+)', min: 10000, max: 20000 }
+  ];
+
+  const isPriceRangeActive = (min, max) => {
+    return filters.priceRange[0] === min && filters.priceRange[1] === max;
+  };
+
+  const hasActiveFilters =
+    filters.destination ||
+    filters.category ||
+    filters.duration ||
+    (filters.priceRange[0] !== 0 || filters.priceRange[1] !== 20000);
+
+  const clearFilters = () => {
+    setFilters({
+      destination: '',
+      category: '',
+      duration: '',
+      priceRange: [0, 20000]
+    });
+  };
 
   return (
     <div className="filter-bar">
-      <div className="filter-bar__inner">
-        {/* Destination */}
-        <select
-          value={filters.destination || ""}
-          onChange={(e) => setFilters({ ...filters, destination: e.target.value })}
+      <div className="filter-bar__container">
+        {/* Mobile Toggle Button */}
+        <button
+          className="filter-bar__mobile-toggle"
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
+          aria-label="Toggle filters"
         >
-          <option value="">All Destinations</option>
-          {destinations.map(d => (
-            <option key={d} value={d}>{d}</option>
-          ))}
-        </select>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M2 4h16M2 10h10M2 16h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          <span>Filters</span>
+          {hasActiveFilters && <span className="filter-bar__badge">{
+            [filters.destination, filters.category, filters.duration].filter(Boolean).length
+          }</span>}
+        </button>
 
-        {/* Category */}
-        <select
-          value={filters.category || ""}
-          onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-        >
-          <option value="">All Categories</option>
-          {categories.map(cat => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
-        </select>
+        {/* Desktop Filters (Always Visible) */}
+        <div className={`filter-bar__content ${isMobileOpen ? 'filter-bar__content--open' : ''}`}>
+          {/* Destination Pills */}
+          <div className="filter-group">
+            <button
+              className={`filter-pill ${!filters.destination ? 'filter-pill--active' : ''}`}
+              onClick={() => setFilters({ ...filters, destination: '' })}
+            >
+              All Destinations
+            </button>
+            {destinations.slice(0, 5).map(dest => (
+              <button
+                key={dest}
+                className={`filter-pill ${filters.destination === dest ? 'filter-pill--active' : ''}`}
+                onClick={() => setFilters({ ...filters, destination: dest })}
+              >
+                {dest}
+              </button>
+            ))}
+          </div>
 
-        {/* Duration */}
-        <select
-          value={filters.duration || ""}
-          onChange={(e) => setFilters({ ...filters, duration: e.target.value })}
-        >
-          <option value="">Any Duration</option>
-          <option value="3">Up to 3 days</option>
-          <option value="7">Up to 7 days</option>
-          <option value="10">Up to 10 days</option>
-          <option value="99">10+ days</option>
-        </select>
+          {/* Category Pills */}
+          <div className="filter-group">
+            <button
+              className={`filter-pill ${!filters.category ? 'filter-pill--active' : ''}`}
+              onClick={() => setFilters({ ...filters, category: '' })}
+            >
+              All Types
+            </button>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                className={`filter-pill ${filters.category === cat ? 'filter-pill--active' : ''}`}
+                onClick={() => setFilters({ ...filters, category: cat })}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-        {/* Price Range */}
-        <div className="price-range">
-          <label>
-            Price: ${filters.priceRange[0].toLocaleString()} – ${filters.priceRange[1].toLocaleString()}
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="20000"
-            step="500"
-            value={filters.priceRange[1]}
-            onChange={(e) => setFilters({ ...filters, priceRange: [0, +e.target.value] })}
-          />
+          {/* Duration Pills */}
+          <div className="filter-group">
+            <button
+              className={`filter-pill ${!filters.duration ? 'filter-pill--active' : ''}`}
+              onClick={() => setFilters({ ...filters, duration: '' })}
+            >
+              Any Duration
+            </button>
+            {durations.map(dur => (
+              <button
+                key={dur.value}
+                className={`filter-pill ${filters.duration === dur.value ? 'filter-pill--active' : ''}`}
+                onClick={() => setFilters({ ...filters, duration: dur.value })}
+              >
+                {dur.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Price Range Pills */}
+          <div className="filter-group">
+            <span className="filter-group__label">Budget</span>
+            {priceRanges.map(range => (
+              <button
+                key={range.label}
+                className={`filter-pill ${isPriceRangeActive(range.min, range.max) ? 'filter-pill--active' : ''}`}
+                onClick={() => setFilters({ ...filters, priceRange: [range.min, range.max] })}
+              >
+                {range.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Clear Filters */}
+          {hasActiveFilters && (
+            <motion.button
+              className="filter-bar__clear"
+              onClick={clearFilters}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+            >
+              Clear All
+            </motion.button>
+          )}
         </div>
 
-        <button onClick={() => setFilters({
-          destination: "",
-          category: "",
-          duration: "",
-          priceRange: [0, 20000]
-        })}>
-          Clear Filters
-        </button>
+        {/* Mobile Overlay */}
+        <AnimatePresence>
+          {isMobileOpen && (
+            <motion.div
+              className="filter-bar__overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileOpen(false)}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

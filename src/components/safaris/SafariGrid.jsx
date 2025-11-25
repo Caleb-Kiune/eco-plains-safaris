@@ -97,59 +97,38 @@ const SafariGrid = ({ safaris }) => {
 
   const pageNumbers = getPageNumbers();
 
-  // Hide pagination completely when all safaris fit on one page
-  const showPagination = totalPages > 1;
-
   return (
     <section className="safari-grid" ref={gridRef}>
-      <div className="safari-grid__inner">
-        {/* Elegant skeleton shimmer during page transitions */}
-        {isChangingPage ? (
-          <>
-            <div className="safari-card-skeleton" aria-hidden="true"></div>
-            <div className="safari-card-skeleton" aria-hidden="true"></div>
-            <div className="safari-card-skeleton" aria-hidden="true"></div>
-          </>
-        ) : (
-          // Safari cards with scroll-triggered stagger fade-in
-          currentSafaris.map((safari, index) => (
+      <div className="safari-grid__container">
+        {/* Safari Cards Grid */}
+        <div className={`safari-grid__grid ${isChangingPage ? 'safari-grid__grid--loading' : ''}`}>
+          {currentSafaris.map((safari, index) => (
             <SafariCard
               key={`${safari.id || safari.slug}-${currentPage}`}
               safari={safari}
               index={index}
             />
-          ))
-        )}
-      </div>
+          ))}
+        </div>
 
-      {/* Luxury minimal pagination - only shown when needed */}
-      {showPagination && (
-        <nav
-          className="safari-pagination"
-          role="navigation"
-          aria-label="Safari pages navigation"
-        >
-          {/* Previous arrow */}
-          <button
-            className="safari-pagination__arrow safari-pagination__prev"
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            aria-label="Previous page"
-          >
-            <span className="safari-pagination__arrow-symbol" aria-hidden="true">←</span>
-            <span className="safari-pagination__arrow-text">Previous</span>
-          </button>
+        {/* Pagination (only show if more than 1 page) */}
+        {totalPages > 1 && (
+          <nav className="safari-grid__pagination" aria-label="Safari pagination">
+            {/* Previous Button */}
+            <button
+              className="safari-grid__page-btn safari-grid__page-btn--prev"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="Previous page"
+            >
+              ←
+            </button>
 
-          {/* Desktop: Page numbers with ellipsis */}
-          <div className="safari-pagination__numbers">
-            {pageNumbers.map((page, index) => {
-              if (typeof page === 'string' && page.startsWith('ellipsis')) {
+            {/* Page Numbers */}
+            {pageNumbers.map((pageNum, index) => {
+              if (pageNum === 'ellipsis-start' || pageNum === 'ellipsis-end') {
                 return (
-                  <span
-                    key={page}
-                    className="safari-pagination__ellipsis"
-                    aria-hidden="true"
-                  >
+                  <span key={`ellipsis-${index}`} className="safari-grid__ellipsis" aria-hidden="true">
                     …
                   </span>
                 );
@@ -157,38 +136,29 @@ const SafariGrid = ({ safaris }) => {
 
               return (
                 <button
-                  key={page}
-                  className={`safari-pagination__number ${page === currentPage ? 'safari-pagination__number--active' : ''
-                    }`}
-                  onClick={() => handlePageChange(page)}
-                  aria-label={`Page ${page}`}
-                  aria-current={page === currentPage ? 'page' : undefined}
+                  key={pageNum}
+                  className={`safari-grid__page-btn ${currentPage === pageNum ? 'safari-grid__page-btn--active' : ''}`}
+                  onClick={() => handlePageChange(pageNum)}
+                  aria-label={`Page ${pageNum}`}
+                  aria-current={currentPage === pageNum ? 'page' : undefined}
                 >
-                  {page}
+                  {pageNum}
                 </button>
               );
             })}
-          </div>
 
-          {/* Mobile: Current/Total indicator */}
-          <div className="safari-pagination__mobile-indicator">
-            <span className="safari-pagination__mobile-current">{currentPage}</span>
-            <span className="safari-pagination__mobile-divider">/</span>
-            <span className="safari-pagination__mobile-total">{totalPages}</span>
-          </div>
-
-          {/* Next arrow */}
-          <button
-            className="safari-pagination__arrow safari-pagination__next"
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            aria-label="Next page"
-          >
-            <span className="safari-pagination__arrow-text">Next</span>
-            <span className="safari-pagination__arrow-symbol" aria-hidden="true">→</span>
-          </button>
-        </nav>
-      )}
+            {/* Next Button */}
+            <button
+              className="safari-grid__page-btn safari-grid__page-btn--next"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              aria-label="Next page"
+            >
+              →
+            </button>
+          </nav>
+        )}
+      </div>
     </section>
   );
 };

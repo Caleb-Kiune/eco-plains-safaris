@@ -1,4 +1,4 @@
-// src/components/safaris/SafariCard/SafariCard.jsx
+// src/components/safaris/SafariCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -39,26 +39,24 @@ const SafariCard = ({ safari, index = 0 }) => {
             loading="lazy"
           />
 
-          <div className="safari-card__text-overlay">
-            {/* Top: Title + Destination */}
-            <div className="safari-card__text-top">
-              <h3 className="safari-card__title">{safari.title}</h3>
-              <p className="safari-card__location">{safari.destination}</p>
-            </div>
+          {/* Bottom-Heavy Gradient Overlay */}
+          <div className="safari-card__overlay" />
 
-            {/* Bottom: Button left + Info right */}
-            <div className="safari-card__text-bottom">
-              <button className="safari-card__button" tabIndex="-1">
-                Discover This Safari
-              </button>
+          {/* Content (Bottom-Left) */}
+          <div className="safari-card__content">
+            {/* Duration Tag (Ochre) */}
+            <span className="safari-card__duration">{safari.duration}</span>
 
-              <div className="safari-card__info-right">
-                <p className="safari-card__duration">{safari.duration}</p>
-                <div className="safari-card__price-wrapper">
-                  <span className="safari-card__price-label">Starting from</span>
-                  <span className="safari-card__price">{price}</span>
-                </div>
-              </div>
+            {/* Title - Playfair Display */}
+            <h3 className="safari-card__title">{safari.title}</h3>
+
+            {/* Destination */}
+            <p className="safari-card__location">{safari.destination}</p>
+
+            {/* CTA + Price (Slides Up on Hover) */}
+            <div className="safari-card__footer">
+              <span className="safari-card__cta">Discover This Safari</span>
+              <span className="safari-card__price">{price}</span>
             </div>
           </div>
         </div>

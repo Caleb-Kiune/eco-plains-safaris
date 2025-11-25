@@ -1,122 +1,202 @@
 /* src/components/safaris/FilterBar.css */
 
 .filter-bar {
+  background: var(--color-bg);
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid rgba(193, 127, 89, 0.1);
   position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(232, 232, 232, 0.6);
+  top: 80px;
   z-index: 100;
-  padding: 1.5rem 5%;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
 }
 
-.filter-bar__inner {
-  max-width: 1440px;
+.filter-bar__container {
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* ============ MOBILE TOGGLE ============ */
+.filter-bar__mobile-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--color-white);
+  border: 1px solid rgba(193, 127, 89, 0.3);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.filter-bar__mobile-toggle:hover {
+  border-color: var(--color-accent);
+  background: rgba(193, 127, 89, 0.05);
+}
+
+.filter-bar__badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
-.filter-bar__inner select,
-.filter-bar__inner button,
-.price-range input {
-  padding: 0.875rem 1.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0;
-  /* Luxury sharp edges */
-  background: #FFFFFF;
-  font-size: 0.9rem;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  letter-spacing: 0.02em;
-  transition: all 0.3s ease;
-  outline: none;
-  cursor: pointer;
-  appearance: none;
-  /* Custom styling */
-}
-
-/* Custom Select Arrow */
-.filter-bar__inner select {
-  padding-right: 2.5rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-}
-
-.filter-bar__inner select:hover,
-.filter-bar__inner select:focus {
-  border-color: var(--color-accent-gold);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.filter-bar__inner button {
-  background: var(--color-text);
-  color: #FFFFFF;
-  border-color: var(--color-text);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
-}
-
-.filter-bar__inner button:hover {
-  background: var(--color-accent-gold);
-  border-color: var(--color-accent-gold);
-  transform: translateY(-1px);
-}
-
-.price-range {
+/* ============ FILTER CONTENT ============ */
+.filter-bar__content {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-width: 220px;
+  gap: var(--space-lg);
 }
 
-.price-range label {
-  font-size: 0.8rem;
-  color: var(--color-text-light);
+/* ============ FILTER GROUP ============ */
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.filter-group__label {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+/* ============ FILTER PILLS ============ */
+.filter-pill {
+  padding: 0.625rem 1.25rem;
+  background: var(--color-white);
+  border: 1px solid rgba(193, 127, 89, 0.2);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-/* Range Input Styling */
-.price-range input[type=range] {
-  padding: 0;
-  height: 2px;
-  background: var(--color-border);
-  border: none;
-  border-radius: 0;
-}
-
-.price-range input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: var(--color-accent-gold);
+  color: var(--color-text);
   cursor: pointer;
-  margin-top: -7px;
-  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  transition: transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
-.price-range input[type=range]::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
+.filter-pill:hover {
+  border-color: var(--color-accent);
+  background: rgba(193, 127, 89, 0.05);
+  transform: translateY(-2px);
 }
 
-.price-range input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 2px;
+.filter-pill--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.filter-pill--active:hover {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  transform: translateY(-2px);
+}
+
+/* ============ CLEAR BUTTON ============ */
+.filter-bar__clear {
+  align-self: flex-start;
+  padding: 0.625rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
   cursor: pointer;
-  background: var(--color-border);
-  border-radius: 0;
-  border: none;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.filter-bar__clear:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* ============ MOBILE STYLES ============ */
+@media (max-width: 1024px) {
+  .filter-bar {
+    top: 70px;
+  }
+
+  .filter-bar__mobile-toggle {
+    display: flex;
+  }
+
+  .filter-bar__content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 400px;
+    background: var(--color-bg);
+    padding: var(--space-2xl);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-bar__content--open {
+    transform: translateX(0);
+  }
+
+  .filter-bar__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 26, 23, 0.7);
+    z-index: 1000;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(193, 127, 89, 0.1);
+  }
+
+  .filter-group:last-of-type {
+    border-bottom: none;
+  }
+
+  .filter-pill {
+    width: 100%;
+    text-align: left;
+  }
+
+  .filter-bar__clear {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: var(--space-lg) 0;
+  }
 }

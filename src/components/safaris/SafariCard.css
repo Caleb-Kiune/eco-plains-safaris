@@ -1,7 +1,4 @@
-/* ═════════════════════════════════════════════════════════
-   SAFARI CARD – TALL "MAGAZINE COVER" STYLE
-   Portrait 4:5 Ratio with Hover Zoom & Overlay Effects
-   ═════════════════════════════════════════════════════════ */
+/* src/components/safaris/SafariCard.css */
 
 .safari-card {
   position: relative;
@@ -14,190 +11,144 @@
   cursor: pointer;
 }
 
-/* Hover effect - card lifts */
 .safari-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(15, 26, 23, 0.2);
+  box-shadow: 0 12px 32px rgba(15, 26, 23, 0.2);
 }
 
+/* Link Wrapper */
 .safari-card__link {
   display: block;
-  height: 100%;
   text-decoration: none;
-  color: inherit;
+  height: 100%;
 }
 
-/* Image Wrapper - 4:5 Aspect Ratio (Portrait) */
+/* ============ IMAGE (4:5 Portrait) ============ */
 .safari-card__image-wrapper {
   position: relative;
-  width: 100%;
   aspect-ratio: 4 / 5;
+  width: 100%;
   overflow: hidden;
-  background: var(--color-text);
 }
 
-/* Image with Zoom Effect */
 .safari-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .safari-card:hover .safari-card__image {
   transform: scale(1.08);
-  filter: brightness(0.9);
 }
 
-/* Gradient Overlay for Text Readability */
-.safari-card__text-overlay {
+/* ============ GRADIENT OVERLAY (Bottom-Heavy) ============ */
+.safari-card__overlay {
   position: absolute;
   inset: 0;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background: linear-gradient(to bottom,
       rgba(15, 26, 23, 0.1) 0%,
-      rgba(15, 26, 23, 0.3) 60%,
       rgba(15, 26, 23, 0.85) 100%);
-  color: var(--color-white);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.safari-card:hover .safari-card__overlay {
+  opacity: 0.95;
+}
+
+/* ============ CONTENT (Bottom-Left) ============ */
+.safari-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* Title and Location - Always Visible */
-.safari-card__text-top {
-  transform: translateY(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Duration Tag (Ochre Pill) */
+.safari-card__duration {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.375rem 0.875rem;
+  background: rgba(193, 127, 89, 0.9);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+  margin-bottom: 0.5rem;
 }
 
+/* Title - Playfair Display */
 .safari-card__title {
-  margin: 0 0 0.5rem;
   font-family: var(--font-serif);
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.01em;
   color: var(--color-white);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-}
-
-.safari-card__location {
   margin: 0;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Bottom Section - Slide Up on Hover */
-.safari-card__text-bottom {
+/* Location */
+.safari-card__location {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-white);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ============ FOOTER (CTA + Price) ============ */
+.safari-card__footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.safari-card:hover .safari-card__text-bottom {
+.safari-card:hover .safari-card__footer {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* View Details Button */
-.safari-card__button {
-  background: transparent;
-  border: none;
-  color: var(--color-accent);
+/* CTA Text */
+.safari-card__cta {
   font-family: var(--font-sans);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s ease;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
 }
 
-.safari-card__button:hover {
-  color: var(--color-white);
-  transform: translateX(4px);
-}
-
-/* Price and Duration Info */
-.safari-card__info-right {
-  text-align: right;
-}
-
-.safari-card__duration {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-}
-
-.safari-card__price-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.safari-card__price-label {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.2rem;
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
+/* Price */
 .safari-card__price {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--color-white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Fade-in Animation */
-@keyframes fadeSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE - Mobile */
+/* Responsive */
 @media (max-width: 768px) {
-  .safari-card__image-wrapper {
-    aspect-ratio: 4 / 5;
-    /* Keep tall on mobile */
+  .safari-card__content {
+    padding: 1.5rem;
   }
 
-  .safari-card__text-overlay {
-    padding: 1.25rem;
-  }
-
-  .safari-card__title {
-    font-size: 1.15rem;
-  }
-
-  .safari-card__price {
-    font-size: 1.5rem;
-  }
-
-  /* Show bottom info by default on mobile */
-  .safari-card__text-bottom {
+  .safari-card__footer {
     opacity: 1;
     transform: translateY(0);
   }

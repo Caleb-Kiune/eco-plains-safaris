@@ -1,45 +1,40 @@
 /* src/components/layout/Footer.css */
 
-.luxury-footer {
-  background: var(--color-bg);
-  border-top: 1px solid rgba(193, 127, 89, 0.1);
-}
-
-/* ============ TRUST BADGE BAR ============ */
+/* ============ TRUST BADGE BAR (FROSTY GREEN - DO NOT TOUCH) ============ */
 .trust-badge-bar {
-  background: var(--color-white);
-  border-bottom: 1px solid rgba(193, 127, 89, 0.1);
-  padding: var(--space-xl) 0;
+  background: linear-gradient(135deg, #1a3a2e 0%, #0f2419 100%);
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .trust-badge-bar__container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 5%;
-  display: flex;
-  justify-content: center;
-  gap: var(--space-3xl);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .trust-badge {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  color: #e8f5e9;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-text);
 }
 
 .trust-badge svg {
-  color: var(--color-accent);
   flex-shrink: 0;
+  color: #81c784;
 }
 
-/* ============ MAIN FOOTER CONTENT ============ */
+/* ============ MAIN FOOTER (DARK GREEN PALETTE) ============ */
 .luxury-footer__main {
-  padding: var(--space-5xl) 0 var(--space-3xl) 0;
+  background: #111111;
+  padding: var(--space-5xl) 0;
 }
 
 .luxury-footer__container {
@@ -51,14 +46,22 @@
   gap: var(--space-3xl);
 }
 
-/* Footer Column */
+/* Footer Columns */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .footer-column__title {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   font-style: italic;
-  color: var(--color-text);
-  margin: 0 0 var(--space-lg) 0;
+  color: #CCCCCC;
+  margin: 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(193, 127, 89, 0.3);
 }
 
 .footer-column__links {
@@ -76,22 +79,24 @@
   line-height: 1.6;
 }
 
-.footer-column__links a {
-  color: var(--color-text);
+.footer-column__links a,
+.footer-column__links li {
+  color: #999999;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
 }
 
 .footer-column__links a:hover {
-  color: var(--color-accent);
+  color: #C17F59;
+  transform: translateX(4px);
 }
 
 /* Social Icons */
 .footer-social {
   display: flex;
   gap: 1rem;
-  margin-top: var(--space-lg);
+  margin-top: 1rem;
 }
 
 .footer-social a {
@@ -100,37 +105,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   background: rgba(193, 127, 89, 0.1);
-  color: var(--color-text);
+  border: 1px solid rgba(193, 127, 89, 0.3);
+  border-radius: 50%;
+  color: #999999;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social a:hover {
-  background: var(--color-accent);
-  color: var(--color-white);
+  background: #C17F59;
+  border-color: #C17F59;
+  color: #111111;
   transform: translateY(-4px);
 }
 
-/* ============ BOTTOM BAR ============ */
+/* ============ BOTTOM BAR (DARK GREEN PALETTE) ============ */
 .luxury-footer__bottom {
-  padding-top: var(--space-2xl);
-  padding-bottom: var(--space-xl);
+  background: #0F1A17;
+  padding: var(--space-2xl) 0;
 }
 
 .luxury-footer__divider {
   max-width: var(--max-width);
-  margin: 0 auto var(--space-lg) auto;
+  margin: 0 auto 2rem auto;
   padding: 0 5%;
 }
 
 .luxury-footer__divider svg {
-  width: 120px;
+  width: 100%;
   height: 8px;
-  color: var(--color-accent);
-  opacity: 0.3;
-  display: block;
-  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.1);
 }
 
 .luxury-footer__bottom-content {
@@ -140,15 +144,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .luxury-footer__copyright {
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: var(--color-text);
-  opacity: 0.7;
+  color: #888888;
   margin: 0;
 }
 
@@ -161,20 +162,18 @@
 }
 
 .luxury-footer__legal a {
-  color: var(--color-text);
+  color: #999999;
   text-decoration: none;
-  opacity: 0.7;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .luxury-footer__legal a:hover {
-  color: var(--color-accent);
-  opacity: 1;
+  color: #C17F59;
 }
 
 .luxury-footer__legal-divider {
-  color: var(--color-accent);
-  opacity: 0.3;
+  color: #999999;
+  opacity: 0.5;
 }
 
 /* ============ RESPONSIVE ============ */
@@ -185,13 +184,13 @@
   }
 
   .trust-badge-bar__container {
-    gap: var(--space-xl);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .luxury-footer__main {
-    padding: var(--space-3xl) 0 var(--space-2xl) 0;
+    padding: var(--space-3xl) 0;
   }
 
   .luxury-footer__container {
@@ -199,29 +198,18 @@
     gap: var(--space-xl);
   }
 
-  .trust-badge-bar {
-    padding: var(--space-lg) 0;
-  }
-
   .trust-badge-bar__container {
-    flex-direction: column;
-    gap: var(--space-md);
-    align-items: center;
-    text-align: center;
-  }
-
-  .trust-badge {
-    flex-direction: column;
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .luxury-footer__bottom-content {
     flex-direction: column;
+    gap: 1rem;
     text-align: center;
-    gap: 0.75rem;
   }
 
-  .footer-social {
-    justify-content: center;
+  .footer-column__links a:hover {
+    transform: translateX(0);
   }
 }

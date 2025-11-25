@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="luxury-footer">
-      {/* Trust Badge Bar (Keep this - it's perfect) */}
+      {/* Trust Badge Bar - DO NOT TOUCH (Frosty Green Perfection) */}
       <div className="trust-badge-bar">
         <div className="trust-badge-bar__container">
           <div className="trust-badge">
@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main Footer Content */}
+      {/* Main Footer Content (Dark Green Palette) */}
       <div className="luxury-footer__main">
         <div className="luxury-footer__container">
           {/* Company Column */}
@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Bottom Bar (Dark Green Palette) */}
       <div className="luxury-footer__bottom">
         <div className="luxury-footer__divider">
           <svg viewBox="0 0 120 8" fill="none" xmlns="http://www.w3.org/2000/svg">

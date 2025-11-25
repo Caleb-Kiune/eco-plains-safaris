@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
 import LuxuryHero from '../components/common/LuxuryHero';
 import SectionTitle from '../components/common/SectionTitle';
 import LuxuryButton from '../components/common/LuxuryButton';

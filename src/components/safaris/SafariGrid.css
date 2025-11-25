@@ -1,4 +1,8 @@
-/* src/components/safaris/SafariGrid/SafariGrid.css */
+/* src/components/safaris/SafariGrid.css */
+
+/* ========================================
+   MAIN GRID CONTAINER
+   ======================================== */
 .safari-grid {
   padding: 80px 5% 100px;
   background: #fafafa;
@@ -9,46 +13,262 @@
   max-width: 1600px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
   align-items: stretch;
+  min-height: 450px;
+  /* Prevent layout shift during page change */
 }
 
-/* Large Desktop */
+/* ========================================
+   SKELETON SHIMMER CARDS
+   Ultra-subtle, premium animation
+   ======================================== */
+.safari-card-skeleton {
+  border-radius: 8px;
+  background: linear-gradient(90deg,
+      #ececec 0%,
+      #f8f8f8 50%,
+      #ececec 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  height: 440px;
+  border: 1px solid #e5e5e5;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ========================================
+   LUXURY PAGINATION
+   Singita-level minimalism
+   ======================================== */
+.safari-pagination {
+  max-width: 1600px;
+  margin: 70px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 5%;
+}
+
+/* Previous / Next arrows */
+.safari-pagination__arrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: #d4af37;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.safari-pagination__arrow:hover:not(:disabled) {
+  color: #b8962e;
+  transform: translateX(0);
+}
+
+.safari-pagination__arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.safari-pagination__arrow-symbol {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* Subtle hover movement */
+.safari-pagination__prev:hover:not(:disabled) {
+  transform: translateX(-3px);
+}
+
+.safari-pagination__next:hover:not(:disabled) {
+  transform: translateX(3px);
+}
+
+/* Page numbers container */
+.safari-pagination__numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 30px;
+}
+
+/* Individual page number buttons */
+.safari-pagination__number {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  color: #1a1a1a;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.safari-pagination__number:hover:not(.safari-pagination__number--active) {
+  background: rgba(212, 175, 55, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Active page - filled gold circle with black number */
+.safari-pagination__number--active {
+  background: #d4af37;
+  color: #000;
+  cursor: default;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+  border-color: #d4af37;
+}
+
+/* Ellipsis */
+.safari-pagination__ellipsis {
+  color: #999;
+  font-size: 1.4rem;
+  padding: 0 6px;
+  user-select: none;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* Mobile page indicator (hidden on desktop) */
+.safari-pagination__mobile-indicator {
+  display: none;
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   3-column default → 4-column on XL → 2-column tablet → 1-column mobile
+   ======================================== */
+
+/* Extra Large Desktop - 4 columns */
 @media (min-width: 1600px) {
   .safari-grid__inner {
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
   }
 }
 
-/* Tablet & Down – 3 columns */
-@media (max-width: 1280px) {
+/* Desktop - 3 columns (default, 1200px+) */
+@media (min-width: 1200px) and (max-width: 1599px) {
   .safari-grid__inner {
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 28px;
   }
 }
 
-/* Small Tablet – 2 columns */
-@media (max-width: 900px) {
+/* Tablet - 2 columns */
+@media (max-width: 1199px) and (min-width: 768px) {
   .safari-grid__inner {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
 
   .safari-grid {
     padding: 60px 4%;
   }
+
+  .safari-card-skeleton {
+    height: 420px;
+  }
+
+  .safari-pagination {
+    margin-top: 60px;
+  }
 }
 
-/* Mobile – 1 column */
-@media (max-width: 640px) {
+/* Mobile - 1 column, show page counter instead of numbers */
+@media (max-width: 767px) {
   .safari-grid__inner {
     grid-template-columns: 1fr;
     gap: 20px;
+    min-height: 400px;
   }
 
   .safari-grid {
-    padding: 50px 5% 80px;
+    padding: 50px 5% 70px;
+  }
+
+  .safari-card-skeleton {
+    height: 400px;
+  }
+
+  /* Hide page numbers on mobile */
+  .safari-pagination__numbers {
+    display: none;
+  }
+
+  /* Show mobile page indicator: ← 3 / 18 → */
+  .safari-pagination__mobile-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 20px;
+  }
+
+  .safari-pagination__mobile-current {
+    color: #d4af37;
+  }
+
+  .safari-pagination__mobile-divider {
+    color: #999;
+    font-weight: 300;
+  }
+
+  .safari-pagination__mobile-total {
+    color: #666;
+  }
+
+  /* Reduce arrow text on mobile, keep symbols */
+  .safari-pagination__arrow-text {
+    display: none;
+  }
+
+  .safari-pagination__arrow {
+    min-width: auto;
+    padding: 0;
+  }
+
+  .safari-pagination {
+    gap: 0;
+    margin-top: 50px;
+  }
+}
+
+/* Extra small mobile - tighten spacing */
+@media (max-width: 400px) {
+  .safari-pagination__mobile-indicator {
+    gap: 6px;
+    margin: 0 16px;
+    font-size: 0.875rem;
+  }
+
+  .safari-pagination__arrow-symbol {
+    font-size: 1.125rem;
   }
 }

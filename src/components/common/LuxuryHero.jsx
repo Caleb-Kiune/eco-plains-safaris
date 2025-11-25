@@ -61,7 +61,7 @@ export default function LuxuryHero({
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                        whileHover={{ scale: 1.03 }}
+                        whileHover={{ scale: 1.03, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                     >
                         {ctaText}

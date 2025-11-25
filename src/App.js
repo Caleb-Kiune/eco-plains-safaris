@@ -1,6 +1,5 @@
 // src/App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 
 // Layout Components
@@ -33,24 +32,22 @@ function App() {
   }, []);
 
   return (
-    <HelmetProvider>
-      <Router>
-        <Navbar />
-        <WhatsAppButton />
+    <Router>
+      <Navbar />
+      <WhatsAppButton />
 
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/safaris" element={<SafarisPage />} />
-            <Route path="/safaris/:slug" element={<SafariDetailsPage />} />
-          </Routes>
-        </main>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/safaris" element={<SafarisPage />} />
+          <Route path="/safaris/:slug" element={<SafariDetailsPage />} />
+        </Routes>
+      </main>
 
-        <Footer />
-      </Router>
-    </HelmetProvider>
+      <Footer />
+    </Router>
   );
 }
 

@@ -1,7 +1,7 @@
 // src/pages/SafarisPage.jsx
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/common/SEO";
 
 import HeroSection from "../components/safaris/HeroSection";
 import FilterBar from "../components/safaris/FilterBar";
@@ -84,13 +84,13 @@ export default function SafarisPage() {
   if (loading) {
     return (
       <>
-        <Helmet>
+        <SEO>
           <title>All Safaris - Eco Plains Safaris</title>
           <meta name="description" content="Explore our curated collection of luxury safari experiences across East Africa. Find your perfect adventure." />
           <meta property="og:title" content="All Safaris - Eco Plains Safaris" />
           <meta property="og:description" content="Curated luxury safari adventures across East Africa" />
           <meta property="og:image" content="/og-safaris.jpg" />
-        </Helmet>
+        </SEO>
 
         <div className="safaris-page py-32 text-center text-2xl">Curating exceptional safaris...</div>
       </>
@@ -99,13 +99,13 @@ export default function SafarisPage() {
 
   return (
     <>
-      <Helmet>
+      <SEO>
         <title>All Safaris - Eco Plains Safaris</title>
         <meta name="description" content="Explore our curated collection of luxury safari experiences across East Africa. Find your perfect adventure." />
         <meta property="og:title" content="All Safaris - Eco Plains Safaris" />
         <meta property="og:description" content="Curated luxury safari adventures across East Africa" />
         <meta property="og:image" content="/og-safaris.jpg" />
-      </Helmet>
+      </SEO>
 
       <div className="safaris-page">
         <HeroSection />

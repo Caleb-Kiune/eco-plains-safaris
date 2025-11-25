@@ -1,6 +1,6 @@
 // src/pages/ContactPage.jsx
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { motion } from 'framer-motion';
 import './ContactPage.css';
 
@@ -45,13 +45,13 @@ export default function ContactPage() {
 
   return (
     <>
-      <Helmet>
+      <SEO>
         <title>Contact Us - Eco Plains Safaris</title>
-        <meta name="description" content="Let's craft your dream safari. Contact Eco Plains Safaris to begin planning your luxury East African adventure." />
+        <meta name="description" content="Start your luxury safari journey. Contact our expert team to plan your bespoke African adventure." />
         <meta property="og:title" content="Contact Us - Eco Plains Safaris" />
-        <meta property="og:description" content="Begin your luxury safari journey" />
+        <meta property="og:description" content="Start your luxury safari journey with Eco Plains Safaris" />
         <meta property="og:image" content="/og-contact.jpg" />
-      </Helmet>
+      </SEO>
 
       <section className="contact-page">
         <div className="contact-page__container">

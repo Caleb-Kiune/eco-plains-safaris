@@ -1,7 +1,7 @@
 // src/pages/SafariDetailsPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import LuxuryHero from '../components/common/LuxuryHero';
 import LuxuryButton from '../components/common/LuxuryButton';
 import './SafariDetailsPage.css';
@@ -58,12 +58,12 @@ const SafariDetailsPage = () => {
 
   return (
     <>
-      <Helmet>
+      <SEO>
         <title>{safari.title} - Eco Plains Safaris</title>
         <meta name="description" content={`Experience ${safari.title} in ${safari.destination}. ${safari.duration} of luxury safari adventure.`} />
         <meta property="og:title" content={`${safari.title} - Eco Plains Safaris`} />
         <meta property="og:image" content={safari.primaryImage} />
-      </Helmet>
+      </SEO>
 
       <div className="safari-details-page">
         {/* Mobile Sticky Booking Bar (Hidden on Desktop) */}

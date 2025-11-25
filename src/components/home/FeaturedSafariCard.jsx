@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FeaturedSafariCard.css';
 
-export default function FeaturedSafariCard({ safari }) {
+export default function FeaturedSafariCard({ safari, index = 0 }) {
   const [isActive, setIsActive] = useState(false);
 
   const formattedPrice = safari.price_adult
@@ -40,7 +40,7 @@ export default function FeaturedSafariCard({ safari }) {
           src={safari.primaryImage}
           alt={safari.title}
           className="featured-card__image"
-          loading="lazy"
+          loading={index < 3 ? "eager" : "lazy"}
         />
         <div className="featured-card__overlay" />
       </div>

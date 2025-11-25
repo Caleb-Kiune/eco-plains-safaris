@@ -68,10 +68,11 @@
     font-weight: 300;
 }
 
-/* Carousel Wrapper */
+/* Carousel Wrapper - Premium Spacing */
 .featured-safaris__carousel-wrapper {
     position: relative;
-    padding: 0 var(--space-xl);
+    padding: 0 max(5vw, 2rem);
+    /* Never less than 2rem, scales to 5vw on larger screens */
 }
 
 /* Navigation Buttons - Minimal & Elegant */
@@ -90,7 +91,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: var(--transition);
+    opacity: 0.5;
+    /* Subtle by default - luxury standard */
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     font-family: var(--font-body);
     font-size: 1.2rem;
 }
@@ -99,7 +102,15 @@
     background: var(--color-accent-green);
     border-color: var(--color-accent-green);
     color: #FFFFFF;
-    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+    /* Reduced from 1.1 for subtlety */
+}
+
+.featured-safaris__nav-btn--disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .featured-safaris__nav-btn--prev {
@@ -112,26 +123,62 @@
 
 /* Swiper Customization */
 .featured-safaris-swiper {
-    padding-bottom: var(--space-xl) !important;
+    padding-bottom: var(--space-2xl) !important;
+    /* More space for pagination */
     overflow: visible !important;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .swiper-slide {
     height: auto;
 }
 
-.swiper-slide-active {
-    z-index: 2;
+/* Elegant Pagination Dots */
+.featured-safaris-bullet {
+    width: 8px;
+    height: 8px;
+    background: var(--color-text);
+    opacity: 0.3;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 6px !important;
+    cursor: pointer;
+}
+
+.featured-safaris-bullet:hover {
+    opacity: 0.5;
+}
+
+.featured-safaris-bullet-active {
+    opacity: 1;
+    width: 24px;
+    border-radius: 4px;
+    background: var(--color-accent-green);
+}
+
+.swiper-pagination {
+    margin-top: 2rem !important;
+    position: relative !important;
+    bottom: 0 !important;
 }
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .featured-safaris__carousel-wrapper {
-        padding: 0;
+        padding: 0 1.5rem;
+        /* Consistent tablet padding */
     }
 
     .featured-safaris__nav-btn {
         display: none;
         /* Hide custom arrows on mobile/tablet */
+    }
+}
+
+@media (max-width: 767px) {
+    .featured-safaris__carousel-wrapper {
+        padding: 0 1.5rem;
+        /* Mobile padding */
     }
 }

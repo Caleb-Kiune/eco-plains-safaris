@@ -1,9 +1,10 @@
 // src/components/home/FeaturedSafarisCarousel.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Keyboard, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import FeaturedSafariCard from './FeaturedSafariCard';
 import './FeaturedSafarisCarousel.css';
 
@@ -37,43 +38,68 @@ export default function FeaturedSafarisCarousel() {
           <button
             ref={prevRef}
             className="featured-safaris__nav-btn featured-safaris__nav-btn--prev"
-            aria-label="Previous slide"
+            aria-label="Previous safari"
           >
             ←
           </button>
           <button
             ref={nextRef}
             className="featured-safaris__nav-btn featured-safaris__nav-btn--next"
-            aria-label="Next slide"
+            aria-label="Next safari"
           >
             →
           </button>
 
           <Swiper
-            modules={[Navigation, Autoplay]}
-            spaceBetween={24}
-            slidesPerView={1.1}
-            centeredSlides={true}
-            loop={true}
-            autoplay={{
-              delay: 10000,
-              disableOnInteraction: false,
+            modules={[Navigation, Pagination, Keyboard, A11y]}
+            spaceBetween={16}
+            slidesPerView={1}
+            centeredSlides={false}
+            loop={false}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+              disabledClass: 'featured-safaris__nav-btn--disabled'
             }}
-            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+            pagination={{
+              clickable: true,
+              bulletClass: 'featured-safaris-bullet',
+              bulletActiveClass: 'featured-safaris-bullet-active'
+            }}
+            keyboard={{
+              enabled: true,
+              onlyInViewport: true
+            }}
+            a11y={{
+              enabled: true,
+              prevSlideMessage: 'Previous safari',
+              nextSlideMessage: 'Next safari',
+              firstSlideMessage: 'This is the first safari',
+              lastSlideMessage: 'This is the last safari'
+            }}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
             }}
             breakpoints={{
-              640: { slidesPerView: 1.5, spaceBetween: 24 },
-              1024: { slidesPerView: 2.5, spaceBetween: 32, centeredSlides: true },
-              1440: { slidesPerView: 3.2, spaceBetween: 40, centeredSlides: true },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 32
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 32
+              }
             }}
             className="featured-safaris-swiper"
           >
-            {safaris.map((safari) => (
+            {safaris.map((safari, index) => (
               <SwiperSlide key={safari.id}>
-                <FeaturedSafariCard safari={safari} />
+                <FeaturedSafariCard safari={safari} index={index} />
               </SwiperSlide>
             ))}
           </Swiper>

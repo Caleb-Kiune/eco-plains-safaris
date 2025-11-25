@@ -28,24 +28,37 @@
 .featured-card {
   display: block;
   position: relative;
-  height: 600px;
-  /* Taller, more cinematic */
+  height: auto;
+  /* Let aspect ratio dictate height */
+  max-height: 520px;
+  /* Safety cap for desktop - luxury standard */
   overflow: hidden;
   text-decoration: none;
   color: #FFFFFF;
   background: #000;
   isolation: isolate;
+  transition: box-shadow 0.4s ease;
+  border-radius: 2px;
+  /* Subtle, refined edge */
 }
 
-/* Image Wrapper */
+.featured-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  /* Lifted shadow for premium feel */
+}
+
+/* Image Wrapper - 4:5 Portrait Aspect Ratio */
 .featured-card__image-wrapper {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  /* Portrait orientation - luxury safari standard */
   z-index: 1;
   overflow: hidden;
 }
 
 .featured-card__image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -54,7 +67,8 @@
 }
 
 .featured-card:hover .featured-card__image {
-  transform: scale(1.08);
+  transform: scale(1.03);
+  /* Subtle, not aggressive - expensive feel */
 }
 
 /* Cinematic Overlay */
@@ -73,13 +87,14 @@
   opacity: 0.9;
 }
 
-/* Content */
+/* Content - Reduced Padding for Luxury Proportions */
 .featured-card__content {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: var(--space-lg);
+  padding: 2.5rem;
+  /* Desktop: generous but not excessive */
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -92,11 +107,13 @@
   transform: translateY(-8px);
 }
 
-/* Typography */
+/* Typography - Optimized Hierarchy */
 .featured-card__title {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  /* 24-30px responsive range */
+  font-weight: 500;
+  /* Medium for refined elegance */
   line-height: 1.1;
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -105,19 +122,21 @@
 
 .featured-card__meta {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  /* Slightly larger for readability */
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0;
+  margin: 0.5rem 0 0;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
 /* Price - Minimalist */
 .featured-card__price {
-  margin-top: var(--space-xs);
+  margin-top: 0.75rem;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.0625rem;
+  /* 17px - balanced */
   font-weight: 500;
   color: var(--color-accent-gold);
   opacity: 0;
@@ -132,9 +151,10 @@
 
 /* CTA - Appears on Hover */
 .featured-card__cta {
-  margin-top: var(--space-sm);
+  margin-top: 1rem;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
+  /* 13px - delicate and refined */
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -159,6 +179,34 @@
 
 .featured-card:hover .featured-card__cta::after {
   transform: translateX(4px);
+}
+
+/* Responsive Padding Adjustments */
+@media (max-width: 1023px) {
+  .featured-card {
+    max-height: 500px;
+  }
+
+  .featured-card__content {
+    padding: 2rem;
+    /* Tablet: scaled down */
+  }
+}
+
+@media (max-width: 767px) {
+  .featured-card {
+    max-height: 480px;
+  }
+
+  .featured-card__content {
+    padding: 1.8rem;
+    /* Mobile: tight but not cramped */
+  }
+
+  .featured-card__title {
+    font-size: 1.5rem;
+    /* Fixed size for mobile consistency */
+  }
 }
 
 /* Active state for mobile tap toggle */

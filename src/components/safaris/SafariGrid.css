@@ -1,39 +1,35 @@
-/* src/components/safaris/SafariGrid.css */
+/* ═════════════════════════════════════════════════════════
+   SAFARI GRID – RESPONSIVE LAYOUT WITH PAGINATION
+   Luxury grid system for magazine-style safari cards
+   ═════════════════════════════════════════════════════════ */
 
-/* ========================================
-   MAIN GRID CONTAINER
-   ======================================== */
+/* MAIN GRID CONTAINER */
 .safari-grid {
-  padding: 80px 5% 100px;
-  background: #fafafa;
+  padding: 5rem 5%;
+  background: var(--color-bg);
   width: 100%;
 }
 
 .safari-grid__inner {
-  max-width: 1600px;
+  max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 2rem;
   align-items: stretch;
-  min-height: 450px;
-  /* Prevent layout shift during page change */
 }
 
-/* ========================================
-   SKELETON SHIMMER CARDS
-   Ultra-subtle, premium animation
-   ======================================== */
+/* SKELETON SHIMMER CARDS */
 .safari-card-skeleton {
-  border-radius: 8px;
+  border-radius: 4px;
   background: linear-gradient(90deg,
-      #ececec 0%,
-      #f8f8f8 50%,
-      #ececec 100%);
+      rgba(229, 225, 216, 0.5) 0%,
+      rgba(229, 225, 216, 0.8) 50%,
+      rgba(229, 225, 216, 0.5) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
-  height: 440px;
-  border: 1px solid #e5e5e5;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--color-border);
 }
 
 @keyframes shimmer {
@@ -46,28 +42,26 @@
   }
 }
 
-/* ========================================
-   LUXURY PAGINATION
-   Singita-level minimalism
-   ======================================== */
+/* LUXURY PAGINATION */
 .safari-pagination {
-  max-width: 1600px;
-  margin: 70px auto 0;
+  max-width: var(--max-width);
+  margin: 4.5rem auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0.625rem;
   padding: 0 5%;
 }
 
-/* Previous / Next arrows */
+/* Previous / Next Arrows */
 .safari-pagination__arrow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   background: transparent;
   border: none;
-  color: #d4af37;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -78,14 +72,13 @@
 }
 
 .safari-pagination__arrow:hover:not(:disabled) {
-  color: #b8962e;
-  transform: translateX(0);
+  color: var(--color-text);
 }
 
 .safari-pagination__arrow:disabled {
   opacity: 0.25;
   cursor: not-allowed;
-  color: #999;
+  color: var(--color-text-light);
 }
 
 .safari-pagination__arrow-symbol {
@@ -103,15 +96,15 @@
   transform: translateX(3px);
 }
 
-/* Page numbers container */
+/* Page Numbers Container */
 .safari-pagination__numbers {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 0 30px;
+  gap: 0.5rem;
+  margin: 0 1.875rem;
 }
 
-/* Individual page number buttons */
+/* Individual Page Number Buttons */
 .safari-pagination__number {
   width: 42px;
   height: 42px;
@@ -119,9 +112,10 @@
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 1px solid #d4af37;
+  border: 1px solid var(--color-accent);
   border-radius: 50%;
-  color: #1a1a1a;
+  color: var(--color-text);
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
@@ -130,52 +124,47 @@
 }
 
 .safari-pagination__number:hover:not(.safari-pagination__number--active) {
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(193, 127, 89, 0.08);
   transform: translateY(-2px);
 }
 
-/* Active page - filled gold circle with black number */
+/* Active Page - Filled circle */
 .safari-pagination__number--active {
-  background: #d4af37;
-  color: #000;
+  background: var(--color-accent);
+  color: var(--color-white);
   cursor: default;
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
-  border-color: #d4af37;
+  box-shadow: 0 4px 16px rgba(193, 127, 89, 0.25);
+  border-color: var(--color-accent);
 }
 
 /* Ellipsis */
 .safari-pagination__ellipsis {
-  color: #999;
+  color: var(--color-text-light);
   font-size: 1.4rem;
-  padding: 0 6px;
+  padding: 0 0.375rem;
   user-select: none;
   line-height: 1;
   font-weight: 300;
 }
 
-/* Mobile page indicator (hidden on desktop) */
+/* Mobile Page Indicator (hidden on desktop) */
 .safari-pagination__mobile-indicator {
   display: none;
 }
 
 /* ========================================
    RESPONSIVE BREAKPOINTS
-   3-column default → 4-column on XL → 2-column tablet → 1-column mobile
+   Default: 3 columns
+   Large: 4 columns
+   Tablet: 2 columns
+   Mobile: 1 column
    ======================================== */
 
-/* Extra Large Desktop - 4 columns */
+/* Large Desktop - 4 columns */
 @media (min-width: 1600px) {
   .safari-grid__inner {
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-  }
-}
-
-/* Desktop - 3 columns (default, 1200px+) */
-@media (min-width: 1200px) and (max-width: 1599px) {
-  .safari-grid__inner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 2rem;
   }
 }
 
@@ -183,36 +172,27 @@
 @media (max-width: 1199px) and (min-width: 768px) {
   .safari-grid__inner {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 1.5rem;
   }
 
   .safari-grid {
-    padding: 60px 4%;
-  }
-
-  .safari-card-skeleton {
-    height: 420px;
+    padding: 4rem 4%;
   }
 
   .safari-pagination {
-    margin-top: 60px;
+    margin-top: 3.75rem;
   }
 }
 
-/* Mobile - 1 column, show page counter instead of numbers */
+/* Mobile - 1 column */
 @media (max-width: 767px) {
   .safari-grid__inner {
     grid-template-columns: 1fr;
-    gap: 20px;
-    min-height: 400px;
+    gap: 1.25rem;
   }
 
   .safari-grid {
-    padding: 50px 5% 70px;
-  }
-
-  .safari-card-skeleton {
-    height: 400px;
+    padding: 3.5rem 5%;
   }
 
   /* Hide page numbers on mobile */
@@ -224,27 +204,28 @@
   .safari-pagination__mobile-indicator {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
     font-size: 0.9375rem;
     font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 20px;
+    color: var(--color-text);
+    margin: 0 1.25rem;
   }
 
   .safari-pagination__mobile-current {
-    color: #d4af37;
+    color: var(--color-accent);
   }
 
   .safari-pagination__mobile-divider {
-    color: #999;
+    color: var(--color-text-light);
     font-weight: 300;
   }
 
   .safari-pagination__mobile-total {
-    color: #666;
+    color: var(--color-text-light);
   }
 
-  /* Reduce arrow text on mobile, keep symbols */
+  /* Hide arrow text on mobile, keep symbols */
   .safari-pagination__arrow-text {
     display: none;
   }
@@ -256,15 +237,15 @@
 
   .safari-pagination {
     gap: 0;
-    margin-top: 50px;
+    margin-top: 3rem;
   }
 }
 
 /* Extra small mobile - tighten spacing */
 @media (max-width: 400px) {
   .safari-pagination__mobile-indicator {
-    gap: 6px;
-    margin: 0 16px;
+    gap: 0.375rem;
+    margin: 0 1rem;
     font-size: 0.875rem;
   }
 

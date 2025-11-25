@@ -1,155 +1,209 @@
-/* src/components/safaris/SafariCard/SafariCard.css */
+/* ═════════════════════════════════════════════════════════
+   SAFARI CARD – TALL "MAGAZINE COVER" STYLE
+   Portrait 4:5 Ratio with Hover Zoom & Overlay Effects
+   ═════════════════════════════════════════════════════════ */
+
 .safari-card {
-  border-radius: 8px;
+  position: relative;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.4s ease;
+  box-shadow: 0 4px 16px rgba(15, 26, 23, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
-  border: 1px solid #e5e5e5;
+  background: var(--color-text);
+  cursor: pointer;
+
+  /* Staggered fade-in animation */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 0.8s ease-out forwards;
 }
 
+/* Hover effect - card lifts */
 .safari-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.14);
-  border-color: #d4af37;
+  box-shadow: 0 20px 40px rgba(15, 26, 23, 0.2);
 }
 
-.safari-card__link { 
-  display: block; 
-  height: 100%; 
-  text-decoration: none; 
-  color: inherit; 
+.safari-card__link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
+/* Image Wrapper - 4:5 Aspect Ratio (Portrait) */
 .safari-card__image-wrapper {
   position: relative;
-  height: 100%;
-  min-height: 440px;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-text);
 }
 
-/* Darken the entire image for maximum text readability */
+/* Image with Zoom Effect */
 .safari-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* NEW: Subtle dark overlay on the entire image */
-.safari-card__image-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.28);   /* Perfect balance – darkens image without killing vibrancy */
-  z-index: 1;
-  pointer-events: none;
+.safari-card:hover .safari-card__image {
+  transform: scale(1.08);
+  filter: brightness(0.9);
 }
 
-/* Slightly stronger gradient at bottom for price/button */
+/* Gradient Overlay for Text Readability */
 .safari-card__text-overlay {
   position: absolute;
   inset: 0;
-  padding: 1.8rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(to bottom, 
-    transparent 30%, 
-    rgba(0,0,0,0.15) 60%, 
-    rgba(0,0,0,0.78) 100%
-  );
-  color: white;
-  z-index: 2;                       /* Above the dark overlay */
+  background: linear-gradient(to bottom,
+      rgba(15, 26, 23, 0.1) 0%,
+      rgba(15, 26, 23, 0.3) 60%,
+      rgba(15, 26, 23, 0.85) 100%);
+  color: var(--color-white);
+  z-index: 2;
 }
 
-.safari-card:hover .safari-card__image { 
-  transform: scale(1.05); 
+/* Title and Location - Always Visible */
+.safari-card__text-top {
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Text – now super crisp on any photo */
 .safari-card__title {
-  margin: 0 0 0.4rem;
-  font-size: 1.4rem;
-  font-weight: 600;                 /* Slightly bolder */
+  margin: 0 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.03em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .safari-card__location {
   margin: 0;
-  font-size: 0.82rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.98;
-  font-weight: 600;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* Bottom Section - Slide Up on Hover */
 .safari-card__text-bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.safari-card:hover .safari-card__text-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* View Details Button */
 .safari-card__button {
   background: transparent;
   border: none;
-  color: #f0d4a0;                   /* Warmer gold */
-  font-size: 0.95rem;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   cursor: pointer;
   padding: 0;
-  transition: color 0.3s ease;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .safari-card__button:hover {
-  color: white;
+  color: var(--color-white);
+  transform: translateX(4px);
 }
 
+/* Price and Duration Info */
 .safari-card__info-right {
   text-align: right;
 }
 
 .safari-card__duration {
-  font-size: 0.875rem;
-  opacity: 0.98;
-  margin-bottom: 0.35rem;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.safari-card__price-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .safari-card__price-label {
-  display: block;
-  font-size: 0.72rem;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  opacity: 0.95;
   margin-bottom: 0.2rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .safari-card__price {
-  display: block;
-  font-size: 1.85rem;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  color: var(--color-white);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .safari-card__image-wrapper { min-height: 400px; }
-  .safari-card__text-overlay { padding: 1.5rem; }
-  .safari-card__title { font-size: 1.25rem; }
-  .safari-card__price { font-size: 1.65rem; }
-}
-
+/* Fade-in Animation */
 @keyframes fadeSlideUp {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE - Mobile */
+@media (max-width: 768px) {
+  .safari-card__image-wrapper {
+    aspect-ratio: 4 / 5;
+    /* Keep tall on mobile */
+  }
+
+  .safari-card__text-overlay {
+    padding: 1.25rem;
+  }
+
+  .safari-card__title {
+    font-size: 1.15rem;
+  }
+
+  .safari-card__price {
+    font-size: 1.5rem;
+  }
+
+  /* Show bottom info by default on mobile */
+  .safari-card__text-bottom {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

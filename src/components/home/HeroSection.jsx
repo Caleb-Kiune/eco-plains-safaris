@@ -1,5 +1,6 @@
 // src/components/home/HeroSection.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import './HeroSection.css';
 import Navbar from '../layout/Navbar';
 
@@ -10,6 +11,30 @@ export default function HeroSection() {
 
   const scrollToTrips = () => {
     document.getElementById('trips-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Framer Motion animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
   };
 
   return (
@@ -32,21 +57,30 @@ export default function HeroSection() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Hero Content */}
-      <div className="hero__content">
-        <h1 className="hero__title">
-          Journey<br aria-hidden="true" />
+      {/* Hero Content with Staggered Animation */}
+      <motion.div
+        className="hero__content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 className="hero__title" variants={itemVariants}>
+          Journey
+          <br aria-hidden="true" />
           Into the Wild
-        </h1>
+        </motion.h1>
 
-        <button
+        <motion.button
           className="hero__cta"
           onClick={scrollToTrips}
           aria-label="Start planning your safari journey"
+          variants={itemVariants}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
           Start Your Journey
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <button

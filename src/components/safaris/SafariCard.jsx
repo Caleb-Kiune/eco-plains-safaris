@@ -6,11 +6,11 @@ import './SafariCard.css';
 const SafariCard = ({ safari, animationDelay }) => {
   const price = safari.price_adult
     ? new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: safari.currency || 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(safari.price_adult)
+        style: 'currency',
+        currency: safari.currency || 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(safari.price_adult)
     : 'Rate on request';
 
   return (
@@ -27,28 +27,29 @@ const SafariCard = ({ safari, animationDelay }) => {
             className="safari-card__image"
             loading="lazy"
           />
-          <div className="safari-card__overlay">
-            <h3 className="safari-card__title">{safari.title}</h3>
-            <p className="safari-card__location">{safari.destination}</p>
-          </div>
-        </div>
 
-        <div className="safari-card__content">
-          <div className="safari-card__details">
-            <span className="safari-card__duration">{safari.duration}</span>
-            <span className="safari-card__price">
-              Starting from <strong>{price}</strong>
-              {safari.price_note && <span className="text-sm block opacity-80 mt-1">{safari.price_note}</span>}
-            </span>
-          </div>
+          <div className="safari-card__text-overlay">
+            {/* Top: Title + Destination */}
+            <div className="safari-card__text-top">
+              <h3 className="safari-card__title">{safari.title}</h3>
+              <p className="safari-card__location">{safari.destination}</p>
+            </div>
 
-          <button
-            className="safari-card__button"
-            tabIndex="-1" // Button inside link, remove from tab order
-          >
-            Explore Journey
-            <span className="safari-card__button-arrow">→</span>
-          </button>
+            {/* Bottom: Button left + Info right */}
+            <div className="safari-card__text-bottom">
+              <button className="safari-card__button" tabIndex="-1">
+                Explore
+              </button>
+
+              <div className="safari-card__info-right">
+                <p className="safari-card__duration">{safari.duration}</p>
+                <div className="safari-card__price-wrapper">
+                  <span className="safari-card__price-label">Starting from</span>
+                  <span className="safari-card__price">{price}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Link>
     </article>

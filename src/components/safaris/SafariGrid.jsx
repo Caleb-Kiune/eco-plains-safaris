@@ -9,9 +9,9 @@ const SafariGrid = ({ safaris }) => {
       <div className="safari-grid__inner">
         {safaris.map((safari, index) => (
           <SafariCard
-            key={safari.id || index}
+            key={safari.id || safari.slug}
             safari={safari}
-            animationDelay={`${index * 0.15}s`}
+            animationDelay={`${index * 0.1}s`}
           />
         ))}
       </div>

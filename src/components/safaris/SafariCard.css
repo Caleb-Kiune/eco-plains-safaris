@@ -1,180 +1,155 @@
-/* src/components/SafariCard/SafariCard.css */
-
+/* src/components/safaris/SafariCard/SafariCard.css */
 .safari-card {
-  display: block;
-  border-radius: 0;
-  /* Sharp corners for luxury */
+  border-radius: 8px;
   overflow: hidden;
-  background: #FFFFFF;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeSlideUp 0.8s ease-out forwards;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
   height: 100%;
-  border: 1px solid var(--color-border);
+  border: 1px solid #e5e5e5;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 0.8s ease-out forwards;
 }
 
 .safari-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border-color: var(--color-accent-gold);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.14);
+  border-color: #d4af37;
 }
 
-.safari-card__link {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.safari-card__link { 
+  display: block; 
+  height: 100%; 
+  text-decoration: none; 
+  color: inherit; 
 }
 
 .safari-card__image-wrapper {
   position: relative;
-  height: 360px;
-  /* Taller */
-  overflow: hidden;
+  height: 100%;
+  min-height: 440px;
 }
 
+/* Darken the entire image for maximum text readability */
 .safari-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.8s ease;
 }
 
-.safari-card:hover .safari-card__image {
-  transform: scale(1.08);
-}
-
-.safari-card__overlay {
+/* NEW: Subtle dark overlay on the entire image */
+.safari-card__image-wrapper::before {
+  content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-  color: white;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);   /* Perfect balance – darkens image without killing vibrancy */
   z-index: 1;
+  pointer-events: none;
 }
 
+/* Slightly stronger gradient at bottom for price/button */
+.safari-card__text-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, 
+    transparent 30%, 
+    rgba(0,0,0,0.15) 60%, 
+    rgba(0,0,0,0.78) 100%
+  );
+  color: white;
+  z-index: 2;                       /* Above the dark overlay */
+}
+
+.safari-card:hover .safari-card__image { 
+  transform: scale(1.05); 
+}
+
+/* Text – now super crisp on any photo */
 .safari-card__title {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 600;                 /* Slightly bolder */
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .safari-card__location {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  opacity: 0.9;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-size: 0.82rem;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.98;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-.safari-card__content {
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  flex-grow: 1;
-  background: #FFFFFF;
-}
-
-.safari-card__details {
+.safari-card__text-bottom {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  font-size: 0.95rem;
-  color: var(--color-text-light);
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 1.5rem;
-}
-
-.safari-card__duration {
-  font-weight: 500;
-  color: var(--color-text);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.safari-card__duration::before {
-  content: '⏱';
-  /* Or an SVG icon */
-  font-size: 0.9em;
-  opacity: 0.7;
-}
-
-.safari-card__price {
-  font-size: 1rem;
-  color: var(--color-text);
-  text-align: right;
-}
-
-.safari-card__price strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  color: var(--color-accent-gold);
-  font-weight: 400;
-  margin-top: 4px;
+  align-items: flex-end;
 }
 
 .safari-card__button {
-  margin-top: auto;
-  align-self: flex-start;
   background: transparent;
-  color: var(--color-accent-gold);
-  padding: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   border: none;
+  color: #f0d4a0;                   /* Warmer gold */
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 .safari-card__button:hover {
-  color: var(--color-text);
+  color: white;
 }
 
-.safari-card__button-arrow {
-  transition: transform 0.3s ease;
+.safari-card__info-right {
+  text-align: right;
 }
 
-.safari-card__button:hover .safari-card__button-arrow {
-  transform: translateX(6px);
+.safari-card__duration {
+  font-size: 0.875rem;
+  opacity: 0.98;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-/* Responsive adjustments */
+.safari-card__price-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.95;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.safari-card__price {
+  display: block;
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .safari-card__image-wrapper {
-    height: 280px;
-  }
-
-  .safari-card__title {
-    font-size: 1.5rem;
-  }
-
-  .safari-card__content {
-    padding: 1.5rem;
-  }
+  .safari-card__image-wrapper { min-height: 400px; }
+  .safari-card__text-overlay { padding: 1.5rem; }
+  .safari-card__title { font-size: 1.25rem; }
+  .safari-card__price { font-size: 1.65rem; }
 }
 
 @keyframes fadeSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }

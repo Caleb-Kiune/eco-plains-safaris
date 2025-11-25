@@ -1,53 +1,54 @@
 /* src/components/safaris/SafariGrid/SafariGrid.css */
-
 .safari-grid {
-  /* Critical: Extra top padding to clear sticky FilterBar */
-  padding: var(--space-3xl) 5% var(--space-3xl);
-  background: var(--color-bg);
+  padding: 80px 5% 100px;
+  background: #fafafa;
   width: 100%;
-  min-height: 100vh;
 }
 
 .safari-grid__inner {
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   align-items: stretch;
 }
 
-/* Tablet (768px – 1024px) */
-@media (max-width: 1024px) {
-  .safari-grid {
-    padding: var(--space-2xl) 4% var(--space-2xl);
+/* Large Desktop */
+@media (min-width: 1600px) {
+  .safari-grid__inner {
+    gap: 32px;
   }
+}
 
+/* Tablet & Down – 3 columns */
+@media (max-width: 1280px) {
+  .safari-grid__inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Small Tablet – 2 columns */
+@media (max-width: 900px) {
   .safari-grid__inner {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
+    gap: 20px;
   }
-}
 
-/* Mobile Landscape & Below */
-@media (max-width: 768px) {
   .safari-grid {
-    padding: var(--space-xl) 5% var(--space-xl);
-  }
-
-  .safari-grid__inner {
-    gap: var(--space-md);
+    padding: 60px 4%;
   }
 }
 
-/* Mobile Portrait */
+/* Mobile – 1 column */
 @media (max-width: 640px) {
-  .safari-grid {
-    padding: var(--space-xl) 5% var(--space-lg);
-  }
-
   .safari-grid__inner {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 20px;
+  }
+
+  .safari-grid {
+    padding: 50px 5% 80px;
   }
 }

@@ -2,32 +2,28 @@
 
 .safari-card {
   position: relative;
-  border-radius: 4px;
+  width: 100%;
+  aspect-ratio: 3/4;
+  /* Cinematic portrait ratio */
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(15, 26, 23, 0.1);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  height: 100%;
-  background: var(--color-text);
+  background-color: #0F1A17;
   cursor: pointer;
 }
 
-.safari-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(15, 26, 23, 0.2);
-}
-
-/* Link Wrapper */
 .safari-card__link {
   display: block;
-  text-decoration: none;
+  width: 100%;
   height: 100%;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
 }
 
-/* ============ IMAGE (4:5 Portrait) ============ */
+/* Image Handling */
 .safari-card__image-wrapper {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  width: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -35,121 +31,164 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .safari-card:hover .safari-card__image {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-/* ============ GRADIENT OVERLAY (Bottom-Heavy) ============ */
+/* Overlay - Darkens on hover */
 .safari-card__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
       rgba(15, 26, 23, 0.1) 0%,
-      rgba(15, 26, 23, 0.85) 100%);
+      rgba(15, 26, 23, 0.4) 50%,
+      rgba(15, 26, 23, 0.8) 100%);
+  transition: background 0.5s ease;
   z-index: 1;
-  transition: opacity 0.3s ease;
 }
 
 .safari-card:hover .safari-card__overlay {
-  opacity: 0.95;
+  background: linear-gradient(to bottom,
+      rgba(15, 26, 23, 0.3) 0%,
+      rgba(15, 26, 23, 0.6) 50%,
+      rgba(15, 26, 23, 0.95) 100%);
 }
 
-/* ============ CONTENT (Bottom-Left) ============ */
+/* Badge */
+.safari-card__badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold, #D4AF37);
+  background: rgba(15, 26, 23, 0.8);
+  padding: 0.5rem 0.75rem;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Content Positioning */
 .safari-card__content {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   padding: 2rem;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: flex-end;
 }
 
-/* Duration Tag (Ochre Pill) */
-.safari-card__duration {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 0.375rem 0.875rem;
-  background: rgba(193, 127, 89, 0.9);
-  color: var(--color-white);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: 100px;
-  margin-bottom: 0.5rem;
-}
-
-/* Title - Playfair Display */
-.safari-card__title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-white);
-  margin: 0;
-}
-
-/* Location */
-.safari-card__location {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--color-white);
-  opacity: 0.85;
-  margin: 0;
-}
-
-/* ============ FOOTER (CTA + Price) ============ */
-.safari-card__footer {
+/* Header: Destination & Duration */
+.safari-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.safari-card:hover .safari-card__footer {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* CTA Text */
-.safari-card__cta {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-accent);
+  color: rgba(245, 240, 230, 0.9);
 }
 
-/* Price */
-.safari-card__price {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
+.safari-card__destination {
   font-weight: 600;
-  color: var(--color-white);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .safari-card__content {
-    padding: 1.5rem;
-  }
+.safari-card__duration {
+  opacity: 0.8;
+}
 
-  .safari-card__footer {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Title */
+.safari-card__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--color-cream, #F5F0E6);
+  margin: 0;
+  transform: translateY(20px);
+  /* Initial position */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.safari-card:hover .safari-card__title {
+  transform: translateY(0);
+  /* Moves up on hover */
+}
+
+/* Reveal Content */
+.safari-card__reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.safari-card:hover .safari-card__reveal {
+  max-height: 150px;
+  /* Reveal space */
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.safari-card__divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold, #D4AF37);
+  margin-bottom: 1rem;
+}
+
+/* Price Block */
+.safari-card__price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-cream, #F5F0E6);
+}
+
+.safari-card__price-label {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.safari-card__price {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.safari-card__price-sub {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* CTA */
+.safari-card__cta {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold, #D4AF37);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  padding-bottom: 2px;
+}
+
+.safari-card:hover .safari-card__cta {
+  border-bottom-color: var(--color-gold, #D4AF37);
 }

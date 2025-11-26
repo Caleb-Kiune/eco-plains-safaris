@@ -3,6 +3,8 @@
 .safari-details-page {
   background: var(--color-bg);
   min-height: 100vh;
+  padding-top: var(--navbar-height, 90px);
+  /* Account for fixed navbar */
 }
 
 /* ============ LOADING STATE ============ */
@@ -47,9 +49,11 @@
 /* LEFT COLUMN - HERO CAROUSEL */
 .safari-split-left {
   width: 50%;
-  height: 100vh;
+  height: calc(100vh - var(--navbar-height, 90px));
+  /* Account for navbar */
   position: sticky;
-  top: 0;
+  top: var(--navbar-height, 90px);
+  /* Start below navbar */
   overflow: hidden;
   z-index: 10;
 }

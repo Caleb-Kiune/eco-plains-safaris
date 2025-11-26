@@ -1,18 +1,32 @@
 // src/components/safaris/FilterBar.jsx
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './FilterBar.css';
 
 export default function FilterBar({ safaris, filters, setFilters }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isCountriesExpanded, setIsCountriesExpanded] = useState(false);
 
-  // Extract unique countries from the new 'country' field
-  // Handles comma-separated values like "Botswana, Zimbabwe"
-  const countries = [...new Set(
-    safaris.flatMap(s =>
-      s.country ? s.country.split(',').map(c => c.trim()) : []
-    )
-  )].sort();
+  // Extract unique countries with frequency count
+  const countries = useMemo(() => {
+    const countryCounts = {};
+
+    safaris.forEach(s => {
+      if (s.country) {
+        const splitCountries = s.country.split(',').map(c => c.trim());
+        splitCountries.forEach(c => {
+          countryCounts[c] = (countryCounts[c] || 0) + 1;
+        });
+      }
+    });
+
+    // Sort by frequency (desc) then alphabetical (asc)
+    return Object.keys(countryCounts).sort((a, b) => {
+      const diff = countryCounts[b] - countryCounts[a];
+      if (diff !== 0) return diff;
+      return a.localeCompare(b);
+    });
+  }, [safaris]);
 
   const categories = [...new Set(safaris.map(s => s.category))].sort();
 
@@ -47,7 +61,23 @@ export default function FilterBar({ safaris, filters, setFilters }) {
       duration: '',
       priceRange: [0, 1000000]
     });
+    setIsCountriesExpanded(false);
   };
+
+  // Determine visible countries (Top 5 + any currently selected one if it's hidden)
+  const visibleLimit = 5;
+  const topCountries = countries.slice(0, visibleLimit);
+  const hiddenCountries = countries.slice(visibleLimit);
+
+  // If the selected country is in the hidden list, we should probably auto-expand or just show it.
+  // The requirement says: "When navigating... the correct pill (even if in 'More...') must become active".
+  // We'll show the top 5, and if expanded, show the rest.
+  // If a hidden country is selected, we'll auto-expand the list so the user sees what's active.
+  React.useEffect(() => {
+    if (filters.country && hiddenCountries.includes(filters.country)) {
+      setIsCountriesExpanded(true);
+    }
+  }, [filters.country, hiddenCountries]);
 
   return (
     <div className="filter-bar">
@@ -77,7 +107,9 @@ export default function FilterBar({ safaris, filters, setFilters }) {
             >
               All Countries
             </button>
-            {countries.slice(0, 5).map(country => (
+
+            {/* Render Top 5 */}
+            {topCountries.map(country => (
               <button
                 key={country}
                 className={`filter-pill ${filters.country === country ? 'filter-pill--active' : ''}`}
@@ -86,6 +118,28 @@ export default function FilterBar({ safaris, filters, setFilters }) {
                 {country}
               </button>
             ))}
+
+            {/* Render Hidden Countries if Expanded */}
+            {isCountriesExpanded && hiddenCountries.map(country => (
+              <button
+                key={country}
+                className={`filter-pill ${filters.country === country ? 'filter-pill--active' : ''}`}
+                onClick={() => setFilters({ ...filters, country: country })}
+              >
+                {country}
+              </button>
+            ))}
+
+            {/* More... Toggle */}
+            {hiddenCountries.length > 0 && (
+              <button
+                className={`filter-pill filter-pill--more ${isCountriesExpanded ? 'filter-pill--active-more' : ''}`}
+                onClick={() => setIsCountriesExpanded(!isCountriesExpanded)}
+                style={{ fontStyle: 'italic', opacity: 0.8 }}
+              >
+                {isCountriesExpanded ? 'Show Less' : 'More...'}
+              </button>
+            )}
           </div>
 
           {/* Category Pills */}

@@ -1,145 +1,189 @@
 /* src/components/home/FeaturedSafarisCarousel.css */
 
 .featured-safaris {
-    background: var(--color-bg);
-    padding: var(--space-5xl) 0;
+    padding: 6rem 0;
+    background-color: var(--color-dark-green, #0F1A17);
+    color: var(--color-cream, #F5F0E6);
+    position: relative;
     overflow: hidden;
 }
 
 .featured-safaris__container {
-    max-width: var(--max-width);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 2rem;
+    position: relative;
 }
 
 .featured-safaris__subtitle {
-    font-family: var(--font-sans);
-    font-size: 1.15rem;
-    font-weight: 400;
     text-align: center;
-    color: var(--color-text);
-    opacity: 0.7;
-    margin-bottom: var(--space-3xl);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    color: var(--color-gold, #D4AF37);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.9rem;
+    margin-bottom: 4rem;
+    opacity: 0.9;
 }
 
+/* Carousel Wrapper - Position context for arrows */
 .featured-safaris__carousel-wrapper {
     position: relative;
-    margin-top: var(--space-3xl);
 }
 
-/* Navigation Arrows */
-.featured-safaris__nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(249, 248, 244, 0.95);
-    border: 1px solid rgba(193, 127, 89, 0.3);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.25rem;
-    color: var(--color-accent);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.featured-safaris__nav-btn--prev {
-    left: -24px;
-}
-
-.featured-safaris__nav-btn--next {
-    right: -24px;
-}
-
-.featured-safaris__nav-btn:hover:not(:disabled) {
-    background: var(--color-accent);
-    color: var(--color-white);
-    border-color: var(--color-accent);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.featured-safaris__nav-btn--disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-/* Viewport & Track */
+/* Embla Carousel Structure */
 .featured-safaris__viewport {
     overflow: hidden;
-    position: relative;
+    width: 100%;
 }
 
 .featured-safaris__track {
     display: flex;
     gap: 2rem;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: grab;
+    /* Consistent gap between slides */
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    touch-action: pan-y;
+    margin-left: -1rem;
+    /* Negative margin to offset the first item's padding if we used padding, but here we use gap. 
+                         Actually, Embla with gap needs care. 
+                         Better approach for Embla: 
+                         container display: flex. 
+                         slide: flex: 0 0 X%. 
+                         padding-left: gap. 
+                         */
+    margin-left: 0;
+    /* Reset */
 }
 
-.featured-safaris__track.dragging {
-    cursor: grabbing;
-    transition: none;
+/* 
+   Embla Gap Strategy:
+   Use padding-left on slides and negative margin-left on container 
+   OR use gap property (modern browsers support it in flex, but Embla docs often suggest padding for max compatibility).
+   Let's use the gap property since we are on React 18 + Vite (modern).
+*/
+
+.featured-safaris__track {
+    gap: 0;
+    /* We will use padding on slides for spacing to ensure perfect Embla calculation */
 }
 
 .featured-safaris__slide {
-    flex: 0 0 calc((100% - 4rem) / 3);
+    position: relative;
     min-width: 0;
+    /* 
+     3 slides: 100% / 3 = 33.333%
+     2 slides: 50%
+     1 slide: 100%
+  */
+    flex: 0 0 100%;
+    padding-left: 1.5rem;
+    /* Gap between slides */
+    padding-right: 1.5rem;
+    /* To balance if needed, but usually just one side + negative margin on container */
 }
 
-/* Pagination Dots */
-.featured-safaris__pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-top: var(--space-2xl);
+/* Better Gap Strategy for Embla:
+   container: margin-left: -1.5rem;
+   slide: padding-left: 1.5rem;
+*/
+.featured-safaris__track {
+    margin-left: -1.5rem;
 }
 
-.featured-safaris-bullet {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1px solid var(--color-accent);
+.featured-safaris__slide {
+    padding-left: 1.5rem;
+    flex: 0 0 100%;
+    /* Mobile default */
+}
+
+@media (min-width: 768px) {
+    .featured-safaris__slide {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .featured-safaris__slide {
+        flex: 0 0 33.333333%;
+    }
+}
+
+/* Navigation Arrows - Matching BigFiveHero exactly */
+.featured-safaris__nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
     background: transparent;
+    border: 1px solid rgba(245, 240, 230, 0.3);
+    color: var(--color-cream, #F5F0E6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(4px);
     padding: 0;
+    /* Reset default button padding */
 }
 
-.featured-safaris-bullet:hover {
-    background: rgba(193, 127, 89, 0.3);
-    transform: scale(1.2);
+.featured-safaris__nav-btn:hover:not(:disabled) {
+    background: rgba(245, 240, 230, 0.1);
+    border-color: var(--color-gold, #D4AF37);
+    color: var(--color-gold, #D4AF37);
 }
 
-.featured-safaris-bullet-active {
-    background: var(--color-accent);
-    transform: scale(1.3);
+.featured-safaris__nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(245, 240, 230, 0.1);
 }
 
-/* Responsive */
-@media (max-width: 1023px) {
-    .featured-safaris__slide {
-        flex: 0 0 calc((100% - 1.5rem) / 2);
+/* Position arrows outside the grid if possible, or on edges */
+.featured-safaris__nav-btn--prev {
+    left: -1rem;
+    /* Pull out slightly */
+}
+
+.featured-safaris__nav-btn--next {
+    right: -1rem;
+    /* Pull out slightly */
+}
+
+@media (max-width: 1500px) {
+
+    /* Bring arrows inside on smaller screens */
+    .featured-safaris__nav-btn--prev {
+        left: 1rem;
+    }
+
+    .featured-safaris__nav-btn--next {
+        right: 1rem;
     }
 }
 
-@media (max-width: 767px) {
+/* Mobile Adjustments */
+@media (max-width: 768px) {
     .featured-safaris {
-        padding: var(--space-3xl) 0;
-    }
-
-    .featured-safaris__slide {
-        flex: 0 0 100%;
+        padding: 4rem 0;
     }
 
     .featured-safaris__nav-btn {
-        display: none;
+        width: 40px;
+        height: 40px;
+        border-color: rgba(245, 240, 230, 0.5);
+        background: rgba(15, 26, 23, 0.5);
+        /* Add background for visibility over cards if they overlap */
     }
+
+    /* On mobile, arrows might cover content if inside. 
+     Let's keep them visible as requested: "always visible (mobile)" 
+  */
 }

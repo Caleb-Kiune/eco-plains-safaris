@@ -20,19 +20,19 @@
   {
     "name": "Zimbabwe",
     "flag": "🇿🇼",
-    "image": "/images/kenya-destination-image.jpg",
+    "image": "/images/zimbabwe.jpg",
     "gridArea": "zimbabwe"
   },
   {
     "name": "Botswana",
     "flag": "🇧🇼",
-    "image": "/images/uganda-destination-image.jpg",
+    "image": "/images/botswana.jpg",
     "gridArea": "botswana"
   },
   {
     "name": "UAE",
     "flag": "🇦🇪",
-    "image": "/images/tanzania-destination-image.jpg",
+    "image": "/images/uae.jpg",
     "gridArea": "uae"
   }
 ]

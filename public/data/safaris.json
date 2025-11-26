@@ -18,17 +18,27 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Jan – 31 Dec 2025",
+      "validity": "01 Jan \u2013 31 Dec 2025",
       "category": "Wildlife Safari",
       "featured": true,
       "primaryImage": "/images/victoria falls.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/mountain-package.jpg",
+        "/images/botswana.jpg",
+        "/images/zimbabwe.jpg"
       ],
-      "inclusions": ["3 Nights Victoria Falls + 2 Nights Chobe","All meals as per itinerary","Private transfers Zimbabwe ↔ Botswana","Game drives, river cruises & park entries"],
-      "exclusions": ["Visa fees","Travel insurance","Personal expenses","T&Cs apply"]
+      "inclusions": [
+        "3 Nights Victoria Falls + 2 Nights Chobe",
+        "All meals as per itinerary",
+        "Private transfers Zimbabwe \u2194 Botswana",
+        "Game drives, river cruises & park entries"
+      ],
+      "exclusions": [
+        "Visa fees",
+        "Travel insurance",
+        "Personal expenses",
+        "T&Cs apply"
+      ]
     },
     {
       "id": 2,
@@ -42,23 +52,37 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Apr – 31 Dec 2025",
+      "validity": "01 Apr \u2013 31 Dec 2025",
       "category": "Wildlife Safari",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Hwange National Park.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/victoria falls.jpg",
+        "/images/Nairobi National Park.jpg",
+        "/images/mountain-package.jpg",
+        "/images/zimbabwe.jpg"
       ],
-      "inclusions": ["3 Nights Victoria Falls + 2 Nights Hwange","Full board meals","Zambezi sunset cruise","Victoria Falls rainforest tour","Boma dinner","Game drives & walking safari in Hwange","All inter-lodge & airport transfers"],
-      "exclusions": ["Visa fees","Travel insurance","Personal expenses","T&Cs apply"]
+      "inclusions": [
+        "3 Nights Victoria Falls + 2 Nights Hwange",
+        "Full board meals",
+        "Zambezi sunset cruise",
+        "Victoria Falls rainforest tour",
+        "Boma dinner",
+        "Game drives & walking safari in Hwange",
+        "All inter-lodge & airport transfers"
+      ],
+      "exclusions": [
+        "Visa fees",
+        "Travel insurance",
+        "Personal expenses",
+        "T&Cs apply"
+      ]
     },
     {
       "id": 3,
       "code": "NAIROBI-DAY",
       "slug": "nairobi-national-park-jamhuri-day-trip",
-      "title": "Nairobi National Park – Jamhuri Day Trip",
+      "title": "Nairobi National Park \u2013 Jamhuri Day Trip",
       "destination": "Nairobi, Kenya",
       "duration": "1 Day",
       "date": "12 Dec 2025",
@@ -70,20 +94,30 @@
       "validity": "12 Dec 2025 only",
       "category": "Day Trip",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Nairobi National Park.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Hwange National Park.jpg",
+        "/images/mountain-package.jpg",
+        "/images/kenya-destination-image.jpg"
       ],
-      "inclusions": ["Transport","Safari walks","Animal orphanage visit","Snacks & drinks","500ml bottled water","Unlimited photography"],
-      "exclusions": ["Anything not mentioned","Personal expenses"]
+      "inclusions": [
+        "Transport",
+        "Safari walks",
+        "Animal orphanage visit",
+        "Snacks & drinks",
+        "500ml bottled water",
+        "Unlimited photography"
+      ],
+      "exclusions": [
+        "Anything not mentioned",
+        "Personal expenses"
+      ]
     },
     {
       "id": 4,
       "code": "BAOBAB-NOV25-ONEWAY",
       "slug": "baobab-beach-resort-oneway-flight-nov2025",
-      "title": "Baobab Beach Resort – One-Way Flight/SGR",
+      "title": "Baobab Beach Resort \u2013 One-Way Flight/SGR",
       "destination": "Diani Beach, Kenya",
       "duration": "3 Nights / 4 Days",
       "price_adult": 89730,
@@ -91,23 +125,33 @@
       "price_couple": null,
       "price_note": "per person sea-facing room",
       "currency": "KES",
-      "validity": "01–30 Nov 2025",
+      "validity": "01\u201330 Nov 2025",
       "category": "Beach Holiday",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Baobab Beach Resort.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Baobab Beach Resort2.jpg",
+        "/images/Baobab Beach Resort3.jpg",
+        "/images/beach-package.jpg",
+        "/images/kenya-destination-image.jpg"
       ],
-      "inclusions": ["All-inclusive meals & unlimited drinks","Welcome cocktail","One-way SGR/flight + return transfers","Entertainment & activities","Free Wi-Fi"],
-      "exclusions": ["Any other items not mentioned","Personal expenses"]
+      "inclusions": [
+        "All-inclusive meals & unlimited drinks",
+        "Welcome cocktail",
+        "One-way SGR/flight + return transfers",
+        "Entertainment & activities",
+        "Free Wi-Fi"
+      ],
+      "exclusions": [
+        "Any other items not mentioned",
+        "Personal expenses"
+      ]
     },
     {
       "id": 5,
       "code": "BAOBAB-NOV25-RETURN",
       "slug": "baobab-beach-resort-return-sgr-nov2025",
-      "title": "Baobab Beach Resort – Return SGR Package",
+      "title": "Baobab Beach Resort \u2013 Return SGR Package",
       "destination": "Diani Beach, Kenya",
       "duration": "3 Nights / 4 Days",
       "price_adult": 72430,
@@ -115,41 +159,62 @@
       "price_couple": null,
       "price_note": "per person sea-facing room",
       "currency": "KES",
-      "validity": "01–30 Nov 2025",
+      "validity": "01\u201330 Nov 2025",
       "category": "Beach Holiday",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Baobab Beach Resort.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/beach-package.jpg",
+        "/images/Baobab Beach Resort2.jpg",
+        "/images/Baobab Beach Resort3.jpg",
+        "/images/hot-air-baloon-package.jpg"
       ],
-      "inclusions": ["All-inclusive meals & unlimited drinks","Welcome cocktail","Return SGR + transfers","Entertainment & water sports","Free Wi-Fi"],
-      "exclusions": ["Any other items not mentioned","Personal expenses"]
+      "inclusions": [
+        "All-inclusive meals & unlimited drinks",
+        "Welcome cocktail",
+        "Return SGR + transfers",
+        "Entertainment & water sports",
+        "Free Wi-Fi"
+      ],
+      "exclusions": [
+        "Any other items not mentioned",
+        "Personal expenses"
+      ]
     },
     {
       "id": 6,
       "code": "BAOBAB-SGR-2N",
       "slug": "baobab-beach-resort-2-nights-sgr",
-      "title": "Baobab Beach Resort – 2 Nights All-Inclusive SGR",
+      "title": "Baobab Beach Resort \u2013 2 Nights All-Inclusive SGR",
       "destination": "Diani Beach, Kenya",
       "duration": "2 Nights / 3 Days",
       "price_adult": null,
       "price_child": null,
       "price_couple": null,
-      "price_note": "per person sharing – rate on request",
+      "price_note": "per person sharing \u2013 rate on request",
       "currency": "KES",
       "validity": "Year-round 2025 (subject to SGR availability)",
       "category": "Beach Holiday",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Baobab Beach Resort.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Baobab Beach Resort2.jpg",
+        "/images/Baobab Beach Resort3.jpg",
+        "/images/beach-package.jpg",
+        "/images/kenya-destination-image.jpg"
       ],
-      "inclusions": ["2 nights accommodation","All-inclusive meals & drinks","Use of all hotel facilities","Return economy SGR tickets Nairobi ↔ Mombasa","Return transfers Mombasa SGR ↔ hotel"],
-      "exclusions": ["Activities not mentioned","Lunch on last day","Personal expenses"]
+      "inclusions": [
+        "2 nights accommodation",
+        "All-inclusive meals & drinks",
+        "Use of all hotel facilities",
+        "Return economy SGR tickets Nairobi \u2194 Mombasa",
+        "Return transfers Mombasa SGR \u2194 hotel"
+      ],
+      "exclusions": [
+        "Activities not mentioned",
+        "Lunch on last day",
+        "Personal expenses"
+      ]
     },
     {
       "id": 7,
@@ -163,17 +228,35 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Jan – 22 Dec 2025",
+      "validity": "01 Jan \u2013 22 Dec 2025",
       "category": "Wildlife Safari",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Big Five Tanzania Safari.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Kilanguni Serena Safari Lodge2.jpg",
+        "/images/Kilanguni Serena Safari Lodge.jpg",
+        "/images/Voi Safari Lodge2.jpg",
+        "/images/Voi Safari Lodge.jpg"
       ],
-      "inclusions": ["1N Arusha Serena","1N Lake Manyara/Tarangire Serena","2N Serengeti Serena","1N Ngorongoro Serena","1N Farm of Dreams Karatu","Breakfast in Arusha, all meals elsewhere","Private 4x4 with English guide","All park & concession fees","Mineral water & lunch boxes","Limited Wi-Fi in vehicle"],
-      "exclusions": ["International flights","Visa fees","Travel insurance","Tips","T&Cs apply"]
+      "inclusions": [
+        "1N Arusha Serena",
+        "1N Lake Manyara/Tarangire Serena",
+        "2N Serengeti Serena",
+        "1N Ngorongoro Serena",
+        "1N Farm of Dreams Karatu",
+        "Breakfast in Arusha, all meals elsewhere",
+        "Private 4x4 with English guide",
+        "All park & concession fees",
+        "Mineral water & lunch boxes",
+        "Limited Wi-Fi in vehicle"
+      ],
+      "exclusions": [
+        "International flights",
+        "Visa fees",
+        "Travel insurance",
+        "Tips",
+        "T&Cs apply"
+      ]
     },
     {
       "id": 8,
@@ -187,23 +270,34 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "25 Apr – 19 Dec 2025",
+      "validity": "25 Apr \u2013 19 Dec 2025",
       "category": "Beach Holiday",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Zanzibar Beach.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Baobab Beach Resort.jpg",
+        "/images/beach-package.jpg",
+        "/images/Zanzibar Beach2.jpg",
+        "/images/Baobab Beach Resort2.jpg"
       ],
-      "inclusions": ["4 Nights Aquarium Beach Hotel","Daily breakfast","Full-day Stone Town & Spice Tour","Half-day Prison Island Tour","Airport/ferry transfers both ways"],
-      "exclusions": ["International flights","Visa fees","Personal expenses"]
+      "inclusions": [
+        "4 Nights Aquarium Beach Hotel",
+        "Daily breakfast",
+        "Full-day Stone Town & Spice Tour",
+        "Half-day Prison Island Tour",
+        "Airport/ferry transfers both ways"
+      ],
+      "exclusions": [
+        "International flights",
+        "Visa fees",
+        "Personal expenses"
+      ]
     },
     {
       "id": 9,
       "code": "SAT1348",
       "slug": "rwanda-gorilla-akagera-experience-sat1348",
-      "title": "Rwanda – Dian Fossey & Akagera",
+      "title": "Rwanda \u2013 Dian Fossey & Akagera",
       "destination": "Rwanda",
       "duration": "4 Nights / 5 Days",
       "price_adult": 1800,
@@ -214,14 +308,28 @@
       "validity": "Valid until 31 Dec 2025",
       "category": "Adventure",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Rwanda \u2013 Dian Fossey & Akagera.jpg",
       "secondaryImages": [
+        "/images/Rwanda \u2013 Dian Fossey & Akagera2.jpg",
         "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/mountain-package.jpg"
       ],
-      "inclusions": ["4 Nights Kigali (M Hotel or similar) on BB","Kigali city tour + museum","Kigali nightlife experience","Akagera game drive + picnic lunch","Twin Lakes (Burera & Ruhondo) excursion + lunch","Dian Fossey Research Center visit","4x4 vehicle & English-speaking guide","Bottled water"],
-      "exclusions": ["International flights","Visa fees","Personal expenses","T&Cs apply"]
+      "inclusions": [
+        "4 Nights Kigali (M Hotel or similar) on BB",
+        "Kigali city tour + museum",
+        "Kigali nightlife experience",
+        "Akagera game drive + picnic lunch",
+        "Twin Lakes (Burera & Ruhondo) excursion + lunch",
+        "Dian Fossey Research Center visit",
+        "4x4 vehicle & English-speaking guide",
+        "Bottled water"
+      ],
+      "exclusions": [
+        "International flights",
+        "Visa fees",
+        "Personal expenses",
+        "T&Cs apply"
+      ]
     },
     {
       "id": 10,
@@ -235,23 +343,34 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Oct 2025 – 30 Sep 2026",
+      "validity": "01 Oct 2025 \u2013 30 Sep 2026",
       "category": "City Break",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Dubai Parks & Desert Dreams3.jpg",
+        "/images/Dubai Parks & Desert Dreams2.jpg",
+        "/images/uae.jpg"
       ],
-      "inclusions": ["Lapita Dubai Parks or similar (bed & breakfast)","Half-day Dubai city tour","Desert safari with BBQ dinner & entertainment","Marina dhow cruise dinner","Return private airport transfers"],
-      "exclusions": ["UAE visa","Travel insurance","Personal expenses","T&Cs apply"]
+      "inclusions": [
+        "Lapita Dubai Parks or similar (bed & breakfast)",
+        "Half-day Dubai city tour",
+        "Desert safari with BBQ dinner & entertainment",
+        "Marina dhow cruise dinner",
+        "Return private airport transfers"
+      ],
+      "exclusions": [
+        "UAE visa",
+        "Travel insurance",
+        "Personal expenses",
+        "T&Cs apply"
+      ]
     },
     {
       "id": 11,
       "code": "SAT1944",
       "slug": "thailand-bangkok-pattaya-sat1944",
-      "title": "Thailand – Bangkok & Pattaya",
+      "title": "Thailand \u2013 Bangkok & Pattaya",
       "destination": "Thailand",
       "duration": "5 Nights / 6 Days",
       "price_adult": 802,
@@ -259,23 +378,31 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Jun 2025 – 31 Jan 2026",
+      "validity": "01 Jun 2025 \u2013 31 Jan 2026",
       "category": "City Break",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Thailand \u2013 Bangkok & Pattaya.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Thailand \u2013 Bangkok & Pattaya3.jpg",
+        "/images/Thailand \u2013 Bangkok & Pattaya2.jpg"
       ],
-      "inclusions": ["3N Bangkok + 2N Pattaya (3–4 star, breakfast)","English-speaking guide","All activities & entrance fees","Lunch on selected days"],
-      "exclusions": ["International flights","Thailand visa","Personal expenses"]
+      "inclusions": [
+        "3N Bangkok + 2N Pattaya (3\u20134 star, breakfast)",
+        "English-speaking guide",
+        "All activities & entrance fees",
+        "Lunch on selected days"
+      ],
+      "exclusions": [
+        "International flights",
+        "Thailand visa",
+        "Personal expenses"
+      ]
     },
     {
       "id": 12,
       "code": "ASHNIL-ARUBA",
       "slug": "ashnil-aruba-tsavo-east-train",
-      "title": "Ashnil Aruba Lodge – Tsavo East",
+      "title": "Ashnil Aruba Lodge \u2013 Tsavo East",
       "destination": "Tsavo East, Kenya",
       "duration": "2 Nights / 3 Days",
       "price_adult": 43000,
@@ -286,14 +413,24 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Ashnil Aruba Lodge.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Ashnil Aruba Lodge2.jpg",
+        "/images/Sentrim Tsavo Camp2.jpg",
+        "/images/Manyatta Camp Tsavo.jpg",
+        "/images/Weru Weru River Lodge Honeymoon.jpg"
       ],
-      "inclusions": ["Return Madaraka Express (economy)","Transfers Voi ↔ lodge","Full board meals","1 game drive"],
-      "exclusions": ["Park fees (Ksh 1030 adult / 515 child)","Drinks","Tips"]
+      "inclusions": [
+        "Return Madaraka Express (economy)",
+        "Transfers Voi \u2194 lodge",
+        "Full board meals",
+        "1 game drive"
+      ],
+      "exclusions": [
+        "Park fees (Ksh 1030 adult / 515 child)",
+        "Drinks",
+        "Tips"
+      ]
     },
     {
       "id": 13,
@@ -310,14 +447,24 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Kilanguni Serena Safari Lodge.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Kilanguni Serena Safari Lodge2.jpg",
+        "/images/Voi Safari Lodge.jpg",
+        "/images/Sentrim Tsavo Camp2.jpg",
+        "/images/Manyatta Camp Tsavo.jpg"
       ],
-      "inclusions": ["Return Madaraka Express","Transfers","Full board meals","1 game drive"],
-      "exclusions": ["Park fees","Drinks","Tips"]
+      "inclusions": [
+        "Return Madaraka Express",
+        "Transfers",
+        "Full board meals",
+        "1 game drive"
+      ],
+      "exclusions": [
+        "Park fees",
+        "Drinks",
+        "Tips"
+      ]
     },
     {
       "id": 14,
@@ -334,14 +481,24 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Sentrim Tsavo Camp.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Sentrim Tsavo Camp2.jpg",
+        "/images/Manyatta Camp Tsavo.jpg",
+        "/images/Sentrim Tsavo Camp3.jpg",
+        "/images/Manyatta Camp Tsavo3.jpg"
       ],
-      "inclusions": ["Return Madaraka Express","Transfers","Full board meals","1 game drive"],
-      "exclusions": ["Park fees","Drinks","Tips"]
+      "inclusions": [
+        "Return Madaraka Express",
+        "Transfers",
+        "Full board meals",
+        "1 game drive"
+      ],
+      "exclusions": [
+        "Park fees",
+        "Drinks",
+        "Tips"
+      ]
     },
     {
       "id": 15,
@@ -358,14 +515,24 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Manyatta Camp Tsavo.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Manyatta Camp Tsavo3.jpg",
+        "/images/Manyatta Camp Tsavo2.jpg",
+        "/images/Sentrim Tsavo Camp.jpg",
+        "/images/Sentrim Tsavo Camp2.jpg"
       ],
-      "inclusions": ["Return Madaraka Express","Transfers","Full board meals","1 game drive"],
-      "exclusions": ["Park fees","Drinks","Tips"]
+      "inclusions": [
+        "Return Madaraka Express",
+        "Transfers",
+        "Full board meals",
+        "1 game drive"
+      ],
+      "exclusions": [
+        "Park fees",
+        "Drinks",
+        "Tips"
+      ]
     },
     {
       "id": 16,
@@ -382,14 +549,24 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Voi Safari Lodge.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Kilanguni Serena Safari Lodge.jpg",
+        "/images/Voi Safari Lodge2.jpg",
+        "/images/Sentrim Tsavo Camp2.jpg",
+        "/images/Manyatta Camp Tsavo.jpg"
       ],
-      "inclusions": ["Return Madaraka Express","Transfers","Full board meals","1 game drive"],
-      "exclusions": ["Park fees","Drinks","Tips"]
+      "inclusions": [
+        "Return Madaraka Express",
+        "Transfers",
+        "Full board meals",
+        "1 game drive"
+      ],
+      "exclusions": [
+        "Park fees",
+        "Drinks",
+        "Tips"
+      ]
     },
     {
       "id": 17,
@@ -407,14 +584,23 @@
       "validity": "01 Nov 2025 only",
       "category": "Day Trip",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/mountain-package.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/victoria falls.jpg",
+        "/images/kenya-destination-image.jpg",
+        "/images/lion.jpg"
       ],
-      "inclusions": ["Transport","Entrance","Snacks & water","Canopy walk","Waterfall visit","Photography"],
-      "exclusions": ["Optional activities (ziplining, archery, swings, etc.)"]
+      "inclusions": [
+        "Transport",
+        "Entrance",
+        "Snacks & water",
+        "Canopy walk",
+        "Waterfall visit",
+        "Photography"
+      ],
+      "exclusions": [
+        "Optional activities (ziplining, archery, swings, etc.)"
+      ]
     },
     {
       "id": 18,
@@ -431,14 +617,23 @@
       "validity": "Year-round 2025",
       "category": "Honeymoon",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Weru Weru River Lodge Honeymoon.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Weru Weru River Lodge Honeymoon2.jpg",
+        "/images/Weru Weru River Lodge Honeymoon3.jpg",
+        "/images/Kilanguni Serena Safari Lodge.jpg",
+        "/images/Voi Safari Lodge.jpg"
       ],
-      "inclusions": ["Full board","Wine & champagne","Romantic garden photoshoot"],
-      "exclusions": ["Flights","Transfers","Personal expenses"]
+      "inclusions": [
+        "Full board",
+        "Wine & champagne",
+        "Romantic garden photoshoot"
+      ],
+      "exclusions": [
+        "Flights",
+        "Transfers",
+        "Personal expenses"
+      ]
     },
     {
       "id": 19,
@@ -452,17 +647,32 @@
       "price_couple": null,
       "price_note": "per person twin sharing",
       "currency": "USD",
-      "validity": "Year-round 2025–2026",
+      "validity": "Year-round 2025\u20132026",
       "category": "City Break",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Dubai Parks & Desert Dreams3.jpg",
+        "/images/Dubai Parks & Desert Dreams2.jpg",
+        "/images/uae.jpg",
+        "/images/Kilanguni Serena Safari Lodge2.jpg"
       ],
-      "inclusions": ["5N Landmark Grand or similar (BB)","Burj Khalifa At The Top (non-peak)","Desert safari + BBQ","Dhow cruise dinner","Dubai Frame","Museum of the Future","Abu Dhabi tour + one Yas Park","Dubai Mall & fountain show","Private airport transfers"],
-      "exclusions": ["UAE visa","Travel insurance","Personal expenses"]
+      "inclusions": [
+        "5N Landmark Grand or similar (BB)",
+        "Burj Khalifa At The Top (non-peak)",
+        "Desert safari + BBQ",
+        "Dhow cruise dinner",
+        "Dubai Frame",
+        "Museum of the Future",
+        "Abu Dhabi tour + one Yas Park",
+        "Dubai Mall & fountain show",
+        "Private airport transfers"
+      ],
+      "exclusions": [
+        "UAE visa",
+        "Travel insurance",
+        "Personal expenses"
+      ]
     },
     {
       "id": 20,
@@ -476,17 +686,30 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Oct 2025 – 15 Feb 2026",
+      "validity": "01 Oct 2025 \u2013 15 Feb 2026",
       "category": "City Break",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Dubai Parks & Desert Dreams3.jpg",
+        "/images/uae.jpg",
+        "/images/Dubai Parks & Desert Dreams2.jpg"
       ],
-      "inclusions": ["4N with breakfast","Miracle Garden tour","Museum of the Future","Desert safari + BBQ","Dhow cruise dinner","Half-day city tour","SIC basis","Return airport transfers"],
-      "exclusions": ["UAE visa","Travel insurance","Personal expenses"]
+      "inclusions": [
+        "4N with breakfast",
+        "Miracle Garden tour",
+        "Museum of the Future",
+        "Desert safari + BBQ",
+        "Dhow cruise dinner",
+        "Half-day city tour",
+        "SIC basis",
+        "Return airport transfers"
+      ],
+      "exclusions": [
+        "UAE visa",
+        "Travel insurance",
+        "Personal expenses"
+      ]
     },
     {
       "id": 21,
@@ -500,17 +723,28 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Oct 2025 – 15 Feb 2026",
+      "validity": "01 Oct 2025 \u2013 15 Feb 2026",
       "category": "City Break",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Dubai Parks & Desert Dreams3.jpg",
+        "/images/uae.jpg",
+        "/images/Dubai Parks & Desert Dreams2.jpg"
       ],
-      "inclusions": ["3N with breakfast","Half-day city tour","Desert safari + BBQ","Dhow cruise dinner","SIC basis","Return airport transfers"],
-      "exclusions": ["UAE visa","Travel insurance","Personal expenses"]
+      "inclusions": [
+        "3N with breakfast",
+        "Half-day city tour",
+        "Desert safari + BBQ",
+        "Dhow cruise dinner",
+        "SIC basis",
+        "Return airport transfers"
+      ],
+      "exclusions": [
+        "UAE visa",
+        "Travel insurance",
+        "Personal expenses"
+      ]
     },
     {
       "id": 22,
@@ -529,12 +763,19 @@
       "featured": false,
       "primaryImage": "/images/kenya-destination-image.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/lion.jpg",
+        "/images/elephant.jpg"
       ],
-      "inclusions": ["Full board","Romantic table setup","Petal decoration","Celebration cake"],
-      "exclusions": ["Transport","Personal expenses"]
+      "inclusions": [
+        "Full board",
+        "Romantic table setup",
+        "Petal decoration",
+        "Celebration cake"
+      ],
+      "exclusions": [
+        "Transport",
+        "Personal expenses"
+      ]
     },
     {
       "id": 23,
@@ -552,14 +793,26 @@
       "validity": "26 Oct 2025 only",
       "category": "Day Trip",
       "featured": true,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "/images/mountain-package.jpg",
       "secondaryImages": [
-        "/images/rwanda-destination-image.jpg",
-        "/images/tanzania-destination-image.jpg",
-        "/images/uganda-destination-image.jpg"
+        "/images/Nairobi National Park.jpg",
+        "/images/kenya-destination-image.jpg",
+        "/images/lion.jpg"
       ],
-      "inclusions": ["Return SGR train fees","All transfers","Food & bottled water","Bouncing castles & swings for kids","Team building attractions","Photography","Scenic ride across Nairobi National Park","Views of Aberdare, Ngong Hills, Mt Longonot & Suswa","Longest tunnel cruise in East Africa"],
-      "exclusions": ["Personal expenses"]
+      "inclusions": [
+        "Return SGR train fees",
+        "All transfers",
+        "Food & bottled water",
+        "Bouncing castles & swings for kids",
+        "Team building attractions",
+        "Photography",
+        "Scenic ride across Nairobi National Park",
+        "Views of Aberdare, Ngong Hills, Mt Longonot & Suswa",
+        "Longest tunnel cruise in East Africa"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ]
     }
   ]
 }

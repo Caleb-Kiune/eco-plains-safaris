@@ -8,7 +8,7 @@ export default function AboutHero() {
       {/* Ken Burns Image */}
       <div className="about-hero__image-wrapper">
         <img
-          src="/images/about hero image.jpg"
+          src="https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/about%20hero%20image"
           alt="Eco Plains Safaris - Crafted by Insiders"
           className="about-hero__image"
         />

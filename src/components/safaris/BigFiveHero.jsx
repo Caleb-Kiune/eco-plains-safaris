@@ -4,31 +4,31 @@ import './BigFiveHero.css';
 const SLIDES = [
     {
         id: 1,
-        image: '/images/lion.jpg',
+        image: 'https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/lion',
         title: 'The Lion',
         subtitle: 'King of the Savannah'
     },
     {
         id: 2,
-        image: '/images/leopard.jpg',
+        image: 'https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/leopard',
         title: 'The Leopard',
         subtitle: 'Silent Hunter'
     },
     {
         id: 3,
-        image: '/images/elephant.jpg',
+        image: 'https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/elephant',
         title: 'The Elephant',
         subtitle: 'Gentle Giant'
     },
     {
         id: 4,
-        image: '/images/rhino.jpg',
+        image: 'https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/rhino',
         title: 'The Rhino',
         subtitle: 'Ancient Warrior'
     },
     {
         id: 5,
-        image: '/images/buffalo.jpg',
+        image: 'https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/buffalo',
         title: 'The Buffalo',
         subtitle: 'Unstoppable Force'
     }

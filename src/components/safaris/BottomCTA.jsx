@@ -9,7 +9,7 @@ export default function BottomCTA() {
       <div
         className="bottom-cta__bg-image"
         aria-hidden="true"
-        style={{ backgroundImage: "url('/images/tanzania-destination-image.jpg')" }}
+        style={{ backgroundImage: "url('https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/tanzania-destination-image')" }}
       />
       <div className="bottom-cta__overlay" />
 

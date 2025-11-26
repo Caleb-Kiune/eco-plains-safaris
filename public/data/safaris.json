@@ -18,19 +18,19 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Jan \u2013 31 Dec 2025",
+      "validity": "01 Jan – 31 Dec 2025",
       "category": "Wildlife Safari",
       "featured": true,
-      "primaryImage": "/images/victoria falls.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/victoria%20falls?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/mountain-package.jpg",
-        "/images/botswana.jpg",
-        "/images/zimbabwe.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/mountain-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/botswana?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/zimbabwe?_a=BAMAMieC0"
       ],
       "inclusions": [
         "3 Nights Victoria Falls + 2 Nights Chobe",
         "All meals as per itinerary",
-        "Private transfers Zimbabwe \u2194 Botswana",
+        "Private transfers Zimbabwe ↔ Botswana",
         "Game drives, river cruises & park entries"
       ],
       "exclusions": [
@@ -52,15 +52,15 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Apr \u2013 31 Dec 2025",
+      "validity": "01 Apr – 31 Dec 2025",
       "category": "Wildlife Safari",
       "featured": false,
-      "primaryImage": "/images/Hwange National Park.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Hwange%20National%20Park?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/victoria falls.jpg",
-        "/images/Nairobi National Park.jpg",
-        "/images/mountain-package.jpg",
-        "/images/zimbabwe.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/victoria%20falls?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Nairobi%20National%20Park?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/mountain-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/zimbabwe?_a=BAMAMieC0"
       ],
       "inclusions": [
         "3 Nights Victoria Falls + 2 Nights Hwange",
@@ -82,7 +82,7 @@
       "id": 3,
       "code": "NAIROBI-DAY",
       "slug": "nairobi-national-park-jamhuri-day-trip",
-      "title": "Nairobi National Park \u2013 Jamhuri Day Trip",
+      "title": "Nairobi National Park – Jamhuri Day Trip",
       "destination": "Nairobi, Kenya",
       "duration": "1 Day",
       "date": "12 Dec 2025",
@@ -94,11 +94,11 @@
       "validity": "12 Dec 2025 only",
       "category": "Day Trip",
       "featured": true,
-      "primaryImage": "/images/Nairobi National Park.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Nairobi%20National%20Park?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Hwange National Park.jpg",
-        "/images/mountain-package.jpg",
-        "/images/kenya-destination-image.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Hwange%20National%20Park?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/mountain-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Transport",
@@ -117,7 +117,7 @@
       "id": 4,
       "code": "BAOBAB-NOV25-ONEWAY",
       "slug": "baobab-beach-resort-oneway-flight-nov2025",
-      "title": "Baobab Beach Resort \u2013 One-Way Flight/SGR",
+      "title": "Baobab Beach Resort – One-Way Flight/SGR",
       "destination": "Diani Beach, Kenya",
       "duration": "3 Nights / 4 Days",
       "price_adult": 89730,
@@ -125,15 +125,15 @@
       "price_couple": null,
       "price_note": "per person sea-facing room",
       "currency": "KES",
-      "validity": "01\u201330 Nov 2025",
+      "validity": "01–30 Nov 2025",
       "category": "Beach Holiday",
       "featured": false,
-      "primaryImage": "/images/Baobab Beach Resort.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Baobab Beach Resort2.jpg",
-        "/images/Baobab Beach Resort3.jpg",
-        "/images/beach-package.jpg",
-        "/images/kenya-destination-image.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/beach-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0"
       ],
       "inclusions": [
         "All-inclusive meals & unlimited drinks",
@@ -151,7 +151,7 @@
       "id": 5,
       "code": "BAOBAB-NOV25-RETURN",
       "slug": "baobab-beach-resort-return-sgr-nov2025",
-      "title": "Baobab Beach Resort \u2013 Return SGR Package",
+      "title": "Baobab Beach Resort – Return SGR Package",
       "destination": "Diani Beach, Kenya",
       "duration": "3 Nights / 4 Days",
       "price_adult": 72430,
@@ -159,15 +159,15 @@
       "price_couple": null,
       "price_note": "per person sea-facing room",
       "currency": "KES",
-      "validity": "01\u201330 Nov 2025",
+      "validity": "01–30 Nov 2025",
       "category": "Beach Holiday",
       "featured": true,
-      "primaryImage": "/images/Baobab Beach Resort.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/beach-package.jpg",
-        "/images/Baobab Beach Resort2.jpg",
-        "/images/Baobab Beach Resort3.jpg",
-        "/images/hot-air-baloon-package.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/beach-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/hot-air-baloon-package?_a=BAMAMieC0"
       ],
       "inclusions": [
         "All-inclusive meals & unlimited drinks",
@@ -185,30 +185,30 @@
       "id": 6,
       "code": "BAOBAB-SGR-2N",
       "slug": "baobab-beach-resort-2-nights-sgr",
-      "title": "Baobab Beach Resort \u2013 2 Nights All-Inclusive SGR",
+      "title": "Baobab Beach Resort – 2 Nights All-Inclusive SGR",
       "destination": "Diani Beach, Kenya",
       "duration": "2 Nights / 3 Days",
       "price_adult": null,
       "price_child": null,
       "price_couple": null,
-      "price_note": "per person sharing \u2013 rate on request",
+      "price_note": "per person sharing – rate on request",
       "currency": "KES",
       "validity": "Year-round 2025 (subject to SGR availability)",
       "category": "Beach Holiday",
       "featured": false,
-      "primaryImage": "/images/Baobab Beach Resort.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Baobab Beach Resort2.jpg",
-        "/images/Baobab Beach Resort3.jpg",
-        "/images/beach-package.jpg",
-        "/images/kenya-destination-image.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/beach-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0"
       ],
       "inclusions": [
         "2 nights accommodation",
         "All-inclusive meals & drinks",
         "Use of all hotel facilities",
-        "Return economy SGR tickets Nairobi \u2194 Mombasa",
-        "Return transfers Mombasa SGR \u2194 hotel"
+        "Return economy SGR tickets Nairobi ↔ Mombasa",
+        "Return transfers Mombasa SGR ↔ hotel"
       ],
       "exclusions": [
         "Activities not mentioned",
@@ -228,15 +228,15 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Jan \u2013 22 Dec 2025",
+      "validity": "01 Jan – 22 Dec 2025",
       "category": "Wildlife Safari",
       "featured": true,
-      "primaryImage": "/images/Big Five Tanzania Safari.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Big%20Five%20Tanzania%20Safari?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Kilanguni Serena Safari Lodge2.jpg",
-        "/images/Kilanguni Serena Safari Lodge.jpg",
-        "/images/Voi Safari Lodge2.jpg",
-        "/images/Voi Safari Lodge.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Voi%20Safari%20Lodge2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Voi%20Safari%20Lodge?_a=BAMAMieC0"
       ],
       "inclusions": [
         "1N Arusha Serena",
@@ -270,15 +270,15 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "25 Apr \u2013 19 Dec 2025",
+      "validity": "25 Apr – 19 Dec 2025",
       "category": "Beach Holiday",
       "featured": false,
-      "primaryImage": "/images/Zanzibar Beach.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Zanzibar%20Beach?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Baobab Beach Resort.jpg",
-        "/images/beach-package.jpg",
-        "/images/Zanzibar Beach2.jpg",
-        "/images/Baobab Beach Resort2.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/beach-package?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Zanzibar%20Beach2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Baobab%20Beach%20Resort2?_a=BAMAMieC0"
       ],
       "inclusions": [
         "4 Nights Aquarium Beach Hotel",
@@ -297,7 +297,7 @@
       "id": 9,
       "code": "SAT1348",
       "slug": "rwanda-gorilla-akagera-experience-sat1348",
-      "title": "Rwanda \u2013 Dian Fossey & Akagera",
+      "title": "Rwanda – Dian Fossey & Akagera",
       "destination": "Rwanda",
       "duration": "4 Nights / 5 Days",
       "price_adult": 1800,
@@ -308,11 +308,11 @@
       "validity": "Valid until 31 Dec 2025",
       "category": "Adventure",
       "featured": true,
-      "primaryImage": "/images/Rwanda \u2013 Dian Fossey & Akagera.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Rwanda_Dian_Fossey_Akagera?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Rwanda \u2013 Dian Fossey & Akagera2.jpg",
-        "/images/rwanda-destination-image.jpg",
-        "/images/mountain-package.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Rwanda_Dian_Fossey_Akagera2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/rwanda-destination-image?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/mountain-package?_a=BAMAMieC0"
       ],
       "inclusions": [
         "4 Nights Kigali (M Hotel or similar) on BB",
@@ -343,14 +343,14 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Oct 2025 \u2013 30 Sep 2026",
+      "validity": "01 Oct 2025 – 30 Sep 2026",
       "category": "City Break",
       "featured": false,
-      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Dubai Parks & Desert Dreams3.jpg",
-        "/images/Dubai Parks & Desert Dreams2.jpg",
-        "/images/uae.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/uae?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Lapita Dubai Parks or similar (bed & breakfast)",
@@ -370,7 +370,7 @@
       "id": 11,
       "code": "SAT1944",
       "slug": "thailand-bangkok-pattaya-sat1944",
-      "title": "Thailand \u2013 Bangkok & Pattaya",
+      "title": "Thailand – Bangkok & Pattaya",
       "destination": "Thailand",
       "duration": "5 Nights / 6 Days",
       "price_adult": 802,
@@ -378,16 +378,16 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Jun 2025 \u2013 31 Jan 2026",
+      "validity": "01 Jun 2025 – 31 Jan 2026",
       "category": "City Break",
       "featured": true,
-      "primaryImage": "/images/Thailand \u2013 Bangkok & Pattaya.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Thailand_Bangkok_Pattaya?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Thailand \u2013 Bangkok & Pattaya3.jpg",
-        "/images/Thailand \u2013 Bangkok & Pattaya2.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Thailand_Bangkok_Pattaya3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Thailand_Bangkok_Pattaya2?_a=BAMAMieC0"
       ],
       "inclusions": [
-        "3N Bangkok + 2N Pattaya (3\u20134 star, breakfast)",
+        "3N Bangkok + 2N Pattaya (3–4 star, breakfast)",
         "English-speaking guide",
         "All activities & entrance fees",
         "Lunch on selected days"
@@ -402,7 +402,7 @@
       "id": 12,
       "code": "ASHNIL-ARUBA",
       "slug": "ashnil-aruba-tsavo-east-train",
-      "title": "Ashnil Aruba Lodge \u2013 Tsavo East",
+      "title": "Ashnil Aruba Lodge – Tsavo East",
       "destination": "Tsavo East, Kenya",
       "duration": "2 Nights / 3 Days",
       "price_adult": 43000,
@@ -413,16 +413,16 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": false,
-      "primaryImage": "/images/Ashnil Aruba Lodge.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Ashnil%20Aruba%20Lodge?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Ashnil Aruba Lodge2.jpg",
-        "/images/Sentrim Tsavo Camp2.jpg",
-        "/images/Manyatta Camp Tsavo.jpg",
-        "/images/Weru Weru River Lodge Honeymoon.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Ashnil%20Aruba%20Lodge2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Weru%20Weru%20River%20Lodge%20Honeymoon?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Return Madaraka Express (economy)",
-        "Transfers Voi \u2194 lodge",
+        "Transfers Voi ↔ lodge",
         "Full board meals",
         "1 game drive"
       ],
@@ -447,12 +447,12 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": true,
-      "primaryImage": "/images/Kilanguni Serena Safari Lodge.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Kilanguni Serena Safari Lodge2.jpg",
-        "/images/Voi Safari Lodge.jpg",
-        "/images/Sentrim Tsavo Camp2.jpg",
-        "/images/Manyatta Camp Tsavo.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Voi%20Safari%20Lodge?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Return Madaraka Express",
@@ -481,12 +481,12 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": false,
-      "primaryImage": "/images/Sentrim Tsavo Camp.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Sentrim Tsavo Camp2.jpg",
-        "/images/Manyatta Camp Tsavo.jpg",
-        "/images/Sentrim Tsavo Camp3.jpg",
-        "/images/Manyatta Camp Tsavo3.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo3?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Return Madaraka Express",
@@ -515,12 +515,12 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": true,
-      "primaryImage": "/images/Manyatta Camp Tsavo.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Manyatta Camp Tsavo3.jpg",
-        "/images/Manyatta Camp Tsavo2.jpg",
-        "/images/Sentrim Tsavo Camp.jpg",
-        "/images/Sentrim Tsavo Camp2.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp2?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Return Madaraka Express",
@@ -549,12 +549,12 @@
       "validity": "Year-round 2025",
       "category": "Short Safari",
       "featured": false,
-      "primaryImage": "/images/Voi Safari Lodge.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Voi%20Safari%20Lodge?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Kilanguni Serena Safari Lodge.jpg",
-        "/images/Voi Safari Lodge2.jpg",
-        "/images/Sentrim Tsavo Camp2.jpg",
-        "/images/Manyatta Camp Tsavo.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Voi%20Safari%20Lodge2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Sentrim%20Tsavo%20Camp2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Manyatta%20Camp%20Tsavo?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Return Madaraka Express",
@@ -584,11 +584,11 @@
       "validity": "01 Nov 2025 only",
       "category": "Day Trip",
       "featured": true,
-      "primaryImage": "/images/mountain-package.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/mountain-package?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/victoria falls.jpg",
-        "/images/kenya-destination-image.jpg",
-        "/images/lion.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/victoria%20falls?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/lion?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Transport",
@@ -617,12 +617,12 @@
       "validity": "Year-round 2025",
       "category": "Honeymoon",
       "featured": false,
-      "primaryImage": "/images/Weru Weru River Lodge Honeymoon.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Weru%20Weru%20River%20Lodge%20Honeymoon?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Weru Weru River Lodge Honeymoon2.jpg",
-        "/images/Weru Weru River Lodge Honeymoon3.jpg",
-        "/images/Kilanguni Serena Safari Lodge.jpg",
-        "/images/Voi Safari Lodge.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Weru%20Weru%20River%20Lodge%20Honeymoon2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Weru%20Weru%20River%20Lodge%20Honeymoon3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Voi%20Safari%20Lodge?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Full board",
@@ -647,15 +647,15 @@
       "price_couple": null,
       "price_note": "per person twin sharing",
       "currency": "USD",
-      "validity": "Year-round 2025\u20132026",
+      "validity": "Year-round 2025–2026",
       "category": "City Break",
       "featured": true,
-      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Dubai Parks & Desert Dreams3.jpg",
-        "/images/Dubai Parks & Desert Dreams2.jpg",
-        "/images/uae.jpg",
-        "/images/Kilanguni Serena Safari Lodge2.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams2?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/uae?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Kilanguni%20Serena%20Safari%20Lodge2?_a=BAMAMieC0"
       ],
       "inclusions": [
         "5N Landmark Grand or similar (BB)",
@@ -686,14 +686,14 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Oct 2025 \u2013 15 Feb 2026",
+      "validity": "01 Oct 2025 – 15 Feb 2026",
       "category": "City Break",
       "featured": false,
-      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Dubai Parks & Desert Dreams3.jpg",
-        "/images/uae.jpg",
-        "/images/Dubai Parks & Desert Dreams2.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/uae?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams2?_a=BAMAMieC0"
       ],
       "inclusions": [
         "4N with breakfast",
@@ -723,14 +723,14 @@
       "price_couple": null,
       "price_note": "per person twin/double sharing",
       "currency": "USD",
-      "validity": "01 Oct 2025 \u2013 15 Feb 2026",
+      "validity": "01 Oct 2025 – 15 Feb 2026",
       "category": "City Break",
       "featured": true,
-      "primaryImage": "/images/Dubai Parks & Desert Dreams.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Dubai Parks & Desert Dreams3.jpg",
-        "/images/uae.jpg",
-        "/images/Dubai Parks & Desert Dreams2.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams3?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/uae?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Dubai_Parks_Desert_Dreams2?_a=BAMAMieC0"
       ],
       "inclusions": [
         "3N with breakfast",
@@ -761,10 +761,10 @@
       "validity": "Year-round 2025",
       "category": "Honeymoon",
       "featured": false,
-      "primaryImage": "/images/kenya-destination-image.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/lion.jpg",
-        "/images/elephant.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/lion?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/elephant?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Full board",
@@ -793,11 +793,11 @@
       "validity": "26 Oct 2025 only",
       "category": "Day Trip",
       "featured": true,
-      "primaryImage": "/images/mountain-package.jpg",
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/mountain-package?_a=BAMAMieC0",
       "secondaryImages": [
-        "/images/Nairobi National Park.jpg",
-        "/images/kenya-destination-image.jpg",
-        "/images/lion.jpg"
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/Nairobi%20National%20Park?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0",
+        "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/lion?_a=BAMAMieC0"
       ],
       "inclusions": [
         "Return SGR train fees",

@@ -2,37 +2,37 @@
   {
     "name": "Kenya",
     "flag": "🇰🇪",
-    "image": "/images/kenya-destination-image.jpg",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/kenya-destination-image?_a=BAMAMieC0",
     "gridArea": "kenya"
   },
   {
     "name": "Tanzania",
     "flag": "🇹🇿",
-    "image": "/images/tanzania-destination-image.jpg",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/tanzania-destination-image?_a=BAMAMieC0",
     "gridArea": "tanzania"
   },
   {
     "name": "Rwanda",
     "flag": "🇷🇼",
-    "image": "/images/rwanda-destination-image.jpg",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/rwanda-destination-image?_a=BAMAMieC0",
     "gridArea": "rwanda"
   },
   {
     "name": "Zimbabwe",
     "flag": "🇿🇼",
-    "image": "/images/zimbabwe.jpg",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/zimbabwe?_a=BAMAMieC0",
     "gridArea": "zimbabwe"
   },
   {
     "name": "Botswana",
     "flag": "🇧🇼",
-    "image": "/images/botswana.jpg",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/botswana?_a=BAMAMieC0",
     "gridArea": "botswana"
   },
   {
     "name": "UAE",
     "flag": "🇦🇪",
-    "image": "/images/uae.jpg",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/t_q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/uae?_a=BAMAMieC0",
     "gridArea": "uae"
   }
 ]

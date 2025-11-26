@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
       <div
         className="why-choose-us__bg"
         aria-hidden="true"
-        style={{ backgroundImage: "url('/images/serengeti balloon dawn.jpg')" }}
+        style={{ backgroundImage: "url('https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/serengeti%20balloon%20dawn')" }}
       />
       <div className="why-choose-us__overlay" />
 

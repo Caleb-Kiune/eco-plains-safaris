@@ -77,7 +77,7 @@ export default function FeaturedDestinations() {
   }, []);
 
   return (
-    <section className="featured-destinations">
+    <section id="destinations-section" className="featured-destinations">
       <div className="featured-destinations__container">
         <SectionTitle centered>Iconic Safari Destinations</SectionTitle>
 

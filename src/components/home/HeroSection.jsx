@@ -10,7 +10,7 @@ export default function HeroSection() {
   };
 
   const scrollToTrips = () => {
-    document.getElementById('trips-section')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('destinations-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Framer Motion animation variants

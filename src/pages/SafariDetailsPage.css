@@ -44,6 +44,8 @@
 .safari-split-layout {
   display: flex;
   min-height: 100vh;
+  margin: 0;
+  /* Remove any gap between navbar and content */
 }
 
 /* LEFT COLUMN - HERO CAROUSEL */
@@ -268,6 +270,8 @@
 @media (max-width: 1024px) {
   .safari-split-layout {
     flex-direction: column;
+    margin: 0;
+    /* Ensure no gap on mobile */
   }
 
   .safari-split-left {

@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import WhatsAppButton from './components/layout/WhatsAppButton';
+import ScrollToTop from './components/common/ScrollToTop';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <WhatsAppButton />
 

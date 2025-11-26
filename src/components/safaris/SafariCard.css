@@ -8,6 +8,7 @@
   overflow: hidden;
   background-color: #0F1A17;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .safari-card__link {

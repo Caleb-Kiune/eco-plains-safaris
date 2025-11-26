@@ -89,6 +89,10 @@
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease-out 0.3s;
+
+    /* Legibility Fix */
+    color: #F5F0E6;
+    text-shadow: 0 4px 20px rgba(15, 26, 23, 0.6);
 }
 
 .big-five-hero__slide.active .big-five-hero__subtitle,

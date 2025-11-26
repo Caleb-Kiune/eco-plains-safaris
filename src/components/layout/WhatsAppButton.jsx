@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const whatsappNumber = '+254712345678'; // Replace with actual number
+  const whatsappNumber = '+254705774171'; // Replace with actual number
   const message = encodeURIComponent(
     "Hi! I'm interested in planning a safari with Eco Plains Safaris."
   );

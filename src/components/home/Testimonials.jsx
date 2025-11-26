@@ -5,37 +5,51 @@ import './Testimonials.css';
 const testimonials = [
     {
         id: 1,
-        quote: "An absolutely transcendent experience. Every moment felt curated for wonder.",
-        author: "Sarah Mitchell",
-        location: "London, UK",
+        quote: "The silence of the Mara at dawn... it changes you. Jackson, our guide, knew every turn of the land. I have never felt more at home.",
+        author: "Wanjiru K.",
+        location: "Nairobi, Kenya",
         rating: 5
     },
     {
         id: 2,
-        quote: "The attention to detail was extraordinary. This is luxury redefined.",
-        author: "James Chen",
-        location: "Singapore",
+        quote: "A flawless experience from start to finish. The luxury is in the details, but the heart is in the people.",
+        author: "Emma L.",
+        location: "London, UK",
         rating: 5
     },
     {
         id: 3,
-        quote: "We've traveled the world, but nothing compares to this journey.",
-        author: "Isabella Rodriguez",
-        location: "Barcelona, Spain",
+        quote: "We wanted our children to see the real Kenya. Eco Plains delivered magic. Seeing the elephants with Sammy was a gift we will cherish forever.",
+        author: "David M.",
+        location: "Mombasa, Kenya",
         rating: 5
     },
     {
         id: 4,
-        quote: "Eco Plains doesn't just show you Africa—they make you feel it.",
-        author: "Michael Okonkwo",
-        location: "Lagos, Nigeria",
+        quote: "I thought I knew my country, but this safari opened my eyes. The conservation work they do is inspiring. Asante sana.",
+        author: "Fatuma A.",
+        location: "Lamu, Kenya",
         rating: 5
     },
     {
         id: 5,
-        quote: "Impeccable service, breathtaking moments, memories for a lifetime.",
-        author: "Emma Thompson",
+        quote: "Beyond expectations. The lodges were exquisite, but it was the stories around the campfire that stole my heart.",
+        author: "James R.",
         location: "New York, USA",
+        rating: 5
+    },
+    {
+        id: 6,
+        quote: "Leah found the leopards when no one else could. A truly expert team that treats you like family, not just guests.",
+        author: "Kamau N.",
+        location: "Naivasha, Kenya",
+        rating: 5
+    },
+    {
+        id: 7,
+        quote: "Peaceful, wild, and deeply moving. Every sunset was a painting. I am already planning my return.",
+        author: "Zainab O.",
+        location: "Kisumu, Kenya",
         rating: 5
     }
 ];

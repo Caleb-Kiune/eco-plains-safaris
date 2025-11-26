@@ -26,7 +26,7 @@ export default function FilterBar({ safaris, filters, setFilters }) {
     { label: 'Budget ($0-$2k)', min: 0, max: 2000 },
     { label: 'Mid ($2k-$5k)', min: 2000, max: 5000 },
     { label: 'Luxury ($5k-$10k)', min: 5000, max: 10000 },
-    { label: 'Ultra ($10k+)', min: 10000, max: 20000 }
+    { label: 'Ultra ($10k+)', min: 10000, max: 1000000 }
   ];
 
   const isPriceRangeActive = (min, max) => {
@@ -37,14 +37,14 @@ export default function FilterBar({ safaris, filters, setFilters }) {
     filters.destination ||
     filters.category ||
     filters.duration ||
-    (filters.priceRange[0] !== 0 || filters.priceRange[1] !== 20000);
+    (filters.priceRange[0] !== 0 || filters.priceRange[1] !== 1000000);
 
   const clearFilters = () => {
     setFilters({
       destination: '',
       category: '',
       duration: '',
-      priceRange: [0, 20000]
+      priceRange: [0, 1000000]
     });
   };
 

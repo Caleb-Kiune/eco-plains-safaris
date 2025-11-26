@@ -17,7 +17,7 @@ export default function SafarisPage() {
     destination: "",
     category: "",
     duration: "",
-    priceRange: [0, 20000],
+    priceRange: [0, 1000000],
   });
 
   const [searchParams] = useSearchParams();
@@ -60,9 +60,13 @@ export default function SafarisPage() {
       const matchesDuration = !filters.duration ||
         getDurationDays(safari.duration) <= parseInt(filters.duration);
 
-      const matchesPrice = safari.price_adult &&
+      // Fix: Allow null prices and high values if using default range
+      const isDefaultPrice = filters.priceRange[0] === 0 && filters.priceRange[1] === 1000000;
+      const matchesPrice = isDefaultPrice || (
+        safari.price_adult &&
         safari.price_adult >= filters.priceRange[0] &&
-        safari.price_adult <= filters.priceRange[1];
+        safari.price_adult <= filters.priceRange[1]
+      );
 
       return matchesDestination && matchesCategory && matchesDuration && matchesPrice;
     });

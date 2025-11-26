@@ -1,0 +1,143 @@
+/* ═════════════════════════════════════════════════════════
+   BIG 5 HERO SLIDER – ULTRA-LUXURY
+   Full-bleed, cinematic, moody, with Ken Burns effect
+   ═════════════════════════════════════════════════════════ */
+
+.big-five-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background-color: #0F1A17;
+    /* Fallback dark background */
+}
+
+/* Slide Container */
+.big-five-hero__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+
+.big-five-hero__slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Image with Ken Burns Effect */
+.big-five-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 8s ease-out;
+}
+
+.big-five-hero__slide.active .big-five-hero__image {
+    transform: scale(1.1);
+    /* Subtle zoom */
+}
+
+/* Dark Overlay */
+.big-five-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(15, 26, 23, 0.3) 0%,
+            rgba(15, 26, 23, 0.1) 50%,
+            rgba(15, 26, 23, 0.6) 100%);
+    z-index: 3;
+}
+
+/* Content / Typography */
+.big-five-hero__content {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    z-index: 10;
+    text-align: right;
+    color: var(--color-cream, #F5F0E6);
+}
+
+.big-five-hero__subtitle {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-gold, #D4AF37);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out 0.5s;
+}
+
+.big-five-hero__title {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out 0.3s;
+}
+
+.big-five-hero__slide.active .big-five-hero__subtitle,
+.big-five-hero__slide.active .big-five-hero__title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation Arrows */
+.big-five-hero__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: transparent;
+    border: 1px solid rgba(245, 240, 230, 0.3);
+    color: var(--color-cream, #F5F0E6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(4px);
+}
+
+.big-five-hero__nav:hover {
+    background: rgba(245, 240, 230, 0.1);
+    border-color: var(--color-gold, #D4AF37);
+    color: var(--color-gold, #D4AF37);
+}
+
+.big-five-hero__nav--prev {
+    left: 3%;
+}
+
+.big-five-hero__nav--next {
+    right: 3%;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .big-five-hero {
+        height: 70vh;
+    }
+
+    .big-five-hero__nav {
+        width: 40px;
+        height: 40px;
+        border-color: rgba(245, 240, 230, 0.5);
+        /* More visible on mobile */
+    }
+}

@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import SEO from "../components/common/SEO";
 
-import HeroSection from "../components/safaris/HeroSection";
+import BigFiveHero from "../components/safaris/BigFiveHero";
 import FilterBar from "../components/safaris/FilterBar";
 import SafariGrid from "../components/safaris/SafariGrid";
 import PopularDestinations from "../components/safaris/PopularDestinations";
@@ -108,7 +108,7 @@ export default function SafarisPage() {
       </SEO>
 
       <div className="safaris-page">
-        <HeroSection />
+        <BigFiveHero />
         <FilterBar filters={filters} setFilters={setFilters} safaris={safaris} />
         <SafariGrid safaris={filteredSafaris} />
         <SectionCTA />

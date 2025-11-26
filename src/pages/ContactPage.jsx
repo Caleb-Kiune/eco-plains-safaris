@@ -72,15 +72,15 @@ export default function ContactPage() {
             <div className="contact-page__info">
               <div className="contact-page__info-item">
                 <h3>Email</h3>
-                <a href="mailto:hello@ecoplains.com">hello@ecoplains.com</a>
+                <a href="mailto:ecoplainsafaris@gmail.com">ecoplainsafaris@gmail.com</a>
               </div>
               <div className="contact-page__info-item">
                 <h3>Phone</h3>
-                <a href="tel:+254700123456">+254 700 123 456</a>
+                <a href="tel:+25469122507">+254 691 225 07</a>
               </div>
               <div className="contact-page__info-item">
                 <h3>Office</h3>
-                <p>Nairobi, Kenya</p>
+                <p>Comet Mall, Monrovia Street, 1st Floor, Nairobi, Kenya</p>
               </div>
             </div>
           </motion.div>
@@ -160,7 +160,7 @@ export default function ContactPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Jane Doe"
+                  placeholder="Full Name"
                   required
                 />
               </div>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="jane@example.com"
+                  placeholder="Email Address"
                   required
                 />
               </div>

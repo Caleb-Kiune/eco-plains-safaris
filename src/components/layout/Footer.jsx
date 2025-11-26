@@ -72,9 +72,9 @@ export default function Footer() {
           <div className="footer-column">
             <h3 className="footer-column__title">Get In Touch</h3>
             <ul className="footer-column__links">
-              <li><a href="mailto:info@ecoplainsafaris.com">info@ecoplainsafaris.com</a></li>
-              <li><a href="tel:+254712345678">+254 712 345 678</a></li>
-              <li>Nairobi, Kenya</li>
+              <li><a href="mailto:ecoplainsafaris@gmail.com">ecoplainsafaris@gmail.com</a></li>
+              <li><a href="tel:+25469122507">+254 691 225 07</a></li>
+              <li>Comet Mall, Monrovia Street, 1st Floor, Nairobi, Kenya</li>
             </ul>
 
             {/* Social Icons */}

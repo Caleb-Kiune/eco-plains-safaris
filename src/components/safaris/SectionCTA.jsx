@@ -1,32 +1,32 @@
 // src/components/safaris/SectionCTA.jsx
 import React from "react";
+import LuxuryButton from "../common/LuxuryButton";
 import "./SectionCTA.css";
 
 export default function SectionCTA() {
   return (
     <section className="section-cta" aria-labelledby="cta-headline">
-      {/* Text Side */}
-      <div className="section-cta__text">
+      <div className="section-cta__container">
         <h2 id="cta-headline" className="section-cta__headline">
-          Where Luxury Meets the Wild
+          Not sure which journey is perfect for you?
         </h2>
         <p className="section-cta__subheadline">
-          Handcrafted journeys across Africa’s most exclusive reserves —
-          intimate wildlife encounters, unrivalled comfort, timeless elegance.
+          Our safari specialists are here to help you craft an unforgettable experience tailored to your desires.
         </p>
-        <a href="/safaris" className="section-cta__button">
-          Plan Your Safari
-        </a>
-      </div>
 
-      {/* Image Side */}
-      <div className="section-cta__image-wrapper">
-        <img
-          src="/images/tanzania-destination-image.jpg"
-          alt="Golden light over the Serengeti"
-          className="section-cta__image"
-          loading="lazy"
-        />
+        <LuxuryButton
+          href="/contact"
+          variant="filled"
+          className="section-cta__button"
+        >
+          Speak to a Safari Specialist
+        </LuxuryButton>
+
+        <div className="section-cta__contact-info">
+          <a href="tel:+25469122507" className="section-cta__contact-link">+254 691 225 07</a>
+          <span className="section-cta__separator">•</span>
+          <a href="mailto:ecoplainsafaris@gmail.com" className="section-cta__contact-link">ecoplainsafaris@gmail.com</a>
+        </div>
       </div>
     </section>
   );

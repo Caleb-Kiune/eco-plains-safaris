@@ -6,7 +6,6 @@ import SEO from "../components/common/SEO";
 import BigFiveHero from "../components/safaris/BigFiveHero";
 import FilterBar from "../components/safaris/FilterBar";
 import SafariGrid from "../components/safaris/SafariGrid";
-import PopularDestinations from "../components/safaris/PopularDestinations";
 import SectionCTA from "../components/safaris/SectionCTA";
 import BottomCTA from "../components/safaris/BottomCTA";
 
@@ -69,17 +68,7 @@ export default function SafarisPage() {
     });
   }, [safaris, filters]);
 
-  const popularDestinations = useMemo(() => {
-    return safaris
-      .filter(s => s.featured && s.primaryImage)
-      .slice(0, 6)
-      .map(s => ({
-        id: s.id,
-        title: s.title,
-        image: s.primaryImage,
-        link: `/safaris/${s.slug}`,
-      }));
-  }, [safaris]);
+
 
   if (loading) {
     return (
@@ -112,7 +101,6 @@ export default function SafarisPage() {
         <FilterBar filters={filters} setFilters={setFilters} safaris={safaris} />
         <SafariGrid safaris={filteredSafaris} />
         <SectionCTA />
-        <PopularDestinations destinations={popularDestinations} />
         <BottomCTA />
       </div>
     </>

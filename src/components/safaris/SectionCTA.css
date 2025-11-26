@@ -1,120 +1,90 @@
 /* src/components/safaris/SectionCTA.css */
 
 .section-cta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 85vh;
-  background: #FAF9F7;
-  overflow: hidden;
+  background-color: var(--color-bg, #F5F0E6);
+  padding: var(--space-3xl) 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  /* Subtle gold accent */
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* Text Side */
-.section-cta__text {
+.section-cta__container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: var(--space-3xl) var(--space-2xl);
-  background: #FAF9F7;
-  position: relative;
-  z-index: 2;
+  align-items: center;
+  gap: var(--space-lg);
 }
 
 .section-cta__headline {
-  font-family: var(--font-heading);
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 400;
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
-  margin: 0 0 var(--space-md) 0;
+  font-style: italic;
+  color: var(--color-text, #1A1A1A);
+  line-height: 1.2;
+  margin: 0;
 }
 
 .section-cta__subheadline {
-  font-family: var(--font-body);
+  font-family: var(--font-sans, 'Inter', sans-serif);
   font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--color-text-light);
-  max-width: 45ch;
-  margin: 0 0 var(--space-xl) 0;
-  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text, #1A1A1A);
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .section-cta__button {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-accent-gold);
-  border: 1px solid var(--color-accent-gold);
-  padding: 1rem 2.5rem;
-  background: transparent;
-  cursor: pointer;
-  transition: var(--transition);
+  margin-top: var(--space-md);
+  /* LuxuryButton handles base styles, we just position it */
+}
+
+.section-cta__contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  color: var(--color-text-light, #666);
+}
+
+.section-cta__contact-link {
+  color: inherit;
   text-decoration: none;
-  display: inline-block;
+  transition: color 0.3s ease;
+  letter-spacing: 0.05em;
 }
 
-.section-cta__button:hover {
-  background: var(--color-accent-gold);
-  color: #FFFFFF;
-  letter-spacing: 0.15em;
+.section-cta__contact-link:hover {
+  color: var(--color-accent, #D4AF37);
 }
 
-/* Image Side */
-.section-cta__image-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
+.section-cta__separator {
+  color: var(--color-accent, #D4AF37);
+  font-size: 0.8rem;
 }
 
-.section-cta__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.section-cta__image-wrapper:hover .section-cta__image {
-  transform: scale(1.05);
-}
-
-/* Tablet & Mobile – Stack vertically  */
-@media (max-width: 1024px) {
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
   .section-cta {
-    grid-template-columns: 1fr;
-    min-height: auto;
+    padding: var(--space-2xl) 5%;
   }
 
-  .section-cta__text {
-    padding: var(--space-2xl) var(--space-xl);
-    text-align: center;
-    align-items: center;
-    order: 2;
+  .section-cta__contact-info {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .section-cta__subheadline {
-    max-width: 50ch;
-  }
-
-  .section-cta__image-wrapper {
-    height: 60vh;
-    order: 1;
-  }
-}
-
-@media (max-width: 640px) {
-  .section-cta__text {
-    padding: var(--space-xl) var(--space-md);
-  }
-
-  .section-cta__headline {
-    font-size: 2.5rem;
-  }
-
-  .section-cta__image-wrapper {
-    height: 50vh;
+  .section-cta__separator {
+    display: none;
   }
 }

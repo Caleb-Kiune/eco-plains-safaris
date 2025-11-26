@@ -1,6 +1,38 @@
 [
-  { "name": "Kenya", "image": "/images/kenya-destination-image.jpg" },
-  { "name": "Uganda", "image": "/images/uganda-destination-image.jpg" },
-  { "name": "Tanzania", "image": "/images/tanzania-destination-image.jpg" },
-  { "name": "Rwanda", "image": "/images/rwanda-destination-image.jpg" }
+  {
+    "name": "Kenya",
+    "flag": "🇰🇪",
+    "image": "/images/kenya-destination-image.jpg",
+    "gridArea": "kenya"
+  },
+  {
+    "name": "Tanzania",
+    "flag": "🇹🇿",
+    "image": "/images/tanzania-destination-image.jpg",
+    "gridArea": "tanzania"
+  },
+  {
+    "name": "Rwanda",
+    "flag": "🇷🇼",
+    "image": "/images/rwanda-destination-image.jpg",
+    "gridArea": "rwanda"
+  },
+  {
+    "name": "Zimbabwe",
+    "flag": "🇿🇼",
+    "image": "/images/kenya-destination-image.jpg",
+    "gridArea": "zimbabwe"
+  },
+  {
+    "name": "Botswana",
+    "flag": "🇧🇼",
+    "image": "/images/uganda-destination-image.jpg",
+    "gridArea": "botswana"
+  },
+  {
+    "name": "UAE",
+    "flag": "🇦🇪",
+    "image": "/images/tanzania-destination-image.jpg",
+    "gridArea": "uae"
+  }
 ]

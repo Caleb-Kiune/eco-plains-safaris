@@ -1,41 +1,97 @@
-/* src/components/home/FeaturedDestinations.css */
+/* ═════════════════════════════════════════════════════════
+   FEATURED DESTINATIONS – GAP-FREE ASYMMETRIC GRID (2025)
+   Light background, explicit CSS Grid, no empty spaces
+   ═════════════════════════════════════════════════════════ */
 
 .featured-destinations {
-  background: var(--color-bg);
-  padding: var(--space-5xl) 0;
+  background: var(--color-bg, #F5F0E6);
+  padding: 7rem 0 8rem;
   overflow: hidden;
+  position: relative;
 }
 
 .featured-destinations__container {
-  max-width: var(--max-width);
+  max-width: 1500px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 3%;
 }
 
+.featured-destinations__subtitle {
+  text-align: center;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  color: #BFA46D;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 1.5rem auto 5rem;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+/* ═══ GAP-FREE CSS GRID (Desktop) ═══ */
 .featured-destinations__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: var(--space-3xl);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 400px 400px;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  grid-template-areas:
+    "kenya kenya tanzania rwanda"
+    "zimbabwe botswana botswana uae";
 }
 
-/* ============ DESTINATION CARD (4:5 Magazine Style) ============ */
+/* Explicit Grid Placement (No Gaps) */
+.destination-card--kenya {
+  grid-area: kenya;
+}
+
+.destination-card--tanzania {
+  grid-area: tanzania;
+}
+
+.destination-card--rwanda {
+  grid-area: rwanda;
+}
+
+.destination-card--zimbabwe {
+  grid-area: zimbabwe;
+}
+
+.destination-card--botswana {
+  grid-area: botswana;
+}
+
+.destination-card--uae {
+  grid-area: uae;
+}
+
+/* ═══ CARD BASE ═══ */
 .destination-card {
   position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(15, 26, 23, 0.1);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 3px;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  background: #2D1F18;
+  box-shadow: 0 4px 20px rgba(26, 26, 26, 0.06);
 }
 
+/* Hover State: Lift + Thin Gold Border Glow */
 .destination-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(15, 26, 23, 0.2);
+  transform: translateY(-10px);
+  border-color: #D4AF37;
+  box-shadow:
+    0 12px 40px rgba(26, 26, 26, 0.12),
+    0 0 0 1px #D4AF37;
 }
 
-/* Image */
+.destination-card:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 4px;
+}
+
+/* ═══ IMAGE WRAPPER ═══ */
 .destination-card__image-wrapper {
   position: relative;
   width: 100%;
@@ -47,62 +103,81 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
 }
 
+/* Slow Zoom on Hover */
 .destination-card:hover .destination-card__image {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
-/* Gradient Overlay (Bottom-Heavy) */
+/* ═══ DARK GRADIENT OVERLAY ═══ */
 .destination-card__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(15, 26, 23, 0.1) 0%,
-      rgba(15, 26, 23, 0.85) 100%);
+      rgba(26, 26, 26, 0.2) 0%,
+      rgba(26, 26, 26, 0.5) 50%,
+      rgba(26, 26, 26, 0.85) 100%);
   z-index: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .destination-card:hover .destination-card__overlay {
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
-/* Content (Bottom-Left) */
+/* ═══ CONTENT (Bottom-Left) ═══ */
 .destination-card__content {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem;
+  padding: 2.5rem;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
-/* Title - Playfair Display */
+/* Flag Emoji */
+.destination-card__flag {
+  font-size: 1.5rem;
+  line-height: 1;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+/* Title - Large Playfair Italic */
 .destination-card__title {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-white);
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  color: #F5F0E6;
   margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  transition: color 0.4s ease;
 }
 
-/* CTA - Fades in on Hover */
+.destination-card:hover .destination-card__title {
+  color: #FFFFFF;
+}
+
+/* CTA - Elegant Fade-In */
 .destination-card__cta {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  color: #D4AF37;
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  margin-top: 0.25rem;
 }
 
 .destination-card:hover .destination-card__cta {
@@ -110,28 +185,96 @@
   transform: translateY(0);
 }
 
-/* Responsive */
+/* ═══ TABLET (2-Column Grid) ═══ */
 @media (max-width: 1024px) {
   .featured-destinations__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .featured-destinations {
-    padding: var(--space-3xl) 0;
-  }
-
-  .featured-destinations__grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .destination-card__content {
-    padding: 1.5rem;
+    grid-template-rows: repeat(3, 300px);
+    gap: 1.25rem;
+    grid-template-areas:
+      "kenya tanzania"
+      "rwanda zimbabwe"
+      "botswana uae";
   }
 
   .destination-card__title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .destination-card__content {
+    padding: 2rem;
+  }
+}
+
+/* ═══ MOBILE (Full-Bleed 100vh Cards, ZERO GAPS) ═══ */
+@media (max-width: 768px) {
+
+  /* Keep light background for title/subtitle area only */
+  .featured-destinations {
+    padding: 4rem 0 0;
+    /* Remove bottom padding */
+    background: var(--color-bg, #F5F0E6);
+  }
+
+  .featured-destinations__container {
+    padding: 0;
+  }
+
+  .featured-destinations__subtitle {
+    padding: 0 5%;
+    margin-bottom: 0;
+    /* Remove margin */
+    padding-bottom: 3rem;
+    /* Use padding instead for background continuity */
+  }
+
+  /* TRUE FULL-BLEED: No margin, no gap */
+  .featured-destinations__grid {
+    display: block;
+    /* Use block for perfect stacking */
+    margin: 0;
+    /* Remove all margins */
+    padding: 0;
+    grid-template-areas: none;
+  }
+
+  /* Each card exactly 100vh, no spacing */
+  .destination-card {
+    height: 100vh;
+    /* Exact height, not min-height */
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    display: block;
+  }
+
+  .destination-card:last-child {
+    border-bottom: none;
+  }
+
+  /* No lift on mobile (parallax zoom instead) */
+  .destination-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+  }
+
+  .destination-card__content {
+    padding: 2rem 6%;
+  }
+
+  .destination-card__title {
+    font-size: 2.75rem;
+  }
+
+  .destination-card__flag {
+    font-size: 1.75rem;
+  }
+
+  /* Always show CTA on mobile */
+  .destination-card__cta {
+    opacity: 0.9;
+    transform: translateY(0);
   }
 }

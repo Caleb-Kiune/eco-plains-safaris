@@ -1,13 +1,66 @@
 // src/components/home/FeaturedDestinations.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import './FeaturedDestinations.css';
 
+function DestinationCard({ dest, index }) {
+  const navigate = useNavigate();
+  const ref = useRef(null);
+
+  // Mobile parallax effect
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start']
+  });
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1.05]);
+
+  const handleClick = () => {
+    if (!dest.name) return;
+    navigate(`/safaris?country=${encodeURIComponent(dest.name)}`);
+  };
+
+  return (
+    <motion.article
+      ref={ref}
+      className={`destination-card destination-card--${dest.gridArea}`}
+      role="button"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyPress={(e) => e.key === 'Enter' && handleClick()}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: [0.25, 0.1, 0.25, 1]
+      }}
+    >
+      <div className="destination-card__image-wrapper">
+        <motion.img
+          src={dest.image || '/fallback-image.jpg'}
+          alt={`${dest.name} Safari Destination`}
+          className="destination-card__image"
+          loading="lazy"
+          style={{ scale: window.innerWidth <= 768 ? scale : 1 }}
+        />
+
+        <div className="destination-card__overlay" />
+
+        <div className="destination-card__content">
+          <span className="destination-card__flag">{dest.flag}</span>
+          <h3 className="destination-card__title">{dest.name}</h3>
+          <span className="destination-card__cta">Discover {dest.name}</span>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function FeaturedDestinations() {
   const [destinations, setDestinations] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const loadDestinations = async () => {
@@ -23,50 +76,22 @@ export default function FeaturedDestinations() {
     loadDestinations();
   }, []);
 
-  const handleClick = (country) => {
-    if (!country) return;
-    navigate(`/safaris?country=${encodeURIComponent(country)}`);
-  };
-
   return (
     <section className="featured-destinations">
       <div className="featured-destinations__container">
         <SectionTitle centered>Iconic Safari Destinations</SectionTitle>
 
+        <p className="featured-destinations__subtitle">
+          Six extraordinary countries. Endless unforgettable moments.
+        </p>
+
         <div className="featured-destinations__grid">
           {destinations.map((dest, index) => (
-            <motion.article
+            <DestinationCard
               key={dest.name || index}
-              className="destination-card"
-              role="button"
-              tabIndex={0}
-              onClick={() => handleClick(dest.name)}
-              onKeyPress={(e) => e.key === 'Enter' && handleClick(dest.name)}
-              initial={{ opacity: 0, y: 30, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.4, 0, 0.2, 1]
-              }}
-            >
-              <div className="destination-card__image-wrapper">
-                <img
-                  src={dest.image || '/fallback-image.jpg'}
-                  alt={dest.name || 'Safari Destination'}
-                  className="destination-card__image"
-                  loading="lazy"
-                />
-
-                <div className="destination-card__overlay" />
-
-                <div className="destination-card__content">
-                  <h3 className="destination-card__title">{dest.name}</h3>
-                  <span className="destination-card__cta">Discover {dest.name}</span>
-                </div>
-              </div>
-            </motion.article>
+              dest={dest}
+              index={index}
+            />
           ))}
         </div>
       </div>

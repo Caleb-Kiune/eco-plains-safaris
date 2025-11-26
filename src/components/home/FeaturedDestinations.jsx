@@ -19,20 +19,8 @@ function DestinationCard({ dest, index }) {
   const handleClick = () => {
     if (!dest.name) return;
 
-    // Navigate to safaris page with country filter
-    navigate(`/safaris?country=${encodeURIComponent(dest.name)}`);
-
-    // Smooth scroll to the grid section after a short delay
-    // The delay is needed because navigation is asynchronous and the target page needs to mount first
-    setTimeout(() => {
-      const gridSection = document.getElementById('safaris-grid');
-      if (gridSection) {
-        gridSection.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        // Fallback: scroll to top if grid not found immediately
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 100);
+    // Navigate to safaris page with country filter and hash for scrolling
+    navigate(`/safaris?country=${encodeURIComponent(dest.name)}#safaris-grid`);
   };
 
   return (

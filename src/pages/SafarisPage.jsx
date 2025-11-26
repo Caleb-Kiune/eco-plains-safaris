@@ -1,6 +1,6 @@
 // src/pages/SafarisPage.jsx
 import { useState, useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import SEO from "../components/common/SEO";
 
 import BigFiveHero from "../components/safaris/BigFiveHero";
@@ -21,6 +21,7 @@ export default function SafarisPage() {
   });
 
   const [searchParams] = useSearchParams();
+  const location = useLocation();
   const urlCountry = searchParams.get("country");
 
   useEffect(() => {
@@ -35,6 +36,19 @@ export default function SafarisPage() {
         setLoading(false);
       });
   }, []);
+
+  // Scroll to grid if hash is present and loading is done
+  useEffect(() => {
+    if (!loading && location.hash === '#safaris-grid') {
+      // Small timeout to ensure DOM layout is complete
+      setTimeout(() => {
+        const element = document.getElementById('safaris-grid');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [loading, location.hash]);
 
   // Apply URL filter
   useEffect(() => {

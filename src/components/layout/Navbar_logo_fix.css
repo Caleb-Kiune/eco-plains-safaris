@@ -1,0 +1,9 @@
+/* 
+   Force dark logo on Contact page 
+   Since the logo is white, we invert it to black (or brightness 0) 
+   to make it visible against the cream background.
+*/
+.navbar.contact-mode .nav-logo-img {
+    filter: brightness(0);
+    /* Alternatively use invert(1) if brightness(0) causes issues, but brightness(0) is pure black */
+}

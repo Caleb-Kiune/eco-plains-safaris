@@ -36,7 +36,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar ${visible ? 'visible' : 'hidden'} ${scrolled || isContactPage ? 'scrolled' : ''}`}
+      className={`navbar ${visible ? 'visible' : 'hidden'} ${scrolled || isContactPage ? 'scrolled' : ''} ${isContactPage ? 'contact-mode' : ''}`}
       aria-label="Main navigation"
     >
       <div className="nav-container">

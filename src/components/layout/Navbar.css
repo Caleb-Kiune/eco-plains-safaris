@@ -70,6 +70,11 @@
   /* Original logo color on frosted nav */
 }
 
+/* Force dark logo on Contact page (White -> Black) */
+.navbar.contact-mode .nav-logo-img {
+  filter: brightness(0);
+}
+
 .nav-logo:hover .nav-logo-img {
   transform: scale(1.04);
 }

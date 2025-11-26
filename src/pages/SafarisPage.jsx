@@ -14,7 +14,7 @@ export default function SafarisPage() {
   const [loading, setLoading] = useState(true);
 
   const [filters, setFilters] = useState({
-    destination: "",
+    country: "",
     category: "",
     duration: "",
     priceRange: [0, 1000000],
@@ -39,7 +39,7 @@ export default function SafarisPage() {
   // Apply URL filter
   useEffect(() => {
     if (urlDestination && safaris.length > 0) {
-      setFilters(prev => ({ ...prev, destination: urlDestination }));
+      setFilters(prev => ({ ...prev, country: urlDestination }));
     }
   }, [urlDestination, safaris]);
 
@@ -51,8 +51,8 @@ export default function SafarisPage() {
 
   const filteredSafaris = useMemo(() => {
     return safaris.filter(safari => {
-      const matchesDestination = !filters.destination ||
-        safari.destination.includes(filters.destination);
+      const matchesCountry = !filters.country ||
+        (safari.country && safari.country.includes(filters.country));
 
       const matchesCategory = !filters.category ||
         safari.category === filters.category;
@@ -68,7 +68,7 @@ export default function SafarisPage() {
         safari.price_adult <= filters.priceRange[1]
       );
 
-      return matchesDestination && matchesCategory && matchesDuration && matchesPrice;
+      return matchesCountry && matchesCategory && matchesDuration && matchesPrice;
     });
   }, [safaris, filters]);
 

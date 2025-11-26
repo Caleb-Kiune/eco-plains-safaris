@@ -6,10 +6,11 @@ import './FilterBar.css';
 export default function FilterBar({ safaris, filters, setFilters }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  // Extract unique values
-  const destinations = [...new Set(
+  // Extract unique countries from the new 'country' field
+  // Handles comma-separated values like "Botswana, Zimbabwe"
+  const countries = [...new Set(
     safaris.flatMap(s =>
-      s.destination.split(' & ').map(d => d.trim())
+      s.country ? s.country.split(',').map(c => c.trim()) : []
     )
   )].sort();
 
@@ -34,14 +35,14 @@ export default function FilterBar({ safaris, filters, setFilters }) {
   };
 
   const hasActiveFilters =
-    filters.destination ||
+    filters.country ||
     filters.category ||
     filters.duration ||
     (filters.priceRange[0] !== 0 || filters.priceRange[1] !== 1000000);
 
   const clearFilters = () => {
     setFilters({
-      destination: '',
+      country: '',
       category: '',
       duration: '',
       priceRange: [0, 1000000]
@@ -62,27 +63,27 @@ export default function FilterBar({ safaris, filters, setFilters }) {
           </svg>
           <span>Filters</span>
           {hasActiveFilters && <span className="filter-bar__badge">{
-            [filters.destination, filters.category, filters.duration].filter(Boolean).length
+            [filters.country, filters.category, filters.duration].filter(Boolean).length
           }</span>}
         </button>
 
         {/* Desktop Filters (Always Visible) */}
         <div className={`filter-bar__content ${isMobileOpen ? 'filter-bar__content--open' : ''}`}>
-          {/* Destination Pills */}
+          {/* Country Pills */}
           <div className="filter-group">
             <button
-              className={`filter-pill ${!filters.destination ? 'filter-pill--active' : ''}`}
-              onClick={() => setFilters({ ...filters, destination: '' })}
+              className={`filter-pill ${!filters.country ? 'filter-pill--active' : ''}`}
+              onClick={() => setFilters({ ...filters, country: '' })}
             >
-              All Destinations
+              All Countries
             </button>
-            {destinations.slice(0, 5).map(dest => (
+            {countries.slice(0, 5).map(country => (
               <button
-                key={dest}
-                className={`filter-pill ${filters.destination === dest ? 'filter-pill--active' : ''}`}
-                onClick={() => setFilters({ ...filters, destination: dest })}
+                key={country}
+                className={`filter-pill ${filters.country === country ? 'filter-pill--active' : ''}`}
+                onClick={() => setFilters({ ...filters, country: country })}
               >
-                {dest}
+                {country}
               </button>
             ))}
           </div>

@@ -1,174 +1,105 @@
-/* src/components/about/AboutHero.css */
-
-/* Global Brand Design System Variables */
-:root {
-  /* Colors - Earthy Luxury */
-  --color-bg: #FFFFFF;
-  --color-text: #1A1A1A;
-  --color-text-light: #444444;
-  --color-border: #E8E8E8;
-  --color-accent-green: #2D5016;
-  /* Deep forest */
-  --color-accent-gold: #D4AF37;
-  /* Warm safari sunset */
-
-  /* Typography */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-
-  /* Spacing */
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 32px;
-  --space-xl: 48px;
-  --space-2xl: 64px;
-  --space-3xl: 96px;
-
-  /* Motion */
-  --transition: all 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* ═════════════════════════════════════════════════════════
+   ABOUT HERO – STILL IMAGE WITH KEN BURNS (2025 LUXURY)
+   Intimate, quiet, emotional — "these people really get it"
+   ═════════════════════════════════════════════════════════ */
 
 .about-hero {
   position: relative;
-  height: 100vh;
+  height: 95vh;
   min-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  text-align: center;
-  background: #000;
-  /* Fallback */
+  background: #1A1A1A;
 }
 
-/* Video Background */
-.about-hero__video {
+/* ═══ KEN BURNS IMAGE (Slow, Barely Noticeable Zoom) ═══ */
+.about-hero__image-wrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%) scale(1.1);
-  /* Slight zoom for cinematic feel */
+  inset: 0;
+  z-index: 0;
+}
+
+.about-hero__image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  opacity: 0.9;
-  transition: transform 10s ease-out;
+  animation: kenBurns 10s ease-out infinite alternate;
+  will-change: transform;
 }
 
-.about-hero:hover .about-hero__video {
-  transform: translate(-50%, -50%) scale(1.05);
-  /* Subtle movement */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.08);
+  }
 }
 
-/* Cinematic Overlay */
+/* ═══ DARK LUXE OVERLAY (Bottom-Heavy Charcoal) ═══ */
 .about-hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.7) 100%);
+      rgba(26, 26, 26, 0.25) 0%,
+      rgba(26, 26, 26, 0.5) 50%,
+      rgba(26, 26, 26, 0.75) 100%);
   z-index: 1;
 }
 
-/* Centered Content */
+/* ═══ CENTERED CONTENT (Intimate & Personal) ═══ */
 .about-hero__content {
   position: relative;
   z-index: 2;
-  max-width: 1000px;
-  padding: 0 var(--space-md);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg);
-  animation: heroFadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  max-width: 900px;
+  padding: 0 5%;
+  text-align: center;
+  animation: fadeUp 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Headline */
+/* Gold Accent Line (Above Heading) */
+.about-hero__gold-line {
+  width: 60px;
+  height: 1px;
+  background: #D4AF37;
+  margin: 0 auto 2rem;
+  opacity: 0.8;
+}
+
+/* Headline - Large Playfair Italic */
 .about-hero__headline {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 400;
-  /* Elegant, not heavy */
-  color: #FFFFFF;
-  line-height: 1.1;
-  margin: 0;
-  letter-spacing: -0.02em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-style: italic;
+  line-height: 1.2;
+  color: #F5F0E6;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Subheadline */
+/* Subheadline - Inter Body */
 .about-hero__subheadline {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  line-height: 1.7;
+  color: rgba(245, 240, 230, 0.9);
   margin: 0;
-  max-width: 600px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* CTA Button */
-.about-hero__cta {
-  background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 1.2rem 3rem;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  cursor: pointer;
-  transition: var(--transition);
-  margin-top: var(--space-md);
-  backdrop-filter: blur(4px);
-}
-
-.about-hero__cta:hover {
-  background: var(--color-accent-gold);
-  border-color: var(--color-accent-gold);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Scroll Indicator */
-.about-hero__scroll {
-  position: absolute;
-  bottom: var(--space-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  padding: var(--space-sm);
-  transition: var(--transition);
-  animation: scrollBounce 2s infinite;
-  z-index: 2;
-}
-
-.about-hero__scroll:hover {
-  color: var(--color-accent-gold);
-  transform: translateX(-50%) translateY(2px);
-}
-
-.about-hero__chevron {
-  width: 32px;
-  height: 32px;
-  stroke-width: 1.5;
-}
-
-/* Animations */
-@keyframes heroFadeUp {
+/* Fade Up Animation */
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px);
   }
 
   to {
@@ -177,32 +108,32 @@
   }
 }
 
-@keyframes scrollBounce {
-
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  50% {
-    transform: translateX(-50%) translateY(8px);
-  }
-}
-
-/* Responsive */
+/* ═══ MOBILE (Full-Bleed, Perfectly Readable) ═══ */
 @media (max-width: 768px) {
+  .about-hero {
+    height: 90vh;
+    min-height: 600px;
+  }
+
   .about-hero__headline {
-    font-size: 2.75rem;
+    font-size: 2.25rem;
   }
 
   .about-hero__subheadline {
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
-  .about-hero__cta {
-    padding: 1rem 2rem;
-    width: 100%;
-    max-width: 280px;
+  .about-hero__gold-line {
+    width: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Ensure text stays readable on mobile */
+  .about-hero__overlay {
+    background: linear-gradient(to bottom,
+        rgba(26, 26, 26, 0.4) 0%,
+        rgba(26, 26, 26, 0.65) 50%,
+        rgba(26, 26, 26, 0.85) 100%);
   }
 }

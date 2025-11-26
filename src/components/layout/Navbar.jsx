@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -8,6 +8,8 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false); // ← Now properly tracked in state
   const lastScrollY = useRef(0);
+  const location = useLocation();
+  const isContactPage = location.pathname === '/contact';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar ${visible ? 'visible' : 'hidden'} ${scrolled ? 'scrolled' : ''}`}
+      className={`navbar ${visible ? 'visible' : 'hidden'} ${scrolled || isContactPage ? 'scrolled' : ''}`}
       aria-label="Main navigation"
     >
       <div className="nav-container">

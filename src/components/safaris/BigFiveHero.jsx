@@ -56,6 +56,21 @@ export default function BigFiveHero() {
         setCurrentIndex(prev => (prev - 1 + SLIDES.length) % SLIDES.length);
     }, []);
 
+    // Dynamic Navbar Height Calculation
+    useEffect(() => {
+        const updateNavbarHeight = () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                const height = navbar.offsetHeight;
+                document.documentElement.style.setProperty('--navbar-height', `${height}px`);
+            }
+        };
+
+        updateNavbarHeight();
+        window.addEventListener('resize', updateNavbarHeight);
+        return () => window.removeEventListener('resize', updateNavbarHeight);
+    }, []);
+
     // Autoplay logic
     useEffect(() => {
         if (!isAutoPlaying) return;

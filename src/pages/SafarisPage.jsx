@@ -21,7 +21,7 @@ export default function SafarisPage() {
   });
 
   const [searchParams] = useSearchParams();
-  const urlDestination = searchParams.get("destination");
+  const urlCountry = searchParams.get("country");
 
   useEffect(() => {
     fetch("/data/safaris.json")
@@ -38,10 +38,10 @@ export default function SafarisPage() {
 
   // Apply URL filter
   useEffect(() => {
-    if (urlDestination && safaris.length > 0) {
-      setFilters(prev => ({ ...prev, country: urlDestination }));
+    if (urlCountry && safaris.length > 0) {
+      setFilters(prev => ({ ...prev, country: urlCountry }));
     }
-  }, [urlDestination, safaris]);
+  }, [urlCountry, safaris]);
 
   // Helper: extract number from duration string
   const getDurationDays = (duration) => {

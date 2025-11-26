@@ -98,7 +98,7 @@ const SafariGrid = ({ safaris }) => {
   const pageNumbers = getPageNumbers();
 
   return (
-    <section className="safari-grid" ref={gridRef}>
+    <section id="safaris-grid" className="safari-grid" ref={gridRef}>
       <div className="safari-grid__container">
         {/* Safari Cards Grid */}
         <div className={`safari-grid__grid ${isChangingPage ? 'safari-grid__grid--loading' : ''}`}>

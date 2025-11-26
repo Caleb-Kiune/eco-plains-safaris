@@ -22,12 +22,6 @@ const team = [
     role: 'Conservation Director',
     image: '/images/team-amara.jpg',
     bio: 'PhD in Wildlife Ecology, leading our community empowerment initiatives.'
-  },
-  {
-    name: 'David Mutua',
-    role: 'Luxury Experience Curator',
-    image: '/images/team-david.jpg',
-    bio: 'Former Singita manager, crafting bespoke journeys for discerning travelers.'
   }
 ];
 

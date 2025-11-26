@@ -66,8 +66,8 @@
 /* Logo shrinks and changes color when scrolled */
 .navbar.scrolled .nav-logo-img {
   height: 52px;
-  filter: none;
-  /* Original logo color on frosted nav */
+  filter: brightness(0);
+  /* Dark logo on frosted nav */
 }
 
 /* Force dark logo on Contact page (White -> Black) */

@@ -7,7 +7,9 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    /* Full viewport height to match Home page */
+    /* Fallback */
+    height: 100dvh;
+    /* Mobile-friendly full height */
     overflow: hidden;
     background-color: #0F1A17;
     /* Fallback dark background */

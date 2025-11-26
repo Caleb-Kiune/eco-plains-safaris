@@ -129,7 +129,7 @@
   box-shadow: 0 8px 24px rgba(193, 127, 89, 0.3);
 }
 
-/* SCROLL INDICATOR */
+/* SCROLL INDICATOR - PERMANENTLY VISIBLE */
 .hero__scroll-hint {
   position: absolute;
   bottom: 3rem;
@@ -138,7 +138,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.85);
+  color: #F5F0E6;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -146,17 +146,22 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 1 !important;
+  /* Force permanent visibility */
 }
 
 .hero__scroll-hint:hover {
-  color: var(--color-white);
+  color: #D4AF37;
   transform: translateX(-50%) translateY(-4px);
 }
 
 .hero__scroll-text {
   font-family: var(--font-sans);
   font-weight: 500;
+  opacity: 1 !important;
+  /* Force permanent visibility */
 }
 
 .hero__chevron {
@@ -165,6 +170,8 @@
   stroke: currentColor;
   stroke-width: 2;
   fill: none;
+  opacity: 1 !important;
+  /* Force permanent visibility */
   animation: bounce 2.5s infinite ease-in-out;
 }
 
@@ -172,12 +179,10 @@
 
   0%,
   100% {
-    opacity: 0.6;
     transform: translateY(0);
   }
 
   50% {
-    opacity: 1;
     transform: translateY(8px);
   }
 }

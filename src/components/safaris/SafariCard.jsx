@@ -37,16 +37,13 @@ export default function SafariCard({ safari, index }) {
           />
           <div className="safari-card__overlay" />
 
-          {/* Badge (if featured or specific tag) */}
-          {safari.featured && (
-            <span className="safari-card__badge">Signature Journey</span>
-          )}
+          {/* Duration Badge */}
+          <span className="safari-card__badge">{safari.duration}</span>
         </div>
 
         <div className="safari-card__content">
           <div className="safari-card__header">
             <span className="safari-card__destination">{safari.destination}</span>
-            <span className="safari-card__duration">{safari.duration}</span>
           </div>
 
           <h3 className="safari-card__title">{safari.title}</h3>

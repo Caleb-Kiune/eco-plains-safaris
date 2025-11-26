@@ -60,18 +60,22 @@
 /* Badge */
 .safari-card__badge {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1.25rem;
+  right: 1.25rem;
   font-family: var(--font-sans, 'Inter', sans-serif);
   font-size: 0.7rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-gold, #D4AF37);
-  background: rgba(15, 26, 23, 0.8);
-  padding: 0.5rem 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(245, 240, 230, 0.95);
+  /* Cream/White */
+  background: rgba(0, 0, 0, 0.3);
+  /* Subtle dark tint */
+  padding: 0.35rem 0.6rem;
   backdrop-filter: blur(4px);
   z-index: 2;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 2px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Content Positioning */

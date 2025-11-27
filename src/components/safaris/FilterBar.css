@@ -4,6 +4,8 @@
 /* When filter panel is open, disable all navbar interaction to prevent mis-clicks */
 body.filter-panel-open .navbar {
   pointer-events: none;
+  z-index: 999 !important;
+  /* Force navbar behind the filter modal */
 }
 
 .filter-bar {
@@ -161,18 +163,18 @@ body.filter-panel-open .navbar {
   .filter-bar__content {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     bottom: 0;
     width: 85%;
     max-width: 400px;
     background: var(--color-bg);
     padding: 0;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 5001;
     /* High z-index to sit above all page content */
     overflow-y: auto;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
   }
 
   .filter-bar__content--open {

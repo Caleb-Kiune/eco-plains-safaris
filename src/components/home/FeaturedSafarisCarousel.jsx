@@ -1,20 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import FeaturedSafariCard from './FeaturedSafariCard';
+import AutoHeight from 'embla-carousel-auto-height';
+import SafariCard from '../common/SafariCard';
 import SectionTitle from '../common/SectionTitle';
 import './FeaturedSafarisCarousel.css';
 
 export default function FeaturedSafarisCarousel() {
   const [safaris, setSafaris] = useState([]);
 
-  // Embla configuration
+  // Embla configuration with AutoHeight
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
-    dragFree: false, // Snap to slide
-    loop: false,
-    duration: 60, // Smooth feel
-  });
+    dragFree: true, // Smooth free scrolling
+    loop: true,     // Infinite loop for luxury feel
+    duration: 60,   // Smooth feel
+  }, [AutoHeight()]);
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(true);
@@ -64,7 +65,12 @@ export default function FeaturedSafarisCarousel() {
             <div className="featured-safaris__track">
               {safaris.map((safari, index) => (
                 <div key={safari.id} className="featured-safaris__slide">
-                  <FeaturedSafariCard safari={safari} index={index} />
+                  <SafariCard
+                    safari={safari}
+                    index={index}
+                    variant="carousel"
+                    priority={true}
+                  />
                 </div>
               ))}
             </div>

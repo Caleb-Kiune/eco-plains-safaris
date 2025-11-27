@@ -134,17 +134,4 @@
         padding: 0 2rem;
         /* Keep controls padded */
     }
-
-    /* Force card to be full-bleed and 50vh on mobile, matching FeaturedDestinations */
-    .featured-safaris__slide .featured-card {
-        height: 50vh;
-        max-height: none;
-        border-radius: 0;
-        width: 100%;
-    }
-
-    .featured-safaris__slide .featured-card__image-wrapper {
-        aspect-ratio: unset;
-        height: 100%;
-    }
 }

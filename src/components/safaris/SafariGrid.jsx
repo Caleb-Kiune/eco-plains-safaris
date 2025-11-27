@@ -1,7 +1,7 @@
 // src/components/safaris/SafariGrid.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import SafariCard from './SafariCard';
+import SafariCard from '../common/SafariCard';
 import './SafariGrid.css';
 
 const SAFARIS_PER_PAGE = 12;
@@ -107,6 +107,8 @@ const SafariGrid = ({ safaris }) => {
               key={`${safari.id || safari.slug}-${currentPage}`}
               safari={safari}
               index={index}
+              variant="grid"
+              priority={index < 6}
             />
           ))}
         </div>

@@ -206,7 +206,7 @@
   }
 }
 
-/* ═══ MOBILE (Full-Bleed 100vh Cards, ZERO GAPS) ═══ */
+/* ═══ MOBILE (Full-Bleed 50vh Cards, ZERO GAPS) ═══ */
 @media (max-width: 768px) {
 
   /* Keep light background for title/subtitle area only */
@@ -238,10 +238,10 @@
     grid-template-areas: none;
   }
 
-  /* Each card exactly 100vh, no spacing */
+  /* Each card exactly 50vh, no spacing */
   .destination-card {
-    height: 100vh;
-    /* Exact height, not min-height */
+    height: 50vh;
+    /* Exact height for split-screen feel */
     margin: 0;
     padding: 0;
     border-radius: 0;
@@ -261,15 +261,17 @@
   }
 
   .destination-card__content {
-    padding: 2rem 6%;
+    padding: 1.5rem 5%;
+    /* Slightly tighter padding for shorter cards */
   }
 
   .destination-card__title {
-    font-size: 2.75rem;
+    font-size: 2rem;
+    /* Adjusted for 50vh height */
   }
 
   .destination-card__flag {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   /* Always show CTA on mobile */

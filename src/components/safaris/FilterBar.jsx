@@ -69,15 +69,17 @@ export default function FilterBar({ safaris, filters, setFilters }) {
   const topCountries = countries.slice(0, visibleLimit);
   const hiddenCountries = countries.slice(visibleLimit);
 
-  // If the selected country is in the hidden list, we should probably auto-expand or just show it.
-  // The requirement says: "When navigating... the correct pill (even if in 'More...') must become active".
-  // We'll show the top 5, and if expanded, show the rest.
-  // If a hidden country is selected, we'll auto-expand the list so the user sees what's active.
+  // Lock body scroll when mobile menu is open
   React.useEffect(() => {
-    if (filters.country && hiddenCountries.includes(filters.country)) {
-      setIsCountriesExpanded(true);
+    if (isMobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-  }, [filters.country, hiddenCountries]);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileOpen]);
 
   return (
     <div className="filter-bar">
@@ -99,6 +101,21 @@ export default function FilterBar({ safaris, filters, setFilters }) {
 
         {/* Desktop Filters (Always Visible) */}
         <div className={`filter-bar__content ${isMobileOpen ? 'filter-bar__content--open' : ''}`}>
+
+          {/* Mobile Header (Only visible on mobile via CSS) */}
+          <div className="filter-bar__mobile-header">
+            <h2 className="filter-bar__mobile-title">Filter Safaris</h2>
+            <button
+              className="filter-bar__close-btn"
+              onClick={() => setIsMobileOpen(false)}
+              aria-label="Close filters"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
           {/* Country Pills */}
           <div className="filter-group">
             <button

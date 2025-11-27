@@ -69,15 +69,18 @@ export default function FilterBar({ safaris, filters, setFilters }) {
   const topCountries = countries.slice(0, visibleLimit);
   const hiddenCountries = countries.slice(visibleLimit);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll AND disable navbar interaction when mobile menu is open
   React.useEffect(() => {
     if (isMobileOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('filter-panel-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('filter-panel-open');
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('filter-panel-open');
     };
   }, [isMobileOpen]);
 

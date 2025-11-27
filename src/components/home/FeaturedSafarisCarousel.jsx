@@ -1,7 +1,6 @@
-// src/components/home/FeaturedSafarisCarousel.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import SafariCard from '../safaris/SafariCard';
+import FeaturedSafariCard from './FeaturedSafariCard';
 import SectionTitle from '../common/SectionTitle';
 import './FeaturedSafarisCarousel.css';
 
@@ -60,7 +59,20 @@ export default function FeaturedSafarisCarousel() {
         </p>
 
         <div className="featured-safaris__carousel-wrapper">
-          {/* Navigation Arrows */}
+          {/* Embla Viewport */}
+          <div className="featured-safaris__viewport" ref={emblaRef}>
+            <div className="featured-safaris__track">
+              {safaris.map((safari, index) => (
+                <div key={safari.id} className="featured-safaris__slide">
+                  <FeaturedSafariCard safari={safari} index={index} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Controls - Below Carousel */}
+        <div className="featured-safaris__controls">
           <button
             className="featured-safaris__nav-btn featured-safaris__nav-btn--prev"
             onClick={scrollPrev}
@@ -82,17 +94,6 @@ export default function FeaturedSafarisCarousel() {
               <path d="M9 5l7 7-7 7" />
             </svg>
           </button>
-
-          {/* Embla Viewport */}
-          <div className="featured-safaris__viewport" ref={emblaRef}>
-            <div className="featured-safaris__track">
-              {safaris.map((safari, index) => (
-                <div key={safari.id} className="featured-safaris__slide">
-                  <SafariCard safari={safari} index={index} />
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

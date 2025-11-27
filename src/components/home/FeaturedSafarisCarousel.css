@@ -30,8 +30,7 @@
 /* Carousel Wrapper */
 .featured-safaris__carousel-wrapper {
     position: relative;
-    /* Removed overflow hidden from wrapper to allow shadows/hover effects if needed, 
-       but viewport handles overflow */
+    /* Context for overlay positioning */
 }
 
 /* Embla Carousel Structure */
@@ -50,7 +49,6 @@
     -ms-user-select: none;
     touch-action: pan-y;
     margin-left: -1.5rem;
-    /* Offset for the left padding on slides */
 }
 
 .featured-safaris__slide {
@@ -58,8 +56,6 @@
     min-width: 0;
     flex: 0 0 100%;
     padding-left: 1.5rem;
-    /* Only left padding for gap */
-    /* Removed padding-right to fix shrinking */
 }
 
 @media (min-width: 768px) {
@@ -74,18 +70,10 @@
     }
 }
 
-/* Navigation Controls - Below Carousel */
-.featured-safaris__controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 3rem;
-}
-
+/* Navigation Controls - Shared Styles */
 .featured-safaris__nav-btn {
     background: transparent;
     border: 1px solid rgba(212, 175, 55, 0.3);
-    /* Subtle gold border */
     color: var(--color-gold, #D4AF37);
     width: 50px;
     height: 50px;
@@ -101,7 +89,6 @@
 .featured-safaris__nav-btn:hover:not(:disabled) {
     background: var(--color-gold, #D4AF37);
     color: #0F1A17;
-    /* Dark text on gold bg */
     border-color: var(--color-gold, #D4AF37);
     transform: translateY(-2px);
 }
@@ -113,6 +100,68 @@
     color: rgba(245, 240, 230, 0.3);
 }
 
+/* Bottom Controls (Mobile/Tablet) */
+.featured-safaris__controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+/* Desktop Overlay Navigation */
+.featured-safaris__nav-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* Allow clicks to pass through to cards */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    /* Safe spacing from edges */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 10;
+}
+
+.featured-safaris__carousel-wrapper:hover .featured-safaris__nav-overlay {
+    opacity: 1;
+}
+
+.featured-safaris__nav-btn--overlay {
+    pointer-events: auto;
+    /* Re-enable clicks for buttons */
+    background: rgba(15, 26, 23, 0.6);
+    /* Glassmorphism base */
+    backdrop-filter: blur(4px);
+    border-color: var(--color-gold, #D4AF37);
+    width: 60px;
+    /* Slightly larger on desktop */
+    height: 60px;
+}
+
+.featured-safaris__nav-btn--overlay:hover:not(:disabled) {
+    transform: scale(1.1);
+    /* Scale effect instead of translate */
+}
+
+/* Responsive Visibility */
+@media (min-width: 1025px) {
+
+    /* Hide bottom controls on large screens */
+    .featured-safaris__controls {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Hide overlay on mobile/tablet */
+    .featured-safaris__nav-overlay {
+        display: none;
+    }
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .featured-safaris {
@@ -121,17 +170,14 @@
 
     .featured-safaris__container {
         padding: 0;
-        /* Full bleed on mobile */
     }
 
     .featured-safaris__subtitle {
         padding: 0 2rem;
-        /* Restore padding for text */
     }
 
     .featured-safaris__controls {
         margin-top: 2rem;
         padding: 0 2rem;
-        /* Keep controls padded */
     }
 }

@@ -75,6 +75,31 @@ export default function FeaturedSafarisCarousel() {
               ))}
             </div>
           </div>
+
+          {/* Desktop Navigation Overlay (Visible on Hover) */}
+          <div className="featured-safaris__nav-overlay">
+            <button
+              className="featured-safaris__nav-btn featured-safaris__nav-btn--overlay featured-safaris__nav-btn--prev"
+              onClick={scrollPrev}
+              disabled={!prevBtnEnabled}
+              aria-label="Previous safari"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              className="featured-safaris__nav-btn featured-safaris__nav-btn--overlay featured-safaris__nav-btn--next"
+              onClick={scrollNext}
+              disabled={!nextBtnEnabled}
+              aria-label="Next safari"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Navigation Controls - Below Carousel */}

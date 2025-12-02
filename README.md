@@ -223,10 +223,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-**Eco Plains Safaris Team**
-*   📧 Email: hello@ecoplainssafaris.com
-*   🐦 Twitter: [@EcoPlains](https://twitter.com/ecoplains)
-*   📸 Instagram: [@EcoPlainsSafaris](https://instagram.com/ecoplainssafaris)
+**Caleb Kiune**
+*   📧 Email: calebkiune@gmail.com
+*   � LinkedIn: [linkedin.com/in/caleb-kiune-b356a6327](https://www.linkedin.com/in/caleb-kiune-b356a6327)
+*   � GitHub: [github.com/Caleb-Kiune](https://github.com/Caleb-Kiune)
 
 ---
 

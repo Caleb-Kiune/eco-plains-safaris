@@ -23,30 +23,7 @@ const team = [
     image: '/images/team-amara.jpg',
     bio: 'PhD in Wildlife Ecology, leading our community empowerment initiatives.'
   },
-  {
-    name: 'Michael Brown',
-    role: 'Operations Manager',
-    image: '/images/team-james.jpg', // Reusing existing image as placeholder
-    bio: 'Ensuring seamless logistics and unforgettable guest experiences.'
-  },
-  {
-    name: 'Emily Davis',
-    role: 'Head of Guest Relations',
-    image: '/images/team-sarah.jpg', // Reusing existing image as placeholder
-    bio: 'Curating bespoke itineraries with a personal touch.'
-  },
-  {
-    name: 'David Wilson',
-    role: 'Senior Naturalist',
-    image: '/images/team-james.jpg', // Reusing existing image as placeholder
-    bio: 'Expert in ornithology and big cat behavior.'
-  },
-  {
-    name: 'Jessica Jones',
-    role: 'Community Liaison',
-    image: '/images/team-amara.jpg', // Reusing existing image as placeholder
-    bio: 'Bridging the gap between conservation and local communities.'
-  }
+  
 ];
 
 export default function MeetTheTeam() {

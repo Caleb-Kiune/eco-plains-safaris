@@ -1,4 +1,3 @@
-// src/components/about/MeetTheTeam.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
@@ -8,22 +7,22 @@ const team = [
   {
     name: 'Jane Doe',
     role: 'Founder & CEO',
-    image: '/images/team-sarah.jpg',
+    image: '/images/team/team-jane-placeholder.png',
     bio: 'Two decades of safari expertise, conservation advocate, wildlife photographer.'
   },
   {
     name: 'John Doe',
     role: 'Head Safari Guide',
-    image: '/images/team-james.jpg',
+    image: '/images/team/team-john-placeholder.png',
     bio: 'Master naturalist with 15 years tracking the Big Five across East Africa.'
   },
   {
     name: 'Sarah Smith',
     role: 'Conservation Director',
-    image: '/images/team-amara.jpg',
+    image: '/images/team/team-sarah-placeholder.png',
     bio: 'PhD in Wildlife Ecology, leading our community empowerment initiatives.'
   },
-  
+
 ];
 
 export default function MeetTheTeam() {

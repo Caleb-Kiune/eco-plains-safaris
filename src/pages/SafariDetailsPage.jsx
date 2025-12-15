@@ -56,6 +56,12 @@ const SafariDetailsPage = () => {
   // Highlights (limit to 4)
   const highlights = safari.inclusions?.slice(0, 4) || ['Luxury Accommodation', 'Private Guides', 'All-Inclusive', 'Conservation Fees'];
 
+  // WhatsApp Integration: Personalized enquiry message
+  const whatsappMessage = encodeURIComponent(
+    `Hi! I'm interested in the ${safari.title} (${safari.duration}).\n\nCould you please send me more details, availability, and pricing?`
+  );
+  const whatsappUrl = `https://wa.me/+254705774171?text=${whatsappMessage}`;
+
   return (
     <>
       <SEO>
@@ -73,7 +79,14 @@ const SafariDetailsPage = () => {
               <span className="booking-info-item__label">Starting From</span>
               <span className="booking-info-item__value">{formattedPrice}</span>
             </div>
-            <LuxuryButton variant="filled" href="#enquire" size="small">
+            {/* WhatsApp Integration for Mobile */}
+            <LuxuryButton
+              variant="filled"
+              href={whatsappUrl}
+              size="small"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Enquire
             </LuxuryButton>
           </div>
@@ -147,7 +160,13 @@ const SafariDetailsPage = () => {
 
               {/* Actions */}
               <div className="safari-actions" id="enquire">
-                <LuxuryButton variant="filled" href="/contact">
+                {/* WhatsApp Integration for Desktop */}
+                <LuxuryButton
+                  variant="filled"
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Enquire Now
                 </LuxuryButton>
                 <LuxuryButton variant="outline" href="/safaris">

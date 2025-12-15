@@ -39,8 +39,8 @@ export default function OurStory() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           >
             <img
-              src="/images/about-story.jpg"
-              alt="Eco Plains Safaris journey"
+              src="/images/about/our-story-placeholder.png"
+              alt="Minimalist line art of elephants crossing the savannah, symbolizing our journey"
               className="our-story__image"
               loading="lazy"
             />

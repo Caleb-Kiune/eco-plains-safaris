@@ -1,4 +1,4 @@
-// src/pages/ContactPage.jsx 
+// src/pages/ContactPage.jsx - Now using Formspree
 
 import React, { useState } from 'react';
 import SEO from '../components/common/SEO';
@@ -37,24 +37,27 @@ export default function ContactPage() {
     setIsLoading(true);
 
     try {
-      const data = new FormData();
-      data.append("access_key", "d9f2f2ba-85ed-44e9-b597-010b69f45116");
-      data.append("destination", formData.destination);
-      data.append("duration", formData.duration);
-      data.append("travelers", formData.travelers);
-      data.append("name", formData.name);
-      data.append("email", formData.email);
-      data.append("message", formData.message || "No additional message");
-      data.append("subject", `Dream Safari Brief from ${formData.name} - ${formData.destination || "General"}`);
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        destination: formData.destination,
+        duration: formData.duration,
+        travelers: formData.travelers,
+        message: formData.message || "No additional message",
+        _replyto: formData.email, // Allows direct reply from your inbox
+        _subject: `Dream Safari Brief from ${formData.name} – ${formData.destination || "General"}`
+      };
 
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://formspree.io/f/xkgdlnpy", {
         method: "POST",
-        body: data
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
-      const result = await response.json();
-
-      if (result.success) {
+      if (response.ok) {
         setSubmitted(true);
         setFormData({
           destination: '',
@@ -65,10 +68,13 @@ export default function ContactPage() {
           message: ''
         });
       } else {
-        alert("Something went wrong. Please try again or email us directly.");
+        const errorData = await response.json();
+        console.error("Formspree error:", errorData);
+        alert("Something went wrong. Please try again or email us directly at ecoplainsafaris@gmail.com");
       }
     } catch (error) {
-      alert("Connection issue. Please try again.");
+      console.error("Submission error:", error);
+      alert("Connection issue. Please try again later.");
     } finally {
       setIsLoading(false);
     }

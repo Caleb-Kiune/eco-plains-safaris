@@ -1,4 +1,5 @@
-// src/pages/ContactPage.jsx
+// src/pages/ContactPage.jsx 
+
 import React, { useState } from 'react';
 import SEO from '../components/common/SEO';
 import { motion } from 'framer-motion';
@@ -14,33 +15,63 @@ export default function ContactPage() {
     message: ''
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        destination: '',
-        duration: '',
-        travelers: '',
-        name: '',
-        email: '',
-        message: ''
-      });
-    }, 3000);
-  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Basic required validation
+    if (!formData.destination || !formData.duration || !formData.travelers || !formData.name || !formData.email) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const data = new FormData();
+      data.append("access_key", "d9f2f2ba-85ed-44e9-b597-010b69f45116");
+      data.append("destination", formData.destination);
+      data.append("duration", formData.duration);
+      data.append("travelers", formData.travelers);
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("message", formData.message || "No additional message");
+      data.append("subject", `Dream Safari Brief from ${formData.name} - ${formData.destination || "General"}`);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({
+          destination: '',
+          duration: '',
+          travelers: '',
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        alert("Something went wrong. Please try again or email us directly.");
+      }
+    } catch (error) {
+      alert("Connection issue. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -104,14 +135,14 @@ export default function ContactPage() {
                   required
                 >
                   <option value="">Select a destination</option>
-                  <option value="kenya">Kenya</option>
-                  <option value="tanzania">Tanzania</option>
-                  <option value="botswana">Botswana</option>
-                  <option value="rwanda">Rwanda</option>
-                  <option value="uganda">Uganda</option>
-                  <option value="zambia">Zambia</option>
-                  <option value="zimbabwe">Zimbabwe</option>
-                  <option value="multi">Multi-country</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                  <option value="Multi-country">Multi-country</option>
                 </select>
               </div>
 
@@ -143,7 +174,7 @@ export default function ContactPage() {
                     required
                   >
                     <option value="">People</option>
-                    <option value="solo">Solo</option>
+                    <option value="Solo">Solo</option>
                     <option value="2">2 people</option>
                     <option value="3-4">3-4 people</option>
                     <option value="5-8">5-8 people</option>
@@ -190,8 +221,8 @@ export default function ContactPage() {
                 />
               </div>
 
-              <button type="submit" className="contact-form__submit">
-                Send My Dream Brief
+              <button type="submit" className="contact-form__submit" disabled={isLoading}>
+                {isLoading ? "Sending Your Dream Brief..." : "Send My Dream Brief"}
               </button>
             </form>
 

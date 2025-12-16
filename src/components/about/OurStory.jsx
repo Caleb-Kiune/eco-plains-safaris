@@ -19,15 +19,10 @@ export default function OurStory() {
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <p className="our-story__paragraph">
-              In 2003, our founder stood watch at a Kenyan waterhole as a herd of elephants emerged from the golden savannah at dusk. That moment—raw, humbling, transcendent—sparked a mission to share Africa's wild magic with the world, responsibly and sustainably.
+              As the Director of Eco Plains Safaris, Lydia Muthoni is responsible for overseeing all operational aspects that define the exceptional service we provide. She meticulously manages relationships with our field teams, partners, and local communities, ensuring the seamless execution of complex, bespoke safaris.
             </p>
-
             <p className="our-story__paragraph">
-              Over two decades, Eco Plains Safaris has grown from a dream into East Africa's premier luxury safari operator. We've guided thousands of travelers through Kenya's Masai Mara, Tanzania's Serengeti, Rwanda's misty mountains, and beyond—always championing conservation, always honoring local communities.
-            </p>
-
-            <p className="our-story__paragraph">
-              Today, our legacy is measured not in miles traveled, but in wildlife protected, communities empowered, and hearts forever changed by the African wilderness.
+              A staunch advocate for guest satisfaction, Lydia Muthoni drives the company's strategic planning, focusing on innovative, safety-first procedures and continuous improvement in our tour offerings. Her expertise guarantees that your adventure is not only unforgettable but also flawlessly managed from start to finish.
             </p>
           </motion.div>
 
@@ -40,11 +35,15 @@ export default function OurStory() {
           >
             <img
               src="/images/about/our-story-placeholder.png"
-              alt="Minimalist line art of elephants crossing the savannah, symbolizing our journey"
+              alt="Lydia Muthoni Kahuthu - Director, Operations & Strategy"
               className="our-story__image"
               loading="lazy"
             />
-            <div className="our-story__image-overlay" />
+            <div className="our-story__overlay" />
+            <div className="our-story__image-content">
+              <h3 className="our-story__name">Lydia Muthoni Kahuthu</h3>
+              <p className="our-story__role">Director, Operations & Strategy</p>
+            </div>
           </motion.div>
         </div>
       </div>

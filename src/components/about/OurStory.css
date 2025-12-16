@@ -55,13 +55,46 @@
   transform: scale(1.05);
 }
 
-.our-story__image-overlay {
+/* Gradient Overlay (Bottom-Heavy) - Matching MeetTheTeam */
+.our-story__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      transparent 60%,
-      rgba(15, 26, 23, 0.3) 100%);
+      transparent 0%,
+      rgba(15, 26, 23, 0.85) 100%);
+  z-index: 1;
   pointer-events: none;
+}
+
+/* Content (Bottom) */
+.our-story__image-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2;
+}
+
+/* Name - Playfair Display */
+.our-story__name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin: 0 0 0.25rem 0;
+}
+
+/* Role - Inter Uppercase */
+.our-story__role {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin: 0;
 }
 
 /* Responsive */

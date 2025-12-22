@@ -21,9 +21,13 @@ export default function LuxuryHero({
                     Your browser does not support the video tag.
                 </video>
             ) : backgroundImage ? (
-                <div
+                <img
+                    src={backgroundImage}
+                    alt="Hero Background"
                     className="luxury-hero__image"
-                    style={{ backgroundImage: `url(${backgroundImage})` }}
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="sync"
                 />
             ) : (
                 <div className="luxury-hero__image luxury-hero__image--fallback" />

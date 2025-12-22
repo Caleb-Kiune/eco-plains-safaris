@@ -21,8 +21,7 @@
 }
 
 .luxury-hero__image {
-    background-size: cover;
-    background-position: center;
+    /* background properties removed as we now use <img> with object-fit */
 }
 
 .luxury-hero__image--fallback {

@@ -1,0 +1,15 @@
+/* src/components/common/OptimizedImage.css */
+.optimized-image-wrapper {
+  /* Default to block to take up space */
+  display: block;
+  background-color: #f5f5f5; /* Subtle placeholder background */
+}
+
+/* Ensure skeleton is behind image once loaded (or removed from DOM) 
+   but strictly speaking the JS removes it or overlays it. 
+   We put z-index 1 on skeleton in inline styles. 
+*/
+
+.optimized-image {
+  will-change: opacity;
+}

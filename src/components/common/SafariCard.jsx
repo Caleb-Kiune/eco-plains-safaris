@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './SafariCard.css';
+import OptimizedImage from './OptimizedImage';
 
 export default function SafariCard({
     safari,
@@ -61,12 +62,15 @@ export default function SafariCard({
                 onClick={handleCardClick}
             >
                 <div className="safari-card__image-wrapper">
-                    <img
+                    <OptimizedImage
                         src={safari.primaryImage}
                         alt={safari.title}
                         className="safari-card__image"
-                        loading={priority ? "eager" : "lazy"}
-                        fetchPriority={priority ? "high" : "auto"}
+                        priority={priority}
+                        width={400} // Approximate width to help aspect ratio logic if we added it, 
+                        // though explicit aspect-ratio CSS is better.
+                        // For now this passes to img to guide browser layout.
+                        height={300}
                     />
                     <div className="safari-card__overlay" />
 

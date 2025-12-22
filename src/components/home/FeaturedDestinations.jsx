@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
+import OptimizedImage from '../common/OptimizedImage';
 import './FeaturedDestinations.css';
 
 function DestinationCard({ dest, index }) {
@@ -41,13 +42,14 @@ function DestinationCard({ dest, index }) {
       }}
     >
       <div className="destination-card__image-wrapper">
-        <motion.img
-          src={dest.image || '/fallback-image.jpg'}
-          alt={`${dest.name} Safari Destination`}
-          className="destination-card__image"
-          loading="lazy"
-          style={{ scale: window.innerWidth <= 768 ? scale : 1 }}
-        />
+        <div style={{ width: '100%', height: '100%', scale: window.innerWidth <= 768 ? scale : 1 }}>
+          <OptimizedImage
+            src={dest.image || '/fallback-image.jpg'}
+            alt={`${dest.name} Safari Destination`}
+            className="destination-card__image"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
 
         <div className="destination-card__overlay" />
 

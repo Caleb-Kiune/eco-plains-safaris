@@ -2,6 +2,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useLocation } from "react-router-dom";
 import SEO from "../components/common/SEO";
+import useSafaris from "../hooks/useSafaris";
+import SkeletonCard from "../components/common/SkeletonCard";
 
 import BigFiveHero from "../components/safaris/BigFiveHero";
 import FilterBar from "../components/safaris/FilterBar";
@@ -10,8 +12,7 @@ import SectionCTA from "../components/safaris/SectionCTA";
 import BottomCTA from "../components/safaris/BottomCTA";
 
 export default function SafarisPage() {
-  const [safaris, setSafaris] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { safaris, loading } = useSafaris();
 
   const [filters, setFilters] = useState({
     country: "",
@@ -23,19 +24,6 @@ export default function SafarisPage() {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const urlCountry = searchParams.get("country");
-
-  useEffect(() => {
-    fetch("/data/safaris.json")
-      .then(r => r.json())
-      .then(data => {
-        setSafaris(data.tours || []);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Failed to load safaris:", err);
-        setLoading(false);
-      });
-  }, []);
 
   // Scroll to grid if hash is present and loading is done
   useEffect(() => {
@@ -88,6 +76,7 @@ export default function SafarisPage() {
 
 
 
+  // Show skeleton loading state
   if (loading) {
     return (
       <>
@@ -99,7 +88,21 @@ export default function SafarisPage() {
           <meta property="og:image" content="/og-safaris.jpg" />
         </SEO>
 
-        <div className="safaris-page py-32 text-center text-2xl">Curating exceptional safaris...</div>
+        <div className="safaris-page">
+          <BigFiveHero />
+          {/* Skeleton Filter Bar (simplified) */}
+          <div className="container mx-auto px-6 py-8">
+            <div className="h-12 bg-gray-100 rounded mb-8 animate-pulse w-full max-w-4xl mx-auto"></div>
+          </div>
+
+          <div className="safaris-grid-section" id="safaris-grid">
+            <div className="safaris-grid-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem', padding: '0 1.5rem 4rem' }}>
+              {[1, 2, 3, 4, 5, 6].map(i => (
+                <SkeletonCard key={i} />
+              ))}
+            </div>
+          </div>
+        </div>
       </>
     );
   }

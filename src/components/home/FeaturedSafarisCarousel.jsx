@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoHeight from 'embla-carousel-auto-height';
+import useSafaris from '../../hooks/useSafaris';
 import SafariCard from '../common/SafariCard';
 import SectionTitle from '../common/SectionTitle';
 import './FeaturedSafarisCarousel.css';
@@ -21,12 +22,11 @@ export default function FeaturedSafarisCarousel() {
   const [nextBtnEnabled, setNextBtnEnabled] = useState(true);
 
   // Fetch Data
+  const { safaris: allSafaris } = useSafaris();
+
   useEffect(() => {
-    fetch('/data/safaris.json')
-      .then(res => res.json())
-      .then(data => setSafaris(data.tours.filter(t => t.featured)))
-      .catch(() => setSafaris([]));
-  }, []);
+    setSafaris(allSafaris.filter(t => t.featured));
+  }, [allSafaris]);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);

@@ -4,32 +4,28 @@ import { useParams } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import LuxuryHero from '../components/common/LuxuryHero';
 import LuxuryButton from '../components/common/LuxuryButton';
+import SkeletonHero from '../components/common/SkeletonHero';
+import useSafaris from '../hooks/useSafaris';
 import './SafariDetailsPage.css';
 
 const SafariDetailsPage = () => {
   const { slug } = useParams();
+  const { safaris, loading } = useSafaris();
   const [safari, setSafari] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    fetch('/data/safaris.json')
-      .then(res => res.json())
-      .then(data => {
-        const found = data.tours.find(t => t.slug === slug || t.link?.includes(slug));
-        setSafari(found);
-        setCurrentImageIndex(0);
-        window.scrollTo(0, 0);
-      })
-      .catch(err => console.error('Failed to load safari details', err));
-  }, [slug]);
+    if (safaris.length > 0) {
+      const found = safaris.find(t => t.slug === slug || t.link?.includes(slug));
+      setSafari(found);
+      setCurrentImageIndex(0);
+      window.scrollTo(0, 0);
+    }
+  }, [slug, safaris]);
 
-  if (!safari) {
-    return (
-      <div className="safari-details-loading">
-        <div className="safari-details-loading__spinner" />
-        <p>Loading your adventure...</p>
-      </div>
-    );
+
+  if (loading || !safari) {
+    return <SkeletonHero />;
   }
 
   // Carousel Logic

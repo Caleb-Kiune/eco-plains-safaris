@@ -31,10 +31,10 @@ export default function FilterBar({ safaris, filters, setFilters }) {
   const categories = [...new Set(safaris.map(s => s.category))].sort();
 
   const durations = [
-    { label: 'Short (1-3 days)', value: '3' },
-    { label: 'Week (4-7 days)', value: '7' },
-    { label: 'Extended (8-10 days)', value: '10' },
-    { label: 'Epic (10+ days)', value: '99' }
+    { label: 'Short (1-3 days)', value: '1-3' },
+    { label: 'Week (4-7 days)', value: '4-7' },
+    { label: 'Extended (8-10 days)', value: '8-10' },
+    { label: 'Epic (10+ days)', value: '10-999' }
   ];
 
   const priceRanges = [

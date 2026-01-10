@@ -46,7 +46,26 @@ export default function SafarisPage() {
   }, [urlCountry, safaris]);
 
   // Helper: extract number from duration string
-  const getDurationDays = (duration) => {
+  // Helper: extract number from duration string (Robust)
+  const getDurationDays = (safari) => {
+    // 1. Use pre-calculated field if available (Fastest & Most Accurate)
+    if (typeof safari.durationDays === 'number') {
+      return safari.durationDays;
+    }
+
+    const duration = safari.duration;
+    if (!duration) return 0;
+
+    // 2. Fallback Parsing
+    // Match "X Days"
+    const daysMatch = duration.match(/(\d+)\s*Days?/i);
+    if (daysMatch) return parseInt(daysMatch[1]);
+
+    // Match "X Nights" -> +1 logic
+    const nightsMatch = duration.match(/(\d+)\s*Nights?/i);
+    if (nightsMatch) return parseInt(nightsMatch[1]) + 1;
+
+    // Last resort: any number
     const match = duration.match(/\d+/);
     return match ? parseInt(match[0]) : 0;
   };
@@ -59,8 +78,11 @@ export default function SafarisPage() {
       const matchesCategory = !filters.category ||
         safari.category === filters.category;
 
-      const matchesDuration = !filters.duration ||
-        getDurationDays(safari.duration) <= parseInt(filters.duration);
+      const matchesDuration = !filters.duration || (() => {
+        const [min, max] = filters.duration.split('-').map(Number);
+        const days = getDurationDays(safari);
+        return days >= min && days <= max;
+      })();
 
       // Fix: Allow null prices and high values if using default range
       const isDefaultPrice = filters.priceRange[0] === 0 && filters.priceRange[1] === 1000000;

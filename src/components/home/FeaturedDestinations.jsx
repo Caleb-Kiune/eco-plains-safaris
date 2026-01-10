@@ -6,7 +6,7 @@ import SectionTitle from '../common/SectionTitle';
 import OptimizedImage from '../common/OptimizedImage';
 import './FeaturedDestinations.css';
 
-function DestinationCard({ dest, index }) {
+function DestinationCard({ dest, index, priority }) {
   const navigate = useNavigate();
   const ref = useRef(null);
 
@@ -45,6 +45,7 @@ function DestinationCard({ dest, index }) {
         <div style={{ width: '100%', height: '100%', scale: window.innerWidth <= 768 ? scale : 1 }}>
           <OptimizedImage
             src={dest.image || '/fallback-image.jpg'}
+            priority={priority}
             alt={`${dest.name} Safari Destination`}
             className="destination-card__image"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -95,6 +96,7 @@ export default function FeaturedDestinations() {
               key={dest.name || index}
               dest={dest}
               index={index}
+              priority={index < 4}
             />
           ))}
         </div>

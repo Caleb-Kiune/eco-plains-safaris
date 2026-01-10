@@ -61,10 +61,10 @@ export default function Footer() {
           <div className="footer-column">
             <h3 className="footer-column__title">Destinations</h3>
             <ul className="footer-column__links">
-              <li><Link to="/safaris?destination=Kenya">Kenya</Link></li>
-              <li><Link to="/safaris?destination=Tanzania">Tanzania</Link></li>
-              <li><Link to="/safaris?destination=Uganda">Uganda</Link></li>
-              <li><Link to="/safaris?destination=Rwanda">Rwanda</Link></li>
+              <li><Link to="/safaris?country=Kenya">Kenya</Link></li>
+              <li><Link to="/safaris?country=Tanzania">Tanzania</Link></li>
+              <li><Link to="/safaris?country=Uganda">Uganda</Link></li>
+              <li><Link to="/safaris?country=Rwanda">Rwanda</Link></li>
             </ul>
           </div>
 

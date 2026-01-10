@@ -24,6 +24,7 @@ export default function SafarisPage() {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const urlCountry = searchParams.get("country");
+  const urlCategory = searchParams.get("category");
 
   // Scroll to grid if hash is present and loading is done
   useEffect(() => {
@@ -40,10 +41,14 @@ export default function SafarisPage() {
 
   // Apply URL filter
   useEffect(() => {
-    if (urlCountry && safaris.length > 0) {
-      setFilters(prev => ({ ...prev, country: urlCountry }));
+    if ((urlCountry || urlCategory) && safaris.length > 0) {
+      setFilters(prev => ({
+        ...prev,
+        country: urlCountry || prev.country,
+        category: urlCategory || prev.category
+      }));
     }
-  }, [urlCountry, safaris]);
+  }, [urlCountry, urlCategory, safaris]);
 
   // Helper: extract number from duration string
   // Helper: extract number from duration string (Robust)

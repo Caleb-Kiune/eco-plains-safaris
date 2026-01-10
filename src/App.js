@@ -14,6 +14,8 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SafarisPage from './pages/SafarisPage';
 import SafariDetailsPage from './pages/SafariDetailsPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 
 function App() {
   // Ultra-light smooth scroll enhancement (feels premium, zero lag)
@@ -45,6 +47,8 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/safaris" element={<SafarisPage />} />
           <Route path="/safaris/:slug" element={<SafariDetailsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </main>
 

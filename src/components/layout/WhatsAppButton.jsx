@@ -1,5 +1,5 @@
-// src/components/layout/WhatsAppButton.jsx
 import React, { useState, useEffect } from 'react';
+import { getWhatsappLink } from '../../utils/contact';
 import './WhatsAppButton.css';
 
 export default function WhatsAppButton() {
@@ -24,11 +24,8 @@ export default function WhatsAppButton() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const whatsappNumber = '+254705774171'; // Replace with actual number
-  const message = encodeURIComponent(
-    "Hi! I'm interested in planning a safari with Eco Plains Safaris."
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const message = "Hello! I'm interested in booking a safari.";
+  const whatsappUrl = getWhatsappLink(message);
 
   return (
     <a

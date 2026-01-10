@@ -1,5 +1,6 @@
 // src/components/ContactForm.jsx 
 import { useState } from "react";
+import { CONTACT_INFO } from '../../utils/contact';
 import "./ContactForm.css";
 
 export default function ContactForm() {
@@ -129,7 +130,7 @@ export default function ContactForm() {
           className={`form-input ${errors.phone ? 'error' : ''}`}
           value={formData.phone}
           onChange={handleChange}
-          placeholder="+254 700 000 000"
+          placeholder={CONTACT_INFO.phoneDisplay}
           required
           aria-describedby={errors.phone ? "phone-error" : undefined}
         />

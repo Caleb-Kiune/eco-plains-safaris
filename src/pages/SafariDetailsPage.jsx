@@ -6,6 +6,7 @@ import LuxuryHero from '../components/common/LuxuryHero';
 import LuxuryButton from '../components/common/LuxuryButton';
 import SkeletonHero from '../components/common/SkeletonHero';
 import useSafaris from '../hooks/useSafaris';
+import { getWhatsappLink } from '../utils/contact';
 import './SafariDetailsPage.css';
 
 const SafariDetailsPage = () => {
@@ -53,10 +54,8 @@ const SafariDetailsPage = () => {
   const highlights = safari.inclusions?.slice(0, 4) || ['Luxury Accommodation', 'Private Guides', 'All-Inclusive', 'Conservation Fees'];
 
   // WhatsApp Integration: Personalized enquiry message
-  const whatsappMessage = encodeURIComponent(
-    `Hi! I'm interested in the ${safari.title} (${safari.duration}).\n\nCould you please send me more details, availability, and pricing?`
-  );
-  const whatsappUrl = `https://wa.me/+254705774171?text=${whatsappMessage}`;
+  // WhatsApp Integration: Personalized enquiry message
+  const whatsappUrl = getWhatsappLink(`Hi! I'm interested in the ${safari.title} (${safari.duration}).\n\nCould you please send me more details, availability, and pricing?`);
 
   return (
     <>

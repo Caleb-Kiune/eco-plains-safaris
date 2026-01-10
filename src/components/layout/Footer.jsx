@@ -1,6 +1,7 @@
 // src/components/layout/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CONTACT_INFO } from '../../utils/contact';
 import './Footer.css';
 
 export default function Footer() {
@@ -70,11 +71,13 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="footer-column">
+
+
             <h3 className="footer-column__title">Get In Touch</h3>
             <ul className="footer-column__links">
-              <li><a href="mailto:ecoplainsafaris@gmail.com">ecoplainsafaris@gmail.com</a></li>
-              <li><a href="tel:+25469122507">+254 691 225 07</a></li>
-              <li>Comet Mall, Monrovia Street, 1st Floor, Nairobi, Kenya</li>
+              <li><a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a></li>
+              <li><a href={CONTACT_INFO.phoneLink}>{CONTACT_INFO.phoneDisplay}</a></li>
+              <li>{CONTACT_INFO.address}</li>
             </ul>
 
             {/* Social Icons */}

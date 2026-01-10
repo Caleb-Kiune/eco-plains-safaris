@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import AutoHeight from 'embla-carousel-auto-height';
+// import AutoHeight from 'embla-carousel-auto-height'; // Removed for performance
 import useSafaris from '../../hooks/useSafaris';
 import SafariCard from '../common/SafariCard';
 import SectionTitle from '../common/SectionTitle';
@@ -9,14 +9,15 @@ import './FeaturedSafarisCarousel.css';
 export default function FeaturedSafarisCarousel() {
   const [safaris, setSafaris] = useState([]);
 
-  // Embla configuration with AutoHeight
+  // Embla configuration: Optimized for fluidity and responsiveness
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
-    dragFree: true, // Smooth free scrolling
-    loop: true,     // Infinite loop for luxury feel
-    duration: 60,   // Smooth feel
-  }, [AutoHeight()]);
+    dragFree: true,       // Fluid native-like momentum
+    loop: true,
+    duration: 35,         // Snappier response (was 60)
+    dragThreshold: 8,     // More sensitive start (default is ~10-15)
+  }); // Removed AutoHeight plugin
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(true);
@@ -69,7 +70,7 @@ export default function FeaturedSafarisCarousel() {
                     safari={safari}
                     index={index}
                     variant="carousel"
-                    priority={true}
+                    priority={index === 0} // Only eager load the first one
                   />
                 </div>
               ))}

@@ -113,19 +113,27 @@
 }
 
 /* ═══ DARK GRADIENT OVERLAY ═══ */
-.destination-card__overlay {
+/* ═══ DARK GRADIENT OVERLAY (Restored) ═══ */
+.destination-card__image-wrapper::after {
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(26, 26, 26, 0.2) 0%,
-      rgba(26, 26, 26, 0.5) 50%,
-      rgba(26, 26, 26, 0.85) 100%);
-  z-index: 1;
+      rgba(15, 26, 23, 0) 0%,
+      rgba(15, 26, 23, 0.4) 60%,
+      rgba(15, 26, 23, 0.8) 100%);
+  z-index: 3;
+  pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
-.destination-card:hover .destination-card__overlay {
-  opacity: 0.92;
+.destination-card:hover .destination-card__image-wrapper::after {
+  opacity: 0.9;
+}
+
+/* Hide legacy overlay div if present */
+.destination-card__overlay {
+  display: none;
 }
 
 /* ═══ CONTENT (Bottom-Left) ═══ */

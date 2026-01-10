@@ -43,23 +43,31 @@
 }
 
 /* Overlay - Darkens on hover/active */
-.safari-card__overlay {
+/* Overlay - Darkens on hover/active (Restored via ::after) */
+.safari-card__image-wrapper::after {
+    content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom,
-            rgba(15, 26, 23, 0.1) 0%,
+            rgba(15, 26, 23, 0) 0%,
             rgba(15, 26, 23, 0.4) 50%,
-            rgba(15, 26, 23, 0.8) 100%);
+            rgba(15, 26, 23, 0.7) 100%);
+    z-index: 3;
+    pointer-events: none;
     transition: background 0.5s ease;
-    z-index: 1;
 }
 
-.safari-card:hover .safari-card__overlay,
-.safari-card.active .safari-card__overlay {
+.safari-card:hover .safari-card__image-wrapper::after,
+.safari-card.active .safari-card__image-wrapper::after {
     background: linear-gradient(to bottom,
-            rgba(15, 26, 23, 0.3) 0%,
-            rgba(15, 26, 23, 0.6) 50%,
-            rgba(15, 26, 23, 0.95) 100%);
+            rgba(15, 26, 23, 0.1) 0%,
+            rgba(15, 26, 23, 0.5) 50%,
+            rgba(15, 26, 23, 0.9) 100%);
+}
+
+/* Hide legacy overlay div */
+.safari-card__overlay {
+    display: none;
 }
 
 /* Badge */

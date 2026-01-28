@@ -11,8 +11,16 @@ import SafariGrid from "../components/safaris/SafariGrid";
 import SectionCTA from "../components/safaris/SectionCTA";
 import BottomCTA from "../components/safaris/BottomCTA";
 
+// Region Mapping for broader filtering
+const REGION_MAPPING = {
+  'Asia': ['Thailand', 'United Arab Emirates', 'China', 'Japan', 'India', 'Vietnam'],
+  // Add other regions as needed
+};
+
 export default function SafarisPage() {
   const { safaris, loading } = useSafaris();
+
+
 
   const [filters, setFilters] = useState({
     country: "",
@@ -78,7 +86,10 @@ export default function SafarisPage() {
   const filteredSafaris = useMemo(() => {
     return safaris.filter(safari => {
       const matchesCountry = !filters.country ||
-        (safari.country && safari.country.includes(filters.country));
+        (safari.country && (
+          safari.country.includes(filters.country) ||
+          (REGION_MAPPING[filters.country] && REGION_MAPPING[filters.country].some(c => safari.country.includes(c)))
+        ));
 
       const matchesCategory = !filters.category ||
         safari.category === filters.category;

@@ -37,7 +37,7 @@
   margin-top: 4rem;
   grid-template-areas:
     "kenya kenya tanzania rwanda"
-    "zimbabwe botswana botswana uae";
+    "zimbabwe asia asia uae";
 }
 
 /* Explicit Grid Placement (No Gaps) */
@@ -57,8 +57,8 @@
   grid-area: zimbabwe;
 }
 
-.destination-card--botswana {
-  grid-area: botswana;
+.destination-card--asia {
+  grid-area: asia;
 }
 
 .destination-card--uae {
@@ -202,7 +202,7 @@
     grid-template-areas:
       "kenya tanzania"
       "rwanda zimbabwe"
-      "botswana uae";
+      "asia uae";
   }
 
   .destination-card__title {

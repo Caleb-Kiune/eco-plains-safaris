@@ -24,10 +24,10 @@
     "gridArea": "zimbabwe"
   },
   {
-    "name": "Botswana",
-    "flag": "🇧🇼",
-    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/q_auto,f_auto,w_auto,dpr_auto/v1/eco-plains-safaris/botswana?_a=BAMAMieC0",
-    "gridArea": "botswana"
+    "name": "Asia",
+    "flag": "🌏",
+    "image": "https://res.cloudinary.com/dy082ykuf/image/upload/v1769596210/eco-plains-safaris/asia_destination.jpg",
+    "gridArea": "asia"
   },
   {
     "name": "United Arab Emirates",

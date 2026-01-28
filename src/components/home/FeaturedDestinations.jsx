@@ -1,21 +1,15 @@
 // src/components/home/FeaturedDestinations.jsx
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import OptimizedImage from '../common/OptimizedImage';
 import './FeaturedDestinations.css';
 
 function DestinationCard({ dest, index, priority }) {
   const navigate = useNavigate();
-  const ref = useRef(null);
+  // Scale logic removed for performance
 
-  // Mobile parallax effect
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start']
-  });
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1.05]);
 
   const handleClick = () => {
     if (!dest.name) return;
@@ -26,7 +20,6 @@ function DestinationCard({ dest, index, priority }) {
 
   return (
     <motion.article
-      ref={ref}
       className={`destination-card destination-card--${dest.gridArea}`}
       role="button"
       tabIndex={0}
@@ -42,7 +35,7 @@ function DestinationCard({ dest, index, priority }) {
       }}
     >
       <div className="destination-card__image-wrapper">
-        <div style={{ width: '100%', height: '100%', scale: window.innerWidth <= 768 ? scale : 1 }}>
+        <div style={{ width: '100%', height: '100%' }}>
           <OptimizedImage
             src={dest.image || '/fallback-image.jpg'}
             priority={priority}

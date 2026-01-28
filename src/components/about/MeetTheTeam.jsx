@@ -5,24 +5,23 @@ import './MeetTheTeam.css';
 
 const team = [
   {
-    name: 'Jane Doe',
-    role: 'Founder & CEO',
-    image: '/images/team/team-jane-placeholder.png',
-    bio: 'Two decades of safari expertise, conservation advocate, wildlife photographer.'
+    name: 'Evaline Agawo',
+    role: 'Senior Safari Consultant',
+    image: 'https://res.cloudinary.com/dy082ykuf/image/upload/c_fill,g_face,w_600,h_800/v1769592488/eco-plains-safaris/Evaline_Agawo.jpg',
+    bio: 'Dedicated safari planner with deep knowledge of East African destinations and personalized itineraries.'
   },
   {
-    name: 'John Doe',
-    role: 'Head Safari Guide',
-    image: '/images/team/team-john-placeholder.png',
-    bio: 'Master naturalist with 15 years tracking the Big Five across East Africa.'
+    name: 'The Field Team',
+    role: 'Expert Guides & Trackers',
+    image: 'https://res.cloudinary.com/dy082ykuf/image/upload/c_fill,g_auto,w_600,h_800/v1769592494/eco-plains-safaris/staff.jpg',
+    bio: 'Our experienced on-ground guides and trackers ensuring safe and unforgettable wildlife encounters.'
   },
   {
-    name: 'Sarah Smith',
-    role: 'Conservation Director',
-    image: '/images/team/team-sarah-placeholder.png',
-    bio: 'PhD in Wildlife Ecology, leading our community empowerment initiatives.'
+    name: 'Safari Operations',
+    role: 'Fleet & Logistics',
+    image: 'https://res.cloudinary.com/dy082ykuf/image/upload/c_fill,g_auto,w_600,h_800/v1769592491/eco-plains-safaris/eco_plains_safari_car.jpg',
+    bio: 'Our reliable 4x4 fleet and logistics team keeping every journey smooth and comfortable.'
   },
-
 ];
 
 export default function MeetTheTeam() {

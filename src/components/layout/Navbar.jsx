@@ -50,7 +50,7 @@ export default function Navbar() {
       <div className="nav-container">
         <Link to="/" className="nav-logo" aria-label="Eco Plains Safaris - Home">
           <img
-            src="/icons/eco plains logo.png"
+            src="https://res.cloudinary.com/dy082ykuf/image/upload/f_auto,q_auto/v1769593457/eco-plains-safaris/logos/logo_main.png"
             alt="Eco Plains Safaris Logo"
             className="nav-logo-img"
           />

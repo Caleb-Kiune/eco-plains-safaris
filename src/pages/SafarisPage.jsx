@@ -141,7 +141,7 @@ export default function SafarisPage() {
         <meta name="description" content="Explore our curated collection of luxury safari experiences across East Africa. Find your perfect adventure." />
         <meta property="og:title" content="All Safaris - Eco Plains Safaris" />
         <meta property="og:description" content="Curated luxury safari adventures across East Africa" />
-        <meta property="og:image" content="/og-safaris.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/dy082ykuf/image/upload/v1769593463/eco-plains-safaris/meta/og_safaris.jpg" />
       </SEO>
 
       <div className="safaris-page">

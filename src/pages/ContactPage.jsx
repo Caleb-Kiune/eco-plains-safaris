@@ -88,7 +88,7 @@ export default function ContactPage() {
         <meta name="description" content="Start your luxury safari journey. Contact our expert team to plan your bespoke African adventure." />
         <meta property="og:title" content="Contact Us - Eco Plains Safaris" />
         <meta property="og:description" content="Start your luxury safari journey with Eco Plains Safaris" />
-        <meta property="og:image" content="/og-contact.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/dy082ykuf/image/upload/v1769593460/eco-plains-safaris/meta/og_contact.jpg" />
       </SEO>
 
       <section className="contact-page">

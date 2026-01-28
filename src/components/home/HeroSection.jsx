@@ -46,7 +46,7 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        src="/images/home/black-tomato-mob-home.mp4"
+        src="https://res.cloudinary.com/dy082ykuf/video/upload/f_auto,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.mp4"
         type="video/mp4"
         aria-hidden="true"
       />

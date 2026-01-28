@@ -16,7 +16,7 @@ export default function AboutPage() {
         <meta name="description" content="Discover the story behind Eco Plains Safaris. Two decades of passion for Africa's wilderness, conservation leadership, and luxury safari expertise." />
         <meta property="og:title" content="About Us - Eco Plains Safaris" />
         <meta property="og:description" content="Our story, vision, and team dedicated to transformative African safari experiences" />
-        <meta property="og:image" content="/og-home.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/dy082ykuf/image/upload/v1769593465/eco-plains-safaris/meta/og_about.jpg" />
       </SEO>
 
       <main className="about-page">

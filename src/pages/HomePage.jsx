@@ -17,7 +17,7 @@ export default function HomePage() {
         <meta name="description" content="Discover unforgettable luxury safari experiences across East Africa. Expert-curated journeys through Kenya, Tanzania, Rwanda, and beyond." />
         <meta property="og:title" content="Eco Plains Safaris - Luxury African Safari Experiences" />
         <meta property="og:description" content="Discover unforgettable luxury safari experiences across East Africa." />
-        <meta property="og:image" content="/og-image-home.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/dy082ykuf/image/upload/v1769593458/eco-plains-safaris/meta/og_home.jpg" />
         <meta property="og:type" content="website" />
       </SEO>
 

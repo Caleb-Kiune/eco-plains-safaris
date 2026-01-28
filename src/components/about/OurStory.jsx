@@ -34,7 +34,7 @@ export default function OurStory() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           >
             <img
-              src="/images/about/our-story-placeholder.png"
+              src="https://res.cloudinary.com/dy082ykuf/image/upload/c_fill,g_face,w_800,h_1000/v1769592489/eco-plains-safaris/Lydia_Muthoni.jpg"
               alt="Lydia Muthoni Kahuthu - Director, Operations & Strategy"
               className="our-story__image"
               loading="lazy"

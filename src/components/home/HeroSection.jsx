@@ -46,7 +46,7 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        src="/black-tomato-mob-home.mp4"
+        src="/images/home/black-tomato-mob-home.mp4"
         type="video/mp4"
         aria-hidden="true"
       />

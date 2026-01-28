@@ -7,7 +7,7 @@ export default function HeroSection() {
     <LuxuryHero
       title="Discover Your Dream Safari"
       subtitle="Eco-conscious adventures across Africa's wildest landscapes"
-      backgroundVideo="/black-tomato-mob-home.mp4"
+      backgroundVideo="/images/home/black-tomato-mob-home.mp4"
       ctaText="Explore All Safaris"
       ctaLink="/safaris"
       align="left"

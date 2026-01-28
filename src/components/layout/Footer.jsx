@@ -51,10 +51,10 @@ export default function Footer() {
           <div className="footer-column">
             <h3 className="footer-column__title">Safaris</h3>
             <ul className="footer-column__links">
-              <li><Link to="/safaris">All Safaris</Link></li>
-              <li><Link to="/safaris?category=Wildlife Safari">Wildlife Safaris</Link></li>
-              <li><Link to="/safaris?category=Beach Holiday">Beach Holidays</Link></li>
-              <li><Link to="/safaris?category=Adventure">Adventure Tours</Link></li>
+              <li><Link to="/safaris#safaris-grid">All Safaris</Link></li>
+              <li><Link to="/safaris?category=Wildlife Safari#safaris-grid">Wildlife Safaris</Link></li>
+              <li><Link to="/safaris?category=Beach Holiday#safaris-grid">Beach Holidays</Link></li>
+              <li><Link to="/safaris?category=Adventure#safaris-grid">Adventure Tours</Link></li>
             </ul>
           </div>
 
@@ -62,10 +62,10 @@ export default function Footer() {
           <div className="footer-column">
             <h3 className="footer-column__title">Destinations</h3>
             <ul className="footer-column__links">
-              <li><Link to="/safaris?country=Kenya">Kenya</Link></li>
-              <li><Link to="/safaris?country=Tanzania">Tanzania</Link></li>
-              <li><Link to="/safaris?country=Uganda">Uganda</Link></li>
-              <li><Link to="/safaris?country=Rwanda">Rwanda</Link></li>
+              <li><Link to="/safaris?country=Kenya#safaris-grid">Kenya</Link></li>
+              <li><Link to="/safaris?country=Tanzania#safaris-grid">Tanzania</Link></li>
+              <li><Link to="/safaris?country=Zimbabwe#safaris-grid">Zimbabwe</Link></li>
+              <li><Link to="/safaris?country=Rwanda#safaris-grid">Rwanda</Link></li>
             </ul>
           </div>
 

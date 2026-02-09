@@ -58,7 +58,9 @@
 .trust-badge__logo {
   display: block;
   height: auto;
-  /* Aspect ratio managed by HTML width/height */
+  max-width: 150px;
+  /* Constrain 600px retina image to 150px display size */
+  width: 100%;
 }
 
 /* ============ MAIN FOOTER (DARK GREEN PALETTE) ============ */

@@ -39,11 +39,11 @@ export default function Footer() {
           >
             <div className="trust-badge__logo-wrapper">
               <img
-                src="/images/logos/safaribookings-logo-small.png"
+                src="/images/logos/safaribookings-logo-retina.png"
                 alt="Official Member SafariBookings"
                 className="trust-badge__logo"
                 loading="lazy"
-                width="120"
+                width="600"
                 height="auto"
               />
             </div>

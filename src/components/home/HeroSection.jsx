@@ -8,7 +8,8 @@ export default function HeroSection() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
   React.useEffect(() => {
-    // Defer video loading to allow LCP image to paint first
+    // OPTIMIZATION: Defer video loading to allow LCP image (poster) to paint first.
+    // This simple timer unblocks the main thread for the critical initial render.
     const timer = setTimeout(() => setIsVideoLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -55,12 +56,14 @@ export default function HeroSection() {
         muted
         playsInline
         preload="none"
-        // Dynamic poster: Replace extension with .jpg for exact first frame
-        poster="https://res.cloudinary.com/dy082ykuf/video/upload/f_auto,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.jpg"
+        // OPTIMIZATION: Seamless Video Transition
+        // We use "so_0" (Start Offset 0) to grab the EXACT first frame of the video.
+        // This ensures the poster matches the video start perfectly (no flash).
+        poster="https://res.cloudinary.com/dy082ykuf/video/upload/so_0,f_auto,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.jpg"
         aria-hidden="true"
         ref={(el) => {
           if (el && isVideoLoaded && !el.src) {
-            // Force correct format for Android/iOS
+            // Force correct format for Android (WebM) / iOS (MP4)
             el.src = "https://res.cloudinary.com/dy082ykuf/video/upload/f_auto:video,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.mp4";
           }
         }}

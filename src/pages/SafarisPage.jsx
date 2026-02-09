@@ -53,6 +53,10 @@ export default function SafarisPage() {
 
   // Defer Grid Rendering to allow Hero to paint immediately
   useEffect(() => {
+    // ADR: "Paint First" Pattern
+    // We use a zero-delay timeout to defer the heavy grid rendering.
+    // This allows the browser to paint the Hero section immediately (LCP),
+    // preventing the "21s block" sensation.
     const timer = setTimeout(() => {
       setIsGridReady(true);
     }, 0);

@@ -43,7 +43,6 @@ const fetchSafarisData = () => {
 
 // Export prefetch function
 export const prefetchSafaris = () => {
-    console.log('Prefetching safaris...');
     fetchSafarisData().catch(err => console.error('Prefetch failed:', err));
 };
 

@@ -40,14 +40,7 @@ export default function BigFiveHero() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-    // Preload images
-    // Preload images - REMOVED: Replaced with browser native lazy loading and srcSet
-    // useEffect(() => {
-    //     SLIDES.forEach(slide => {
-    //         const img = new Image();
-    //         img.src = slide.image;
-    //     });
-    // }, []);
+    // Preload images - Handled by native lazy loading and srcSet
 
     const nextSlide = useCallback(() => {
         setCurrentIndex(prev => (prev + 1) % SLIDES.length);
@@ -57,6 +50,7 @@ export default function BigFiveHero() {
         setCurrentIndex(prev => (prev - 1 + SLIDES.length) % SLIDES.length);
     }, []);
 
+    // ... (keeping existing Navbar height logic) ... 
     // Dynamic Navbar Height Calculation
     useEffect(() => {
         const updateNavbarHeight = () => {
@@ -83,10 +77,7 @@ export default function BigFiveHero() {
     // Pause autoplay on interaction
     const handleInteraction = () => {
         setIsAutoPlaying(false);
-        // Optional: Resume after delay? For now, let's keep it simple and just pause interaction for a bit or permanently?
-        // User requirement: "Smooth autoplay slideshow". Usually interaction pauses it temporarily.
-        // Let's restart autoplay after 10s of inactivity if we wanted, but simple is better.
-        // Actually, let's just reset the timer.
+        // Resume autoplay after 10s of inactivity
         setTimeout(() => setIsAutoPlaying(true), 10000);
     };
 

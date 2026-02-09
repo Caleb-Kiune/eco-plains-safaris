@@ -10,13 +10,8 @@ export default function Navbar() {
   const lastScrollY = useRef(0);
   const location = useLocation();
   const isContactPage = location.pathname === '/contact';
-  // Detect Safari Details pages (e.g. /safaris/kenya-classic) - assuming route is /safaris/:slug based on file structure, 
-  // but user said /safari/. I'll check if it starts with /safaris/ and has a slug, or just check for /safari/ if that's what they use.
-  // Let's look at the user request again: "path like /safari/kenya-classic". 
-  // Wait, I should verify the route. 
-  // But the user said "Update ONLY src/components/layout/Navbar.jsx".
-  // I will assume the user knows their routes or I should match both just in case? 
-  // "Any page with pathname starting with /safari/"
+
+  // Detect Safari Details pages to adjust navbar style (transparent/solid)
   const isSafariDetailsPage = location.pathname.startsWith('/safaris/') || location.pathname.startsWith('/safari/');
 
   useEffect(() => {

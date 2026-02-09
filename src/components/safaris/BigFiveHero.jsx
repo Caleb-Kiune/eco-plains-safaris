@@ -41,12 +41,13 @@ export default function BigFiveHero() {
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
     // Preload images
-    useEffect(() => {
-        SLIDES.forEach(slide => {
-            const img = new Image();
-            img.src = slide.image;
-        });
-    }, []);
+    // Preload images - REMOVED: Replaced with browser native lazy loading and srcSet
+    // useEffect(() => {
+    //     SLIDES.forEach(slide => {
+    //         const img = new Image();
+    //         img.src = slide.image;
+    //     });
+    // }, []);
 
     const nextSlide = useCallback(() => {
         setCurrentIndex(prev => (prev + 1) % SLIDES.length);
@@ -91,25 +92,41 @@ export default function BigFiveHero() {
 
     return (
         <section className="big-five-hero" aria-label="Big 5 Safari Animals Slider">
-            {SLIDES.map((slide, index) => (
-                <div
-                    key={slide.id}
-                    className={`big-five-hero__slide ${index === currentIndex ? 'active' : ''}`}
-                    aria-hidden={index !== currentIndex}
-                >
-                    <img
-                        src={slide.image}
-                        alt={slide.title}
-                        className="big-five-hero__image"
-                    />
-                    <div className="big-five-hero__overlay" />
+            {SLIDES.map((slide, index) => {
+                const isFirst = index === 0;
+                // Generate responsive srcSet
+                const srcSet = `
+                    ${slide.image.replace('/upload/', '/upload/w_600,q_auto,f_auto/')} 600w,
+                    ${slide.image.replace('/upload/', '/upload/w_1000,q_auto,f_auto/')} 1000w,
+                    ${slide.image.replace('/upload/', '/upload/w_1400,q_auto,f_auto/')} 1400w
+                `;
 
-                    <div className="big-five-hero__content">
-                        <div className="big-five-hero__subtitle">{slide.subtitle}</div>
-                        <h2 className="big-five-hero__title">{slide.title}</h2>
+                return (
+                    <div
+                        key={slide.id}
+                        className={`big-five-hero__slide ${index === currentIndex ? 'active' : ''}`}
+                        aria-hidden={index !== currentIndex}
+                    >
+                        <img
+                            src={slide.image.replace('/upload/', '/upload/w_1400,q_auto,f_auto/')} // Fallback
+                            srcSet={srcSet}
+                            sizes="(max-width: 768px) 100vw, 100vw"
+                            alt={slide.title}
+                            className="big-five-hero__image"
+                            loading={isFirst ? "eager" : "lazy"}
+                            fetchPriority={isFirst ? "high" : "auto"}
+                            width="1400"
+                            height="800"
+                        />
+                        <div className="big-five-hero__overlay" />
+
+                        <div className="big-five-hero__content">
+                            <div className="big-five-hero__subtitle">{slide.subtitle}</div>
+                            <h2 className="big-five-hero__title">{slide.title}</h2>
+                        </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
 
             {/* Navigation Arrows */}
             <button

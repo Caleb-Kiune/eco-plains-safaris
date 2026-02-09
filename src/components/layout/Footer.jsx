@@ -43,7 +43,7 @@ export default function Footer() {
                 alt="Official Member SafariBookings"
                 className="trust-badge__logo"
                 loading="lazy"
-                width="600"
+                width="150"
                 height="auto"
               />
             </div>

@@ -16,7 +16,15 @@ export default function LuxuryHero({
         <section className={`luxury-hero luxury-hero--${align}`}>
             {/* Background Media */}
             {backgroundVideo ? (
-                <video className="luxury-hero__video" autoPlay muted loop playsInline>
+                <video
+                    className="luxury-hero__video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    poster={backgroundImage}
+                >
                     <source src={backgroundVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>

@@ -1,13 +1,15 @@
 // src/pages/HomePage.jsx
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import SEO from '../components/common/SEO';
 import HeroSection from '../components/home/HeroSection';
-import AboutSection from '../components/home/AboutSection';
-import FeaturedDestinations from '../components/home/FeaturedDestinations';
-import FeaturedSafarisCarousel from '../components/home/FeaturedSafarisCarousel';
-import WhyChooseUs from '../components/home/WhyChooseUs';
-import Testimonials from '../components/home/Testimonials';
 import SectionDivider from '../components/common/SectionDivider';
+
+// Lazy load below-the-fold content to reduce TBT and LCP
+const AboutSection = lazy(() => import('../components/home/AboutSection'));
+const FeaturedDestinations = lazy(() => import('../components/home/FeaturedDestinations'));
+const FeaturedSafarisCarousel = lazy(() => import('../components/home/FeaturedSafarisCarousel'));
+const WhyChooseUs = lazy(() => import('../components/home/WhyChooseUs'));
+const Testimonials = lazy(() => import('../components/home/Testimonials'));
 
 export default function HomePage() {
   return (
@@ -22,16 +24,19 @@ export default function HomePage() {
       </SEO>
 
       <HeroSection />
-      <SectionDivider />
-      <AboutSection />
-      <SectionDivider />
-      <FeaturedDestinations />
-      <SectionDivider />
-      <FeaturedSafarisCarousel />
-      <SectionDivider />
-      <Testimonials />
-      <SectionDivider />
-      <WhyChooseUs />
+
+      <Suspense fallback={<div style={{ height: '500px', background: '#f9f9f9' }} />}>
+        <SectionDivider />
+        <AboutSection />
+        <SectionDivider />
+        <FeaturedDestinations />
+        <SectionDivider />
+        <FeaturedSafarisCarousel />
+        <SectionDivider />
+        <Testimonials />
+        <SectionDivider />
+        <WhyChooseUs />
+      </Suspense>
     </>
   );
 }

@@ -46,6 +46,8 @@ export default function HeroSection() {
         loop
         muted
         playsInline
+        preload="none"
+        poster="https://res.cloudinary.com/dy082ykuf/image/upload/v1769593458/eco-plains-safaris/meta/og_home.jpg"
         src="https://res.cloudinary.com/dy082ykuf/video/upload/f_auto,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.mp4"
         type="video/mp4"
         aria-hidden="true"

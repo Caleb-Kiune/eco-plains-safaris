@@ -88,8 +88,15 @@ const OptimizedImage = ({
             )}
 
             {/* 3. High-Res Image */}
+            {/* 3. High-Res Image with Responsive SrcSet */}
             <img
                 src={src}
+                srcSet={src && src.includes('cloudinary') ? `
+                    ${src.replace('/upload/', '/upload/w_500,q_auto,f_auto/')} 500w,
+                    ${src.replace('/upload/', '/upload/w_800,q_auto,f_auto/')} 800w,
+                    ${src.replace('/upload/', '/upload/w_1200,q_auto,f_auto/')} 1200w
+                ` : undefined}
+                sizes={props.sizes || "(max-width: 768px) 100vw, 50vw"}
                 alt={alt}
                 width={width}
                 height={height}

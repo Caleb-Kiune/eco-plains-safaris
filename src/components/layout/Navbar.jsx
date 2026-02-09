@@ -53,6 +53,8 @@ export default function Navbar() {
             src="https://res.cloudinary.com/dy082ykuf/image/upload/f_auto,q_auto/v1769593457/eco-plains-safaris/logos/logo_main.png"
             alt="Eco Plains Safaris Logo"
             className="nav-logo-img"
+            width="180"
+            height="60"
           />
         </Link>
 

@@ -55,11 +55,13 @@ export default function HeroSection() {
         muted
         playsInline
         preload="none"
-        poster="https://res.cloudinary.com/dy082ykuf/image/upload/v1769593458/eco-plains-safaris/meta/og_home.jpg"
+        // Dynamic poster: Replace extension with .jpg for exact first frame
+        poster="https://res.cloudinary.com/dy082ykuf/video/upload/f_auto,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.jpg"
         aria-hidden="true"
         ref={(el) => {
           if (el && isVideoLoaded && !el.src) {
-            el.src = "https://res.cloudinary.com/dy082ykuf/video/upload/f_auto,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.mp4";
+            // Force correct format for Android/iOS
+            el.src = "https://res.cloudinary.com/dy082ykuf/video/upload/f_auto:video,q_auto/v1769593448/eco-plains-safaris/videos/hero_video.mp4";
           }
         }}
       />

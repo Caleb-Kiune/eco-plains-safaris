@@ -35,6 +35,7 @@ const getDurationDays = (safari) => {
 
 export default function SafarisPage() {
   const { safaris, loading } = useSafaris();
+  const [isGridReady, setIsGridReady] = useState(false); // Defer heavy grid
 
   // ... imports and other state ...
   const [filters, setFilters] = useState({
@@ -50,9 +51,17 @@ export default function SafarisPage() {
 
   const urlCategory = searchParams.get("category");
 
+  // Defer Grid Rendering to allow Hero to paint immediately
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsGridReady(true);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Scroll to grid if hash is present and loading is done
   useEffect(() => {
-    if (!loading && location.hash === '#safaris-grid') {
+    if (!loading && isGridReady && location.hash === '#safaris-grid') {
       // Small timeout to ensure DOM layout is complete
       setTimeout(() => {
         const element = document.getElementById('safaris-grid');
@@ -61,7 +70,7 @@ export default function SafarisPage() {
         }
       }, 100);
     }
-  }, [loading, location.hash]);
+  }, [loading, isGridReady, location.hash]);
 
   // Apply URL filter
   useEffect(() => {
@@ -106,10 +115,9 @@ export default function SafarisPage() {
     });
   }, [safaris, filters]);
 
-
-
-  // Show skeleton loading state
+  // Show skeleton loading state (Only if data isn't cached/prefetched)
   if (loading) {
+    // ... Keep existing SEO & Skeleton Structure ...
     return (
       <>
         <SEO>
@@ -122,7 +130,7 @@ export default function SafarisPage() {
 
         <div className="safaris-page">
           <BigFiveHero />
-          {/* Skeleton Filter Bar (simplified) */}
+          {/* Skeleton Grid Deferral handled below for main render too */}
           <div className="container mx-auto px-6 py-8">
             <div className="skeleton" style={{ width: '100%', maxWidth: '900px', height: '50px', margin: '0 auto 2rem', borderRadius: '4px' }}></div>
           </div>
@@ -150,11 +158,21 @@ export default function SafarisPage() {
       </SEO>
 
       <div className="safaris-page">
+        {/* Paint First: Hero renders immediately */}
         <BigFiveHero />
-        <FilterBar filters={filters} setFilters={setFilters} safaris={safaris} />
-        <SafariGrid safaris={filteredSafaris} />
-        <SectionCTA />
-        <BottomCTA />
+
+        {/* Defer Heavy Components */}
+        {isGridReady ? (
+          <>
+            <FilterBar filters={filters} setFilters={setFilters} safaris={safaris} />
+            <SafariGrid safaris={filteredSafaris} />
+            <SectionCTA />
+            <BottomCTA />
+          </>
+        ) : (
+          // Lightweight placeholder to prevent excessive layout shift during deferred paint
+          <div style={{ minHeight: '100vh', background: '#f9f8f4' }} />
+        )}
       </div>
     </>
   );

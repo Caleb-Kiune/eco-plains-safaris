@@ -30,6 +30,24 @@ export default function Footer() {
             </svg>
             <span>Supporting conservation & communities</span>
           </div>
+          <a
+            href="https://www.safaribookings.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="trust-badge trust-badge--partner"
+            aria-label="Official Member SafariBookings"
+          >
+            <div className="trust-badge__logo-wrapper">
+              <img
+                src="/images/logos/safaribookings-logo-small.png"
+                alt="Official Member SafariBookings"
+                className="trust-badge__logo"
+                loading="lazy"
+                width="120"
+                height="auto"
+              />
+            </div>
+          </a>
         </div>
       </div>
 

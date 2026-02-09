@@ -32,6 +32,26 @@ export default function AboutSection() {
           <LuxuryButton variant="outline" href="/about">
             Discover Our Story
           </LuxuryButton>
+
+          {/* Partner Badge */}
+          <div className="about-section__partner">
+            <span className="about-section__partner-label">Proud Official Member of</span>
+            <a
+              href="https://www.safaribookings.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="about-section__partner-link"
+            >
+              <img
+                src="/images/logos/safaribookings-logo-large.png"
+                alt="SafariBookings Official Member"
+                className="about-section__partner-logo"
+                loading="lazy"
+                width="280"
+                height="auto"
+              />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

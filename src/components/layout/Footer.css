@@ -31,6 +31,36 @@
   color: #81c784;
 }
 
+/* Partner Badge Styling */
+.trust-badge--partner {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.trust-badge--partner:hover {
+  opacity: 0.9;
+}
+
+.trust-badge__logo-wrapper {
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trust-badge--partner:hover .trust-badge__logo-wrapper {
+  transform: translateY(-2px);
+}
+
+.trust-badge__logo {
+  display: block;
+  height: auto;
+  /* Aspect ratio managed by HTML width/height */
+}
+
 /* ============ MAIN FOOTER (DARK GREEN PALETTE) ============ */
 .luxury-footer__main {
   background: #111111;

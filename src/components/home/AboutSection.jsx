@@ -43,7 +43,7 @@ export default function AboutSection() {
               className="about-section__partner-link"
             >
               <img
-                src="/images/logos/safaribookings-logo-large.png"
+                src="/images/logos/safaribookings-logo-retina.png"
                 alt="SafariBookings Official Member"
                 className="about-section__partner-logo"
                 loading="lazy"

@@ -1,7 +1,7 @@
 // src/App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
-import LoadingSpinner from './components/common/LoadingSpinner';
+import PageLoader from './components/common/PageLoader';
 
 // Layout Components
 import Navbar from './components/layout/Navbar';
@@ -43,7 +43,7 @@ function App() {
       <WhatsAppButton />
 
       <main>
-        <Suspense fallback={<div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><LoadingSpinner /></div>}>
+        <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />

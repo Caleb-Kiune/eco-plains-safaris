@@ -1,6 +1,6 @@
-// src/components/Navbar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { prefetchSafaris } from '../../hooks/useSafaris';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -20,20 +20,29 @@ export default function Navbar() {
   const isSafariDetailsPage = location.pathname.startsWith('/safaris/') || location.pathname.startsWith('/safari/');
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
       const current = window.scrollY;
 
-      // Hide/show on scroll direction
-      if (current > lastScrollY.current && current > 100) {
-        setVisible(false);
-      } else if (current < lastScrollY.current) {
-        setVisible(true);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Hide/show on scroll direction
+          if (current > lastScrollY.current && current > 100) {
+            setVisible(false);
+          } else if (current < lastScrollY.current) {
+            setVisible(true);
+          }
+
+          // Track if we're past the hero
+          setScrolled(current > 50);
+
+          lastScrollY.current = current;
+          ticking = false;
+        });
+
+        ticking = true;
       }
-
-      // Track if we're past the hero (for backdrop + logo effect)
-      setScrolled(current > 50);
-
-      lastScrollY.current = current;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -60,7 +69,16 @@ export default function Navbar() {
 
         <ul className="nav-menu">
           <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-          <li className="nav-item"><Link to="/safaris" className="nav-link">Safaris</Link></li>
+          <li className="nav-item">
+            <Link
+              to="/safaris"
+              className="nav-link"
+              onMouseEnter={prefetchSafaris}
+              onFocus={prefetchSafaris} // Accessibility support
+            >
+              Safaris
+            </Link>
+          </li>
           <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
           <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
         </ul>

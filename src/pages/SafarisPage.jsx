@@ -17,11 +17,26 @@ const REGION_MAPPING = {
   // Add other regions as needed
 };
 
+// Helper: extract number from duration string (moved outside for performance)
+const getDurationDays = (safari) => {
+  if (typeof safari.durationDays === 'number') return safari.durationDays;
+  const duration = safari.duration;
+  if (!duration) return 0;
+
+  const daysMatch = duration.match(/(\d+)\s*Days?/i);
+  if (daysMatch) return parseInt(daysMatch[1]);
+
+  const nightsMatch = duration.match(/(\d+)\s*Nights?/i);
+  if (nightsMatch) return parseInt(nightsMatch[1]) + 1;
+
+  const match = duration.match(/\d+/);
+  return match ? parseInt(match[0]) : 0;
+};
+
 export default function SafarisPage() {
   const { safaris, loading } = useSafaris();
 
-
-
+  // ... imports and other state ...
   const [filters, setFilters] = useState({
     country: "",
     category: "",
@@ -32,6 +47,7 @@ export default function SafarisPage() {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const urlCountry = searchParams.get("country");
+
   const urlCategory = searchParams.get("category");
 
   // Scroll to grid if hash is present and loading is done
@@ -58,49 +74,27 @@ export default function SafarisPage() {
     }
   }, [urlCountry, urlCategory, safaris]);
 
-  // Helper: extract number from duration string
-  // Helper: extract number from duration string (Robust)
-  const getDurationDays = (safari) => {
-    // 1. Use pre-calculated field if available (Fastest & Most Accurate)
-    if (typeof safari.durationDays === 'number') {
-      return safari.durationDays;
-    }
-
-    const duration = safari.duration;
-    if (!duration) return 0;
-
-    // 2. Fallback Parsing
-    // Match "X Days"
-    const daysMatch = duration.match(/(\d+)\s*Days?/i);
-    if (daysMatch) return parseInt(daysMatch[1]);
-
-    // Match "X Nights" -> +1 logic
-    const nightsMatch = duration.match(/(\d+)\s*Nights?/i);
-    if (nightsMatch) return parseInt(nightsMatch[1]) + 1;
-
-    // Last resort: any number
-    const match = duration.match(/\d+/);
-    return match ? parseInt(match[0]) : 0;
-  };
-
   const filteredSafaris = useMemo(() => {
     return safaris.filter(safari => {
+      // Country Filter
       const matchesCountry = !filters.country ||
         (safari.country && (
           safari.country.includes(filters.country) ||
           (REGION_MAPPING[filters.country] && REGION_MAPPING[filters.country].some(c => safari.country.includes(c)))
         ));
 
+      // Category Filter
       const matchesCategory = !filters.category ||
         safari.category === filters.category;
 
+      // Duration Filter
       const matchesDuration = !filters.duration || (() => {
         const [min, max] = filters.duration.split('-').map(Number);
         const days = getDurationDays(safari);
         return days >= min && days <= max;
       })();
 
-      // Fix: Allow null prices and high values if using default range
+      // Price Filter
       const isDefaultPrice = filters.priceRange[0] === 0 && filters.priceRange[1] === 1000000;
       const matchesPrice = isDefaultPrice || (
         safari.price_adult &&

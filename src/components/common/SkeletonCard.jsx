@@ -1,29 +1,26 @@
+// src/components/common/SkeletonCard.jsx
 import React from 'react';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import './SafariCard.css'; // Re-use styles for layout
+import './SafariCard.css'; // Import base card styles for layout alignment
+import './SkeletonCard.css'; // Import skeleton specific styles
 
-const SkeletonCard = () => {
+const SkeletonCard = ({ variant = 'grid' }) => {
     return (
-        <div className="safari-card" style={{ border: '1px solid #eee' }}>
+        <div className={`skeleton-card skeleton-card--${variant}`}>
             {/* Image Skeleton */}
-            <div className="safari-card__image-container">
-                <Skeleton height="100%" style={{ display: 'block', height: '100%' }} />
-            </div>
+            <div className="skeleton-card__image"></div>
 
             {/* Content Skeleton */}
-            <div className="safari-card__content">
-                <div className="safari-card__meta">
-                    <Skeleton width={80} />
-                    <Skeleton width={60} />
-                </div>
+            <div className="skeleton-card__content">
+                {/* Header: Destination & Duration */}
+                <div className="skeleton skeleton__text skeleton__text--header"></div>
 
-                <div className="safari-card__title">
-                    <Skeleton count={2} />
-                </div>
+                {/* Title */}
+                <div className="skeleton skeleton__text skeleton__text--title"></div>
 
-                <div className="safari-card__footer" style={{ marginTop: 'auto' }}>
-                    <Skeleton width={100} height={30} />
+                {/* Footer / Price Area */}
+                <div className="skeleton__footer">
+                    <div className="skeleton skeleton__text skeleton__text--price-label"></div>
+                    <div className="skeleton skeleton__text skeleton__text--price"></div>
                 </div>
             </div>
         </div>

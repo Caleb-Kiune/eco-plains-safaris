@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import './SkeletonCard.css'; // Import shared skeleton styles
+import './OptimizedImage.css';
 import './OptimizedImage.css';
 
 /**
@@ -83,13 +83,7 @@ const OptimizedImage = ({
             {/* 2. Skeleton (Fallback if no blur URL available) */}
             {!isLoaded && !blurUrl && (
                 <div className="optimized-image-skeleton" style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-                    <Skeleton
-                        height="100%"
-                        width="100%"
-                        style={{ display: 'block', height: '100%', borderRadius: 'inherit' }}
-                        baseColor="#E5E1D8" // Updated to match brand warmth
-                        highlightColor="#F9F8F4"
-                    />
+                    <div className="skeleton" style={{ width: '100%', height: '100%', borderRadius: 'inherit' }}></div>
                 </div>
             )}
 

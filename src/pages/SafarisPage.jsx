@@ -130,7 +130,7 @@ export default function SafarisPage() {
           <BigFiveHero />
           {/* Skeleton Filter Bar (simplified) */}
           <div className="container mx-auto px-6 py-8">
-            <div className="h-12 bg-gray-100 rounded mb-8 animate-pulse w-full max-w-4xl mx-auto"></div>
+            <div className="skeleton" style={{ width: '100%', maxWidth: '900px', height: '50px', margin: '0 auto 2rem', borderRadius: '4px' }}></div>
           </div>
 
           <div className="safaris-grid-section" id="safaris-grid">

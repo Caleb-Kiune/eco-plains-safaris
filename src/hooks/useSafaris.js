@@ -48,6 +48,7 @@ export const prefetchSafaris = () => {
 
 export default function useSafaris() {
     const [safaris, setSafaris] = useState(cache.data ? cache.data.tours : []);
+    const [payment, setPayment] = useState(cache.data ? cache.data.payment : null);
     const [loading, setLoading] = useState(!cache.data);
     const [error, setError] = useState(null);
 
@@ -60,6 +61,7 @@ export default function useSafaris() {
                 const data = await fetchSafarisData();
                 if (mounted) {
                     setSafaris(data.tours || []);
+                    setPayment(data.payment || null);
                     setLoading(false);
                 }
             } catch (err) {
@@ -75,5 +77,5 @@ export default function useSafaris() {
         return () => { mounted = false; };
     }, []);
 
-    return { safaris, loading, error };
+    return { safaris, payment, loading, error };
 }

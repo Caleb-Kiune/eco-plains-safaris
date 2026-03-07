@@ -213,6 +213,145 @@
   color: var(--color-text-light);
 }
 
+/* ============ DAY TRIP SPECIFIC SECTIONS ============ */
+
+/* Child Price */
+.safari-child-price {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-top: -1rem;
+}
+
+/* Deposit Callout */
+.safari-deposit-callout {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(193, 127, 89, 0.08);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 2px;
+  margin-top: -0.5rem;
+}
+
+.safari-deposit-callout__label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+}
+
+.safari-deposit-callout__amount {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Meta Date */
+.safari-meta__date {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Meeting Point */
+.safari-meeting-point {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.safari-meeting-point__label {
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.safari-meeting-point__value {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Section Title (Activities, Payment) */
+.safari-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+/* Activities List */
+.safari-activities {
+  margin-top: -0.5rem;
+}
+
+.safari-activities__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.safari-activities__item {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text);
+  padding: 0.4rem 0.8rem;
+  background: rgba(193, 127, 89, 0.08);
+  border: 1px solid rgba(193, 127, 89, 0.15);
+  border-radius: 20px;
+}
+
+/* Payment Info */
+.safari-payment-info {
+  padding: 1.25rem;
+  background: rgba(193, 127, 89, 0.05);
+  border: 1px solid rgba(193, 127, 89, 0.12);
+  border-radius: 4px;
+}
+
+.safari-payment-info__grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.safari-payment-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.safari-payment-info__label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+}
+
+.safari-payment-info__value {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.safari-payment-info__note {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  margin: 0;
+}
+
 /* Buttons */
 .safari-actions {
   display: flex;

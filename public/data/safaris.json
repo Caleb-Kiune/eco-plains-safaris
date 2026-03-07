@@ -5,6 +5,11 @@
     "email": "ecoplainsafaris@gmail.com",
     "website": "https://ecoplainsafaris.com"
   },
+  "payment": {
+    "paybill": "522533",
+    "account": "8036343",
+    "instructions": "Pay via M-Pesa Paybill"
+  },
   "tours": [
     {
       "id": 1,
@@ -862,6 +867,251 @@
         "Personal expenses"
       ],
       "durationDays": 1
+    },
+    {
+      "id": 24,
+      "code": "OL-PEJETA-JUL25",
+      "slug": "ol-pejeta-conservancy-day-trip-jul2025",
+      "title": "Ol Pejeta Conservancy Day Trip",
+      "destination": "Nanyuki, Kenya",
+      "country": "Kenya",
+      "duration": "1 Day",
+      "date": "25 Jul 2025",
+      "price_adult": 6499,
+      "price_child": 4999,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "25 Jul 2025 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "deposit": 2000,
+      "meetingPoint": "Nairobi CBD",
+      "description": "Spend a day at Ol Pejeta Conservancy, home to the last two Northern White Rhinos and the largest Black Rhino sanctuary in East Africa.",
+      "activities": [
+        "Game drives",
+        "Chimpanzee sanctuary visit",
+        "Northern White Rhino encounter"
+      ],
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772871100/WhatsApp_Image_2026-03-07_at_10.28.10_1_zo6cm2.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "Transport",
+        "Park access",
+        "Tour guide"
+      ],
+      "exclusions": [
+        "Personal expenses",
+        "Meals not mentioned"
+      ],
+      "durationDays": 1
+    },
+    {
+      "id": 25,
+      "code": "KILIMAMBOGO-JUL26",
+      "slug": "mt-kilimambogo-hike-jul2026",
+      "title": "Mt Kilimambogo Hike",
+      "destination": "Kiambu, Kenya",
+      "country": "Kenya",
+      "duration": "1 Day",
+      "date": "25 Jul 2026",
+      "price_adult": 2499,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "25 Jul 2026 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "deposit": 1000,
+      "meetingPoint": "Nairobi CBD",
+      "description": "Conquer Mt Kilimambogo (Ol Donyo Sabuk) on an exciting day hike with stunning views, team building activities, and refreshments.",
+      "activities": [
+        "Mountain hiking",
+        "Team building",
+        "Nature walks",
+        "Scenic photography"
+      ],
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772872522/WhatsApp_Image_2026-03-07_at_10.28.10_cmqzqw.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "Entrance fee",
+        "Transport",
+        "Hiking & team building",
+        "Snacks",
+        "Tour guide"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "durationDays": 1
+    },
+    {
+      "id": 26,
+      "code": "NGARE-NDARE-MAY26",
+      "slug": "ngare-ndare-forest-adventure-may2026",
+      "title": "Ngare Ndare Forest Adventure",
+      "destination": "Meru, Kenya",
+      "country": "Kenya",
+      "duration": "1 Day",
+      "date": "02 May 2026",
+      "price_adult": 4799,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "02 May 2026 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "deposit": 1000,
+      "meetingPoint": "Nairobi CBD",
+      "description": "Explore the stunning Ngare Ndare Forest with its famous canopy walkway, blue pools, and waterfalls on this action-packed day trip.",
+      "activities": [
+        "Canopy walkway",
+        "Blue pools swimming",
+        "Waterfall hike",
+        "Nature trails"
+      ],
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772872523/WhatsApp_Image_2026-03-07_at_10.28.09_f2gtnb.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "Entrance",
+        "Transport",
+        "All activities",
+        "Tour guide"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "durationDays": 1
+    },
+    {
+      "id": 27,
+      "code": "SUSWA-TRAIN-APR26",
+      "slug": "tembea-suswa-ngong-tunnel-train-apr2026",
+      "title": "Tembea Suswa / Ngong Tunnel Train Trip",
+      "destination": "Nairobi & Suswa, Kenya",
+      "country": "Kenya",
+      "duration": "1 Day",
+      "date": "04 Apr 2026",
+      "price_adult": 2350,
+      "price_child": 1950,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "04 Apr 2026 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "deposit": null,
+      "meetingPoint": "Nairobi SGR Station",
+      "description": "Ride the SGR through East Africa's longest tunnel and enjoy a scenic day out with food, team building, and incredible views of Ngong Hills and Mt Longonot.",
+      "activities": [
+        "SGR tunnel cruise",
+        "Team building",
+        "Kids attractions",
+        "Photography"
+      ],
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772872522/45_gcowhj.png",
+      "secondaryImages": [],
+      "inclusions": [
+        "SGR transport",
+        "Transfers",
+        "Food",
+        "Bottled water",
+        "Photography",
+        "Team building",
+        "Kids attractions"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "durationDays": 1
+    },
+    {
+      "id": 28,
+      "code": "OLKARIA-SPA-JUN26",
+      "slug": "olkaria-geothermal-spa-jun2026",
+      "title": "Olkaria Geothermal Spa Day Trip",
+      "destination": "Naivasha, Kenya",
+      "country": "Kenya",
+      "duration": "1 Day",
+      "date": "01 Jun 2026",
+      "price_adult": 3499,
+      "price_child": 2500,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "01 Jun 2026 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "deposit": 1000,
+      "meetingPoint": "Nairobi CBD",
+      "description": "Unwind at Olkaria Geothermal Spa with naturally heated pools, team building activities, and a scenic lunch by Lake Naivasha.",
+      "activities": [
+        "Geothermal swimming",
+        "Team building",
+        "Photography",
+        "Nature walks"
+      ],
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772873084/Ol_karia_2_kwripi.webp",
+      "secondaryImages": [],
+      "inclusions": [
+        "Entry fees",
+        "Transport",
+        "Team building",
+        "Lunch",
+        "Geothermal swimming",
+        "Photography"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "durationDays": 1
+    },
+    {
+      "id": 29,
+      "code": "WRC-RALLY-MAR26",
+      "slug": "wrc-rally-experience-mar2026",
+      "title": "WRC Rally Experience",
+      "destination": "Naivasha, Kenya",
+      "country": "Kenya",
+      "duration": "2 Days",
+      "date": "14–15 Mar 2026",
+      "price_adult": 2500,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "14–15 Mar 2026 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "deposit": 1000,
+      "meetingPoint": "Nairobi CBD",
+      "description": "Experience the thrill of the WRC Safari Rally finals with transport, access to the rally stages, refreshments, and unforgettable motorsport action.",
+      "activities": [
+        "WRC rally spectating",
+        "Motorsport photography",
+        "Rally stage access"
+      ],
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772872992/wrc_mryj6i.webp",
+      "secondaryImages": [],
+      "inclusions": [
+        "Transport",
+        "WRC finals access",
+        "Refreshments",
+        "Photography"
+      ],
+      "exclusions": [
+        "Personal expenses",
+        "Accommodation"
+      ],
+      "durationDays": 2
     }
   ]
 }

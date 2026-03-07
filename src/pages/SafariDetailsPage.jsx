@@ -11,7 +11,7 @@ import './SafariDetailsPage.css';
 
 const SafariDetailsPage = () => {
   const { slug } = useParams();
-  const { safaris, loading } = useSafaris();
+  const { safaris, payment, loading } = useSafaris();
   const [safari, setSafari] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -29,6 +29,8 @@ const SafariDetailsPage = () => {
     return <SkeletonHero />;
   }
 
+  const isDayTrip = safari.type === 'day_trip' || safari.durationDays === 1;
+
   // Carousel Logic
   const images = [safari.primaryImage, ...(safari.secondaryImages || [])].filter(Boolean);
 
@@ -40,22 +42,32 @@ const SafariDetailsPage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Format price
-  const formattedPrice = safari.price_adult
-    ? new Intl.NumberFormat('en-US', {
+  // Format price helper
+  const formatPrice = (price) => {
+    if (!price) return null;
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: safari.currency || 'USD',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    }).format(safari.price_adult)
-    : 'Rate on request';
+    }).format(price);
+  };
+
+  const formattedPrice = formatPrice(safari.price_adult) || 'Rate on request';
+  const formattedChildPrice = formatPrice(safari.price_child);
+  const formattedDeposit = formatPrice(safari.deposit);
 
   // Highlights (limit to 4)
   const highlights = safari.inclusions?.slice(0, 4) || ['Luxury Accommodation', 'Private Guides', 'All-Inclusive', 'Conservation Fees'];
 
-  // WhatsApp Integration: Personalized enquiry message
-  // WhatsApp Integration: Personalized enquiry message
-  const whatsappUrl = getWhatsappLink(`Hi! I'm interested in the ${safari.title} (${safari.duration}).\n\nCould you please send me more details, availability, and pricing?`);
+  // WhatsApp message — richer for day trips
+  const whatsappMessage = isDayTrip
+    ? `Hi! I'd like to book the ${safari.title}${safari.date ? ` on ${safari.date}` : ''}.\n\nPrice: ${formattedPrice} per person${safari.deposit ? `\nDeposit: ${formattedDeposit}` : ''}\n\nPlease confirm availability and share payment details.`
+    : `Hi! I'm interested in the ${safari.title} (${safari.duration}).\n\nCould you please send me more details, availability, and pricing?`;
+
+  const whatsappUrl = getWhatsappLink(whatsappMessage);
+
+  const ctaText = isDayTrip ? 'Reserve Your Spot' : 'Enquire Now';
 
   return (
     <>
@@ -82,7 +94,7 @@ const SafariDetailsPage = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Enquire
+              {isDayTrip ? 'Book Now' : 'Enquire'}
             </LuxuryButton>
           </div>
         </div>
@@ -92,7 +104,9 @@ const SafariDetailsPage = () => {
           <div className="safari-split-left">
             <LuxuryHero
               title={safari.title}
-              subtitle={`${safari.duration} • ${safari.destination}`}
+              subtitle={isDayTrip && safari.date
+                ? `${safari.date} • ${safari.destination}`
+                : `${safari.duration} • ${safari.destination}`}
               backgroundImage={images[currentImageIndex]}
               ctaText="" /* No CTA in hero for split layout */
               ctaLink=""
@@ -134,10 +148,43 @@ const SafariDetailsPage = () => {
                 From {formattedPrice} <span style={{ fontSize: '0.5em', fontStyle: 'normal', opacity: 0.6 }}>per person</span>
               </h1>
 
+              {/* Child pricing for day trips */}
+              {isDayTrip && formattedChildPrice && (
+                <p className="safari-child-price">
+                  Child: {formattedChildPrice}
+                </p>
+              )}
+
+              {/* Deposit callout */}
+              {isDayTrip && safari.deposit && (
+                <div className="safari-deposit-callout">
+                  <span className="safari-deposit-callout__label">Deposit Required</span>
+                  <span className="safari-deposit-callout__amount">{formattedDeposit}</span>
+                </div>
+              )}
+
               {/* Meta */}
               <div className="safari-meta">
-                {safari.duration} <span>•</span> {safari.destination}
+                {isDayTrip && safari.date ? (
+                  <>
+                    <span className="safari-meta__date">{safari.date}</span>
+                    <span>•</span>
+                    {safari.destination}
+                  </>
+                ) : (
+                  <>
+                    {safari.duration} <span>•</span> {safari.destination}
+                  </>
+                )}
               </div>
+
+              {/* Meeting Point */}
+              {isDayTrip && safari.meetingPoint && (
+                <div className="safari-meeting-point">
+                  <span className="safari-meeting-point__label">Meeting Point:</span>
+                  <span className="safari-meeting-point__value">{safari.meetingPoint}</span>
+                </div>
+              )}
 
               {/* Highlights */}
               <div className="safari-highlights">
@@ -148,10 +195,40 @@ const SafariDetailsPage = () => {
                 ))}
               </div>
 
+              {/* Activities (Day trips) */}
+              {isDayTrip && safari.activities && safari.activities.length > 0 && (
+                <div className="safari-activities">
+                  <h3 className="safari-section-title">Activities</h3>
+                  <ul className="safari-activities__list">
+                    {safari.activities.map((activity, i) => (
+                      <li key={i} className="safari-activities__item">{activity}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* Description */}
               <p className="safari-description">
                 {safari.description || "Immerse yourself in the untamed beauty of East Africa. This exclusive journey combines breathtaking wildlife encounters with world-class hospitality, ensuring every moment is as comfortable as it is thrilling."}
               </p>
+
+              {/* M-Pesa Payment Info (Day trips with deposits) */}
+              {isDayTrip && safari.deposit && payment && (
+                <div className="safari-payment-info">
+                  <h3 className="safari-section-title">Payment Details</h3>
+                  <div className="safari-payment-info__grid">
+                    <div className="safari-payment-info__item">
+                      <span className="safari-payment-info__label">Paybill</span>
+                      <span className="safari-payment-info__value">{payment.paybill}</span>
+                    </div>
+                    <div className="safari-payment-info__item">
+                      <span className="safari-payment-info__label">Account</span>
+                      <span className="safari-payment-info__value">{payment.account}</span>
+                    </div>
+                  </div>
+                  <p className="safari-payment-info__note">{payment.instructions}</p>
+                </div>
+              )}
 
               {/* Actions */}
               <div className="safari-actions" id="enquire">
@@ -162,7 +239,7 @@ const SafariDetailsPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Enquire Now
+                  {ctaText}
                 </LuxuryButton>
                 <LuxuryButton variant="outline" href="/safaris">
                   View All Safaris

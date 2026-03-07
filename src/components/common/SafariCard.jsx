@@ -13,6 +13,8 @@ export default function SafariCard({
 }) {
     const [isActive, setIsActive] = useState(false);
 
+    const isDayTrip = safari.type === 'day_trip' || safari.durationDays === 1;
+
     // Format price helper
     const formatPrice = (price, currency) => {
         if (!price) return null;
@@ -25,7 +27,11 @@ export default function SafariCard({
 
     const price = safari.price_adult || safari.price_couple;
     const formattedPrice = formatPrice(price, safari.currency);
+    const formattedChildPrice = formatPrice(safari.price_child, safari.currency);
     const priceLabel = safari.price_couple ? 'Per Couple' : 'Per Person';
+
+    // Badge text: show event date for day trips, duration for packages
+    const badgeText = isDayTrip && safari.date ? safari.date : safari.duration;
 
     const handleCardClick = (e) => {
         // Check if the device is touch-enabled
@@ -78,15 +84,22 @@ export default function SafariCard({
                         alt={safari.title}
                         className="safari-card__image"
                         priority={priority}
-                        width={400} // Approximate width to help aspect ratio logic if we added it, 
-                        // though explicit aspect-ratio CSS is better.
-                        // For now this passes to img to guide browser layout.
+                        width={400}
                         height={300}
                     />
                     <div className="safari-card__overlay" />
 
-                    {/* Duration Badge */}
-                    <span className="safari-card__badge">{safari.duration}</span>
+                    {/* Badge: Date for day trips, Duration for packages */}
+                    <span className={`safari-card__badge ${isDayTrip ? 'safari-card__badge--day-trip' : ''}`}>
+                        {badgeText}
+                    </span>
+
+                    {/* Deposit indicator for day trips */}
+                    {isDayTrip && safari.deposit && (
+                        <span className="safari-card__deposit-badge">
+                            Deposit: {formatPrice(safari.deposit, safari.currency)}
+                        </span>
+                    )}
                 </div>
 
                 <div className="safari-card__content">
@@ -104,14 +117,23 @@ export default function SafariCard({
                             <div className="safari-card__price-block">
                                 <span className="safari-card__price-label">From</span>
                                 <span className="safari-card__price">{formattedPrice}</span>
-                                <span className="safari-card__price-sub">{priceLabel}</span>
+                                {isDayTrip && formattedChildPrice ? (
+                                    <span className="safari-card__price-sub">
+                                        Adult · {formattedChildPrice} Child
+                                    </span>
+                                ) : (
+                                    <span className="safari-card__price-sub">{priceLabel}</span>
+                                )}
                             </div>
                         )}
 
-                        <span className="safari-card__cta">Explore Journey</span>
+                        <span className="safari-card__cta">
+                            {isDayTrip ? 'View Details' : 'Explore Journey'}
+                        </span>
                     </div>
                 </div>
             </Link>
         </motion.article>
     );
 }
+

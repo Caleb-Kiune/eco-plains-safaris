@@ -53,7 +53,9 @@ const SafariDetailsPage = () => {
     }).format(price);
   };
 
-  const formattedPrice = formatPrice(safari.price_adult) || 'Rate on request';
+  const displayPrice = safari.price_adult || safari.price_couple || safari.price_child;
+  const formattedPrice = formatPrice(displayPrice) || 'Rate on request';
+  const priceNote = safari.price_note || 'per person';
   const formattedChildPrice = formatPrice(safari.price_child);
   const formattedDeposit = formatPrice(safari.deposit);
 
@@ -62,7 +64,7 @@ const SafariDetailsPage = () => {
 
   // WhatsApp message — richer for day trips
   const whatsappMessage = isDayTrip
-    ? `Hi! I'd like to book the ${safari.title}${safari.date ? ` on ${safari.date}` : ''}.\n\nPrice: ${formattedPrice} per person${safari.deposit ? `\nDeposit: ${formattedDeposit}` : ''}\n\nPlease confirm availability and share payment details.`
+    ? `Hi! I'd like to book the ${safari.title}${safari.date ? ` on ${safari.date}` : ''}.\n\nPrice: ${formattedPrice} ${priceNote}${safari.deposit ? `\nDeposit: ${formattedDeposit}` : ''}\n\nPlease confirm availability and share payment details.`
     : `Hi! I'm interested in the ${safari.title} (${safari.duration}).\n\nCould you please send me more details, availability, and pricing?`;
 
   const whatsappUrl = getWhatsappLink(whatsappMessage);
@@ -145,7 +147,7 @@ const SafariDetailsPage = () => {
             <div className="safari-content-container">
               {/* Price */}
               <h1 className="safari-price">
-                From {formattedPrice} <span style={{ fontSize: '0.5em', fontStyle: 'normal', opacity: 0.6 }}>per person</span>
+                From {formattedPrice} <span style={{ fontSize: '0.5em', fontStyle: 'normal', opacity: 0.6 }}>{priceNote}</span>
               </h1>
 
               {/* Child pricing for day trips */}

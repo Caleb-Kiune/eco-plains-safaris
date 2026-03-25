@@ -109,10 +109,11 @@ export default function SafarisPage() {
 
       // Price Filter
       const isDefaultPrice = filters.priceRange[0] === 0 && filters.priceRange[1] === 1000000;
+      const displayPrice = safari.price_adult || safari.price_couple || safari.price_child;
       const matchesPrice = isDefaultPrice || (
-        safari.price_adult &&
-        safari.price_adult >= filters.priceRange[0] &&
-        safari.price_adult <= filters.priceRange[1]
+        displayPrice &&
+        displayPrice >= filters.priceRange[0] &&
+        displayPrice <= filters.priceRange[1]
       );
 
       return matchesCountry && matchesCategory && matchesDuration && matchesPrice;

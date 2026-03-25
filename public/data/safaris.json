@@ -120,10 +120,7 @@
         "500ml bottled water",
         "Unlimited photography"
       ],
-      "exclusions": [
-        "Anything not mentioned",
-        "Personal expenses"
-      ],
+      "exclusions": ["Anything not mentioned", "Personal expenses"],
       "durationDays": 1
     },
     {
@@ -156,10 +153,7 @@
         "Entertainment & activities",
         "Free Wi-Fi"
       ],
-      "exclusions": [
-        "Any other items not mentioned",
-        "Personal expenses"
-      ],
+      "exclusions": ["Any other items not mentioned", "Personal expenses"],
       "durationDays": 4
     },
     {
@@ -192,10 +186,7 @@
         "Entertainment & water sports",
         "Free Wi-Fi"
       ],
-      "exclusions": [
-        "Any other items not mentioned",
-        "Personal expenses"
-      ],
+      "exclusions": ["Any other items not mentioned", "Personal expenses"],
       "durationDays": 4
     },
     {
@@ -309,11 +300,7 @@
         "Half-day Prison Island Tour",
         "Airport/ferry transfers both ways"
       ],
-      "exclusions": [
-        "International flights",
-        "Visa fees",
-        "Personal expenses"
-      ],
+      "exclusions": ["International flights", "Visa fees", "Personal expenses"],
       "durationDays": 5
     },
     {
@@ -493,11 +480,7 @@
         "Full board meals",
         "1 game drive"
       ],
-      "exclusions": [
-        "Park fees",
-        "Drinks",
-        "Tips"
-      ],
+      "exclusions": ["Park fees", "Drinks", "Tips"],
       "durationDays": 3
     },
     {
@@ -529,11 +512,7 @@
         "Full board meals",
         "1 game drive"
       ],
-      "exclusions": [
-        "Park fees",
-        "Drinks",
-        "Tips"
-      ],
+      "exclusions": ["Park fees", "Drinks", "Tips"],
       "durationDays": 3
     },
     {
@@ -565,11 +544,7 @@
         "Full board meals",
         "1 game drive"
       ],
-      "exclusions": [
-        "Park fees",
-        "Drinks",
-        "Tips"
-      ],
+      "exclusions": ["Park fees", "Drinks", "Tips"],
       "durationDays": 3
     },
     {
@@ -601,11 +576,7 @@
         "Full board meals",
         "1 game drive"
       ],
-      "exclusions": [
-        "Park fees",
-        "Drinks",
-        "Tips"
-      ],
+      "exclusions": ["Park fees", "Drinks", "Tips"],
       "durationDays": 3
     },
     {
@@ -639,9 +610,7 @@
         "Waterfall visit",
         "Photography"
       ],
-      "exclusions": [
-        "Optional activities (ziplining, archery, swings, etc.)"
-      ],
+      "exclusions": ["Optional activities (ziplining, archery, swings, etc.)"],
       "durationDays": 1
     },
     {
@@ -672,11 +641,7 @@
         "Wine & champagne",
         "Romantic garden photoshoot"
       ],
-      "exclusions": [
-        "Flights",
-        "Transfers",
-        "Personal expenses"
-      ],
+      "exclusions": ["Flights", "Transfers", "Personal expenses"],
       "durationDays": 3
     },
     {
@@ -713,11 +678,7 @@
         "Dubai Mall & fountain show",
         "Private airport transfers"
       ],
-      "exclusions": [
-        "UAE visa",
-        "Travel insurance",
-        "Personal expenses"
-      ],
+      "exclusions": ["UAE visa", "Travel insurance", "Personal expenses"],
       "durationDays": 6
     },
     {
@@ -752,11 +713,7 @@
         "SIC basis",
         "Return airport transfers"
       ],
-      "exclusions": [
-        "UAE visa",
-        "Travel insurance",
-        "Personal expenses"
-      ],
+      "exclusions": ["UAE visa", "Travel insurance", "Personal expenses"],
       "durationDays": 5
     },
     {
@@ -789,11 +746,7 @@
         "SIC basis",
         "Return airport transfers"
       ],
-      "exclusions": [
-        "UAE visa",
-        "Travel insurance",
-        "Personal expenses"
-      ],
+      "exclusions": ["UAE visa", "Travel insurance", "Personal expenses"],
       "durationDays": 4
     },
     {
@@ -823,10 +776,7 @@
         "Petal decoration",
         "Celebration cake"
       ],
-      "exclusions": [
-        "Transport",
-        "Personal expenses"
-      ],
+      "exclusions": ["Transport", "Personal expenses"],
       "durationDays": 3
     },
     {
@@ -863,9 +813,7 @@
         "Views of Aberdare, Ngong Hills, Mt Longonot & Suswa",
         "Longest tunnel cruise in East Africa"
       ],
-      "exclusions": [
-        "Personal expenses"
-      ],
+      "exclusions": ["Personal expenses"],
       "durationDays": 1
     },
     {
@@ -896,15 +844,8 @@
       ],
       "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772871100/WhatsApp_Image_2026-03-07_at_10.28.10_1_zo6cm2.jpg",
       "secondaryImages": [],
-      "inclusions": [
-        "Transport",
-        "Park access",
-        "Tour guide"
-      ],
-      "exclusions": [
-        "Personal expenses",
-        "Meals not mentioned"
-      ],
+      "inclusions": ["Transport", "Park access", "Tour guide"],
+      "exclusions": ["Personal expenses", "Meals not mentioned"],
       "durationDays": 1
     },
     {
@@ -943,9 +884,7 @@
         "Snacks",
         "Tour guide"
       ],
-      "exclusions": [
-        "Personal expenses"
-      ],
+      "exclusions": ["Personal expenses"],
       "durationDays": 1
     },
     {
@@ -977,15 +916,8 @@
       ],
       "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1772872523/WhatsApp_Image_2026-03-07_at_10.28.09_f2gtnb.jpg",
       "secondaryImages": [],
-      "inclusions": [
-        "Entrance",
-        "Transport",
-        "All activities",
-        "Tour guide"
-      ],
-      "exclusions": [
-        "Personal expenses"
-      ],
+      "inclusions": ["Entrance", "Transport", "All activities", "Tour guide"],
+      "exclusions": ["Personal expenses"],
       "durationDays": 1
     },
     {
@@ -1026,9 +958,7 @@
         "Team building",
         "Kids attractions"
       ],
-      "exclusions": [
-        "Personal expenses"
-      ],
+      "exclusions": ["Personal expenses"],
       "durationDays": 1
     },
     {
@@ -1068,9 +998,7 @@
         "Geothermal swimming",
         "Photography"
       ],
-      "exclusions": [
-        "Personal expenses"
-      ],
+      "exclusions": ["Personal expenses"],
       "durationDays": 1
     },
     {
@@ -1107,11 +1035,102 @@
         "Refreshments",
         "Photography"
       ],
-      "exclusions": [
-        "Personal expenses",
-        "Accommodation"
-      ],
+      "exclusions": ["Personal expenses", "Accommodation"],
       "durationDays": 2
+    },
+
+    {
+      "id": 30,
+      "code": "LAWFORD-MALINDI",
+      "slug": "the-lawford-malindi-3-days",
+      "title": "The Lawford Malindi",
+      "destination": "Malindi, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": null,
+      "price_child": null,
+      "price_couple": 34719,
+      "price_note": "per double occupancy",
+      "currency": "KES",
+      "validity": "Year-round",
+      "category": "Beach Holiday",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1774458583/WhatsApp_Image_2026-03-25_at_19.59.23_1_cbd2ex.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "2 Nights' accommodation",
+        "Bed and breakfast",
+        "Free WIFI internet in the rooms and public areas",
+        "Evening entertainment program",
+        "Double room standard suite"
+      ],
+      "exclusions": [],
+      "durationDays": 3
+    },
+    {
+      "id": 31,
+      "code": "NDUNDA-APR26",
+      "slug": "camp-ndunda-falls-fun-day-trip-apr2026",
+      "title": "Camp Ndunda Falls Fun Day Trip",
+      "destination": "Embu, Kenya",
+      "country": "Kenya",
+      "duration": "1 Day",
+      "date": "04 Apr 2026",
+      "price_adult": 2999,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "04 Apr 2026 only",
+      "category": "Day Trip",
+      "type": "day_trip",
+      "featured": true,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1774458583/WhatsApp_Image_2026-03-25_at_19.59.23_ezaf9y.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "Transportation",
+        "Entrance",
+        "Snacks & Water",
+        "Photography",
+        "Canopy Walk",
+        "Waterfall",
+        "Birthday Cake"
+      ],
+      "exclusions": [
+        "Ziplining (Optional)",
+        "Wild Swings (Optional)",
+        "Swimming (Optional)",
+        "Archery (Optional)"
+      ],
+      "durationDays": 1
+    },
+    {
+      "id": 32,
+      "code": "PRIDE-INN-PARADISE",
+      "slug": "pride-inn-paradise-3-days",
+      "title": "Pride Inn Paradise",
+      "destination": "Mombasa, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": null,
+      "price_child": null,
+      "price_couple": 32249,
+      "price_note": "per double occupancy",
+      "currency": "KES",
+      "validity": "Year-round",
+      "category": "Beach Holiday",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1774458583/WhatsApp_Image_2026-03-25_at_19.59.24_kpv8f1.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "2 nights accommodation",
+        "Bed and breakfast",
+        "Entertainment in the hotel",
+        "Free Wi-Fi internet in the rooms and public areas",
+        "Evening entertainment program"
+      ],
+      "exclusions": [],
+      "durationDays": 3
     }
   ]
 }

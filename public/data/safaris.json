@@ -1127,6 +1127,225 @@
       ],
       "exclusions": [],
       "durationDays": 3
+    },
+    {
+      "id": 33,
+      "code": "SAFFRON-MALINDI",
+      "slug": "saffron-garden-malindi",
+      "title": "Saffron Garden",
+      "destination": "Malindi, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": 24000,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "Year-round 2025",
+      "category": "Beach Holiday",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464583/WhatsApp_Image_2026-04-29_at_14.52.22_1_brejyj.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "2 nights' accommodation",
+        "Bed and breakfast",
+        "Free WIFI in rooms and public areas",
+        "Evening entertainment program"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "durationDays": 3
+    },
+    {
+      "id": 34,
+      "code": "LAKE-NAIVASHA",
+      "slug": "lake-naivasha-resort",
+      "title": "Lake Naivasha Resort",
+      "destination": "Naivasha, Kenya",
+      "country": "Kenya",
+      "duration": "3 Nights / 4 Days",
+      "price_adult": 93200,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "10-13 Aug 2025",
+      "category": "Weekend Getaway",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464584/WhatsApp_Image_2026-04-29_at_14.52.22_2_qpp0wo.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "3 nights' accommodation",
+        "Half board meal plan",
+        "Free WIFI",
+        "Swimming",
+        "Walking tours"
+      ],
+      "exclusions": [
+        "Game drives",
+        "Golf course"
+      ],
+      "durationDays": 4
+    },
+    {
+      "id": 35,
+      "code": "SAROVA-SHABA",
+      "slug": "sarova-shaba-samburu",
+      "title": "Sarova Shaba",
+      "destination": "Samburu, Kenya",
+      "country": "Kenya",
+      "duration": "3 Nights / 4 Days",
+      "price_adult": 72200,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "Year-round 2025",
+      "category": "Wildlife Safari",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464584/WhatsApp_Image_2026-04-29_at_14.52.22_iez9le.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "3 nights' accommodation",
+        "Double room standard room",
+        "Meals on full board",
+        "Free WIFI internet"
+      ],
+      "exclusions": [
+        "Swimming",
+        "Game drives",
+        "Bush dining experiences"
+      ],
+      "durationDays": 4
+    },
+    {
+      "id": 36,
+      "code": "MAASAI-MARA",
+      "slug": "maasai-mara-safari",
+      "title": "Maasai Mara Safari",
+      "destination": "Maasai Mara, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": 72500,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per resident (Non-Resident: 710 USD)",
+      "currency": "KES",
+      "validity": "Year-round 2025",
+      "category": "Wildlife Safari",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464585/WhatsApp_Image_2026-04-29_at_14.52.23_1_bev4rn.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "Full board accommodation",
+        "Local airstrip transfers",
+        "Morning and afternoon shared game drives",
+        "Professional driver guide",
+        "Water"
+      ],
+      "exclusions": [
+        "Exclusive",
+        "Local flights",
+        "Park entrance fees",
+        "Tips for drivers and guides",
+        "Personal expense",
+        "Bush breakfast or dinner",
+        "Balloon safari",
+        "Maasai village"
+      ],
+      "durationDays": 3
+    },
+    {
+      "id": 37,
+      "code": "PRIDE-INN-DIANI",
+      "slug": "pride-inn-diani",
+      "title": "Pride Inn",
+      "destination": "Diani, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": 32760,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "3-5 Jul 2025",
+      "category": "Beach Holiday",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464584/WhatsApp_Image_2026-04-29_at_14.52.23_2_jbcsu7.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "2 nights' accommodation",
+        "Bed and breakfast",
+        "Entertainment in the hotel",
+        "Free WIFI in rooms and public areas",
+        "Evening entertainment program"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "durationDays": 3
+    },
+    {
+      "id": 38,
+      "code": "OLALOI-MARA",
+      "slug": "olaloi-mara-camp",
+      "title": "Olaloi Mara Camp",
+      "destination": "Maasai Mara, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": 72888,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "31 Jul - 2 Aug 2025",
+      "category": "Wildlife Safari",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464583/WhatsApp_Image_2026-04-29_at_14.52.23_3_l7l5hd.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "2 nights' accommodation",
+        "Full board meal plan",
+        "Free WIFI"
+      ],
+      "exclusions": [
+        "BBQ facilities",
+        "Airport transfers",
+        "Game drives",
+        "Walking tours",
+        "Archery"
+      ],
+      "durationDays": 3
+    },
+    {
+      "id": 39,
+      "code": "DIAMONDS-MALINDI",
+      "slug": "diamonds-malindi",
+      "title": "Diamonds Malindi",
+      "destination": "Malindi, Kenya",
+      "country": "Kenya",
+      "duration": "2 Nights / 3 Days",
+      "price_adult": 45330,
+      "price_child": null,
+      "price_couple": null,
+      "price_note": "per person",
+      "currency": "KES",
+      "validity": "4-6 Jun 2025",
+      "category": "Beach Holiday",
+      "featured": false,
+      "primaryImage": "https://res.cloudinary.com/dy082ykuf/image/upload/v1777464584/WhatsApp_Image_2026-04-29_at_14.52.23_yfhkcx.jpg",
+      "secondaryImages": [],
+      "inclusions": [
+        "2 nights' accommodation",
+        "Half board meal plan",
+        "Free WIFI",
+        "Swimming"
+      ],
+      "exclusions": [
+        "All not mentioned"
+      ],
+      "durationDays": 3
     }
   ]
 }
